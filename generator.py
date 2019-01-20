@@ -1,14 +1,18 @@
+import os
+os.environ['TF_CPP_MIN_LOG_LEVEL']='2'
+
 import random
 import pickle
 import tensorflow as tf
 
 LST_SIZE = 10
-
 N_CLASSES = 10
-dropout = 0.75
+
+dropout = 0.8
 learning_rate = 0.001
-num_steps = 1000
-display_step = 100
+num_steps = 100000
+display_step = 1000
+batch_size = 128
 
 def gen_list():
 	lst = list()
@@ -28,7 +32,7 @@ def gen_list():
 
 def get_data():
 	lsts, orders = list(), list()
-	for i in range(128):
+	for i in range(32768):
 		lst, order = gen_list()
 		lsts.append(lst)
 		orders.append(order)
@@ -36,25 +40,27 @@ def get_data():
 	lsts = tf.convert_to_tensor(lsts, dtype = tf.float32)
 	orders = tf.convert_to_tensor(orders, dtype = tf.int32)
 
+	lsts, orders = tf.train.slice_input_producer([lsts, orders], shuffle = True)
+
 	return lsts, orders
 
 lsts_train, orders_train = get_data()
 lsts_val, orders_val = get_data()
-print orders_train
 
-X, Y = tf.train.batch([lsts_train, orders_train], batch_size = 16, capacity = 16 * 8, num_threads = 4)
-X_val, Y_val = tf.train.batch([lsts_val, orders_val], batch_size = 16, capacity = 16 * 8, num_threads = 4)
-
-print X, Y
+X, Y = tf.train.batch([lsts_train, orders_train], batch_size = batch_size, capacity = batch_size * 8, num_threads = 4)
+X_val, Y_val = tf.train.batch([lsts_val, orders_val], batch_size = batch_size, capacity = batch_size * 8, num_threads = 4)
 
 def neural_net(x, n_classes, dropout, reuse, is_training):
 	with tf.variable_scope('NeuralNet', reuse = reuse):
-		fc1 = tf.layers.dense(x, 128)
+		fc1 = tf.layers.dense(x, 516)
 		fc1 = tf.layers.dropout(fc1, rate = dropout, training = is_training)
+		fc2 = tf.layers.dense(fc1, 256)
+		fc2 = tf.layers.dropout(fc2, rate = dropout, training = is_training)
+		fc3 = tf.layers.dense(fc2, 128)
 
 		outputs = list()
 		for i in range(10):
-			out_i = tf.layers.dense(fc1, n_classes)
+			out_i = tf.layers.dense(fc3, n_classes)
 			out_i = tf.nn.softmax(out_i) if not is_training else out_i
 			outputs.append(out_i)
 
@@ -66,10 +72,8 @@ logits_val = neural_net(X_val, N_CLASSES, dropout, reuse = True, is_training = F
 
 loss_op = tf.constant(0.0, dtype = tf.float32)
 for i in range(10):
-	print Y[:,i]
-	print logits_train[i]
 	loss_op = loss_op + tf.reduce_mean(tf.nn.sparse_softmax_cross_entropy_with_logits(\
-	logits = logits_train[i], labels = Y[:,:,i]))
+	logits = logits_train[i], labels = Y[:,i]))
 
 # Define loss and optimizer (with train logits, for dropout to take effect)
 optimizer = tf.train.AdamOptimizer(learning_rate = learning_rate)
@@ -118,6 +122,7 @@ with tf.Session() as sess:
 
 			for i in range(100):
 				loss, acc_train, acc_val = sess.run([loss_op, accuracy_train, accuracy_val])
+				#print acc_train
 				total_loss += loss
 				training_accuracy += acc_train
 				validation_accuracy += acc_val
@@ -145,7 +150,7 @@ with tf.Session() as sess:
 	pickle.dump(val_accs, open('ml_val_accs.p', 'wb'))
 
 	# Save your model
-	saver.save(sess, './checkpts/shape_multi_class')
+	saver.save(sess, './checkpts/')
 
 	# Stop threads
 	coord.request_stop()
