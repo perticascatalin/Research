@@ -77,6 +77,13 @@ logits_train_7, logits_train_8, \
 logits_train_9, logits_train_10 \
 = neural_net(X, N_CLASSES, dropout, reuse = False, is_training = True)
 
+logits_test_1, logits_test_2, \
+logits_test_3, logits_test_4, \
+logits_test_5, logits_test_6, \
+logits_test_7, logits_test_8, \
+logits_test_9, logits_test_10 \
+= neural_net(X, N_CLASSES, dropout, reuse = True, is_training = False)
+
 logits_val_1, logits_val_2, \
 logits_val_3, logits_val_4, \
 logits_val_5, logits_val_6, \
@@ -110,7 +117,16 @@ logits=logits_train_10, labels=Y[:,9])) \
 optimizer = tf.train.AdamOptimizer(learning_rate = learning_rate)
 train_op = optimizer.minimize(loss_op)
 
-# 30
-# 30
-# 30
-# 30
+a = tf.cast(tf.equal(tf.argmax(logits_val_1, 1), tf.cast(Y_val[:,0], tf.int64)), tf.int32)
+b = tf.cast(tf.equal(tf.argmax(logits_val_2, 1), tf.cast(Y_val[:,1], tf.int64)), tf.int32)
+c = tf.cast(tf.equal(tf.argmax(logits_val_3, 1), tf.cast(Y_val[:,2], tf.int64)), tf.int32)
+d = tf.cast(tf.equal(tf.argmax(logits_val_4, 1), tf.cast(Y_val[:,3], tf.int64)), tf.int32)
+f = tf.cast(tf.equal(tf.argmax(logits_val_5, 1), tf.cast(Y_val[:,4], tf.int64)), tf.int32)
+g = tf.cast(tf.equal(tf.argmax(logits_val_6, 1), tf.cast(Y_val[:,5], tf.int64)), tf.int32)
+h = tf.cast(tf.equal(tf.argmax(logits_val_7, 1), tf.cast(Y_val[:,6], tf.int64)), tf.int32)
+i = tf.cast(tf.equal(tf.argmax(logits_val_8, 1), tf.cast(Y_val[:,7], tf.int64)), tf.int32)
+j = tf.cast(tf.equal(tf.argmax(logits_val_9, 1), tf.cast(Y_val[:,8], tf.int64)), tf.int32)
+k = tf.cast(tf.equal(tf.argmax(logits_val_10, 1), tf.cast(Y_val[:,9], tf.int64)), tf.int32)
+
+#accuracy_val = tf.reduce_mean(tf.cast(correct_pred_val, tf.float32))
+
