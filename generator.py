@@ -1,4 +1,5 @@
 import random
+import pickle
 import tensorflow as tf
 
 LST_SIZE = 10
@@ -6,6 +7,8 @@ LST_SIZE = 10
 N_CLASSES = 10
 dropout = 0.75
 learning_rate = 0.001
+num_steps = 1000
+display_step = 100
 
 def gen_list():
 	lst = list()
@@ -37,9 +40,12 @@ def get_data():
 
 lsts_train, orders_train = get_data()
 lsts_val, orders_val = get_data()
+print orders_train
 
 X, Y = tf.train.batch([lsts_train, orders_train], batch_size = 16, capacity = 16 * 8, num_threads = 4)
 X_val, Y_val = tf.train.batch([lsts_val, orders_val], batch_size = 16, capacity = 16 * 8, num_threads = 4)
+
+print X, Y
 
 def neural_net(x, n_classes, dropout, reuse, is_training):
 	with tf.variable_scope('NeuralNet', reuse = reuse):
@@ -60,24 +66,88 @@ logits_val = neural_net(X_val, N_CLASSES, dropout, reuse = True, is_training = F
 
 loss_op = tf.constant(0.0, dtype = tf.float32)
 for i in range(10):
+	print Y[:,i]
+	print logits_train[i]
 	loss_op = loss_op + tf.reduce_mean(tf.nn.sparse_softmax_cross_entropy_with_logits(\
-	logits = logits_train[i], labels = Y[:,i]))
-
-print loss_op
+	logits = logits_train[i], labels = Y[:,:,i]))
 
 # Define loss and optimizer (with train logits, for dropout to take effect)
 optimizer = tf.train.AdamOptimizer(learning_rate = learning_rate)
 train_op = optimizer.minimize(loss_op)
 
-# a = tf.cast(tf.equal(tf.argmax(logits_val_1, 1), tf.cast(Y_val[:,0], tf.int64)), tf.int32)
-# b = tf.cast(tf.equal(tf.argmax(logits_val_2, 1), tf.cast(Y_val[:,1], tf.int64)), tf.int32)
-# c = tf.cast(tf.equal(tf.argmax(logits_val_3, 1), tf.cast(Y_val[:,2], tf.int64)), tf.int32)
-# d = tf.cast(tf.equal(tf.argmax(logits_val_4, 1), tf.cast(Y_val[:,3], tf.int64)), tf.int32)
-# f = tf.cast(tf.equal(tf.argmax(logits_val_5, 1), tf.cast(Y_val[:,4], tf.int64)), tf.int32)
-# g = tf.cast(tf.equal(tf.argmax(logits_val_6, 1), tf.cast(Y_val[:,5], tf.int64)), tf.int32)
-# h = tf.cast(tf.equal(tf.argmax(logits_val_7, 1), tf.cast(Y_val[:,6], tf.int64)), tf.int32)
-# i = tf.cast(tf.equal(tf.argmax(logits_val_8, 1), tf.cast(Y_val[:,7], tf.int64)), tf.int32)
-# j = tf.cast(tf.equal(tf.argmax(logits_val_9, 1), tf.cast(Y_val[:,8], tf.int64)), tf.int32)
-# k = tf.cast(tf.equal(tf.argmax(logits_val_10, 1), tf.cast(Y_val[:,9], tf.int64)), tf.int32)
+correct_pred_val = tf.constant(0.0, dtype = tf.float32)
+for i in range(10):
+	correct_pred_val = correct_pred_val + tf.cast(tf.equal(tf.argmax(logits_val[i], 1), tf.cast(Y_val[:,i], tf.int64)), tf.float32)
+accuracy_val = tf.reduce_mean(correct_pred_val)
 
-# #accuracy_val = tf.reduce_mean(tf.cast(correct_pred_val, tf.float32))
+correct_pred_train = tf.constant(0.0, dtype = tf.float32)
+for i in range(10):
+	correct_pred_train = correct_pred_train + tf.cast(tf.equal(tf.argmax(logits_test[i], 1), tf.cast(Y[:,i], tf.int64)), tf.float32)
+accuracy_train = tf.reduce_mean(correct_pred_train)
+
+# Initialize the variables (i.e. assign their default value)
+init = tf.global_variables_initializer()
+
+# Saver object
+saver = tf.train.Saver()
+
+# Start training
+with tf.Session() as sess:
+
+	# Run the initializer
+	sess.run(init)
+
+	# Start the data queue
+	coord = tf.train.Coordinator()
+	threads = tf.train.start_queue_runners(sess = sess, coord = coord)
+
+	losses = []
+	train_accs = []
+	val_accs = []
+	# Training cycle
+	for step in range(1, num_steps+1):
+
+		if step % display_step == 0:
+			# Run optimization
+			sess.run([train_op])
+
+			# Calculate average batch loss and accuracy
+			total_loss = 0.0
+			training_accuracy = 0.0
+			validation_accuracy = 0.0
+
+			for i in range(100):
+				loss, acc_train, acc_val = sess.run([loss_op, accuracy_train, accuracy_val])
+				total_loss += loss
+				training_accuracy += acc_train
+				validation_accuracy += acc_val
+
+			total_loss /= 100.0
+			training_accuracy /= 100.0    
+			validation_accuracy /= 100.0
+
+			print("Step " + str(step) + ", Loss= " + \
+				"{:.4f}".format(total_loss) + ", Training Accuracy= " + \
+				"{:.3f}".format(training_accuracy) + ", Validation Accuracy= " + \
+				"{:.3f}".format(validation_accuracy))
+
+			losses.append(total_loss)
+			train_accs.append(training_accuracy)
+			val_accs.append(validation_accuracy)
+		else:
+			# Only run the optimization op (backprop)
+			sess.run(train_op)
+
+	print("Optimization Finished!")
+
+	pickle.dump(losses, open('ml_losses.p', 'wb'))
+	pickle.dump(train_accs, open('ml_train_accs.p', 'wb'))
+	pickle.dump(val_accs, open('ml_val_accs.p', 'wb'))
+
+	# Save your model
+	saver.save(sess, './checkpts/shape_multi_class')
+
+	# Stop threads
+	coord.request_stop()
+	coord.join(threads)
+
