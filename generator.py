@@ -145,9 +145,25 @@ with tf.Session() as sess:
 			validation_accuracy = 0.0
 
 			for i in range(100):
-				loss, acc_train, acc_val, logits, y_pred, x = sess.run([loss_op, accuracy_train, accuracy_val, logits_eye, y_eye, X_val])
-				print logits
-				print y_pred
+				loss, acc_train, acc_val = sess.run([loss_op, accuracy_train, accuracy_val])
+				if i % 100 == 0:
+					logits, y_exp, x = sess.run([logits_eye, y_eye, X_val])
+					# this requires special print
+					#print logits[0]
+					out = list()
+					for j in range(10):
+						f_max = 0
+						f_max_2 = 0
+						for k in range(10):
+							if logits[0][j][k] > logits[0][j][f_max]:
+								f_max_2 = f_max
+								f_max = k
+							elif logits[0][j][k] > logits[0][j][f_max_2]:
+								f_max_2 = k
+						out.append((f_max, f_max_2))
+					print out
+					print y_exp[0]
+					print x[0]
 				#print acc_train
 				total_loss += loss
 				training_accuracy += acc_train
