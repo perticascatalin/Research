@@ -71,11 +71,12 @@ X_val, Y_val = tf.train.batch([lsts_val, orders_val], batch_size = batch_size, c
 
 def neural_net(x, n_classes, dropout, reuse, is_training):
 	with tf.variable_scope('NeuralNet', reuse = reuse):
-		fc1 = tf.layers.dense(x, 516, activation = tf.sigmoid)
+		# should change this back to sigmoid
+		fc1 = tf.layers.dense(x, 516, activation = tf.nn.relu)
 		fc1 = tf.layers.dropout(fc1, rate = dropout, training = is_training)
-		fc2 = tf.layers.dense(fc1, 256, activation = tf.sigmoid)
+		fc2 = tf.layers.dense(fc1, 256, activation = tf.nn.relu)
 		fc2 = tf.layers.dropout(fc2, rate = dropout, training = is_training)
-		fc3 = tf.layers.dense(fc2, 128, activation = tf.sigmoid)
+		fc3 = tf.layers.dense(fc2, 128, activation = tf.nn.relu)
 
 		outputs = list()
 		for i in range(10):
@@ -88,6 +89,7 @@ def neural_net(x, n_classes, dropout, reuse, is_training):
 logits_train = neural_net(X, N_CLASSES, dropout, reuse = False, is_training = True)
 logits_test = neural_net(X, N_CLASSES, dropout, reuse = True, is_training = False)
 logits_val = neural_net(X_val, N_CLASSES, dropout, reuse = True, is_training = False)
+logits_eye = neural_net(X_val, N_CLASSES, dropout, reuse = True, is_training = False)
 
 loss_op = tf.constant(0.0, dtype = tf.float32)
 for i in range(10):
@@ -145,6 +147,8 @@ with tf.Session() as sess:
 				total_loss += loss
 				training_accuracy += acc_train
 				validation_accuracy += acc_val
+
+				x_val, y_val = sess.run([])
 
 			total_loss /= 100.0
 			training_accuracy /= 100.0    
