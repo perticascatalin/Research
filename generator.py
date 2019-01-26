@@ -14,28 +14,15 @@ num_steps = 100000
 display_step = 1000
 batch_size = 128
 
-def gen_list_float():
+def gen_list(dtype = 'int'):
 	lst = list()
 	order = list()
 
 	for i in range(N_CLASSES):
-		lst.append(random.random())
-
-	for i in range(N_CLASSES):
-		count = 0
-		for j in range(N_CLASSES):
-			if lst[j] < lst[i]:
-				count += 1
-		order.append(count)
-
-	return lst, order
-
-def gen_list_int():
-	lst = list()
-	order = list()
-
-	for i in range(N_CLASSES):
-		lst.append(random.randint(1, MAXINT))
+		if dtype == 'float'
+			lst.append(random.random())
+		else
+			lst.append(random.randint(1, MAXINT))
 
 	for i in range(N_CLASSES):
 		count = 0
@@ -49,10 +36,7 @@ def gen_list_int():
 def get_data(dtype = 'int'):
 	lsts, orders = list(), list()
 	for i in range(32768):
-		if dtype == 'float':
-			lst, order = gen_list_float()
-		else:
-			lst, order = gen_list_int()
+		lst, order = gen_list(dtype)
 		lsts.append(lst)
 		orders.append(order)
 
