@@ -1,1 +1,12 @@
 # MastersExperiments
+
+## Related work
+
+There are some other works where simple algorithms are inferred via neural networks. For example, in [10], the operations of copying and sorting an array are performed with a fully differentiable network connected to an eternal memory via attention.
+
+[10] A. Graves, G. Wayne, and I. Danihelka, “Neural Turing Machines,” arXiv:1410.5401v2, 2014.
+
+In another approach, [11] presents a sorting experiment for sets of numbers using a sequence to sequence model.
+
+[11] O. Vinyals, S. Bengio, and M. Kudlur, “OrderMatters: Sequence to Sequence for Sets,” in 4th International Conference
+on Learning Representations (ICLR), 2016.
