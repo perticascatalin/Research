@@ -63,6 +63,27 @@ def get_data(dtype = 'int'):
 
 	return lsts, orders
 
+def pretty_printing(logits, y_exp, x):
+	# this requires special print
+	#print logits[0]
+
+	# todo: migrate printing to an analysis module 
+	# which stores interesting predictions for your study
+	out = list()
+	for j in range(10):
+		f_max = 0
+		f_max_2 = 0
+		for k in range(10):
+			if logits[0][j][k] > logits[0][j][f_max]:
+				f_max_2 = f_max
+				f_max = k
+			elif logits[0][j][k] > logits[0][j][f_max_2]:
+				f_max_2 = k
+		out.append((f_max, f_max_2))
+	print out
+	print y_exp[0]
+	print x[0]
+
 lsts_train, orders_train = get_data()
 lsts_val, orders_val = get_data()
 
@@ -145,25 +166,7 @@ with tf.Session() as sess:
 				loss, acc_train, acc_val = sess.run([loss_op, accuracy_train, accuracy_val])
 				if i % 100 == 0:
 					logits, y_exp, x = sess.run([logits_eye, y_eye, X_val])
-					# this requires special print
-					#print logits[0]
-
-					# todo: migrate printing to an analysis module 
-					# which stores interesting predictions for your study
-					out = list()
-					for j in range(10):
-						f_max = 0
-						f_max_2 = 0
-						for k in range(10):
-							if logits[0][j][k] > logits[0][j][f_max]:
-								f_max_2 = f_max
-								f_max = k
-							elif logits[0][j][k] > logits[0][j][f_max_2]:
-								f_max_2 = k
-						out.append((f_max, f_max_2))
-					print out
-					print y_exp[0]
-					print x[0]
+					pretty_printing(logits, y_exp, x)
 				#print acc_train
 				total_loss += loss
 				training_accuracy += acc_train
