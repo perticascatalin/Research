@@ -133,7 +133,7 @@ with tf.Session() as sess:
 			for i in range(100):
 				loss, acc_train, acc_val = sess.run([loss_op, accuracy_train, accuracy_val])
 				if i % 100 == 0:
-					logits, y_exp, x = sess.run([logits_eye, y_eye, X_val])
+					logits, y_exp, x = sess.run([logits_eye, Y_val, X_val])
 					co.pretty_printing(logits, y_exp, x)
 				#print acc_train
 				total_loss += loss
