@@ -6,7 +6,7 @@ import analysis as co
 
 # Setup experiment size and parameters
 os.environ['TF_CPP_MIN_LOG_LEVEL']='2'
-N_CLASSES = 10
+N_CLASSES = 16
 MAXINT = 50
 dropout = 0.8
 learning_rate = 0.001
@@ -65,7 +65,7 @@ def neural_net(x, inputs, n_classes, dropout, reuse, is_training):
 		fc3 = tf.layers.dense(fc2, 128, activation = tf.nn.tanh)
 
 		outputs = list()
-		for i in range(10):
+		for i in range(N_CLASSES):
 			out_i = tf.layers.dense(fc3, n_classes)
 			out_i = tf.nn.softmax(out_i) if not is_training else out_i
 			outputs.append(out_i)
@@ -84,7 +84,7 @@ logits_val, y_val = neural_net(X_val, Y_val, N_CLASSES, dropout, reuse = True, i
 logits_eye, y_eye = neural_net(X_val, Y_val, N_CLASSES, dropout, reuse = True, is_training = False)
 
 loss_op = tf.constant(0.0, dtype = tf.float32)
-for i in range(10):
+for i in range(N_CLASSES):
 	loss_op = loss_op + tf.reduce_mean(tf.nn.sparse_softmax_cross_entropy_with_logits(\
 	logits = logits_train[i], labels = Y[:,i]))
 
@@ -93,12 +93,12 @@ optimizer = tf.train.AdamOptimizer(learning_rate = learning_rate)
 train_op = optimizer.minimize(loss_op)
 
 correct_pred_val = tf.constant(0.0, dtype = tf.float32)
-for i in range(10):
+for i in range(N_CLASSES):
 	correct_pred_val = correct_pred_val + tf.cast(tf.equal(tf.argmax(logits_val[i], 1), tf.cast(Y_val[:,i], tf.int64)), tf.float32)
 accuracy_val = tf.reduce_mean(correct_pred_val)
 
 correct_pred_train = tf.constant(0.0, dtype = tf.float32)
-for i in range(10):
+for i in range(N_CLASSES):
 	correct_pred_train = correct_pred_train + tf.cast(tf.equal(tf.argmax(logits_test[i], 1), tf.cast(Y[:,i], tf.int64)), tf.float32)
 accuracy_train = tf.reduce_mean(correct_pred_train)
 
