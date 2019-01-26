@@ -1,13 +1,13 @@
 import os
-os.environ['TF_CPP_MIN_LOG_LEVEL']='2'
-
 import random
 import pickle
 import tensorflow as tf
+import analysis as co
 
+# Setup experiment size and parameters
+os.environ['TF_CPP_MIN_LOG_LEVEL']='2'
 N_CLASSES = 10
 MAXINT = 50
-
 dropout = 0.8
 learning_rate = 0.001
 num_steps = 100000
@@ -19,10 +19,18 @@ def gen_list(dtype = 'int'):
 	order = list()
 
 	for i in range(N_CLASSES):
-		if dtype == 'float'
-			lst.append(random.random())
-		else
-			lst.append(random.randint(1, MAXINT))
+		while True:
+			if dtype == 'float':
+				num = random.random()
+			else:
+				num = random.randint(1, MAXINT)
+
+			if lst.count(num) == 0:
+				lst.append(num)
+				break
+			else:
+				continue
+			
 
 	for i in range(N_CLASSES):
 		count = 0
@@ -47,33 +55,6 @@ def get_data(dtype = 'int'):
 
 	return lsts, orders
 
-def pretty_printing(logits, y_exp, x):
-	# this requires special print
-	#print logits[0]
-
-	# todo: migrate printing to an analysis module 
-	# which stores interesting predictions for your study
-	out = list()
-	for j in range(10):
-		f_max = 0
-		f_max_2 = 0
-		for k in range(10):
-			if logits[0][j][k] > logits[0][j][f_max]:
-				f_max_2 = f_max
-				f_max = k
-			elif logits[0][j][k] > logits[0][j][f_max_2]:
-				f_max_2 = k
-		out.append((f_max, f_max_2))
-	print out
-	print y_exp[0]
-	print x[0]
-
-lsts_train, orders_train = get_data()
-lsts_val, orders_val = get_data()
-
-X, Y = tf.train.batch([lsts_train, orders_train], batch_size = batch_size, capacity = batch_size * 8, num_threads = 4)
-X_val, Y_val = tf.train.batch([lsts_val, orders_val], batch_size = batch_size, capacity = batch_size * 8, num_threads = 4)
-
 def neural_net(x, inputs, n_classes, dropout, reuse, is_training):
 	with tf.variable_scope('NeuralNet', reuse = reuse):
 		# activations tried: sigmoid 6.6 , relu X , tanh 8.0
@@ -90,6 +71,12 @@ def neural_net(x, inputs, n_classes, dropout, reuse, is_training):
 			outputs.append(out_i)
 
 	return outputs, inputs
+
+lsts_train, orders_train = get_data()
+lsts_val, orders_val = get_data()
+
+X, Y = tf.train.batch([lsts_train, orders_train], batch_size = batch_size, capacity = batch_size * 8, num_threads = 4)
+X_val, Y_val = tf.train.batch([lsts_val, orders_val], batch_size = batch_size, capacity = batch_size * 8, num_threads = 4)
 
 logits_train, y_train = neural_net(X, Y, N_CLASSES, dropout, reuse = False, is_training = True)
 logits_test, y_test = neural_net(X, Y, N_CLASSES, dropout, reuse = True, is_training = False)
@@ -117,11 +104,8 @@ accuracy_train = tf.reduce_mean(correct_pred_train)
 
 # Initialize the variables (i.e. assign their default value)
 init = tf.global_variables_initializer()
-
-# Saver object
 saver = tf.train.Saver()
 
-# Start training
 with tf.Session() as sess:
 
 	# Run the initializer
@@ -134,9 +118,9 @@ with tf.Session() as sess:
 	losses = []
 	train_accs = []
 	val_accs = []
+
 	# Training cycle
 	for step in range(1, num_steps+1):
-
 		if step % display_step == 0:
 			# Run optimization
 			sess.run([train_op])
@@ -150,7 +134,7 @@ with tf.Session() as sess:
 				loss, acc_train, acc_val = sess.run([loss_op, accuracy_train, accuracy_val])
 				if i % 100 == 0:
 					logits, y_exp, x = sess.run([logits_eye, y_eye, X_val])
-					pretty_printing(logits, y_exp, x)
+					co.pretty_printing(logits, y_exp, x)
 				#print acc_train
 				total_loss += loss
 				training_accuracy += acc_train
@@ -174,6 +158,7 @@ with tf.Session() as sess:
 
 	print("Optimization Finished!")
 
+	# Dump additional data for later investigation
 	pickle.dump(losses, open('ml_losses.p', 'wb'))
 	pickle.dump(train_accs, open('ml_train_accs.p', 'wb'))
 	pickle.dump(val_accs, open('ml_val_accs.p', 'wb'))
