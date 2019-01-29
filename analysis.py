@@ -1,7 +1,7 @@
 import tensorflow as tf
 import numpy as np
 
-N_CLASSES = 16
+N_CLASSES = 10
 
 def debugger(correct_pred, logits, y_exp, x):
 	print correct_pred[0]
