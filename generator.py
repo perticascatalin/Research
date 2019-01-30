@@ -16,9 +16,7 @@ display_step = 1000
 batch_size = 128
 
 def gen_list(dtype = 'int'):
-	lst = list()
-	order = list()
-
+	lst, order = list(), list()
 	for i in range(N_CLASSES):
 		while True:
 			if dtype == 'float':
@@ -31,15 +29,12 @@ def gen_list(dtype = 'int'):
 				break
 			else:
 				continue
-			
-
 	for i in range(N_CLASSES):
 		count = 0
 		for j in range(N_CLASSES):
 			if lst[j] < lst[i]:
 				count += 1
 		order.append(count)
-
 	return lst, order
 
 def get_data(dtype = 'int'):
@@ -48,12 +43,9 @@ def get_data(dtype = 'int'):
 		lst, order = gen_list(dtype)
 		lsts.append(lst)
 		orders.append(order)
-
 	lsts = tf.convert_to_tensor(lsts, dtype = tf.float32)
 	orders = tf.convert_to_tensor(orders, dtype = tf.int32)
-
 	lsts, orders = tf.train.slice_input_producer([lsts, orders], shuffle = True)
-
 	return lsts, orders
 
 def get_new_data():
@@ -69,29 +61,24 @@ def get_new_data():
 					c_lst.append(0)
 		lsts.append(c_lst)
 		orders.append(order)
-
 	lsts = tf.convert_to_tensor(lsts, dtype = tf.float32)
 	orders = tf.convert_to_tensor(orders, dtype = tf.int32)
-
 	lsts, orders = tf.train.slice_input_producer([lsts, orders], shuffle = True)
-
 	return lsts, orders
 
 def neural_net(x, inputs, n_classes, dropout, reuse, is_training):
 	with tf.variable_scope('NeuralNet', reuse = reuse):
-		# activations tried: sigmoid 6.6 , relu X , tanh 8.0
+		# activations tried: sigmoid 6.6 , relu X , tanh 8.8
 		fc1 = tf.layers.dense(x, 516, activation = tf.nn.tanh)
 		fc1 = tf.layers.dropout(fc1, rate = dropout, training = is_training)
 		fc2 = tf.layers.dense(fc1, 256, activation = tf.nn.tanh)
 		fc2 = tf.layers.dropout(fc2, rate = dropout, training = is_training)
 		fc3 = tf.layers.dense(fc2, 128, activation = tf.nn.tanh)
-
 		outputs = list()
 		for i in range(N_CLASSES):
 			out_i = tf.layers.dense(fc3, n_classes)
 			out_i = tf.nn.softmax(out_i) if not is_training else out_i
 			outputs.append(out_i)
-
 	return outputs, inputs
 
 lsts_train, orders_train = get_new_data()
@@ -129,10 +116,8 @@ init = tf.global_variables_initializer()
 saver = tf.train.Saver()
 
 with tf.Session() as sess:
-
 	# Run the initializer
 	sess.run(init)
-
 	# Start the data queue
 	coord = tf.train.Coordinator()
 	threads = tf.train.start_queue_runners(sess = sess, coord = coord)
@@ -146,7 +131,6 @@ with tf.Session() as sess:
 		if step % display_step == 0:
 			# Run optimization
 			sess.run([train_op])
-
 			# Calculate average batch loss and accuracy
 			total_loss = 0.0
 			training_accuracy = 0.0
@@ -180,16 +164,12 @@ with tf.Session() as sess:
 			sess.run(train_op)
 
 	print("Optimization Finished!")
-
 	# Dump additional data for later investigation
 	pickle.dump(losses, open('ml_losses.p', 'wb'))
 	pickle.dump(train_accs, open('ml_train_accs.p', 'wb'))
 	pickle.dump(val_accs, open('ml_val_accs.p', 'wb'))
-
 	# Save your model
 	saver.save(sess, './checkpts/')
-
 	# Stop threads
 	coord.request_stop()
 	coord.join(threads)
-
