@@ -66,6 +66,24 @@ def get_new_data():
 	lsts, orders = tf.train.slice_input_producer([lsts, orders], shuffle = True)
 	return lsts, orders
 
+def get_newer_data():
+	lsts, orders = list(), list()
+	for i in range(32768):
+		lst, order = gen_list('int')
+		c_lst = lst
+		for j in range(N_CLASSES - 1):
+			for k in range(j+1, N_CLASSES):
+				if lst[j] > lst[k]:
+					c_lst.append(1)
+				else:
+					c_lst.append(0)
+		lsts.append(c_lst)
+		orders.append(order)
+	lsts = tf.convert_to_tensor(lsts, dtype = tf.float32)
+	orders = tf.convert_to_tensor(orders, dtype = tf.int32)
+	lsts, orders = tf.train.slice_input_producer([lsts, orders], shuffle = True)
+	return lsts, orders
+
 def neural_net(x, inputs, n_classes, dropout, reuse, is_training):
 	with tf.variable_scope('NeuralNet', reuse = reuse):
 		# activations tried: sigmoid 6.6 , relu X , tanh 8.8
@@ -81,8 +99,8 @@ def neural_net(x, inputs, n_classes, dropout, reuse, is_training):
 			outputs.append(out_i)
 	return outputs, inputs
 
-lsts_train, orders_train = get_new_data()
-lsts_val, orders_val = get_new_data()
+lsts_train, orders_train = get_newer_data()
+lsts_val, orders_val = get_newer_data()
 
 X, Y = tf.train.batch([lsts_train, orders_train], batch_size = batch_size, capacity = batch_size * 8, num_threads = 4)
 X_val, Y_val = tf.train.batch([lsts_val, orders_val], batch_size = batch_size, capacity = batch_size * 8, num_threads = 4)
