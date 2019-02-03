@@ -1,10 +1,10 @@
 import tensorflow as tf
 import numpy as np
 
-N_CLASSES = 10
+N_CLASSES = 8
 
 def debugger(correct_pred, logits, y_exp, x):
-	print correct_pred[0]
+	print (str(int(correct_pred[0])) + " out of " + str(N_CLASSES))
 	# to check first and second choice
 	# out = list()
 	# for j in range(N_CLASSES):
@@ -19,11 +19,17 @@ def debugger(correct_pred, logits, y_exp, x):
 	# 	out.append((f_max, f_max_2))
 	# print out
 
+def print_1by1(arr, title):
+	line = ""
+	for i in range(N_CLASSES):
+		line += (str(arr[i]) + " ")
+	print (title + line)
+
 def pretty_printing(correct_pred, logits, y_exp, x):
 	out = list()
 	y_pred = list()
 	for j in range(N_CLASSES):
 		y_pred.append(np.argmax(logits[j][0]))
-	print x[0]
-	print y_pred
-	print y_exp[0]
+	print_1by1(x[0], 'input: ')
+	print_1by1(y_exp[0], 'expect:')
+	print_1by1(y_pred, 'pred:  ')

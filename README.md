@@ -11,6 +11,6 @@ In another approach, [11] presents a sorting experiment for sets of numbers usin
 [11] O. Vinyals, S. Bengio, and M. Kudlur, “OrderMatters: Sequence to Sequence for Sets”, in 4th International Conference
 on Learning Representations (ICLR), 2016.
 
-The importance of prior information and pre-learned intermediate concepts [x]
+The importance of prior information and pre-learned intermediate concepts. Composition of 2 highly non-linear tasks. [x]
 
 [x] C. Gulcehre and Y. Bengio, "Knowledge Matters: Importance of Prior Information for Optimization"
