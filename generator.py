@@ -43,9 +43,6 @@ def get_data(dtype = 'int'):
 		lst, order = gen_list(dtype)
 		lsts.append(lst)
 		orders.append(order)
-	lsts = tf.convert_to_tensor(lsts, dtype = tf.float32)
-	orders = tf.convert_to_tensor(orders, dtype = tf.int32)
-	lsts, orders = tf.train.slice_input_producer([lsts, orders], shuffle = True)
 	return lsts, orders
 
 def get_new_data():
@@ -61,9 +58,6 @@ def get_new_data():
 					c_lst.append(0)
 		lsts.append(c_lst)
 		orders.append(order)
-	lsts = tf.convert_to_tensor(lsts, dtype = tf.float32)
-	orders = tf.convert_to_tensor(orders, dtype = tf.int32)
-	lsts, orders = tf.train.slice_input_producer([lsts, orders], shuffle = True)
 	return lsts, orders
 
 def get_newer_data():
@@ -79,9 +73,6 @@ def get_newer_data():
 					c_lst.append(0)
 		lsts.append(c_lst)
 		orders.append(order)
-	lsts = tf.convert_to_tensor(lsts, dtype = tf.float32)
-	orders = tf.convert_to_tensor(orders, dtype = tf.int32)
-	lsts, orders = tf.train.slice_input_producer([lsts, orders], shuffle = True)
 	return lsts, orders
 
 def neural_net(x, inputs, n_classes, dropout, reuse, is_training):
@@ -100,7 +91,14 @@ def neural_net(x, inputs, n_classes, dropout, reuse, is_training):
 	return outputs, inputs
 
 lsts_train, orders_train = get_newer_data()
+lsts_train = tf.convert_to_tensor(lsts_train, dtype = tf.float32)
+orders_train = tf.convert_to_tensor(orders_train, dtype = tf.int32)
+lsts_train, orders_train = tf.train.slice_input_producer([lsts_train, orders_train], shuffle = True)
+
 lsts_val, orders_val = get_newer_data()
+lsts_val = tf.convert_to_tensor(lsts_val, dtype = tf.float32)
+orders_val = tf.convert_to_tensor(orders_val, dtype = tf.int32)
+lsts_val, orders_val = tf.train.slice_input_producer([lsts_val, orders_val], shuffle = True)
 
 X, Y = tf.train.batch([lsts_train, orders_train], batch_size = batch_size, capacity = batch_size * 8, num_threads = 4)
 X_val, Y_val = tf.train.batch([lsts_val, orders_val], batch_size = batch_size, capacity = batch_size * 8, num_threads = 4)
