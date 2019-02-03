@@ -8,5 +8,9 @@ There are some other works where simple algorithms are inferred via neural netwo
 
 In another approach, [11] presents a sorting experiment for sets of numbers using a sequence to sequence model.
 
-[11] O. Vinyals, S. Bengio, and M. Kudlur, “OrderMatters: Sequence to Sequence for Sets,” in 4th International Conference
+[11] O. Vinyals, S. Bengio, and M. Kudlur, “OrderMatters: Sequence to Sequence for Sets”, in 4th International Conference
 on Learning Representations (ICLR), 2016.
+
+The importance of prior information and pre-learned intermediate concepts [x]
+
+[x] C. Gulcehre and Y. Bengio, "Knowledge Matters: Importance of Prior Information for Optimization"
