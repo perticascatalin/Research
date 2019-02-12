@@ -1,6 +1,14 @@
 # MastersExperiments
 
-## Related work
+## Experiment 1: Statistically learning the correct order
+
+### Models
+
+Comparison between decision tree and multilayer perceptron
+
+### Related work
+
+Links to information theory
 
 There are some other works where simple algorithms are inferred via neural networks. For example, in [10], the operations of copying and sorting an array are performed with a fully differentiable network connected to an eternal memory via attention.
 
