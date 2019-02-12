@@ -5,6 +5,9 @@
 ### Models
 
 Comparison between decision tree and multilayer perceptron
+Maximizing expected value vs. optimization
+
+Attribute split vs. non-linear combinations
 
 ### Related work
 
