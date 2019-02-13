@@ -4,8 +4,8 @@ from sklearn.ensemble import ExtraTreesClassifier
 from sklearn.metrics import accuracy_score
 import generator as gen
 
-N_CLASSES = 20
-N_ESTIM = 32
+N_CLASSES = 8
+N_ESTIM = 96
 
 def sorting_accuracy(orders_pred, orders_expect):
 	acc = 0.0
@@ -31,7 +31,7 @@ def tree_model(name):
 lsts_train, orders_train = gen.get_newer_data()
 lsts_val, orders_val = gen.get_newer_data()
 
-clf = tree_model("extreme")
+clf = tree_model("decision")
 clf = clf.fit(lsts_train, orders_train)
 
 orders_pred = clf.predict(lsts_val)
