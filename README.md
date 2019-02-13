@@ -9,13 +9,14 @@ Comparison between decision tree and multilayer perceptron
 Data + Comparisons
 
 Multiple variants of decision trees: decision, forest and extreme
+
 Some results
 
-Data: DC
-Range 8: D 6.0, E_96 7.9, NN 8.0
-Range 10: D 4.0 E_96 7.5 NN 9.5
-Range 16: NN 3.6 E_96 5.4
-Range 20: NN 1.4 E_96 4.6
+- Data: DC
+- Range 8: D 6.0, E_96 7.9, NN 8.0
+- Range 10: D 4.0 E_96 7.5 NN 9.5
+- Range 16: NN 3.6 E_96 5.4
+- Range 20: NN 1.4 E_96 4.6
 
 Maximizing expected value vs. optimization
 
