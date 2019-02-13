@@ -18,9 +18,17 @@ Some results
 - Range 16: NN 3.6 E_96 5.4
 - Range 20: NN 1.4 E_96 4.6
 
+### Experiments vs Theory
+
+Adding comparison prior knowledge to data
+
 Maximizing expected value vs. optimization
 
+Impurity vs. local minima
+
 Attribute split vs. non-linear combinations
+
+Models scalability
 
 ### Related work
 
