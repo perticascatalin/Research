@@ -5,27 +5,34 @@ from sklearn.metrics import accuracy_score
 import generator as gen
 
 N_CLASSES = 20
+N_ESTIM = 32
+
+def sorting_accuracy(orders_pred, orders_expect):
+	acc = 0.0
+	for i in range(len(orders_pred)):
+		c_acc = 0.0
+		for j in range(N_CLASSES):
+			predicted = int(orders_pred[i][j])
+			actual = orders_expect[i][j]
+			#print predicted, actual
+			if predicted == actual:
+				c_acc += 1.0
+		acc += c_acc
+	return acc/len(orders_pred)
+
+def tree_model(name):
+	if name == "extreme":
+		return ExtraTreesClassifier(n_estimators = N_ESTIM)
+	elif name == "forest":
+		return RandomForestClassifier(n_estimators = N_ESTIM)
+	else:
+		return tree.DecisionTreeClassifier()
 
 lsts_train, orders_train = gen.get_newer_data()
 lsts_val, orders_val = gen.get_newer_data()
 
-#clf = tree.DecisionTreeClassifier()
-#clf = RandomForestClassifier(n_estimators = 72)
-clf = ExtraTreesClassifier(n_estimators = 96)
+clf = tree_model("extreme")
 clf = clf.fit(lsts_train, orders_train)
 
 orders_pred = clf.predict(lsts_val)
-#print orders_val
-#print orders_pred
-
-acc = 0.0
-for i in range(len(orders_pred)):
-	c_acc = 0.0
-	for j in range(N_CLASSES):
-		predicted = int(orders_pred[i][j])
-		actual = orders_val[i][j]
-		#print predicted, actual
-		if predicted == actual:
-			c_acc += 1.0
-	acc += c_acc
-print "accuracy ", acc/len(orders_pred)
+print sorting_accuracy(orders_pred, orders_val)
