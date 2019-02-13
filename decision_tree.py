@@ -1,15 +1,17 @@
 from sklearn import tree
 from sklearn.ensemble import RandomForestClassifier
+from sklearn.ensemble import ExtraTreesClassifier
 from sklearn.metrics import accuracy_score
 import generator as gen
 
 N_CLASSES = 10
 
-lsts_train, orders_train = gen.get_newer_data()
-lsts_val, orders_val = gen.get_newer_data()
+lsts_train, orders_train = gen.get_data()
+lsts_val, orders_val = gen.get_data()
 
 #clf = tree.DecisionTreeClassifier()
-clf = RandomForestClassifier(n_estimators = 72)
+#clf = RandomForestClassifier(n_estimators = 72)
+clf = ExtraTreesClassifier(n_estimators = 72)
 clf = clf.fit(lsts_train, orders_train)
 
 orders_pred = clf.predict(lsts_val)
