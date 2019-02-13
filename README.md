@@ -26,6 +26,10 @@ Attribute split vs. non-linear combinations
 
 Links to information theory and deep learning [X], [Y].
 
+The importance of prior information and pre-learned intermediate concepts. Composition of 2 highly non-linear tasks [X].
+
+Gradients in highly composed functions or hard constraints [Y].
+
 There are some other works where simple algorithms are inferred via neural networks. For example, in [A], the operations of copying and sorting an array are performed with a fully differentiable network connected to an eternal memory via attention. 
 
 In another approach, [B] presents a sorting experiment for sets of numbers using a sequence to sequence model.
@@ -33,8 +37,6 @@ In another approach, [B] presents a sorting experiment for sets of numbers using
 [A] A. Graves, G. Wayne, and I. Danihelka, “Neural Turing Machines,” arXiv:1410.5401v2, 2014.
 
 [B] O. Vinyals, S. Bengio, and M. Kudlur, “OrderMatters: Sequence to Sequence for Sets”, in 4th International Conference on Learning Representations (ICLR), 2016.
-
-The importance of prior information and pre-learned intermediate concepts. Composition of 2 highly non-linear tasks. [x]
 
 [X] C. Gulcehre and Y. Bengio, "Knowledge Matters: Importance of Prior Information for Optimization"
 
