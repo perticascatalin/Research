@@ -24,17 +24,18 @@ Attribute split vs. non-linear combinations
 
 ### Related work
 
-Links to information theory
+Links to information theory and deep learning [X], [Y].
 
-There are some other works where simple algorithms are inferred via neural networks. For example, in [10], the operations of copying and sorting an array are performed with a fully differentiable network connected to an eternal memory via attention.
+There are some other works where simple algorithms are inferred via neural networks. For example, in [A], the operations of copying and sorting an array are performed with a fully differentiable network connected to an eternal memory via attention. 
 
-[10] A. Graves, G. Wayne, and I. Danihelka, “Neural Turing Machines,” arXiv:1410.5401v2, 2014.
+In another approach, [B] presents a sorting experiment for sets of numbers using a sequence to sequence model.
 
-In another approach, [11] presents a sorting experiment for sets of numbers using a sequence to sequence model.
+[A] A. Graves, G. Wayne, and I. Danihelka, “Neural Turing Machines,” arXiv:1410.5401v2, 2014.
 
-[11] O. Vinyals, S. Bengio, and M. Kudlur, “OrderMatters: Sequence to Sequence for Sets”, in 4th International Conference
-on Learning Representations (ICLR), 2016.
+[B] O. Vinyals, S. Bengio, and M. Kudlur, “OrderMatters: Sequence to Sequence for Sets”, in 4th International Conference on Learning Representations (ICLR), 2016.
 
 The importance of prior information and pre-learned intermediate concepts. Composition of 2 highly non-linear tasks. [x]
 
-[x] C. Gulcehre and Y. Bengio, "Knowledge Matters: Importance of Prior Information for Optimization"
+[X] C. Gulcehre and Y. Bengio, "Knowledge Matters: Importance of Prior Information for Optimization"
+
+[Y] S. Shalev-Shwartz and O. Shamir and S Shammah, "Failures of Gradient-Based Deep Learning"
