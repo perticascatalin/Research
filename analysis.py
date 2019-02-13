@@ -1,7 +1,7 @@
 import tensorflow as tf
 import numpy as np
 
-N_CLASSES = 10
+N_CLASSES = 20
 
 def debugger(correct_pred, logits, y_exp, x):
 	print (str(int(correct_pred[0])) + " out of " + str(N_CLASSES))

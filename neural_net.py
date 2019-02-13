@@ -6,7 +6,7 @@ import generator as gen
 
 # Setup experiment size and parameters
 os.environ['TF_CPP_MIN_LOG_LEVEL']='2'
-N_CLASSES = 10
+N_CLASSES = 20
 N_FEAT = (N_CLASSES*(N_CLASSES - 1))/2
 dropout = 0.8
 learning_rate = 0.001

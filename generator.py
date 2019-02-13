@@ -2,7 +2,7 @@ import random
 import pickle
 
 # Setup experiment size and parameters
-N_CLASSES = 10
+N_CLASSES = 20
 N_FEAT = (N_CLASSES*(N_CLASSES - 1))/2
 MAXINT = 50
 
