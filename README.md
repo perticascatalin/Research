@@ -12,15 +12,17 @@ Data + Comparisons
 
 Multiple variants of decision trees: decision, forest and extreme
 
-Some results
+**Some results**
 
-We compute a partial accuracy: the average number of elements guessed in N arrays.
+Metrics: We compute a partial accuracy - the average number of elements guessed in N arrays.
 
 - Data: DC
 - Range 8: D 6.0, E_96 7.9, NN 8.0
 - Range 10: D 4.0 E_96 7.5 NN 9.5
 - Range 16: NN 3.6 E_96 5.4
 - Range 20: NN 1.4 E_96 4.6
+
+Views: display graphic array before and after - stacking vs. coloring.
 
 ### Experiments vs Theory
 
