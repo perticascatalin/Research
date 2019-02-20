@@ -2,6 +2,8 @@
 
 ## Experiment 1: Statistically learning the correct order
 
+The experiment consists of taking arrays with different numbers and of different lenghts and formulating the problem of predicting the sorted order of the initial numbers. We show how this poses scalability problems for various machine learning models and try to find some of the underlying reasons. Additionaly we look for changes in the models or the problem formulation that could help improve our solution.
+
 ### Models
 
 Comparison between decision tree and multilayer perceptron
@@ -12,6 +14,8 @@ Multiple variants of decision trees: decision, forest and extreme
 
 Some results
 
+We compute a partial accuracy: the average number of elements guessed in N arrays.
+
 - Data: DC
 - Range 8: D 6.0, E_96 7.9, NN 8.0
 - Range 10: D 4.0 E_96 7.5 NN 9.5
@@ -21,6 +25,8 @@ Some results
 ### Experiments vs Theory
 
 Adding comparison prior knowledge to data
+
+Storage capability: predicting the order vs. predicting elements in order
 
 Maximizing expected value vs. optimization
 
@@ -34,7 +40,7 @@ Models scalability
 
 Links to information theory and deep learning [X], [Y].
 
-The importance of prior information and pre-learned intermediate concepts. Composition of 2 highly non-linear tasks [X].
+The importance of prior information and pre-learned intermediate concepts. Composition of 2 highly non-linear tasks and other hypothesis such as local minima obstacle and guided/transfer learning [X].
 
 Gradients in highly composed functions or hard constraints [Y].
 
