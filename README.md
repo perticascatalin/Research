@@ -14,6 +14,10 @@ Multiple variants of decision trees: decision, forest and extreme
 
 Representation: sequence of numbers vs. bag of numbers (count sort)
 
+Vectors for small arrays of numbers. 
+Largest enhancements and smallest shrinking preserve array class (all labels).
+Bent surface on n-2 space.
+
 Regression
 
 Temporal Generation
