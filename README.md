@@ -12,6 +12,8 @@ Data + Comparisons
 
 Multiple variants of decision trees: decision, forest and extreme
 
+Representation: sequence of numbers vs. bag of numbers (count sort)
+
 Regression
 
 Temporal Generation
