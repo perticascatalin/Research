@@ -1,6 +1,6 @@
 # MastersExperiments
 
-## Experiment 1: Statistically learning the correct order
+## Experiment 1: Statistically learning the correct order (in progress)
 
 The experiment consists of taking arrays with different numbers and of different lenghts and formulating the problem of predicting the sorted order of the initial numbers. We show how this poses scalability problems for various machine learning models and try to find some of the underlying reasons. Additionaly we look for changes in the models or the problem formulation that could help improve our solution.
 
@@ -11,6 +11,12 @@ Comparison between decision tree and multilayer perceptron
 Data + Comparisons
 
 Multiple variants of decision trees: decision, forest and extreme
+
+Regression
+
+Temporal Generation
+
+Pre-order vs. Post-order
 
 **Some results**
 
