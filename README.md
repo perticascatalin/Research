@@ -6,23 +6,28 @@ The experiment consists of taking arrays with different numbers and of different
 
 ### Models
 
-Comparison between decision tree and multilayer perceptron
+*Results so far*
 
-Data + Comparisons
+1. Comparison between decision tree and multilayer perceptron. Multiple variants of decision trees: decision, forest and extreme.
 
-Multiple variants of decision trees: decision, forest and extreme
+2. Data + Comparisons.
 
-Representation: sequence of numbers vs. bag of numbers (count sort)
+*To investigate further*
 
+3. Representation: sequence of numbers vs. bag of numbers (count sort)
+
+4. Multilabel Classification.
 Vectors for small arrays of numbers. 
 Largest enhancements and smallest shrinking preserve array class (all labels).
 Bent surface on n-2 space.
 
-Regression
+5. Regression.
+Directly predict the numbers in the correct order.
+Neural network has to store the numbers.
 
-Temporal Generation
+6. Temporal Generation
 
-Pre-order vs. Post-order
+7. Pre-order to/vs. Post-order
 
 **Some results**
 
