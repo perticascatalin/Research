@@ -39,7 +39,7 @@ Metrics: We compute a partial accuracy - the average number of elements guessed 
 - Range 16: NN 3.6 E_96 5.4
 - Range 20: NN 1.4 E_96 4.6
 
-Views: display graphic array before and after - stacking vs. coloring.
+Views: display graphic array before and after - barchart, stacking vs. coloring.
 
 ### Experiments vs Theory
 

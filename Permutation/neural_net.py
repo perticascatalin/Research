@@ -6,7 +6,7 @@ import generator as gen
 
 # Setup experiment size and parameters
 os.environ['TF_CPP_MIN_LOG_LEVEL']='2'
-N_CLASSES = 20
+N_CLASSES = 10
 N_FEAT = (N_CLASSES*(N_CLASSES - 1))/2
 dropout = 0.8
 learning_rate = 0.001
@@ -96,7 +96,7 @@ with tf.Session() as sess:
 				if i % 100 == 0:
 					correct_pred, logits, y_exp, x = sess.run([correct_pred_val, logits_eye, Y_val, X_val])
 					co.debugger(correct_pred, logits, y_exp, x)
-					co.pretty_printing(correct_pred, logits, y_exp, x)
+					co.pretty_printing(correct_pred, logits, y_exp, x, step)
 				#print acc_train
 				total_loss += loss
 				training_accuracy += acc_train

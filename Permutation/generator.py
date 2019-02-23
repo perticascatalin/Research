@@ -4,6 +4,7 @@ import pickle
 # Setup experiment size and parameters
 N_CLASSES = 10
 N_FEAT = (N_CLASSES*(N_CLASSES - 1))/2
+N_SAMPLES = 30000
 MAXINT = 50
 
 def gen_list(dtype = 'int'):
@@ -31,7 +32,7 @@ def gen_list(dtype = 'int'):
 # just numbers
 def get_data(dtype = 'int'):
 	lsts, orders = list(), list()
-	for i in range(32768):
+	for i in range(N_SAMPLES):
 		lst, order = gen_list(dtype)
 		lsts.append(lst)
 		orders.append(order)
@@ -40,7 +41,7 @@ def get_data(dtype = 'int'):
 # just order relations
 def get_new_data():
 	lsts, orders = list(), list()
-	for i in range(32768):
+	for i in range(N_SAMPLES):
 		lst, order = gen_list('int')
 		c_lst = list()
 		for j in range(N_CLASSES - 1):
@@ -56,7 +57,7 @@ def get_new_data():
 # numbers and order relations
 def get_newer_data():
 	lsts, orders = list(), list()
-	for i in range(32768):
+	for i in range(N_SAMPLES):
 		lst, order = gen_list('int')
 		c_lst = lst
 		for j in range(N_CLASSES - 1):
