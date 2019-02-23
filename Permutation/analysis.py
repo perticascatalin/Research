@@ -1,5 +1,5 @@
-import tensorflow as tf
 import numpy as np
+import matplotlib.pyplot as plt
 
 N_CLASSES = 20
 
@@ -25,6 +25,35 @@ def print_1by1(arr, title):
 		line += (str(arr[i]) + " ")
 	print (title + line)
 
+def print_barchart(arr, expect, actual):
+	# data to plot
+	n_groups = len(arr)
+	 
+	# create plot
+	fig, ax = plt.subplots()
+	index = np.arange(n_groups)
+	bar_width = 0.35
+	opacity = 0.8
+	 
+	rects1 = plt.bar(index, expect, bar_width,
+	alpha=opacity,
+	color='b',
+	label='Expected')
+	 
+	rects2 = plt.bar(index + bar_width, actual, bar_width,
+	alpha=opacity,
+	color='g',
+	label='Actual')
+	 
+	plt.xlabel('Element')
+	plt.ylabel('Value')
+	plt.title('Scores by person')
+	plt.xticks(index + bar_width, ('1', '2', '3', '4', '5'))
+	plt.legend()
+	
+	plt.tight_layout()
+	plt.show()
+
 def pretty_printing(correct_pred, logits, y_exp, x):
 	out = list()
 	y_pred = list()
@@ -33,3 +62,7 @@ def pretty_printing(correct_pred, logits, y_exp, x):
 	print_1by1(x[0], 'input: ')
 	print_1by1(y_exp[0], 'expect:')
 	print_1by1(y_pred, 'pred:  ')
+	print_barchart(x[0], y_exp[0], y_pred)
+
+print_barchart(list([10, 30, 20, 40, 50]), list([1, 3, 2, 4, 5]), list([1, 2, 3, 4, 5]))
+
