@@ -4,9 +4,12 @@ import setup as stp
 
 # Setup experiment size and parameters
 N_CLASSES = stp.num_classes()
+N_SAMPLES = stp.num_samples()
+MAXINT = stp.maxint()
+
+# Additional number of features to generate alongside the data
+# Order relation pairs
 N_FEAT = (N_CLASSES*(N_CLASSES - 1))/2
-N_SAMPLES = 3000
-MAXINT = 50
 
 def gen_list(dtype = 'int'):
 	lst, order = list(), list()
