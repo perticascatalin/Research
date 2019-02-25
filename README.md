@@ -2,7 +2,7 @@
 
 ## Experiment 1: Statistically learning the correct order (in progress)
 
-The experiment consists of taking arrays with different numbers and of different lenghts and formulating the problem of predicting the sorted order of the initial numbers. We show how this poses scalability problems for various machine learning models and try to find some of the underlying reasons. Additionaly we look for changes in the models or the problem formulation that could help improve our solution.
+The experiment models the manipulation of arrays with different numbers and of different lenghts. First, we formulate the problem of predicting the sorted order of the initial numbers. We show how this poses scalability problems for various machine learning models (neural networks and decision trees) and try to find some of the underlying reasons. We measure the impact of data representation - for instance: bare numbers or numbers with an order relation. Then we look for changes in the models or the problem formulation that could help improve our solution.
 
 ### Models
 
