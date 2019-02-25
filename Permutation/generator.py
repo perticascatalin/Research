@@ -1,10 +1,11 @@
 import random
 import pickle
+import setup as stp
 
 # Setup experiment size and parameters
-N_CLASSES = 10
+N_CLASSES = stp.num_classes()
 N_FEAT = (N_CLASSES*(N_CLASSES - 1))/2
-N_SAMPLES = 30000
+N_SAMPLES = 3000
 MAXINT = 50
 
 def gen_list(dtype = 'int'):

@@ -3,8 +3,9 @@ from sklearn.ensemble import RandomForestClassifier
 from sklearn.ensemble import ExtraTreesClassifier
 from sklearn.metrics import accuracy_score
 import generator as gen
+import setup as stp
 
-N_CLASSES = 10
+N_CLASSES = stp.num_classes()
 N_ESTIM = 96
 
 def sorting_accuracy(orders_pred, orders_expect):
