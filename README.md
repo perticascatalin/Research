@@ -28,9 +28,20 @@ The experiment models the manipulation of arrays with different numbers and of d
 - list entries from order matrix (left-right, top-bottom)
 - [0 0 0 0 1 0 1 1 1 1 1 1 1 0 0 1 1 0 0 0]
 
-We show how this poses scalability problems for various machine learning models (neural networks and decision trees).
+We show how this poses scalability problems for various machine learning models (neural networks and decision trees). For instance:
 
-Next, we try to find some of the underlying reasons. For instance, by measuring the impact of data representation: bare numbers or numbers with an order relation. This is done by investigating the properties of the input and target spaces. Then we look for changes in the models or the problem formulation that could help improve our solution.
+|Size|   8|  10|  12|  16|  20|
+|:--:|:--:|:--:|:--:|:--:|:--:|
+|  NN|1.00|0.95|0.44|0.23|0.07|
+|  DT|0.99|0.75|0.60|0.34|0.23|
+|Rand|0.12|0.10|0.08|0.06|0.05|
+
+Next, we try to find some of the underlying reasons. For instance, by measuring the impact of data representation: bare numbers or numbers with an order relation. This is done by investigating the properties of the input and target spaces.
+
+- important space dimensions (set cardinality):
+- N! vs. MAXINT!/(MAXINT-N)! vs. 2^((N)x(N-1)/2) vs. 2^N
+
+Then we look for changes in the models or the problem formulation that could help improve our solution.
 
 ### Models
 
@@ -62,8 +73,9 @@ Neural network has to store the numbers.
 Metrics: We compute a partial accuracy - the average number of elements guessed in N arrays.
 
 - Data: DC
-- Range 8: D 6.0, E_96 7.9, NN 8.0
-- Range 10: D 4.0 E_96 7.5 NN 9.5
+- Range 8:  D  6.0 E_96 7.9 NN 8.0
+- Range 10: D  4.0 E_96 7.5 NN 9.5
+- Range 12: NN 5.3 E_96 7.2
 - Range 16: NN 3.6 E_96 5.4
 - Range 20: NN 1.4 E_96 4.6
 
