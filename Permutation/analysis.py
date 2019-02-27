@@ -44,6 +44,14 @@ def print_barchart(arr, expect, actual, figname):
 	plt.legend()
 	plt.savefig('./results/' + figname)
 
+def print_acc_scale_models():
+	ns = [8, 10, 12, 16, 20]
+	nn = [1.00, 0.95, 0.44, 0.23, 0.07]
+	dt = [0.99, 0.75, 0.60, 0.34, 0.23]
+	rd = [0.12, 0.10, 0.08, 0.06, 0.05]
+	plt.plot(ns, nn, 'b', ns, dt, 'g', ns, rd, 'y')
+	plt.show()
+
 def pretty_printing(correct_pred, logits, y_exp, x, epoch):
 	out = list()
 	y_pred = list()
@@ -55,4 +63,4 @@ def pretty_printing(correct_pred, logits, y_exp, x, epoch):
 	print_barchart(x[0], list(y_exp[0]), y_pred, ('labels_' + str(epoch) + '.png'))
 
 #print_barchart(list([10, 30, 20, 40, 50]), list([1, 3, 2, 4, 5]), list([1, 2, 3, 4, 5]), 'labels_0.png')
-
+print_acc_scale_models()
