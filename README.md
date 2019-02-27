@@ -2,7 +2,7 @@
 
 ## Experiment 1: Statistically learning the correct order (in progress)
 
-The experiment models the manipulation of arrays with different numbers and of different lenghts. First, we formulate the problem of predicting the sorted order of the initial numbers. 
+The experiment models the manipulation of arrays with different numbers and of different lenghts. First, we formulate the problem of predicting the sorted order of the initial numbers. This problem involves the concepts of order relations and counting.
 
 - N = 5
 - MAX = 50
@@ -27,6 +27,8 @@ The experiment models the manipulation of arrays with different numbers and of d
 - Elementwise comparison vector:
 - list entries from order matrix (left-right, top-bottom)
 - [0 0 0 0 1 0 1 1 1 1 1 1 1 0 0 1 1 0 0 0]
+
+In the above case, the sorted position of 49 is equal to O(1,1) + O(2,1) + O(3,1).... Similarly, the final position of 3 is equal to O(2,1) + O(2,2) + O(2,3).... Although the operations involved in finding the sorted positions are quite simple, statistical learning models have troubles with computing the correct answer.
 
 We show how this poses scalability problems for various machine learning models (neural networks and decision trees). For instance:
 
