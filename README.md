@@ -2,6 +2,8 @@
 
 ## Experiment 1: Statistically learning the correct order (in progress)
 
+### Introduction
+
 The experiment models the manipulation of arrays with different numbers and of different lenghts. First, we formulate the problem of predicting the sorted order of the initial numbers. This problem involves the concepts of order relations and counting.
 
 - N = 5
