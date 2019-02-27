@@ -54,6 +54,8 @@ The neural network performs better than the decision tree-based models up to N =
 
 Extreme forest with 96 estimators vs. multilayer_perceptron with ~1000 neurons in 4 layers.
 
+![asm_plot](https://raw.githubusercontent.com/perticascatalin/MastersExperiments/master/Permutation/results/asm.png)
+
 Next, we try to find some of the underlying reasons. For instance, by measuring the impact of data representation: bare numbers or numbers with an order relation. This is done by investigating the properties of the input and target spaces.
 
 - important space dimensions (set cardinality):
