@@ -69,4 +69,4 @@ def pretty_printing(correct_pred, logits, y_exp, x, epoch):
 	print_barchart(x[0], list(y_exp[0]), y_pred, ('labels_' + str(epoch) + '.png'))
 
 #print_barchart(list([10, 30, 20, 40, 50]), list([1, 3, 2, 4, 5]), list([1, 2, 3, 4, 5]), 'labels_0.png')
-print_acc_scale_models()
+#print_acc_scale_models()
