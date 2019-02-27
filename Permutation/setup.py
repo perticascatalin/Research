@@ -2,7 +2,7 @@
 # Inputs   1 2 3 4 5 6 7 8 9 10
 # Generate 2 4 3 1 8 9 6 7 5 10
 def num_classes():
-	return 12
+	return 10
 
 # Number of arrays to generate
 def num_samples():

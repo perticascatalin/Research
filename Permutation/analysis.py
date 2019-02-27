@@ -49,7 +49,7 @@ def print_acc_scale_models():
 	nn = [1.00, 1.00, 1.00, 0.95, 0.66, 0.44, 0.23, 0.07, 0.04]
 	dt = [1.00, 0.99, 0.92, 0.75, 0.68, 0.60, 0.34, 0.23, 0.15]
 	rd = [0.17, 0.12, 0.11, 0.10, 0.09, 0.08, 0.06, 0.05, 0.04]
-	plt.plot(ns, nn, 'b', ns, dt, 'g', ns, rd, 'y')
+	plt.plot(ns, nn, 'b', ns, dt, 'g', ns, rd, 'y', linewidth = 2.8)
 	plt.show()
 
 def pretty_printing(correct_pred, logits, y_exp, x, epoch):
