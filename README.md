@@ -10,10 +10,10 @@ The experiment models the manipulation of arrays with different numbers and of d
 - MAX = 50
 - distinct integers in range [1, MAX]
 
-|  1|  2|  3|  4|  5|
-|:-:|:-:|:-:|:-:|:-:|
-| 49|  3|  2|  5| 17|
-|  5|  2|  1|  3|  4|
+|Initial position|  1|  2|  3|  4|  5|
+|:--------------:|:-:|:-:|:-:|:-:|:-:|
+|Value           | 49|  3|  2|  5| 17|
+|Sorted position |  5|  2|  1|  3|  4|
 
 - Order relations: Is A smaller than B?
 - 0/1 for pair (A/B)
@@ -75,22 +75,27 @@ Then we look for changes in the models or the problem formulation that could hel
 
 *To investigate further*
 
-3. Representation: sequence of numbers vs. bag of numbers (count sort)
+1. Representation: sequence of numbers vs. bag of numbers (count sort)
 
-4. Multilabel Classification.
+2. Multilabel Classification.
 Vectors for small arrays of numbers. 
 Largest enhancements and smallest shrinking preserve array class (all labels).
 Bent surface on n-2 space.
 
-5. Regression.
+3. Regression.
 Directly predict the numbers in the correct order.
 Neural network has to store the numbers.
 
-6. Temporal Generation
+4. Temporal Generation
 
-7. Pre-order to/vs. Post-order
+5. Pre-order to/vs. Post-order
 
-Views: display graphic array before and after - barchart, stacking vs. coloring.
+6. Constraint non-identical labels
+
+7. Views
+Display graphic array before and after - barchart, stacking vs. coloring.
+
+8. Input-output matching cardinality
 
 ### Experiments vs Theory
 
