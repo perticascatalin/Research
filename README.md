@@ -34,13 +34,11 @@ In the above case, the sorted position of 49 is equal to O(1,1) + O(2,1) + O(3,1
 
 ### Models
 
-*Results so far*
+1. **Comparison** between decision tree and multilayer perceptron. Multiple variants of decision trees: decision, forest and extreme.
 
-1. Comparison between decision tree and multilayer perceptron. Multiple variants of decision trees: decision, forest and extreme.
+2. **Input data**: initial numbers and their elementwise comparison vector.
 
-2. Data + Comparisons.
-
-We show how this poses scalability problems for various machine learning models (neural networks and decision trees). For instance:
+We show how this poses scalability problems for the chosen machine learning models (neural networks and decision trees). For instance:
 
 |Size|   6|   8|   9|  10|  11|  12|  16|  20|  24|
 |:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|
@@ -52,9 +50,21 @@ Up to N = 10 we get very good results with both models.
 For N = 24, the neural network starts predicting worse than random guessing.
 The neural network performs better than the decision tree-based models up to N = 10, then it has a sudden drop. However, decision trees have a slower drop in accuracy.
 
-Extreme forest with 96 estimators vs. multilayer_perceptron with ~1000 neurons in 4 layers.
+|Accuracy|Model Description|
+|:------:|:---------------:|
+|![asm_plot](https://raw.githubusercontent.com/perticascatalin/MastersExperiments/master/Permutation/results/asm.png)|Extreme forest with 96 estimators vs. multilayer_perceptron with ~1000 neurons in 4 layers (512, 256, 128) dense + N multi-label outputs.|
 
-![asm_plot](https://raw.githubusercontent.com/perticascatalin/MastersExperiments/master/Permutation/results/asm.png)
+
+3. **Metrics**: We compute a partial accuracy - the average number of elements guessed in N arrays.
+
+- Data: DC
+- Range 6:         E_96 6.0 NN 6.0
+- Range 8:  D  6.0 E_96 7.9 NN 8.0
+- Range 10: D  4.0 E_96 7.5 NN 9.5
+- Range 12: NN 5.3 E_96 7.2
+- Range 16: NN 3.6 E_96 5.4
+- Range 20: NN 1.4 E_96 4.6
+- Range 24: NN 1.0 E_96 3.5
 
 Next, we try to find some of the underlying reasons. For instance, by measuring the impact of data representation: bare numbers or numbers with an order relation. This is done by investigating the properties of the input and target spaces.
 
@@ -79,19 +89,6 @@ Neural network has to store the numbers.
 6. Temporal Generation
 
 7. Pre-order to/vs. Post-order
-
-**Some results**
-
-Metrics: We compute a partial accuracy - the average number of elements guessed in N arrays.
-
-- Data: DC
-- Range 6:         E_96 6.0 NN 6.0
-- Range 8:  D  6.0 E_96 7.9 NN 8.0
-- Range 10: D  4.0 E_96 7.5 NN 9.5
-- Range 12: NN 5.3 E_96 7.2
-- Range 16: NN 3.6 E_96 5.4
-- Range 20: NN 1.4 E_96 4.6
-- Range 24: NN 1.0 E_96 3.5
 
 Views: display graphic array before and after - barchart, stacking vs. coloring.
 
