@@ -121,9 +121,9 @@ with tf.Session() as sess:
 
 	print("Optimization Finished!")
 	# Dump additional data for later investigation
-	pickle.dump(losses, open('ml_losses.p', 'wb'))
-	pickle.dump(train_accs, open('ml_train_accs.p', 'wb'))
-	pickle.dump(val_accs, open('ml_val_accs.p', 'wb'))
+	#pickle.dump(losses, open('ml_losses.p', 'wb'))
+	#pickle.dump(train_accs, open('ml_train_accs.p', 'wb'))
+	#pickle.dump(val_accs, open('ml_val_accs.p', 'wb'))
 	# Save your model
 	saver.save(sess, './checkpts/')
 	# Stop threads

@@ -11,3 +11,7 @@ def num_samples():
 # Maximum number in array
 def maxint():
 	return 50
+
+# Number of estimators for decision tree forests
+def n_estim():
+	return 96

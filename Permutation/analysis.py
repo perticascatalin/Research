@@ -43,7 +43,9 @@ def print_barchart(arr, expect, actual, figname):
 	plt.xticks(index + bar_width, tuple(xticks))
 	plt.legend()
 	plt.savefig('./data/' + figname)
+	plt.clef()
 
+# asm plot
 def print_acc_scale_models():
 	ns = [6, 8, 9, 10, 11, 12, 16, 20, 24]
 	nn = [1.00, 1.00, 1.00, 0.95, 0.66, 0.44, 0.23, 0.07, 0.04]
@@ -57,6 +59,7 @@ def print_acc_scale_models():
 	plt.plot(ns, rd, 'y', linewidth = 2.8, label = 'Random')
 	plt.legend()
 	plt.savefig('./results/' + 'asm.png')
+	plt.clf()
 
 def pretty_printing(correct_pred, logits, y_exp, x, epoch):
 	out = list()

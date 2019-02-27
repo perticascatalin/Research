@@ -6,7 +6,7 @@ import generator as gen
 import setup as stp
 
 N_CLASSES = stp.num_classes()
-N_ESTIM = 96
+N_ESTIM = stp.n_estim()
 
 def sorting_accuracy(orders_pred, orders_expect):
 	acc = 0.0
