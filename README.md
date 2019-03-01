@@ -1,6 +1,8 @@
 # MastersExperiments
 
-## Experiment 1: Statistically learning the correct order (in progress)
+## Experiment 1: Statistically learning the correct order and other relational operations (in progress)
+
+### 
 
 ### Introduction
 
@@ -14,6 +16,8 @@ The experiment models the manipulation of arrays with different numbers and of d
 |:--------------:|:-:|:-:|:-:|:-:|:-:|
 |Value           | 49|  3|  2|  5| 17|
 |Sorted position |  5|  2|  1|  3|  4|
+|Maximum         |  1|  0|  0|  0|  0|
+|Minimum         |  0|  0|  1|  0|  0|
 
 - Order relations: Is A smaller than B?
 - 0/1 for pair (A/B)
