@@ -19,11 +19,11 @@ batch_size = 128
 def neural_net(x, inputs, n_classes, dropout, reuse, is_training):
 	with tf.variable_scope('NeuralNet', reuse = reuse):
 		# activations tried: sigmoid 6.6 , relu X , tanh 8.8 (on data)
-		fc1 = tf.layers.dense(x, 516, activation = tf.nn.tanh)
+		fc1 = tf.layers.dense(x, 1000, activation = tf.nn.tanh)
 		fc1 = tf.layers.dropout(fc1, rate = dropout, training = is_training)
-		fc2 = tf.layers.dense(fc1, 256, activation = tf.nn.tanh)
+		fc2 = tf.layers.dense(fc1, 500, activation = tf.nn.tanh)
 		fc2 = tf.layers.dropout(fc2, rate = dropout, training = is_training)
-		fc3 = tf.layers.dense(fc2, 128, activation = tf.nn.tanh)
+		fc3 = tf.layers.dense(fc2, 200, activation = tf.nn.tanh)
 		outputs = list()
 		for i in range(n_classes):
 			out_i = tf.layers.dense(fc3, n_classes)
