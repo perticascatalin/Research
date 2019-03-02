@@ -26,6 +26,8 @@ In this study we run experiments on data with mathematical properties such as se
 
 ### Introduction
 
+### Predicting the correct order
+
 The experiment models the manipulation of arrays with different numbers and of different lenghts. First, we formulate the problem of predicting the sorted order of the initial numbers. This problem involves the concepts of order relations, counting and permutations.
 
 - N = 5
@@ -38,6 +40,8 @@ The experiment models the manipulation of arrays with different numbers and of d
 |Sorted position |  5|  2|  1|  3|  4|
 |Maximum         |  1|  0|  0|  0|  0|
 |Minimum         |  0|  0|  1|  0|  0|
+
+#### Order Relations
 
 - Order relations: Is A smaller than B?
 - 0/1 for pair (A/B)
@@ -61,6 +65,10 @@ In the above case, the sorted position of 49 is equal to O(1,1) + O(2,1) + O(3,1
 1. **Comparison** between decision tree and multilayer perceptron. Multiple variants of decision trees: decision, forest and extreme.
 
 2. **Input data**: initial numbers and their elementwise comparison vector.
+
+Briefly describe the models used and the intuitions behind them. Illustrate their structure and mechanism.
+
+### Results
 
 We show how this poses scalability problems for the chosen machine learning models (neural networks and decision trees). For instance:
 
@@ -90,12 +98,16 @@ The neural network performs better than the decision tree-based models up to N =
 - Range 20: NN 1.4 E_96 4.6
 - Range 24: NN 1.0 E_96 3.5
 
+### Problem Complexity
+
 Next, we try to find some of the underlying reasons. For instance, by measuring the impact of data representation: bare numbers or numbers with an order relation. This is done by investigating the properties of the input and target spaces.
 
 - important space dimensions (set cardinality):
 - N! vs. MAXINT!/(MAXINT-N)! vs. 2^((N)x(N-1)/2) vs. 2^N
 
 Then we look for changes in the models or the problem formulation that could help improve our solution.
+
+### Future Work
 
 *To investigate further*
 
