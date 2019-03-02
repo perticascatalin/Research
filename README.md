@@ -156,14 +156,15 @@ Display graphic array before and after - barchart, stacking vs. coloring.
 ### 7. Related work
 
 Links to information theory and deep learning [X], [Y].
+Sorting-related experiments with deep learning [A], [B].
 
 The importance of prior information and pre-learned intermediate concepts. Composition of 2 highly non-linear tasks and other hypothesis such as local minima obstacle and guided/transfer learning [X].
 
-Gradients in highly composed functions or hard constraints [Y].
+Gradients in highly composed functions or hard constraints. Accuracy as a function of input dimensionality. Gradient based methods cannot learn reasonably fast random parities and linear-periodic functions [Y].
 
 There are some other works where simple algorithms are inferred via neural networks. For example, in [A], the operations of copying and sorting an array are performed with a fully differentiable network connected to an eternal memory via attention. 
 
-In another approach, [B] presents a sorting experiment for sets of numbers using a sequence to sequence model.
+In another approach, [B] presents a sorting experiment for sets of numbers using a sequence to sequence model. The fundamental question which the study raises is how to represent sets as a sequence when the underlying order is not known or doesn't exist.
 
 ### 8. References
 
@@ -171,6 +172,6 @@ In another approach, [B] presents a sorting experiment for sets of numbers using
 
 [B] O. Vinyals, S. Bengio, and M. Kudlur, “OrderMatters: Sequence to Sequence for Sets”, in 4th International Conference on Learning Representations (ICLR), 2016.
 
-[X] C. Gulcehre and Y. Bengio, "Knowledge Matters: Importance of Prior Information for Optimization"
+[X] C. Gulcehre and Y. Bengio, "Knowledge Matters: Importance of Prior Information for Optimization", Journal of Machine Learning Research, 2016.
 
-[Y] S. Shalev-Shwartz and O. Shamir and S Shammah, "Failures of Gradient-Based Deep Learning"
+[Y] S. Shalev-Shwartz and O. Shamir and S Shammah, "Failures of Gradient-Based Deep Learning", arXiv:1301.4083v6, 2013.
