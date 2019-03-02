@@ -4,13 +4,15 @@
 
 ### Motivation
 
-Whatever tasks they have to model, neural networks often encounter the problem of modeling relevance - how to assign 1st, 2nd, 3rd and so on to data chunks such that it answers some questions. Such an example is the spatial ordering of elements in a visual scene as shown below.
+Whatever tasks they have to model, neural networks often encounter the problem of modeling relevance and priority - how to assign 1st, 2nd, 3rd and so on to data chunks such that it answers some questions. Such an example is the spatial ordering of elements in a visual scene as shown below.
 
 |Example|Description|
 |:-----:|:---------:|
 |![logico_visual](https://raw.githubusercontent.com/perticascatalin/MastersExperiments/master/Permutation/images/logico_visual.png)|Start from logico-visual tasks learned by a neural network and continue with set theory and an analysis to solve particular questions.|
 
 Understanding how neural networks and other supervised learning models learn to answer such questions by processing large amounts of labeled data is of importance to any visual automated tasks from tracking objects of interest in scenes to self-driving cars. From this perspective, we look at the challenges that come with an increased number of objects (above 10 typically).
+
+
 
 ### Introduction
 
