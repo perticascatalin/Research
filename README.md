@@ -64,11 +64,11 @@ Briefly describe the models used and the intuitions behind them. Illustrate thei
 
 #### 2.1 Input data
 
-Initial numbers and their elementwise comparison vector
+Initial numbers and their elementwise comparison vector to help as prior knowledge about the existing relations between numbers.
 
 #### 2.2 Comparison
 
-Between decision tree and multilayer perceptron. Multiple variants of decision trees: decision, forest and extreme.
+Between decision tree and multilayer perceptron. Multiple variants of decision trees: decision, forest and extreme. The neural network is mostly tuned by exploring different options for activations functions and increasing the number of layers/neurons until there are no visible improvements. 
 
 ### 3. Results
 
@@ -141,17 +141,17 @@ Display graphic array before and after - barchart, stacking vs. coloring.
 
 ### 6. Experiments vs Theory
 
-Adding comparison prior knowledge to data
+1. Adding comparison prior knowledge to data
 
-Storage capability: predicting the order vs. predicting elements in order
+2. Storage capability: predicting the order vs. predicting elements in order
 
-Maximizing expected value vs. optimization
+3. Maximizing expected value vs. optimization
 
-Impurity vs. local minima
+4. Impurity vs. local minima
 
-Attribute split vs. non-linear combinations
+5. Attribute split vs. non-linear combinations
 
-Models scalability
+6. Models scalability
 
 ### 7. Related work
 
