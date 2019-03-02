@@ -4,7 +4,9 @@
 
 ### Motivation
 
-Start from logico-visual tasks learned by a neural network and continue with set theory and an alanysis to solve particular questions.
+Start from logico-visual tasks learned by a neural network and continue with set theory and an analysis to solve particular questions.
+
+![logico_visual](https://raw.githubusercontent.com/perticascatalin/MastersExperiments/master/Permutation/images/logico_visual.png)
 
 ### Introduction
 
