@@ -1,12 +1,12 @@
 # MastersExperiments
 
-## Experiment 1: Statistically learning the correct order and other relational operations (in progress)
+## E1: Statistically learning the correct order and other relational operations (in progress)
 
 ### Motivation
 
-Start from logico-visual tasks learned by a neural network and continue with set theory and an analysis to solve particular questions.
-
-![logico_visual](https://raw.githubusercontent.com/perticascatalin/MastersExperiments/master/Permutation/images/logico_visual.png)
+|Example|Description|
+|:-----:|:---------:|
+|![logico_visual](https://raw.githubusercontent.com/perticascatalin/MastersExperiments/master/Permutation/images/logico_visual.png)|Start from logico-visual tasks learned by a neural network and continue with set theory and an analysis to solve particular questions.|
 
 ### Introduction
 
