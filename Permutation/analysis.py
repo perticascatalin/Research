@@ -3,6 +3,7 @@ import matplotlib.pyplot as plt
 import setup as stp
 
 N_CLASSES = stp.num_classes()
+N_OUT_CLASSES = stp.num_out_classes()
 
 def debugger(correct_pred, logits, y_exp, x):
 	print (str(int(correct_pred[0])) + " out of " + str(N_CLASSES))
@@ -20,12 +21,13 @@ def debugger(correct_pred, logits, y_exp, x):
 	# 	out.append((f_max, f_max_2))
 	# print out
 
-def print_1by1(arr, title):
+def print_1by1(arr, title, n_classes):
 	line = ""
-	for i in range(N_CLASSES):
+	for i in range(n_classes):
 		line += (str(arr[i]) + " ")
 	print (title + line)
 
+# Specific to sorting
 def print_barchart(arr, expect, actual, figname):
 	n_groups = len(arr[:N_CLASSES])
 	fig, ax = plt.subplots()
@@ -43,7 +45,7 @@ def print_barchart(arr, expect, actual, figname):
 	plt.xticks(index + bar_width, tuple(xticks))
 	plt.legend()
 	plt.savefig('./data/' + figname)
-	plt.clef()
+	plt.clf()
 
 # asm plot
 def print_acc_scale_models():
@@ -64,12 +66,12 @@ def print_acc_scale_models():
 def pretty_printing(correct_pred, logits, y_exp, x, epoch):
 	out = list()
 	y_pred = list()
-	for j in range(N_CLASSES):
+	for j in range(N_OUT_CLASSES):
 		y_pred.append(np.argmax(logits[j][0]))
-	print_1by1(x[0], 'input: ')
-	print_1by1(y_exp[0], 'expect:')
-	print_1by1(y_pred, 'pred:  ')
-	print_barchart(x[0], list(y_exp[0]), y_pred, ('labels_' + str(epoch) + '.png'))
+	print_1by1(x[0], 'input: ', N_CLASSES)
+	print_1by1(y_exp[0], 'expect:', N_OUT_CLASSES)
+	print_1by1(y_pred, 'pred:  ', N_OUT_CLASSES)
+	#print_barchart(x[0], list(y_exp[0]), y_pred, ('labels_' + str(epoch) + '.png'))
 
 #print_barchart(list([10, 30, 20, 40, 50]), list([1, 3, 2, 4, 5]), list([1, 2, 3, 4, 5]), 'labels_0.png')
 #print_acc_scale_models()

@@ -8,6 +8,7 @@ import setup as stp
 # Setup experiment size and parameters
 os.environ['TF_CPP_MIN_LOG_LEVEL']='2'
 N_CLASSES = stp.num_classes()
+N_OUT_CLASSES = stp.num_out_classes()
 N_FEAT = (N_CLASSES*(N_CLASSES - 1))/2
 dropout = 0.8
 learning_rate = 0.001
@@ -24,7 +25,7 @@ def neural_net(x, inputs, n_classes, dropout, reuse, is_training):
 		fc2 = tf.layers.dropout(fc2, rate = dropout, training = is_training)
 		fc3 = tf.layers.dense(fc2, 128, activation = tf.nn.tanh)
 		outputs = list()
-		for i in range(N_CLASSES):
+		for i in range(n_classes):
 			out_i = tf.layers.dense(fc3, n_classes)
 			out_i = tf.nn.softmax(out_i) if not is_training else out_i
 			outputs.append(out_i)
@@ -43,13 +44,13 @@ lsts_val, orders_val = tf.train.slice_input_producer([lsts_val, orders_val], shu
 X, Y = tf.train.batch([lsts_train, orders_train], batch_size = batch_size, capacity = batch_size * 8, num_threads = 4)
 X_val, Y_val = tf.train.batch([lsts_val, orders_val], batch_size = batch_size, capacity = batch_size * 8, num_threads = 4)
 
-logits_train, y_train = neural_net(X, Y, N_CLASSES, dropout, reuse = False, is_training = True)
-logits_test, y_test = neural_net(X, Y, N_CLASSES, dropout, reuse = True, is_training = False)
-logits_val, y_val = neural_net(X_val, Y_val, N_CLASSES, dropout, reuse = True, is_training = False)
-logits_eye, y_eye = neural_net(X_val, Y_val, N_CLASSES, dropout, reuse = True, is_training = False)
+logits_train, y_train = neural_net(X, Y, N_OUT_CLASSES, dropout, reuse = False, is_training = True)
+logits_test, y_test = neural_net(X, Y, N_OUT_CLASSES, dropout, reuse = True, is_training = False)
+logits_val, y_val = neural_net(X_val, Y_val, N_OUT_CLASSES, dropout, reuse = True, is_training = False)
+logits_eye, y_eye = neural_net(X_val, Y_val, N_OUT_CLASSES, dropout, reuse = True, is_training = False)
 
 loss_op = tf.constant(0.0, dtype = tf.float32)
-for i in range(N_CLASSES):
+for i in range(N_OUT_CLASSES):
 	loss_op = loss_op + tf.reduce_mean(tf.nn.sparse_softmax_cross_entropy_with_logits(\
 	logits = logits_train[i], labels = Y[:,i]))
 
@@ -58,12 +59,12 @@ optimizer = tf.train.AdamOptimizer(learning_rate = learning_rate)
 train_op = optimizer.minimize(loss_op)
 
 correct_pred_val = tf.constant(0.0, dtype = tf.float32)
-for i in range(N_CLASSES):
+for i in range(N_OUT_CLASSES):
 	correct_pred_val = correct_pred_val + tf.cast(tf.equal(tf.argmax(logits_val[i], 1), tf.cast(Y_val[:,i], tf.int64)), tf.float32)
 accuracy_val = tf.reduce_mean(correct_pred_val)
 
 correct_pred_train = tf.constant(0.0, dtype = tf.float32)
-for i in range(N_CLASSES):
+for i in range(N_OUT_CLASSES):
 	correct_pred_train = correct_pred_train + tf.cast(tf.equal(tf.argmax(logits_test[i], 1), tf.cast(Y[:,i], tf.int64)), tf.float32)
 accuracy_train = tf.reduce_mean(correct_pred_train)
 

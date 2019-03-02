@@ -6,13 +6,14 @@ import generator as gen
 import setup as stp
 
 N_CLASSES = stp.num_classes()
+N_OUT_CLASSES = stp.num_out_classes()
 N_ESTIM = stp.n_estim()
 
 def sorting_accuracy(orders_pred, orders_expect):
 	acc = 0.0
 	for i in range(len(orders_pred)):
 		c_acc = 0.0
-		for j in range(N_CLASSES):
+		for j in range(N_OUT_CLASSES):
 			predicted = int(orders_pred[i][j])
 			actual = orders_expect[i][j]
 			#print predicted, actual
