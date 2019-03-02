@@ -12,7 +12,9 @@ Whatever tasks they have to model, neural networks often encounter the problem o
 
 Understanding how neural networks and other supervised learning models learn to answer such questions by processing large amounts of labeled data is of importance to any visual automated tasks from tracking objects of interest in scenes to self-driving cars. From this perspective, we look at the challenges that come with an increased number of objects (above 10 typically).
 
-
+|Example|Description|
+|:-----:|:---------:|
+|![relational_sequence_sets](https://raw.githubusercontent.com/perticascatalin/MastersExperiments/master/Permutation/images/relational_sequence_sets.png)||
 
 ### Introduction
 
