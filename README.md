@@ -4,17 +4,25 @@
 
 ### Motivation
 
+#### Relevance and priority
+
 Whatever tasks they have to model, neural networks often encounter the problem of modeling relevance and priority - how to assign 1st, 2nd, 3rd and so on to data chunks such that it answers some questions. Such an example is the spatial ordering of elements in a visual scene as shown below.
 
 |Example|Description|
 |:-----:|:---------:|
 |![logico_visual](https://raw.githubusercontent.com/perticascatalin/MastersExperiments/master/Permutation/images/logico_visual.png)|Start from logico-visual tasks learned by a neural network and continue with set theory and an analysis to solve particular questions.|
 
+#### Visual Tasks
+
 Understanding how neural networks and other supervised learning models learn to answer such questions by processing large amounts of labeled data is of importance to any visual automated tasks from tracking objects of interest in scenes to self-driving cars. From this perspective, we look at the challenges that come with an increased number of objects (above 10 typically).
 
 |Example|Description|
 |:-----:|:---------:|
 |![relational_sequence_sets](https://raw.githubusercontent.com/perticascatalin/MastersExperiments/master/Permutation/images/relational_sequence_sets.png)|Data relations: a sequence representing a certain order of the objects - set w. order relation. The set of all permutations. Symmetric group (composition).|
+
+#### Mathematical Structures
+
+In this study we run experiments on data with mathematical properties such as sets, permutations and groups. And then we look at the impact of their solving difficulty in practical applications. Along the way we mention previously encountered challenges in machine learning from which the  problem at hand suffers, but the focus will be on how we can exploit its structure.
 
 ### Introduction
 
