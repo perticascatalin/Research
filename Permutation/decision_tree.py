@@ -30,8 +30,8 @@ def tree_model(name):
 	else:
 		return tree.DecisionTreeClassifier()
 
-lsts_train, orders_train = gen.get_newer_data()
-lsts_val, orders_val = gen.get_newer_data()
+lsts_train, orders_train = gen.all()
+lsts_val, orders_val = gen.all()
 
 clf = tree_model("extreme")
 clf = clf.fit(lsts_train, orders_train)

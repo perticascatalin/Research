@@ -63,7 +63,7 @@ def gen_ith(ith_target):
 	return lst, ith
 
 # Just numbers
-def get_data(dtype = 'int'):
+def data(dtype = 'int'):
 	lsts, orders = list(), list()
 	for i in range(N_SAMPLES):
 		lst, order = gen_list(dtype)
@@ -71,8 +71,8 @@ def get_data(dtype = 'int'):
 		orders.append(order)
 	return lsts, orders
 
-# just order relations
-def get_new_data():
+# Just order relations
+def order_relations():
 	lsts, orders = list(), list()
 	for i in range(N_SAMPLES):
 		lst, order = gen_list('int')
@@ -87,8 +87,8 @@ def get_new_data():
 		orders.append(order)
 	return lsts, orders
 
-# numbers and order relations
-def get_newer_data():
+# Numbers and Order Relations
+def all():
 	lsts, orders = list(), list()
 	for i in range(N_SAMPLES):
 		lst, order = gen_list('int')

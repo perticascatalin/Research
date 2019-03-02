@@ -31,12 +31,12 @@ def neural_net(x, inputs, n_classes, dropout, reuse, is_training):
 			outputs.append(out_i)
 	return outputs, inputs
 
-lsts_train, orders_train = gen.get_newer_data()
+lsts_train, orders_train = gen.all()
 lsts_train = tf.convert_to_tensor(lsts_train, dtype = tf.float32)
 orders_train = tf.convert_to_tensor(orders_train, dtype = tf.int32)
 lsts_train, orders_train = tf.train.slice_input_producer([lsts_train, orders_train], shuffle = True)
 
-lsts_val, orders_val = gen.get_newer_data()
+lsts_val, orders_val = gen.all()
 lsts_val = tf.convert_to_tensor(lsts_val, dtype = tf.float32)
 orders_val = tf.convert_to_tensor(orders_val, dtype = tf.int32)
 lsts_val, orders_val = tf.train.slice_input_producer([lsts_val, orders_val], shuffle = True)
