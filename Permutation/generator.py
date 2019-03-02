@@ -20,11 +20,15 @@ def gen_list(dtype = 'int'):
 			else:
 				num = random.randint(1, MAXINT)
 
+			# Condition to generate unique numbers
 			if lst.count(num) == 0:
 				lst.append(num)
 				break
 			else:
 				continue
+
+	# Count number of elements smaller than each individual element
+	# That number is its final position
 	for i in range(N_CLASSES):
 		count = 0
 		for j in range(N_CLASSES):
@@ -33,7 +37,32 @@ def gen_list(dtype = 'int'):
 		order.append(count)
 	return lst, order
 
-# just numbers
+# Just for int
+def gen_ith(ith_target):
+	lst, ith = list(), list()
+	for i in range(N_CLASSES):
+		while True:
+			num = random.randint(1, MAXINT)
+
+			# Condition to generate unique numbers
+			if lst.count(num) == 0:
+				lst.append(num)
+				break
+			else:
+				continue
+	# Find the ith element in the sorted list
+	for i in range(N_CLASSES):
+		count = 0
+		for j in range(N_CLASSES):
+			if lst[j] < lst[i]:
+				count += 1
+
+		if count == ith_target - 1:
+			ith.append(count)
+		order.append(count)
+	return lst, ith
+
+# Just numbers
 def get_data(dtype = 'int'):
 	lsts, orders = list(), list()
 	for i in range(N_SAMPLES):
