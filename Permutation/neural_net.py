@@ -18,7 +18,7 @@ batch_size = 128
 
 def neural_net(x, inputs, n_classes, dropout, reuse, is_training):
 	with tf.variable_scope('NeuralNet', reuse = reuse):
-		# activations tried: sigmoid 6.6 , relu X , tanh 8.8
+		# activations tried: sigmoid 6.6 , relu X , tanh 8.8 (on data)
 		fc1 = tf.layers.dense(x, 516, activation = tf.nn.tanh)
 		fc1 = tf.layers.dropout(fc1, rate = dropout, training = is_training)
 		fc2 = tf.layers.dense(fc1, 256, activation = tf.nn.tanh)
@@ -98,8 +98,8 @@ with tf.Session() as sess:
 				if i % 100 == 0:
 					correct_pred, logits, y_exp, x = sess.run([correct_pred_val, logits_eye, Y_val, X_val])
 					co.debugger(correct_pred, logits, y_exp, x)
-					co.pretty_printing(correct_pred, logits, y_exp, x, step)
-				#print acc_train
+					co.print_pretty(correct_pred, logits, y_exp, x, step)
+				
 				total_loss += loss
 				training_accuracy += acc_train
 				validation_accuracy += acc_val

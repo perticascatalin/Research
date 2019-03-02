@@ -5,21 +5,22 @@ import setup as stp
 N_CLASSES = stp.num_classes()
 N_OUT_CLASSES = stp.num_out_classes()
 
-def debugger(correct_pred, logits, y_exp, x):
+def debugger(correct_pred, logits, y_exp, x, second_choice = False):
 	print (str(int(correct_pred[0])) + " out of " + str(N_CLASSES))
-	# to check first and second choice
-	# out = list()
-	# for j in range(N_CLASSES):
-	# 	f_max = np.argmin(logits[0][j])
-	# 	f_max_2 = np.argmin(logits[0][j])
-	# 	for k in range(N_CLASSES):
-	# 		if logits[j][0][k] > logits[j][0][f_max]:
-	# 			f_max_2 = f_max
-	# 			f_max = k
-	# 		elif logits[j][0][k] > logits[j][0][f_max_2]:
-	# 			f_max_2 = k
-	# 	out.append((f_max, f_max_2))
-	# print out
+	# To check first and second choice
+	if (second_choice):
+		out = list()
+		for j in range(N_CLASSES):
+			f_max = np.argmin(logits[0][j])
+			f_max_2 = np.argmin(logits[0][j])
+			for k in range(N_CLASSES):
+				if logits[j][0][k] > logits[j][0][f_max]:
+					f_max_2 = f_max
+					f_max = k
+				elif logits[j][0][k] > logits[j][0][f_max_2]:
+					f_max_2 = k
+			out.append((f_max, f_max_2))
+		print out
 
 def print_1by1(arr, title, n_classes):
 	line = ""
@@ -47,7 +48,7 @@ def print_barchart(arr, expect, actual, figname):
 	plt.savefig('./data/' + figname)
 	plt.clf()
 
-# asm plot
+# ASM plot (accuracy vs. scalability vs. models)
 def print_acc_scale_models():
 	ns = [6, 8, 9, 10, 11, 12, 16, 20, 24]
 	nn = [1.00, 1.00, 1.00, 0.95, 0.66, 0.44, 0.23, 0.07, 0.04]
@@ -63,7 +64,7 @@ def print_acc_scale_models():
 	plt.savefig('./results/' + 'asm.png')
 	plt.clf()
 
-def pretty_printing(correct_pred, logits, y_exp, x, epoch):
+def print_pretty(correct_pred, logits, y_exp, x, epoch):
 	out = list()
 	y_pred = list()
 	for j in range(N_OUT_CLASSES):
