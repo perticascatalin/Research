@@ -14,7 +14,7 @@ Understanding how neural networks and other supervised learning models learn to 
 
 |Example|Description|
 |:-----:|:---------:|
-|![relational_sequence_sets](https://raw.githubusercontent.com/perticascatalin/MastersExperiments/master/Permutation/images/relational_sequence_sets.png)||
+|![relational_sequence_sets](https://raw.githubusercontent.com/perticascatalin/MastersExperiments/master/Permutation/images/relational_sequence_sets.png)|Data relations: a sequence representing a certain order of the objects - set w. order relation. The set of all permutations. Symmetric group (composition).|
 
 ### Introduction
 
