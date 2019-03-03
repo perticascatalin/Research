@@ -42,28 +42,33 @@ def print_barchart(arr, expect, actual, figname):
 	# expect_t, actual_t, expect_f, actual_f
 
 	expect_t = []
+	e_index_t = []
 	expect_f = []
+	e_index_f = []
+
 	actual_t = []
+	a_index_t = []
 	actual_f = []
+	a_index_f = []
+
+	start_index = 0
 	for e, a in zip(expect, actual):
 		if e == a:
-			#print True
-			expect_t.append(e)
-			actual_t.append(a)
-			expect_f.append(0)
-			actual_f.append(0)
+			expect_t.append(e+1)
+			actual_t.append(a+1)
+			e_index_t.append(start_index)
+			a_index_t.append(start_index)
 		else:
-			#print False
-			expect_t.append(0)
-			actual_t.append(0)
-			expect_f.append(e)
-			actual_f.append(a)
+			expect_f.append(e+1)
+			actual_f.append(a+1)
+			e_index_f.append(start_index)
+			a_index_f.append(start_index)
+		start_index += 1
 
-	# Does not work quite properly yet
-	rects1 = plt.bar(index, expect_t, bar_width, alpha=opacity, color='b', label='Expected')
-	rects2 = plt.bar(index, expect_f, bar_width, alpha=opacity, color='y', label='Expected')
-	rects3 = plt.bar(index + bar_width, actual_t, bar_width, alpha=opacity, color='g', label='Actual')
-	rects4 = plt.bar(index + bar_width, actual_f, bar_width, alpha=opacity, color='r', label='Actual')
+	rects1 = plt.bar(np.array(e_index_t), expect_t, bar_width, alpha=opacity, color='b', label='Expected Correct')
+	rects2 = plt.bar(np.array(e_index_f), expect_f, bar_width, alpha=opacity, color='y', label='Expected Wrong')
+	rects3 = plt.bar(np.array(a_index_t) + bar_width, actual_t, bar_width, alpha=opacity, color='g', label='Actual Correct')
+	rects4 = plt.bar(np.array(a_index_f) + bar_width, actual_f, bar_width, alpha=opacity, color='r', label='Actual Wrong')
 	#rects1 = plt.bar(index, expect, bar_width, alpha=opacity, color='g', label='Expected')
 	#rects2 = plt.bar(index + bar_width, actual, bar_width, alpha=opacity, color='b', label='Actual')
 	 
