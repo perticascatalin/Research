@@ -72,6 +72,10 @@ Between decision tree and multilayer perceptron. Multiple variants of decision t
 
 ### 3. Results
 
+|Prediction|Epoch|
+|:--------:|:---:|
+
+
 Split into categories [useless (less than 10% acc) - guess (max 5) - good guess (7) - problem solved (N)]. Rank all the samples in a batch - by accuracy or mean squared error (proximity).
 
 #### 3.1 Scalability
