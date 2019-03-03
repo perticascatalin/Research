@@ -37,13 +37,40 @@ def print_barchart(arr, expect, actual, figname):
 	bar_width = 0.35
 	opacity = 0.8
 
-	rects1 = plt.bar(index, tuple(expect), bar_width, alpha=opacity, color='g', label='Expected')
-	rects2 = plt.bar(index + bar_width, tuple(actual), bar_width, alpha=opacity, color='r', label='Actual')
+	# expect1, actual1, expect2, actual2
+	# add another class
+	# expect_t, actual_t, expect_f, actual_f
+
+	expect_t = []
+	expect_f = []
+	actual_t = []
+	actual_f = []
+	for e, a in zip(expect, actual):
+		if e == a:
+			#print True
+			expect_t.append(e)
+			actual_t.append(a)
+			expect_f.append(0)
+			actual_f.append(0)
+		else:
+			#print False
+			expect_t.append(0)
+			actual_t.append(0)
+			expect_f.append(e)
+			actual_f.append(a)
+
+	# Does not work quite properly yet
+	rects1 = plt.bar(index, expect_t, bar_width, alpha=opacity, color='b', label='Expected')
+	rects2 = plt.bar(index, expect_f, bar_width, alpha=opacity, color='y', label='Expected')
+	rects3 = plt.bar(index + bar_width, actual_t, bar_width, alpha=opacity, color='g', label='Actual')
+	rects4 = plt.bar(index + bar_width, actual_f, bar_width, alpha=opacity, color='r', label='Actual')
+	#rects1 = plt.bar(index, expect, bar_width, alpha=opacity, color='g', label='Expected')
+	#rects2 = plt.bar(index + bar_width, actual, bar_width, alpha=opacity, color='b', label='Actual')
 	 
 	plt.xlabel('Element')
 	plt.ylabel('Value')
 	plt.title('Expected vs. actual labels')
-	plt.xticks(index + bar_width, tuple(xticks))
+	plt.xticks(index + bar_width, xticks)
 	plt.legend()
 	plt.savefig('./data/' + figname)
 	plt.clf()
@@ -72,7 +99,7 @@ def print_pretty(correct_pred, logits, y_exp, x, epoch):
 	print_1by1(x[0], 'input: ', N_CLASSES)
 	print_1by1(y_exp[0], 'expect:', N_OUT_CLASSES)
 	print_1by1(y_pred, 'pred:  ', N_OUT_CLASSES)
-	#print_barchart(x[0], list(y_exp[0]), y_pred, ('labels_' + str(epoch) + '.png'))
+	print_barchart(x[0], list(y_exp[0]), y_pred, ('labels_' + str(epoch) + '.png'))
 
 #print_barchart(list([10, 30, 20, 40, 50]), list([1, 3, 2, 4, 5]), list([1, 2, 3, 4, 5]), 'labels_0.png')
 #print_acc_scale_models()
