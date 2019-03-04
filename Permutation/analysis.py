@@ -82,7 +82,7 @@ def print_barchart(arr, expect, actual, figname):
 	plt.ylabel('Value')
 	plt.title('Expected vs. actual labels')
 	plt.xticks(index + bar_width, xticks)
-	plt.legend(handles = [blue_patch, yellow_patch, green_patch, red_patch])
+	plt.legend(bbox_to_anchor=(1.14, 1.14), handles = [blue_patch, yellow_patch, green_patch, red_patch])
 	plt.savefig('./data/' + figname)
 	plt.clf()
 
