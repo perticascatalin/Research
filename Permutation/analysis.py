@@ -1,5 +1,6 @@
 import numpy as np
 import matplotlib.pyplot as plt
+import matplotlib.patches as mpatches
 import setup as stp
 
 N_CLASSES = stp.num_classes
@@ -71,12 +72,17 @@ def print_barchart(arr, expect, actual, figname):
 	rects4 = plt.bar(np.array(a_index_f) + bar_width, actual_f, bar_width, alpha=opacity, color='r', label='Actual Wrong')
 	#rects1 = plt.bar(index, expect, bar_width, alpha=opacity, color='g', label='Expected')
 	#rects2 = plt.bar(index + bar_width, actual, bar_width, alpha=opacity, color='b', label='Actual')
-	 
+	
+	blue_patch = mpatches.Patch(color='b', label='Expected Correct')
+	yellow_patch = mpatches.Patch(color='y', label='Expected Wrong')
+	green_patch = mpatches.Patch(color='g', label='Actual Correct')
+	red_patch = mpatches.Patch(color='r', label='Actual Wrong')
+
 	plt.xlabel('Element')
 	plt.ylabel('Value')
 	plt.title('Expected vs. actual labels')
 	plt.xticks(index + bar_width, xticks)
-	plt.legend()
+	plt.legend(handles = [blue_patch, yellow_patch, green_patch, red_patch])
 	plt.savefig('./data/' + figname)
 	plt.clf()
 
@@ -106,6 +112,6 @@ def print_pretty(correct_pred, logits, y_exp, x, epoch):
 	print_1by1(y_pred, 'pred:  ', N_OUT_CLASSES)
 	print_barchart(x[0], list(y_exp[0]), y_pred, ('labels_' + str(epoch) + '.png'))
 
-print_barchart(list([10, 30, 20, 40, 50]), list([1, 3, 2, 4, 5]), list([1, 2, 3, 4, 5]), 'labels_0.png')
-print_barchart(list([10, 20, 30, 40, 50]), list([1, 2, 3, 4, 5]), list([1, 2, 3, 4, 5]), 'labels_1.png')
+#print_barchart(list([10, 30, 20, 40, 50]), list([1, 3, 2, 4, 5]), list([1, 2, 3, 4, 5]), 'labels_0.png')
+#print_barchart(list([10, 20, 30, 40, 50]), list([1, 2, 3, 4, 5]), list([1, 2, 3, 4, 5]), 'labels_1.png')
 #print_acc_scale_models()
