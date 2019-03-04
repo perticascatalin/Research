@@ -56,10 +56,8 @@ def gen_ith(ith_target):
 		for j in range(N_CLASSES):
 			if lst[j] < lst[i]:
 				count += 1
-
 		if count == ith_target - 1:
-			ith.append(count)
-		order.append(count)
+			ith.append(i)
 	return lst, ith
 
 # Just numbers
@@ -69,6 +67,15 @@ def data(dtype = 'int'):
 		lst, order = gen_list(dtype)
 		lsts.append(lst)
 		orders.append(order)
+	return lsts, orders
+
+# Minimum
+def simple_data():
+	lsts, orders = list(), list()
+	for i in range(N_SAMPLES):
+		lst, mins = gen_ith(1)
+		lsts.append(lst)
+		orders.append(mins)
 	return lsts, orders
 
 # Just order relations
