@@ -72,6 +72,14 @@ Between decision tree and multilayer perceptron. Multiple variants of decision t
 
 ### 3. Results
 
+#### 3.1 Views
+
+Display graphic array before and after: 
+
+- barchart-done
+- stacking
+- coloring
+
 |Prediction|Guesses|Epoch|
 |:--------:|:-----:|:---:|
 |![l_1000](https://raw.githubusercontent.com/perticascatalin/MastersExperiments/master/Permutation/results/labels/labels_1000.png)|5 out of 10|1.000|
@@ -80,9 +88,12 @@ Between decision tree and multilayer perceptron. Multiple variants of decision t
 |![l_22000](https://raw.githubusercontent.com/perticascatalin/MastersExperiments/master/Permutation/results/labels/labels_22000.png)|9 out of 10|22.000|
 
 
+#### 3.2 Overall View
+
+Where does the model fail?
 Split into categories [useless (less than 10% acc) - guess (max 5) - good guess (7) - problem solved (N)]. Rank all the samples in a batch - by accuracy or mean squared error (proximity).
 
-#### 3.1 Scalability
+#### 3.3 Scalability
 
 We show how this poses scalability problems for the chosen machine learning models (neural networks and decision trees). For instance:
 
@@ -101,7 +112,7 @@ The neural network performs better than the decision tree-based models up to N =
 |![asm_plot](https://raw.githubusercontent.com/perticascatalin/MastersExperiments/master/Permutation/results/asm.png)|Extreme forest with 96 estimators vs. multilayer_perceptron with ~1000 neurons in 4 layers (512, 256, 128) dense + N multi-label outputs. Rand ~ 1/N|
 
 
-#### 3.2 Metrics
+#### 3.4 Metrics
 
 We compute a partial accuracy - the average number of elements guessed in N arrays.
 
@@ -144,14 +155,11 @@ Neural network has to store the numbers.
 
 6. Constraint non-identical labels
 
-7. Views
-Display graphic array before and after - barchart, stacking vs. coloring.
+7. Input-output matching cardinality
 
-8. Input-output matching cardinality
+8. Feature importances from decision tree
 
-9. Feature importances from decision tree
-
-10. Trick network by having some fixed positions.
+9. Trick network by having some fixed positions.
 K out of N elements are fixed such that solving the problem for them yields better results than for bothering with the rest of the elements.
 
 ### 6. Experiments vs Theory
