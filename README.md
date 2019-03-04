@@ -93,7 +93,20 @@ Display graphic array before and after:
 Where does the model fail?
 Split into categories [useless (less than 10% acc) - guess (max 5) - good guess (7) - problem solved (N)]. Rank all the samples in a batch - by accuracy or mean squared error (proximity).
 
-#### 3.3 Scalability
+#### 3.3 Metrics
+
+We compute a partial accuracy - the average number of elements guessed in N arrays.
+
+- Data: DC
+- Range 6:         E_96 6.0 NN 6.0
+- Range 8:  D  6.0 E_96 7.9 NN 8.0
+- Range 10: D  4.0 E_96 7.5 NN 9.5
+- Range 12: NN 5.3 E_96 7.2
+- Range 16: NN 3.6 E_96 5.4
+- Range 20: NN 1.4 E_96 4.6
+- Range 24: NN 1.0 E_96 3.5
+
+#### 3.4 Scalability
 
 We show how this poses scalability problems for the chosen machine learning models (neural networks and decision trees). For instance:
 
@@ -110,20 +123,6 @@ The neural network performs better than the decision tree-based models up to N =
 |Accuracy|Model Description|
 |:------:|:---------------:|
 |![asm_plot](https://raw.githubusercontent.com/perticascatalin/MastersExperiments/master/Permutation/results/asm.png)|Extreme forest with 96 estimators vs. multilayer_perceptron with ~1000 neurons in 4 layers (512, 256, 128) dense + N multi-label outputs. Rand ~ 1/N|
-
-
-#### 3.4 Metrics
-
-We compute a partial accuracy - the average number of elements guessed in N arrays.
-
-- Data: DC
-- Range 6:         E_96 6.0 NN 6.0
-- Range 8:  D  6.0 E_96 7.9 NN 8.0
-- Range 10: D  4.0 E_96 7.5 NN 9.5
-- Range 12: NN 5.3 E_96 7.2
-- Range 16: NN 3.6 E_96 5.4
-- Range 20: NN 1.4 E_96 4.6
-- Range 24: NN 1.0 E_96 3.5
 
 ### 4. Problem Complexity
 
