@@ -187,6 +187,10 @@ In another approach, [B] presents a sorting experiment for sets of numbers using
 
 [B] O. Vinyals, S. Bengio, and M. Kudlur, “OrderMatters: Sequence to Sequence for Sets”, in 4th International Conference on Learning Representations (ICLR), 2016.
 
+[C] A. Santoro et al, "A simple neural network module for relational reasoning"
+
+[D] D. Hudson and C. Manning, "Compositional Attention Networks for Machine Reasoning"
+
 [X] C. Gulcehre and Y. Bengio, "Knowledge Matters: Importance of Prior Information for Optimization", Journal of Machine Learning Research, 2016.
 
 [Y] S. Shalev-Shwartz and O. Shamir and S Shammah, "Failures of Gradient-Based Deep Learning", arXiv:1301.4083v6, 2013.
