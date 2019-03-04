@@ -2,8 +2,8 @@ import numpy as np
 import matplotlib.pyplot as plt
 import setup as stp
 
-N_CLASSES = stp.num_classes()
-N_OUT_CLASSES = stp.num_out_classes()
+N_CLASSES = stp.num_classes
+N_OUT_CLASSES = stp.num_out_classes
 
 def debugger(correct_pred, logits, y_exp, x, second_choice = False):
 	print (str(int(correct_pred[0])) + " out of " + str(N_CLASSES))

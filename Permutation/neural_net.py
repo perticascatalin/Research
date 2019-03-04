@@ -7,8 +7,8 @@ import setup as stp
 
 # Setup experiment size and parameters
 os.environ['TF_CPP_MIN_LOG_LEVEL']='2'
-N_CLASSES = stp.num_classes()
-N_OUT_CLASSES = stp.num_out_classes()
+N_CLASSES = stp.num_classes
+N_OUT_CLASSES = stp.num_out_classes
 N_FEAT = (N_CLASSES*(N_CLASSES - 1))/2
 dropout = 0.8
 learning_rate = 0.001
