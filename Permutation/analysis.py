@@ -84,7 +84,7 @@ def print_barchart(arr, expect, actual, figname):
 	plt.xticks(index + bar_width, xticks)
 	plt.legend(bbox_to_anchor=(1.14, 1.14), handles = [blue_patch, yellow_patch, green_patch, red_patch])
 	plt.savefig('./data/' + figname)
-	plt.clf()
+	plt.close()
 
 # ASM plot (accuracy vs. scalability vs. models)
 def print_acc_scale_models():
