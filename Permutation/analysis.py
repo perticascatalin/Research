@@ -86,6 +86,18 @@ def print_barchart(arr, expect, actual, figname):
 	plt.savefig('./data/' + figname)
 	plt.close()
 
+def check_perm_validity(arr, expect, actual):
+	all_nums = []
+	all_counts = []
+	for i in range(N_OUT_CLASSES):
+		all_nums.append(i)
+		all_counts.append(actual.count(i))
+	print all_nums
+	print all_counts
+	print "======"
+	for e, a in zip(expect, actual):
+		print e, a
+
 # ASM plot (accuracy vs. scalability vs. models)
 def print_acc_scale_models():
 	ns = [6, 8, 9, 10, 11, 12, 16, 20, 24]
@@ -111,6 +123,8 @@ def print_pretty(correct_pred, logits, y_exp, x, epoch):
 	print_1by1(y_exp[0], 'expect:', N_OUT_CLASSES)
 	print_1by1(y_pred, 'pred:  ', N_OUT_CLASSES)
 	print_barchart(x[0], list(y_exp[0]), y_pred, ('labels_' + str(epoch) + '.png'))
+	check_perm_validity(x[0], list(y_exp[0]), y_pred)
+
 
 #print_barchart(list([10, 30, 20, 40, 50]), list([1, 3, 2, 4, 5]), list([1, 2, 3, 4, 5]), 'labels_0.png')
 #print_barchart(list([10, 20, 30, 40, 50]), list([1, 2, 3, 4, 5]), list([1, 2, 3, 4, 5]), 'labels_1.png')
