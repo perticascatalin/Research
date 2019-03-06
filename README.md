@@ -1,6 +1,6 @@
 # MastersExperiments
 
-## E1: Statistically learning the correct order and other relational operations (in progress)
+## E1: About the compositionality of order and other relational operations in statistical learning (in progress)
 
 ### 1. Introduction
 
