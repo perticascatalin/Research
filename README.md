@@ -8,6 +8,14 @@ Looking at the input in a sequential manner or deriving rules for correct input 
 
 Number of total inputs for a given permutation:
 
+How many input states are represented by a node.
+
+Assign first p0 such that you can keep assigning p1,p2... (N-1) avail
+MAXINT = 10
+max_assign = 9 0 up to 9-N
+
+Assign second p1 such s.t. p2, p3
+
 Learning specific permutations and the mapping within them through a Cayley Graph. Distributing the types of inputs to different models goes in the direction of AutoML.
 
 #### 1.1 Relevance and priority
