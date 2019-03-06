@@ -8,7 +8,7 @@ Looking at the input in a sequential manner or deriving rules for correct input 
 
 Number of total inputs for a given permutation:
 
-
+Learning specific permutations and the mapping within them through a Cayley Graph. Distributing the types of inputs to different models goes in the direction of AutoML.
 
 #### 1.1 Relevance and priority
 
