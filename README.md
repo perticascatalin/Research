@@ -4,7 +4,12 @@
 
 ### 1. Introduction
 
-Compositionality, information bottleneck, scalability, separability - multiple learners, learning complexity, relation to mathematical sets, sequences.
+- compositionality
+- information bottleneck
+- scalability, separability - multiple learners
+- learning complexity
+- relation to mathematical sets
+- sequences
 
 #### 1.1 Relevance and priority
 
