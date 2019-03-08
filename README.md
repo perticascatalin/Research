@@ -107,7 +107,7 @@ Between decision tree and multilayer perceptron. Multiple variants of decision t
 
 Display graphic array before and after: 
 
-- barchart-done
+- **barchart-done**
 - stacking
 - coloring
 
@@ -150,6 +150,11 @@ We show how this poses scalability problems for the chosen machine learning mode
 Up to N = 10 we get very good results with both models. 
 For N = 24, the neural network starts predicting worse than random guessing.
 The neural network performs better than the decision tree-based models up to N = 10, then it has a sudden drop. However, decision trees have a slower drop in accuracy.
+
+Scalability vs. problem complexity views:
+
+- **scalability - done**
+- problem complexity
 
 |Accuracy|Model Description|
 |:------:|:---------------:|
