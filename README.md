@@ -111,12 +111,12 @@ Display graphic array before and after:
 - stacking
 - coloring
 
-|Prediction|Guesses|Epoch|
-|:--------:|:-----:|:---:|
-|![l_1000](https://raw.githubusercontent.com/perticascatalin/MastersExperiments/master/Permutation/results/labels/labels_1000.png)|5 out of 10|1.000|
-|![l_5000](https://raw.githubusercontent.com/perticascatalin/MastersExperiments/master/Permutation/results/labels/labels_5000.png)|6 out of 10|5.000|
-|![l_10000](https://raw.githubusercontent.com/perticascatalin/MastersExperiments/master/Permutation/results/labels/labels_10000.png)|7 out of 10|10.000|
-|![l_22000](https://raw.githubusercontent.com/perticascatalin/MastersExperiments/master/Permutation/results/labels/labels_22000.png)|9 out of 10|22.000|
+| | |
+|:-:|:-:|
+|Epoch 1.000 - 5 out of 10|Epoch 5.000 - 6 out of 10|
+|![l_1000](https://raw.githubusercontent.com/perticascatalin/MastersExperiments/master/Permutation/results/labels/labels_1000.png)|![l_5000](https://raw.githubusercontent.com/perticascatalin/MastersExperiments/master/Permutation/results/labels/labels_5000.png)|
+|Epoch 10.000 - 7 out of 10|Epoch 22.000 - 9 out of 10|
+|![l_10000](https://raw.githubusercontent.com/perticascatalin/MastersExperiments/master/Permutation/results/labels/labels_10000.png)|![l_22000](https://raw.githubusercontent.com/perticascatalin/MastersExperiments/master/Permutation/results/labels/labels_22000.png)|
 
 
 #### 3.2 Overall View
