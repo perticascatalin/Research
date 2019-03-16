@@ -141,7 +141,7 @@ We compute a partial accuracy - the average number of elements guessed in N arra
 - Range 10: D  4.0 E_96 7.5 NN 9.5
 - Range 12: NN 5.3 E_96 7.2
 - Range 16: NN 3.6 E_96 5.4
-- Range 20: NN 1.4 E_96 4.6
+- Range 20: NN 1.4 E_96 4.6 NN_new_conf 4.6 (4 layers, 2000 neurons, 150000 samples, 0.0006 lr, 0.7 dropout)
 - Range 24: NN 1.0 E_96 3.5
 
 #### 3.4 Scalability

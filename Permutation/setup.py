@@ -5,7 +5,7 @@ num_classes = 20
 num_out_classes = 20
 
 # Number of arrays to generate
-num_samples = 150000
+num_samples = 120000
 
 # Maximum number in array
 maxint = 50
