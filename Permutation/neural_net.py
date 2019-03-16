@@ -10,20 +10,20 @@ os.environ['TF_CPP_MIN_LOG_LEVEL']='2'
 N_CLASSES = stp.num_classes
 N_OUT_CLASSES = stp.num_out_classes
 N_FEAT = (N_CLASSES*(N_CLASSES - 1))/2
-dropout = 0.8
-learning_rate = 0.0007
-num_steps = 100000
-display_step = 1000
+dropout = 0.7
+learning_rate = 0.0006
+num_steps = 200000
+display_step = 2000
 batch_size = 128
 
 def neural_net(x, inputs, n_classes, num_labels, dropout, reuse, is_training):
 	with tf.variable_scope('NeuralNet', reuse = reuse):
 		# activations tried: sigmoid 6.6 , relu X , tanh 8.8 (on data)
-		fc1 = tf.layers.dense(x, 512, activation = tf.nn.tanh)
+		fc1 = tf.layers.dense(x, 1000, activation = tf.nn.tanh)
 		fc1 = tf.layers.dropout(fc1, rate = dropout, training = is_training)
-		fc2 = tf.layers.dense(fc1, 256, activation = tf.nn.tanh)
+		fc2 = tf.layers.dense(fc1, 500, activation = tf.nn.tanh)
 		fc2 = tf.layers.dropout(fc2, rate = dropout, training = is_training)
-		fc3 = tf.layers.dense(fc2, 128, activation = tf.nn.tanh)
+		fc3 = tf.layers.dense(fc2, 250, activation = tf.nn.tanh)
 		outputs = list()
 		for i in range(n_classes):
 			out_i = tf.layers.dense(fc3, num_labels)
@@ -31,12 +31,12 @@ def neural_net(x, inputs, n_classes, num_labels, dropout, reuse, is_training):
 			outputs.append(out_i)
 	return outputs, inputs
 
-lsts_train, orders_train = gen.simple_data()
+lsts_train, orders_train = gen.all()
 lsts_train = tf.convert_to_tensor(lsts_train, dtype = tf.float32)
 orders_train = tf.convert_to_tensor(orders_train, dtype = tf.int32)
 lsts_train, orders_train = tf.train.slice_input_producer([lsts_train, orders_train], shuffle = True)
 
-lsts_val, orders_val = gen.simple_data()
+lsts_val, orders_val = gen.all()
 lsts_val = tf.convert_to_tensor(lsts_val, dtype = tf.float32)
 orders_val = tf.convert_to_tensor(orders_val, dtype = tf.int32)
 lsts_val, orders_val = tf.train.slice_input_producer([lsts_val, orders_val], shuffle = True)

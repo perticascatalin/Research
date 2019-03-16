@@ -2,10 +2,10 @@
 # Inputs   1 2 3 4 5 6 7 8 9 10
 # Generate 2 4 3 1 8 9 6 7 5 10
 num_classes = 20
-num_out_classes = 1
+num_out_classes = 20
 
 # Number of arrays to generate
-num_samples = 20000
+num_samples = 150000
 
 # Maximum number in array
 maxint = 50
