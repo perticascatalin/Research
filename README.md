@@ -1,6 +1,13 @@
 # MastersExperiments
 
-## E1: About the compositionality of order and other relational operations in statistical learning (in progress)
+## E1: On scaling the compositionality of order and other relational operations in statistical learning (in progress)
+
+Applications:
+
+- computer vision
+- all problems involving permutations (even NP problems)
+- rawest example: sequence of inputs, reorder inputs such that some function of the inputs in that particular order is maximized
+- the number of possible permutations grows very fast with N and the possible number of order relations even faster.
 
 ### 1. Introduction
 
