@@ -1,8 +1,8 @@
 # MastersExperiments
 
-Thesis Title: **Scaling the composition of functions representing relational operations in statistical learning**
+Thesis Title: **Scaled statistical learning for compositions of functions representing relational operations**
 
-## E1: Compositionality of operations based on order relations (in progress)
+## E1: Order relations compositionality in a sequence of numbers (in progress)
 
 Applications:
 
