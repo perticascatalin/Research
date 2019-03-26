@@ -20,7 +20,7 @@ Applications:
 - relation to mathematical sets
 - sequences
 
-#### 1.1 Relevance and priority
+#### 1.1 Relevance and priority (MOVED Related Work)
 
 Whatever tasks they have to model, neural networks often encounter the problem of modeling relevance and priority - how to assign 1st, 2nd, 3rd and so on to data chunks such that it answers some questions. Such an example is the spatial ordering of elements in a visual scene as shown below.
 
