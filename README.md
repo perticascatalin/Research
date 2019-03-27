@@ -48,7 +48,7 @@ The 0-1 hypothesis in permutation representation states that any permutation can
 
 The special arrangement hypothesis assumes an arrangement of multiple neural networks specialized in recreating a specific subset of transformations such that an input can be forwarded through a path or a cycle such that a specific state is always achieved.
 
-#### 1.4 Predicting the correct order
+#### 1.4 Predicting the correct order (MOVED Sequence of Numbers)
 
 The experiment models the manipulation of arrays with different numbers and of different lenghts. First, we formulate the problem of predicting the sorted order of the initial numbers. This problem involves the concepts of order relations, counting and permutations.
 
@@ -63,7 +63,7 @@ The experiment models the manipulation of arrays with different numbers and of d
 |Maximum         |  1|  0|  0|  0|  0|
 |Minimum         |  0|  0|  1|  0|  0|
 
-#### 1.5 Order Relations
+#### 1.5 Order Relations (MOVED Sequence of Numbers)
 
 - Order relations: Is A smaller than B?
 - 0/1 for pair (A/B)
