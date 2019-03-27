@@ -40,7 +40,7 @@ Neural networks owe some of their success to the ability of learning higher leve
 |:-----:|:---------:|
 |![relational_sequence_sets](https://raw.githubusercontent.com/perticascatalin/MastersExperiments/master/Permutation/images/relational_sequence_sets.png)|Data relations: a sequence representing a certain order of the objects - set w. order relation. The set of all permutations. Symmetric group (composition of f and g to visit whole group).|
 
-#### 1.3 Mathematical Structures
+#### 1.3 Mathematical Structures (MOVED Order Relations)
 
 In this study we run experiments on data with mathematical properties such as sets, permutations and groups. And then we look at the impact of their solving difficulty in practical applications. Along the way we mention previously encountered challenges in machine learning from which the problem at hand suffers, but the focus will be on how we can exploit its structure.
 
