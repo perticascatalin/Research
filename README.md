@@ -149,9 +149,18 @@ We compute a partial accuracy - the average number of elements guessed in N arra
 - Data: D
 - Range 6:					NN 6.0 
 - Range 8:					NN
-- Range 10:					NN 
+- Range 10:					NN 8.8?
 - Range 12:
 - Range 16:
+- Range 20:
+
+- Data: C
+- Range 6:					NN
+- Range 8:					NN
+- Range 10:					NN
+- Range 12:
+- Range 16:
+- Range 20:
 
 #### 3.4 Scalability (MOVED Implementation and Experiments)
 

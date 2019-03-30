@@ -17,3 +17,8 @@ TICKET 4
 Date Issue: 30.03
 Status: bug solved
 Task: The model does not work anymore on simple data.
+
+TICKET 5
+Date Issued: 30.03
+Status: not started
+Task: Save loss & accuracy convergence for all models, with hyper-param saved
