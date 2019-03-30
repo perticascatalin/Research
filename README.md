@@ -139,7 +139,7 @@ We compute a partial accuracy - the average number of elements guessed in N arra
 Minimum number of samples to reach decent accuracy.
 Error range: +/- 1%
 
-- Knowledge Prior: Set 1 vs. Set 2
+- Knowledge Prior: Set 1 vs. Set 2 vs. Set 3
 
 Set 1
 - Data: D
@@ -152,6 +152,7 @@ Set 1
 - Range 16:					NN 3.4 (0.21 vs 0.23) improv 2% DC - start poor convergence
 - Range 20:					NN 1.0 (0.05 vs 0.07 vs 0.23) improv 2% DC - stays same, improv 16% with HP
 
+- Basic Set
 - Min 1 element guessed threshold stop investigation
 - Hyperparams tuning necessary when too much diffusion
 
@@ -165,14 +166,21 @@ Set 2
 - Range 20: NN 1.4 E_96 4.6 NN_new_conf 4.6 (4 layers, 2000 neurons, 150000 samples, 0.0006 lr, 0.7 dropout)
 - Range 24: NN 1.0 E_96 3.5
 
+- Set with additional prior knowledge
+
 Set 3
 - Data: C
-- Range 6:					NN 6.0
-- Range 8:					NN 
-- Range 10:					NN
-- Range 12:					NN
+- Range 6:					NN 6.0 full both - not necessary
+- Range 8:					NN 7.9 (0.99 vs 1.00) improv 1% DC converges
+- Range 9:					NN 8.4 (0.93 vs 1.00) improv 7% DC converges
+- Range 10:					NN 8.3 (0.83 vs 0.95) improv 12% DC converges
+- Range 11:					NN 8.1 (0.74 vs 0.66) decrev 8% DC
+- Range 12:					NN 7.3 (0.61 vs 0.44) decrev 17% DC 
 - Range 16:					NN
 - Range 20:					NN
+
+- Set with total value abstraction
+- So far seems the most scalable (accuracy drops slower)
 
 #### 3.4 Scalability (MOVED Implementation and Experiments)
 
@@ -249,7 +257,9 @@ K out of N elements are fixed such that solving the problem for them yields bett
 
 5. Attribute split vs. non-linear combinations
 
-6. Models scalability
+6. Models scalability - DONE
+
+7. Problem Complexity
 
 ### 7. Related work
 
