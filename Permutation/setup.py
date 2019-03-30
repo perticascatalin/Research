@@ -1,7 +1,7 @@
 # For instance N = 10 (wrt position)
 # Inputs   1 2 3 4 5 6 7 8 9 10
 # Generate 2 4 3 1 8 9 6 7 5 10
-num_classes = 8
+num_classes = 20
 num_out_classes = num_classes
 
 # Number of arrays to generate
@@ -14,9 +14,11 @@ num_out_classes = num_classes
 # 10000 decent sample (generalize full for 4 classes)
 # 10! = 3628800
 # 60000 decent sample (generalize well for 60 classes)
+
 # 12! = 479001600
 # what is a decent sample?
-# 44% accuracy with default params (not reaching 50%)
+# 61% accuracy with default params (last decent accuracy)
+# with current dataset (generalize mah for 8000 classes)
 num_samples = 60000
 
 # Maximum number in array

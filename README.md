@@ -175,9 +175,9 @@ Set 3
 - Range 9:					NN 8.4 (0.93 vs 1.00) improv 7% DC converges
 - Range 10:					NN 8.3 (0.83 vs 0.95) improv 12% DC converges
 - Range 11:					NN 8.1 (0.74 vs 0.66) decrev 8% DC
-- Range 12:					NN 7.3 (0.61 vs 0.44) decrev 17% DC 
-- Range 16:					NN
-- Range 20:					NN
+- Range 12:					NN 7.3 (0.61 vs 0.44) decrev 17% DC
+- Range 16:					NN 5.1 (0.32 vs 0.23) decrev 9% DC
+- Range 20:					NN 3.2 (0.16 vs 0.07 vs 0.23) fails converge, decrev 9% DC
 
 - Set with total value abstraction
 - So far seems the most scalable (accuracy drops slower)
@@ -197,6 +197,15 @@ Using DC dataset.
 Up to N = 10 we get very good results with both models. 
 For N = 24, the neural network starts predicting worse than random guessing.
 The neural network performs better than the decision tree-based models up to N = 10, then it has a sudden drop. However, decision trees have a slower drop in accuracy.
+
+Using all datasets
+
+|Size|   6|   8|   9|  10|  11|  12|  16|  20|
+|:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|
+|   D|1.00|1.00|0.97|0.88|0.57|0.41|0.21|0.05|
+|  DC|1.00|1.00|1.00|0.95|0.66|0.44|0.23|0.07|
+|   C|1.00|0.99|0.93|0.83|0.74|0.61|0.32|0.16|
+
 
 Scalability vs. problem complexity views:
 
