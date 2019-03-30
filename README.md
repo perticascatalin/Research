@@ -133,7 +133,7 @@ Display graphic array before and after:
 Where does the model fail?
 Split into categories [useless (less than 10% acc) - guess (max 5) - good guess (7) - problem solved (N)]. Rank all the samples in a batch - by accuracy or mean squared error (proximity).
 
-#### 3.3 Metrics
+#### 3.3 Metrics (MOVED Implementation and Experiments)
 
 We compute a partial accuracy - the average number of elements guessed in N arrays.
 
@@ -146,7 +146,7 @@ We compute a partial accuracy - the average number of elements guessed in N arra
 - Range 20: NN 1.4 E_96 4.6 NN_new_conf 4.6 (4 layers, 2000 neurons, 150000 samples, 0.0006 lr, 0.7 dropout)
 - Range 24: NN 1.0 E_96 3.5
 
-#### 3.4 Scalability
+#### 3.4 Scalability (MOVED Implementation and Experiments)
 
 We show how this poses scalability problems for the chosen machine learning models (neural networks and decision trees). For instance:
 
