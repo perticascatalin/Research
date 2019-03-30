@@ -1,0 +1,4 @@
+TICKET 1
+Date Issue: 30.03
+Status: not started
+Task: Generalize the number of layers in the NN, specify them in config
