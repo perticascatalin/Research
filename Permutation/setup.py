@@ -13,5 +13,13 @@ maxint = 50
 # Number of estimators for decision tree forests
 n_estim = 96
 
-# Layer neurons
+# Layer neurons for neural network
 layer_neurons = [512, 256, 128]
+
+# The type of data
+# Can be "data", "order_relations", "all", or "simple_data" for min/max (change ith)
+data_type = "simple_data"
+
+if data_type == "simple_data":
+	num_out_classes = 1
+

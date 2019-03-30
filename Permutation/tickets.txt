@@ -10,5 +10,10 @@ Task: Establish correspondence between the number of output classes and their ra
 
 TICKET 3
 Date Issue: 30.03
-Status: not started
+Status: in progress
 Task: Establish differences between array, order relations and both.
+
+TICKET 4
+Date Issue: 30.03
+Status: bug solved
+Task: The model does not work anymore on simple data.
