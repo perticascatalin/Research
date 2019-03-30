@@ -1,4 +1,9 @@
 TICKET 1
 Date Issue: 30.03
 Status: not started
-Task: Generalize the number of layers in the NN, specify them in config
+Task: Generalize the number of layers in the NN, specify them in config.
+
+TICKET 2
+Date Issue: 30.03
+Status: not started
+Task: Establish correspondence between the number of output classes and their ratio with the number of training samples.
