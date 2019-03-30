@@ -224,6 +224,7 @@ K out of N elements are fixed such that solving the problem for them yields bett
 
 Links to information theory and deep learning [X], [Y].
 Sorting-related experiments with deep learning [A], [B].
+Bottleneck principle [Z], [W].
 
 The importance of prior information and pre-learned intermediate concepts. Composition of 2 highly non-linear tasks and other hypothesis such as local minima obstacle and guided/transfer learning [X].
 
@@ -246,3 +247,7 @@ In another approach, [B] presents a sorting experiment for sets of numbers using
 [X] C. Gulcehre and Y. Bengio, "Knowledge Matters: Importance of Prior Information for Optimization", Journal of Machine Learning Research, 2016.
 
 [Y] S. Shalev-Shwartz and O. Shamir and S Shammah, "Failures of Gradient-Based Deep Learning", arXiv:1301.4083v6, 2013.
+
+[Z] Ravid Schwartz-Ziv and Naftali Tishby, "Opening the black box of Deep Neural Networks via Information"
+
+[W] Naftali Tishby and Noga Zaslavsky "Deep Learning and Information Bottleneck Principle"
