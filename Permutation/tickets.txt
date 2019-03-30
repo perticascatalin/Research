@@ -1,6 +1,6 @@
-TICKET 1
+**TICKET 1**
 Date Issue: 30.03
-Status: solved
+Status: SOLVED
 Task: Generalize the number of layers in the NN, specify them in config.
 
 TICKET 2
@@ -10,12 +10,12 @@ Task: Establish correspondence between the number of output classes and their ra
 
 TICKET 3
 Date Issue: 30.03
-Status: implemented necessary
+Status: collected data
 Task: Establish differences between array, order relations and both.
 
-TICKET 4
+**TICKET 4**
 Date Issue: 30.03
-Status: bug solved
+Status: BUG SOLVED
 Task: The model does not work anymore on simple data.
 
 TICKET 5

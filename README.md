@@ -137,19 +137,23 @@ Split into categories [useless (less than 10% acc) - guess (max 5) - good guess 
 
 We compute a partial accuracy - the average number of elements guessed in N arrays.
 Minimum number of samples to reach decent accuracy.
+Error range: +/- 1%
 
 - Knowledge Prior: Set 1 vs. Set 2
 
 Set 1
 - Data: D
-- Range 6:					NN 6.0 full both
-- Range 8:					NN 8.0 full both
-- Range 9:					is this less than full?
-- Range 10:					NN 8.8 improv 7% with DC
-- Range 11:					what improv?
-- Range 12:					NN 4.9 improv 3% with DC
-- Range 16:					NN
-- Range 20:					NN
+- Range 6:					NN 6.0 full both - not necessary
+- Range 8:					NN 8.0 full both - not necessary
+- Range 9:					NN 8.7 (0.97 vs 1.00) improv 3% DC
+- Range 10:					NN 8.8 (0.88 vs 0.95) improv 7% DC
+- Range 11:					NN 6.3 (0.57 vs 0.66) improv 9% DC
+- Range 12:					NN 4.9 (0.41 vs 0.44) improv 3% DC
+- Range 16:					NN 3.4 (0.21 vs 0.23) improv 2% DC - start poor convergence
+- Range 20:					NN 1.0 (0.05 vs 0.07 vs 0.23) improv 2% DC - stays same, improv 16% with HP
+
+- Min 1 element guessed threshold stop investigation
+- Hyperparams tuning necessary when too much diffusion
 
 Set 2
 - Data: DC
@@ -161,9 +165,10 @@ Set 2
 - Range 20: NN 1.4 E_96 4.6 NN_new_conf 4.6 (4 layers, 2000 neurons, 150000 samples, 0.0006 lr, 0.7 dropout)
 - Range 24: NN 1.0 E_96 3.5
 
+Set 3
 - Data: C
-- Range 6:					NN
-- Range 8:					NN
+- Range 6:					NN 6.0
+- Range 8:					NN 
 - Range 10:					NN
 - Range 12:					NN
 - Range 16:					NN
