@@ -5,12 +5,12 @@ Task: Generalize the number of layers in the NN, specify them in config.
 
 TICKET 2
 Date Issue: 30.03
-Status: not started
+Status: results proving for 6, 8, 10
 Task: Establish correspondence between the number of output classes and their ratio with the number of training samples.
 
 TICKET 3
 Date Issue: 30.03
-Status: in progress
+Status: implemented necessary
 Task: Establish differences between array, order relations and both.
 
 TICKET 4

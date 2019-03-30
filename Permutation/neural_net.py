@@ -44,6 +44,9 @@ def neural_net(x, inputs, n_classes, num_labels, dropout, reuse, is_training):
 
 	return outputs, inputs
 
+if data_type == "data":
+	print "DATA"
+	lsts_train, orders_train = gen.data()
 if data_type == "simple_data":
 	print "SIMPLE DATA"
 	lsts_train, orders_train = gen.simple_data()
@@ -58,6 +61,8 @@ lsts_train = tf.convert_to_tensor(lsts_train, dtype = tf.float32)
 orders_train = tf.convert_to_tensor(orders_train, dtype = tf.int32)
 lsts_train, orders_train = tf.train.slice_input_producer([lsts_train, orders_train], shuffle = True)
 
+if data_type == "data":
+	lsts_val, orders_val = gen.data()
 if data_type == "simple_data":
 	lsts_val, orders_val = gen.simple_data()
 elif data_type == "order_relations":
