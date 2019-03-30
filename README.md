@@ -136,35 +136,42 @@ Split into categories [useless (less than 10% acc) - guess (max 5) - good guess 
 #### 3.3 Metrics (MOVED Implementation and Experiments)
 
 We compute a partial accuracy - the average number of elements guessed in N arrays.
+Minimum number of samples to reach decent accuracy.
 
+- Knowledge Prior: Set 1 vs. Set 2
+
+Set 1
+- Data: D
+- Range 6:					NN 6.0 
+- Range 8:					NN 8.0
+- Range 10:					NN 8.8?
+- Range 12:					NN
+- Range 16:					NN
+- Range 20:					NN
+
+Set 2
 - Data: DC
 - Range 6:         E_96 6.0 NN 6.0 confirm ratio (1000)
-- Range 8:  D  6.0 E_96 7.9 NN 8.0 confirm ratio (1000)
+- Range 8:  D  6.0 E_96 7.9 NN 8.0 confirm ratio (10000)
 - Range 10: D  4.0 E_96 7.5 NN 9.5 confirm ratio (60000)
 - Range 12: NN 5.3 E_96 7.2
 - Range 16: NN 3.6 E_96 5.4
 - Range 20: NN 1.4 E_96 4.6 NN_new_conf 4.6 (4 layers, 2000 neurons, 150000 samples, 0.0006 lr, 0.7 dropout)
 - Range 24: NN 1.0 E_96 3.5
 
-- Data: D
-- Range 6:					NN 6.0 
-- Range 8:					NN
-- Range 10:					NN 8.8?
-- Range 12:
-- Range 16:
-- Range 20:
-
 - Data: C
 - Range 6:					NN
 - Range 8:					NN
 - Range 10:					NN
-- Range 12:
-- Range 16:
-- Range 20:
+- Range 12:					NN
+- Range 16:					NN
+- Range 20:					NN
 
 #### 3.4 Scalability (MOVED Implementation and Experiments)
 
 We show how this poses scalability problems for the chosen machine learning models (neural networks and decision trees). For instance:
+
+Using DC dataset.
 
 |Size|   6|   8|   9|  10|  11|  12|  16|  20|  24|
 |:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|
@@ -180,6 +187,7 @@ Scalability vs. problem complexity views:
 
 - **scalability - done**
 - problem complexity
+- N factorial vs. number of samples ratio threshold
 
 |Accuracy|Model Description|
 |:------:|:---------------:|
