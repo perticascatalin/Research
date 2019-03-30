@@ -10,27 +10,37 @@ os.environ['TF_CPP_MIN_LOG_LEVEL']='2'
 N_CLASSES = stp.num_classes
 N_OUT_CLASSES = stp.num_out_classes
 N_FEAT = (N_CLASSES*(N_CLASSES - 1))/2
-dropout = 0.7
-learning_rate = 0.0006
-num_steps = 60000
+dropout = 0.8
+learning_rate = 0.001
+num_steps = 100000
 display_step = 2000
 batch_size = 128
+layer_neurons = stp.layer_neurons
+num_layers = len(layer_neurons)
 
 def neural_net(x, inputs, n_classes, num_labels, dropout, reuse, is_training):
 	with tf.variable_scope('NeuralNet', reuse = reuse):
 		# activations tried: sigmoid 6.6 , relu X , tanh 8.8 (on data)
-		fc1 = tf.layers.dense(x, 1024, activation = tf.nn.tanh)
-		fc1 = tf.layers.dropout(fc1, rate = dropout, training = is_training)
-		fc2 = tf.layers.dense(fc1, 512, activation = tf.nn.tanh)
-		fc2 = tf.layers.dropout(fc2, rate = dropout, training = is_training)
-		fc3 = tf.layers.dense(fc2, 256, activation = tf.nn.tanh)
-		fc3 = tf.layers.dropout(fc3, rate = dropout, training = is_training)
-		fc4 = tf.layers.dense(fc3, 128, activation = tf.nn.tanh)
+		# layers: first is input-dense with dropout, last is dense-classes no dropout
+
+		fc = tf.layers.dense(x, layer_neurons[0], activation = tf.nn.tanh)
+		fc = tf.layers.dropout(fc, rate = dropout, training = is_training)
+		layers = [fc]
+		for i in range(1, num_layers - 1):
+			last_layer = layers[-1]
+			fc = tf.layers.dense(last_layer, layer_neurons[i], activation = tf.nn.tanh)
+			fc = tf.layers.dropout(fc, rate = dropout, training = is_training)
+			layers.append(fc)
+
+		last_layer = layers[-1]
+		fc = tf.layers.dense(last_layer, layer_neurons[-1], activation = tf.nn.tanh)
+
 		outputs = list()
 		for i in range(n_classes):
-			out_i = tf.layers.dense(fc4, num_labels)
+			out_i = tf.layers.dense(fc, num_labels)
 			out_i = tf.nn.softmax(out_i) if not is_training else out_i
 			outputs.append(out_i)
+
 	return outputs, inputs
 
 lsts_train, orders_train = gen.all()
