@@ -142,10 +142,12 @@ Minimum number of samples to reach decent accuracy.
 
 Set 1
 - Data: D
-- Range 6:					NN 6.0 
-- Range 8:					NN 8.0
-- Range 10:					NN 8.8?
-- Range 12:					NN
+- Range 6:					NN 6.0 full both
+- Range 8:					NN 8.0 full both
+- Range 9:					is this less than full?
+- Range 10:					NN 8.8 improv 7% with DC
+- Range 11:					what improv?
+- Range 12:					NN 4.9 improv 3% with DC
 - Range 16:					NN
 - Range 20:					NN
 
