@@ -187,7 +187,7 @@ Error range: +/- 1%
 With HP Range 20 (60.000) : NN 8.6 (0.43 vs 0.23) [400,200] rest same, improv 20%
 With HP Range 20 (150.000) add data: NN 8.9 (0.45 vs 0.43) 2% very marginal improvement
 Less dropout (0.6), no additional data: NN 10.3 (0.52 vs 0.43) improv 9%
-Less dropout (0.4), same: NN s6.1
+Less dropout (0.4), same: NN prev s6.1, now s6.4, after finish 12.1 (0.61 vs 0.43) improv 15%
 
 - Set with total value abstraction
 - So far seems the most scalable (accuracy drops slower)
