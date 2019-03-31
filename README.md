@@ -179,6 +179,8 @@ Set 3
 - Range 16:					NN 5.1 (0.32 vs 0.23) decrev 9% DC
 - Range 20:					NN 3.2 (0.16 vs 0.07 vs 0.23) fails converge, decrev 9% DC
 
+With HP Range 20 (60.000) : NN 8.6 (0.43 vs 0.23) [400,200] rest same, improv 20%
+
 - Set with total value abstraction
 - So far seems the most scalable (accuracy drops slower)
 
