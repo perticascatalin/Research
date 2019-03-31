@@ -186,11 +186,17 @@ Error range: +/- 1%
 
 With HP Range 20 (60.000) : NN 8.6 (0.43 vs 0.23) [400,200] rest same, improv 20%
 With HP Range 20 (150.000) add data: NN 8.9 (0.45 vs 0.43) 2% very marginal improvement
+
+Range 20
 Less dropout (0.6), no additional data: NN 10.3 (0.52 vs 0.43) improv 9%
-Less dropout (0.4), same: NN prev s6.1, now s6.4, after finish 12.1 (0.61 vs 0.43) improv 15%
+Less dropout (0.4), same: NN prev s6.1, now s6.4, after finish 12.1 (0.61 vs 0.43) improv 18%
+Even less (0.2), same: NN now s6.5, after finish 14.7 (0.74 vs 0.43) improv 31%
+
+
 
 - Set with total value abstraction
 - So far seems the most scalable (accuracy drops slower)
+- Diffusion and design vs. dropout and information bottleneck
 
 #### 3.4 Scalability (MOVED Implementation and Experiments)
 
