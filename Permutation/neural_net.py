@@ -16,6 +16,7 @@ num_steps = 100000
 display_step = 2000
 batch_size = 128
 layer_neurons = stp.layer_neurons
+layer_dropout = stp.layer_dropout
 num_layers = len(layer_neurons)
 data_type = stp.data_type
 
@@ -25,12 +26,12 @@ def neural_net(x, inputs, n_classes, num_labels, dropout, reuse, is_training):
 		# layers: first is input-dense with dropout, last is dense-classes no dropout
 
 		fc = tf.layers.dense(x, layer_neurons[0], activation = tf.nn.tanh)
-		fc = tf.layers.dropout(fc, rate = dropout, training = is_training)
+		fc = tf.layers.dropout(fc, rate = layer_dropout[0], training = is_training)
 		layers = [fc]
 		for i in range(1, num_layers - 1):
 			last_layer = layers[-1]
 			fc = tf.layers.dense(last_layer, layer_neurons[i], activation = tf.nn.tanh)
-			fc = tf.layers.dropout(fc, rate = dropout, training = is_training)
+			fc = tf.layers.dropout(fc, rate = layer_dropout[i], training = is_training)
 			layers.append(fc)
 
 		last_layer = layers[-1]

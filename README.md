@@ -141,7 +141,8 @@ Error range: +/- 1%
 
 - Knowledge Prior: Set 1 vs. Set 2 vs. Set 3
 
-Set 1
+**Set 1**
+
 - Data: D
 - Range 6:					NN 6.0 full both - not necessary
 - Range 8:					NN 8.0 full both - not necessary
@@ -156,7 +157,8 @@ Set 1
 - Min 1 element guessed threshold stop investigation
 - Hyperparams tuning necessary when too much diffusion
 
-Set 2
+**Set 2**
+
 - Data: DC
 - Range 6:         E_96 6.0 NN 6.0 confirm ratio (1000)
 - Range 8:  D  6.0 E_96 7.9 NN 8.0 confirm ratio (10000)
@@ -168,7 +170,8 @@ Set 2
 
 - Set with additional prior knowledge
 
-Set 3
+**Set 3**
+
 - Data: C
 - Range 6:					NN 6.0 full both - not necessary
 - Range 8:					NN 7.9 (0.99 vs 1.00) improv 1% DC converges
@@ -179,7 +182,12 @@ Set 3
 - Range 16:					NN 5.1 (0.32 vs 0.23) decrev 9% DC
 - Range 20:					NN 3.2 (0.16 vs 0.07 vs 0.23) fails converge, decrev 9% DC
 
+[400,200]
+
 With HP Range 20 (60.000) : NN 8.6 (0.43 vs 0.23) [400,200] rest same, improv 20%
+With HP Range 20 (150.000) add data: NN 8.9 (0.45 vs 0.43) 2% very marginal improvement
+Less dropout (0.6), no additional data: NN 10.3 (0.52 vs 0.43) improv 9%
+Less dropout (0.4), same: NN s6.1
 
 - Set with total value abstraction
 - So far seems the most scalable (accuracy drops slower)

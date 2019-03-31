@@ -19,7 +19,7 @@ num_out_classes = num_classes
 # what is a decent sample?
 # 61% accuracy with default params (last decent accuracy)
 # with current dataset (generalize mah for 8000 classes)
-num_samples = 150000
+num_samples = 60000
 
 # Maximum number in array
 maxint = 50
@@ -30,6 +30,7 @@ n_estim = 96
 # Layer neurons for neural network
 # layer_neurons = [512, 256, 128]
 layer_neurons = [400, 200]
+layer_dropout = [0.4]
 
 # The type of data
 # Can be "data", "order_relations", "all", or "simple_data" for min/max (change ith)

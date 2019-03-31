@@ -21,9 +21,14 @@ Task: The model does not work anymore on simple data.
 TICKET 5
 Date Issued: 30.03
 Status: not started
-Task: Save loss & accuracy convergence for all models, with hyper-param saved
+Task: Save loss & accuracy convergence for all models, with hyper-param saved.
 
 TICKET 6
 Date Issued: 31.03
 Status: not started
 Task: Find a good sortnet using design. Apply it to neural networks for computer vision.
+
+**TICKET 7**
+Date Issued: 31.03
+Status: SOLVED
+Task: Set dropout by layer.
