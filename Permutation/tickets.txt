@@ -32,3 +32,13 @@ Task: Find a good sortnet using design. Apply it to neural networks for computer
 Date Issued: 31.03
 Status: SOLVED
 Task: Set dropout by layer.
+
+TICKET 8
+Date Issued: 5.04
+Status: not started
+Task: Plot graph of linear separator for comparison (the ">" operation)
+
+TICKET 9
+Date Issued: 5.04
+Status: not started
+Task: Plot graph of sum over intervals (the counting operation)
