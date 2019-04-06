@@ -13,12 +13,16 @@ Applications:
 
 ### 1. Introduction
 
-- compositionality
+- compositionality (approached)
 - information bottleneck
-- scalability, separability - multiple learners
+- scalability, separability - multiple learners (approached)
 - learning complexity
 - relation to mathematical sets
 - sequences
+
+#### Information Bottleneck
+
+The information bottleneck principle refers to the gjsdfgksjdfg fhgjdfg skfghjh lksdf fksdjf  sdfhs sdkfhsf sdkfjhsdfk ksdjf. Dfkjhsdgnn hwegrh akdjfh sdlgoiu dfh skdjfhsdkf skdjfhkj akjdfh. For this purpose, we can compute the mutual information between random variables representing the input, the activation at a certain level and the output of the network.
 
 #### 1.1 Relevance and priority (MOVED Related Work)
 
