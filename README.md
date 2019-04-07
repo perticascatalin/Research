@@ -197,8 +197,11 @@ D4 Less dropout (0.4), same: NN prev s6.1, now s6.4, after finish 12.1 (0.61 vs 
 D2 Even less (0.2), same: NN now s6.5, after finish 14.7 (0.74 vs 0.43) improv 31%
 D0 None (0.0), same: NN now s6.6, after finish 19.9 (0.99 vs 0.43) improv 56%
 
+Comparison to baseline data
 D0 Same, but back to data: NN now s5.3, after finish 11.4 (0.57 vs )
 D2 NN now s5.1, after finish 8.7 (0.44 vs )
+
+D0, DC, N24, s6.0, after finish 19.1 (0.80)
 
 - Set with total value abstraction
 - So far seems the most scalable (accuracy drops slower)
