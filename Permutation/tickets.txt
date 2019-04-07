@@ -42,3 +42,5 @@ TICKET 9
 Date Issued: 5.04
 Status: not started
 Task: Plot graph of sum over intervals (the counting operation)
+
+STATS: 4 out of 9 solved

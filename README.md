@@ -16,9 +16,9 @@ Applications:
 - compositionality (approached)
 - information bottleneck (intro+ formula- impl- debate-)
 - scalability, separability - multiple learners (approached)
-- learning complexity
-- relation to mathematical sets
-- sequences
+- learning complexity (approached)
+- relation to mathematical sets (dk)
+- sequences (dk)
 
 #### Information Bottleneck
 
@@ -303,9 +303,9 @@ The importance of prior information and pre-learned intermediate concepts. Compo
 
 Gradients in highly composed functions or hard constraints. Accuracy as a function of input dimensionality. Gradient based methods cannot learn reasonably fast random parities and linear-periodic functions [Y].
 
-There are some other works where simple algorithms are inferred via neural networks. For example, in [A], the operations of copying and sorting an array are performed with a fully differentiable network connected to an eternal memory via attention. 
+There are some other works where simple algorithms are inferred via neural networks. For example, in [A], the operations of copying and sorting an array are performed with a fully differentiable network connected to an eternal memory via attention. (**MOVED**)
 
-In another approach, [B] presents a sorting experiment for sets of numbers using a sequence to sequence model. The fundamental question which the study raises is how to represent sets as a sequence when the underlying order is not known or doesn't exist.
+In another approach, [B] presents a sorting experiment for sets of numbers using a sequence to sequence model. The fundamental question which the study raises is how to represent sets as a sequence when the underlying order is not known or doesn't exist. (**MOVED**)
 
 ### 8. References
 
@@ -319,7 +319,7 @@ In another approach, [B] presents a sorting experiment for sets of numbers using
 
 [X] C. Gulcehre and Y. Bengio, "Knowledge Matters: Importance of Prior Information for Optimization", Journal of Machine Learning Research, 2016.
 
-[Y] S. Shalev-Shwartz and O. Shamir and S Shammah, "Failures of Gradient-Based Deep Learning", arXiv:1301.4083v6, 2013.
+[Y] S. Shalev-Shwartz and O. Shamir and S. Shammah, "Failures of Gradient-Based Deep Learning", arXiv:1703.07950, 2017.
 
 [Z] Ravid Schwartz-Ziv and Naftali Tishby, "Opening the black box of Deep Neural Networks via Information"
 
