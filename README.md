@@ -139,9 +139,9 @@ Split into categories [useless (less than 10% acc) - guess (max 5) - good guess 
 
 #### 3.3 Metrics (MOVED Implementation and Experiments)
 
-We compute a partial accuracy - the average number of elements whose target position is correctly guessed. 
+We compute a partial accuracy - the average number of elements whose target position is correctly guessed. Example: we run the experiment on an array of 10 elements and the test dataset is comprised of 3 such arrays with 7, 7, and 9 correct guesses. Then the partial accuracy is (7 + 7 + 9)/3 = 7.7.
 
-Minimum number of samples to reach decent accuracy.
+
 Error range: +/- 1%
 
 - Knowledge Prior: Set 1 vs. Set 2 vs. Set 3
@@ -158,7 +158,7 @@ Error range: +/- 1%
 |10  |NN  8.8    | 88% vs  95%          |+ 7% DC  |
 |11  |NN  6.3    | 57% vs  66%          |+ 9% DC  |
 |12  |NN  4.9    | 41% vs  44%          |+ 3% DC  |
-|16  |NN  3.4    | 21% vs  23%          |+ 2% DC  - start poor convergence|
+|16  |NN  3.4    | 21% vs  23%          |+ 2% DC,   start poor convergence|
 |20  |NN  1.0    |  5% vs   7%          |+ 2% DC, +18% with HP, stays same|
 
 - Basic Set
@@ -168,13 +168,16 @@ Error range: +/- 1%
 **Set 2**
 
 - Data: DC
-- Range 6:         E_96 6.0 NN 6.0 confirm ratio (1000)
-- Range 8:  D  6.0 E_96 7.9 NN 8.0 confirm ratio (10000)
-- Range 10: D  4.0 E_96 7.5 NN 9.5 confirm ratio (60000)
-- Range 12: NN 5.3 E_96 7.2
-- Range 16: NN 3.6 E_96 5.4
-- Range 20: NN 1.4 E_96 4.6 NN_new_conf 4.6 (4 layers, 2000 neurons, 150000 samples, 0.0006 lr, 0.7 dropout)
-- Range 24: NN 1.0 E_96 3.5
+
+|Size|Worst |Second  |Best    |Comment              |
+|:--:|:----:|:------:|:------:|:-------------------:|
+|6   |      |E_96 6.0|NN 6.0  |confirm ratio (1000) |
+|8   |D  6.0|E_96 7.9|NN 8.0  |confirm ratio (10000)|
+|10  |D  4.0|E_96 7.5|NN 9.5  |confirm ratio (60000)|
+|12  |      |NN 5.3  |E_96 7.2|                     |
+|16  |      |NN 3.6  |E_96 5.4|                     |
+|20  |      |NN 1.4  |E_96 4.6|NN nc 4.6 (4 layers, 2000 neurons, 150000 samples, 0.0006 lr, 0.7 dropout)|
+|24  |      |NN 1.0  |E_96 3.5| |
 
 - Set with additional prior knowledge
 
@@ -206,7 +209,7 @@ D0 Same, but back to data: NN now s5.3, after finish 11.4 (0.57 vs )
 D2 NN now s5.1, after finish 8.7 (0.44 vs )
 
 D0, DC, N24, s6.0, after finish 19.1 (0.80 vs )
-D0, DC, N30, s5.4, after finish 7.1 (0.27)
+D0, DC, N30, s5.4, after finish 10.8 (0.36 vs )
 
 - Set with total value abstraction
 - So far seems the most scalable (accuracy drops slower)
@@ -284,6 +287,8 @@ Neural network has to store the numbers.
 
 9. Trick network by having some fixed positions.
 K out of N elements are fixed such that solving the problem for them yields better results than for bothering with the rest of the elements.
+
+10. Minimum number of samples to reach decent accuracy.
 
 ### 6. Experiments vs Theory
 
