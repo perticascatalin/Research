@@ -1,4 +1,4 @@
-from scipy.special import entr
+import math
 
 import analysis as co
 import generator as gen
@@ -19,11 +19,46 @@ elif data_type == "order_relations":
 elif data_type == "all":
 	lsts_val, orders_val = gen.all()
 
-print len(lsts_val)
-print len(orders_val)
+print 'Num inputs:', len(lsts_val)
+print 'Num outputs:', len(orders_val)
 
 #print lsts_val[0]
 #print orders_val[0]
+
+# Trying to compute entropy for input
+# Example:
+# N = 5
+# Number of possible inputs (theoretical):
+# 50 * 49 * 48 * 47 * 46 = 254.251.200
+# Probability of any input = 1/254.251.200
+
+# num_pos = 254251200
+# iprob = 0.00000000393312
+# log_iprob = math.log(iprob, 2)
+
+# print iprob
+# print log_iprob
+
+n_size = n
+
+for n_size in range(1,6):
+	print 'SIZE:', n_size
+	print '============='
+	num_pos = 1
+	max_num = 50
+	for i in range(n_size):
+		num_pos *= max_num
+		max_num -= 1
+	iprob = 1.0/num_pos
+	log_iprob = math.log(iprob, 2)
+
+	print iprob
+	print log_iprob
+
+	entropy = -(iprob * log_iprob)
+	print entropy
+
+
 
 def probability_bin(lsts):
 	# use base 2
@@ -57,5 +92,5 @@ def probability_base(lsts):
 def entropy(lsts):
 	return 0
 
-probability_bin(lsts_val)
-probability_base(orders_val)
+#probability_bin(lsts_val)
+#probability_base(orders_val)
