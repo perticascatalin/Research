@@ -14,7 +14,7 @@ Applications:
 ### 1. Introduction
 
 - compositionality (approached)
-- information bottleneck
+- information bottleneck (intro+ formula- impl- debate-)
 - scalability, separability - multiple learners (approached)
 - learning complexity
 - relation to mathematical sets
@@ -22,7 +22,7 @@ Applications:
 
 #### Information Bottleneck
 
-The information bottleneck principle refers to the gjsdfgksjdfg fhgjdfg skfghjh lksdf fksdjf  sdfhs sdkfhsf sdkfjhsdfk ksdjf. Dfkjhsdgnn hwegrh akdjfh sdlgoiu dfh skdjfhsdkf skdjfhkj akjdfh. For this purpose, we can compute the mutual information between random variables representing the input, the activation at a certain level and the output of the network.
+The information bottleneck principle refers to the link between information theory and deep neural networks. How information is compressed inside a neural network depends on the data representation which can carry information about target outputs at different relevance levels. In practice, we can estimate the mutual information between random variables representing the input, the activation at a certain level and the output of the network. We can use these measures to intuitively analyze what is going through the network and then find out the factors which contribute to the success of the model parametrization and design.
 
 #### 1.1 Relevance and priority (MOVED Related Work)
 
@@ -192,11 +192,13 @@ With HP Range 20 (60.000) : NN 8.6 (0.43 vs 0.23) [400,200] rest same, improv 20
 With HP Range 20 (150.000) add data: NN 8.9 (0.45 vs 0.43) 2% very marginal improvement
 
 Range 20
-Less dropout (0.6), no additional data: NN 10.3 (0.52 vs 0.43) improv 9%
-Less dropout (0.4), same: NN prev s6.1, now s6.4, after finish 12.1 (0.61 vs 0.43) improv 18%
-Even less (0.2), same: NN now s6.5, after finish 14.7 (0.74 vs 0.43) improv 31%
+D6 Less dropout (0.6), no additional data: NN 10.3 (0.52 vs 0.43) improv 9%
+D4 Less dropout (0.4), same: NN prev s6.1, now s6.4, after finish 12.1 (0.61 vs 0.43) improv 18%
+D2 Even less (0.2), same: NN now s6.5, after finish 14.7 (0.74 vs 0.43) improv 31%
+D0 None (0.0), same: NN now s6.6, after finish 19.9 (0.99 vs 0.43) improv 56%
 
-
+D0 Same, but back to data: NN now s5.3, after finish 11.4 (0.57 vs )
+D2 NN now s5.1, after finish 8.7 (0.44 vs )
 
 - Set with total value abstraction
 - So far seems the most scalable (accuracy drops slower)
