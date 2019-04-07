@@ -139,7 +139,8 @@ Split into categories [useless (less than 10% acc) - guess (max 5) - good guess 
 
 #### 3.3 Metrics (MOVED Implementation and Experiments)
 
-We compute a partial accuracy - the average number of elements guessed in N arrays.
+We compute a partial accuracy - the average number of elements whose target position is correctly guessed. 
+
 Minimum number of samples to reach decent accuracy.
 Error range: +/- 1%
 
@@ -148,14 +149,17 @@ Error range: +/- 1%
 **Set 1**
 
 - Data: D
-- Range 6:					NN 6.0 full both - not necessary
-- Range 8:					NN 8.0 full both - not necessary
-- Range 9:					NN 8.7 (0.97 vs 1.00) improv 3% DC
-- Range 10:					NN 8.8 (0.88 vs 0.95) improv 7% DC
-- Range 11:					NN 6.3 (0.57 vs 0.66) improv 9% DC
-- Range 12:					NN 4.9 (0.41 vs 0.44) improv 3% DC
-- Range 16:					NN 3.4 (0.21 vs 0.23) improv 2% DC - start poor convergence
-- Range 20:					NN 1.0 (0.05 vs 0.07 vs 0.23) improv 2% DC - stays same, improv 16% with HP
+
+|Size|Model + Acc|Normalized Acc (vs DC)|Comment  |
+|:--:|:---------:|:--------------------:|:-------:|
+|6   |NN  6.0    |100% vs 100%          |full both|
+|8   |NN  8.0    |100% vs 100%          |full both|
+|9   |NN  8.7    | 97% vs 100%          |+ 3% DC  |
+|10  |NN  8.8    | 88% vs  95%          |+ 7% DC  |
+|11  |NN  6.3    | 57% vs  66%          |+ 9% DC  |
+|12  |NN  4.9    | 41% vs  44%          |+ 3% DC  |
+|16  |NN  3.4    | 21% vs  23%          |+ 2% DC  - start poor convergence|
+|20  |NN  1.0    |  5% vs   7%          |+ 2% DC, +18% with HP, stays same|
 
 - Basic Set
 - Min 1 element guessed threshold stop investigation
@@ -201,7 +205,8 @@ Comparison to baseline data
 D0 Same, but back to data: NN now s5.3, after finish 11.4 (0.57 vs )
 D2 NN now s5.1, after finish 8.7 (0.44 vs )
 
-D0, DC, N24, s6.0, after finish 19.1 (0.80)
+D0, DC, N24, s6.0, after finish 19.1 (0.80 vs )
+D0, DC, N30, s5.4, after finish 7.1 (0.27)
 
 - Set with total value abstraction
 - So far seems the most scalable (accuracy drops slower)
