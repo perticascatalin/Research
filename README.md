@@ -249,7 +249,7 @@ Scalability vs. problem complexity views:
 |Accuracy|Model Description|
 |:------:|:---------------:|
 |![asm_plot](https://raw.githubusercontent.com/perticascatalin/MastersExperiments/master/Permutation/results/asm.png)|Extreme forest with 96 estimators vs. multilayer_perceptron with ~1000 neurons in 4 layers (512, 256, 128) dense + N multi-label outputs. Rand ~ 1/N|
-|![ads_plot](https://raw.githubusercontent.com/perticascatalin/MastersExperiments/master/Permutation/results/ads.png)|Add description|
+|![asd_plot](https://raw.githubusercontent.com/perticascatalin/MastersExperiments/master/Permutation/results/asd.png)|Add description|
 
 ### 4. Problem Complexity
 

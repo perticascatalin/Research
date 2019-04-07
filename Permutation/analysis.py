@@ -114,8 +114,8 @@ def print_acc_scale_models():
 	plt.savefig('./results/' + 'asm.png')
 	plt.clf()
 
-# ADS plot (accuracy vs. data type vs. scalability)
-def print_acc_data_scale():
+# ADS plot (accuracy vs. scalability vs. data type)
+def print_acc_scale_data():
 	ns = [6, 8, 9, 10, 11, 12, 16, 20]
 	set_1 = [1.00, 1.00, 0.97, 0.88, 0.57, 0.41, 0.21, 0.05]
 	set_2 = [1.00, 1.00, 1.00, 0.95, 0.66, 0.44, 0.23, 0.07]
@@ -127,7 +127,7 @@ def print_acc_data_scale():
 	plt.plot(ns, set_2, 'b', linewidth = 2.8, label = 'Data and Order Relations')
 	plt.plot(ns, set_3, 'r', linewidth = 2.8, label = 'Order Relations')
 	plt.legend()
-	plt.savefig('./results/' + 'ads.png')
+	plt.savefig('./results/' + 'asd.png')
 	plt.clf()
 
 def print_pretty(correct_pred, logits, y_exp, x, epoch):
@@ -145,4 +145,4 @@ def print_pretty(correct_pred, logits, y_exp, x, epoch):
 #print_barchart(list([10, 30, 20, 40, 50]), list([1, 3, 2, 4, 5]), list([1, 2, 3, 4, 5]), 'labels_0.png')
 #print_barchart(list([10, 20, 30, 40, 50]), list([1, 2, 3, 4, 5]), list([1, 2, 3, 4, 5]), 'labels_1.png')
 #print_acc_scale_models()
-#print_acc_data_scale()
+#print_acc_scale_data()
