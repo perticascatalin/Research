@@ -59,7 +59,6 @@ for n_size in range(1,6):
 	print entropy
 
 
-
 def probability_bin(lsts):
 	# use base 2
 	bins = {}

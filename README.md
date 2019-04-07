@@ -213,8 +213,14 @@ Error range: +/- 1%
 
 **Comparison to baseline data**
 
-D0 Same, but back to data: NN now s5.3, after finish 11.4 (0.57 vs )
-D2 NN now s5.1, after finish 8.7 (0.44 vs )
+D0 Same, but back to data: NN now s5.3, after finish 11.4 (0.57 vs 0.99)
+D2 NN now s5.1, after finish 8.7 (0.44 vs 0.74)
+
+**======================**
+
+**Focus area, take-away message: 99 - 57 = 42% accuracy improvement for size 20**
+
+**======================**
 
 **Increasing the size**
 
