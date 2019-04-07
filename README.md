@@ -141,6 +141,9 @@ Split into categories [useless (less than 10% acc) - guess (max 5) - good guess 
 
 We compute a partial accuracy - the average number of elements whose target position is correctly guessed. Example: we run the experiment on an array of 10 elements and the test dataset is comprised of 3 such arrays with 7, 7, and 9 correct guesses. Then the partial accuracy is (7 + 7 + 9)/3 = 7.7.
 
+Later on, we use a normalized accuracy - the average percentage of correctly guessed elements from the whole array. Example 7 correct guesses in an array of 9 elements has a normalized accuracy of 7 / 9 = 78%.
+
+#### 3.4 Comparisons (PARTIALLY MOVED Implementation and Experiments)
 
 Error range: +/- 1%
 
@@ -176,46 +179,54 @@ Error range: +/- 1%
 |10  |D  4.0|E_96 7.5|NN 9.5  |confirm ratio (60000)|
 |12  |      |NN 5.3  |E_96 7.2|                     |
 |16  |      |NN 3.6  |E_96 5.4|                     |
-|20  |      |NN 1.4  |E_96 4.6|NN nc 4.6 (4 layers, 2000 neurons, 150000 samples, 0.0006 lr, 0.7 dropout)|
-|24  |      |NN 1.0  |E_96 3.5| |
+|20  |      |NN 1.4  |E_96 4.6|NN 4.6 (4L, 2K N, 150K S)|
+|24  |      |NN 1.0  |E_96 3.5| ^ (0.0006 lr, 0.7 drop) |
 
 - Set with additional prior knowledge
 
 **Set 3**
 
 - Data: C
-- Range 6:					NN 6.0 full both - not necessary
-- Range 8:					NN 7.9 (0.99 vs 1.00) improv 1% DC converges
-- Range 9:					NN 8.4 (0.93 vs 1.00) improv 7% DC converges
-- Range 10:					NN 8.3 (0.83 vs 0.95) improv 12% DC converges
-- Range 11:					NN 8.1 (0.74 vs 0.66) decrev 8% DC
-- Range 12:					NN 7.3 (0.61 vs 0.44) decrev 17% DC
-- Range 16:					NN 5.1 (0.32 vs 0.23) decrev 9% DC
-- Range 20:					NN 3.2 (0.16 vs 0.07 vs 0.23) fails converge, decrev 9% DC
 
-[400,200]
+|Size|Partial Acc|Normal Acc (vs DC)|Comment          |
+|:--:|:---------:|:----------------:|:---------------:|
+|6   |NN 6.0     |100% vs 100%      |                 |
+|8   |NN 7.9     | 99% vs 100%      |+ 1% DC converges|
+|9   |NN 8.4     | 93% vs 100%      |+ 7% DC converges|
+|10  |NN 8.3     | 83% vs  95%      |+12% DC converges|
+|11  |NN 8.1     | 74% vs  66%      |- 8% DC          |
+|12  |NN 7.3     | 61% vs  44%      |-17% DC          |
+|16  |NN 5.1     | 32% vs  23%      |- 9% DC          |
+|20  |NN 3.2     | 16% vs   7%      |- 9% DC fails converge|
 
-With HP Range 20 (60.000) : NN 8.6 (0.43 vs 0.23) [400,200] rest same, improv 20%
-With HP Range 20 (150.000) add data: NN 8.9 (0.45 vs 0.43) 2% very marginal improvement
+**Exploration of [400,200] layering**
 
-Range 20
-D6 Less dropout (0.6), no additional data: NN 10.3 (0.52 vs 0.43) improv 9%
-D4 Less dropout (0.4), same: NN prev s6.1, now s6.4, after finish 12.1 (0.61 vs 0.43) improv 18%
-D2 Even less (0.2), same: NN now s6.5, after finish 14.7 (0.74 vs 0.43) improv 31%
-D0 None (0.0), same: NN now s6.6, after finish 19.9 (0.99 vs 0.43) improv 56%
+- With HP Range 20 (60.000) : NN 8.6 (0.43 vs 0.23) [400,200] rest same, improv 20%
+- With HP Range 20 (150.000) add data: NN 8.9 (0.45 vs 0.43) 2% very marginal improvement
 
-Comparison to baseline data
+**Range 20**
+
+- D6 Less dropout (0.6), no additional data: NN 10.3 (0.52 vs 0.43) improv 9%
+- D4 Less dropout (0.4), same: NN prev s6.1, now s6.4, after finish 12.1 (0.61 vs 0.43) improv 18%
+- D2 Even less (0.2), same: NN now s6.5, after finish 14.7 (0.74 vs 0.43) improv 31%
+- D0 None (0.0), same: NN now s6.6, after finish 19.9 (0.99 vs 0.43) improv 56%
+
+**Comparison to baseline data**
+
 D0 Same, but back to data: NN now s5.3, after finish 11.4 (0.57 vs )
 D2 NN now s5.1, after finish 8.7 (0.44 vs )
 
-D0, DC, N24, s6.0, after finish 19.1 (0.80 vs )
-D0, DC, N30, s5.4, after finish 10.8 (0.36 vs )
+**Increasing the size**
+
+- D0, DC, N24, s6.0, after finish 19.1 (0.80 vs )
+- D0, DC, N30, s5.4, after finish 10.8 (0.36 vs )
+
 
 - Set with total value abstraction
 - So far seems the most scalable (accuracy drops slower)
 - Diffusion and design vs. dropout and information bottleneck
 
-#### 3.4 Scalability (MOVED Implementation and Experiments)
+#### 3.5 Scalability (MOVED Implementation and Experiments)
 
 We show how this poses scalability problems for the chosen machine learning models (neural networks and decision trees). For instance:
 
