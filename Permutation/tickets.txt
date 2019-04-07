@@ -43,4 +43,9 @@ Date Issued: 5.04
 Status: not started
 Task: Plot graph of sum over intervals (the counting operation)
 
-STATS: 4 out of 9 solved
+TICKET 10
+Date Issued 7.04
+Status: not started
+Task: Compute entropy and mutual information of input and output variables
+
+STATS: 4 out of 10 solved
