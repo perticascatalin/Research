@@ -96,31 +96,54 @@ def entropy(lsts):
 #probability_bin(lsts_val)
 #probability_base(orders_val)
 
+def lin(x):
+	return math.log(x, 2)
+	#return x
+
+def arrangement(maxint, n_size):
+	return 0
+
 # returns array of factorials
 def factorial(n_size):
 	start = 1
-	arr = []
+	arr = [lin(1)]
 	for i in range(n_size):
 		start *= (i+1)
-		arr.append(start)
+		arr.append(lin(start))
 	return arr
 
 # returns array of pow2s
 def pow2(n_size):
 	start = 1
-	arr = []
+	arr = [lin(1)]
 	for i in range(n_size):
 		start *= 2
+		arr.append(lin(start))
+	return arr
+
+# approximate 2^(n^2) - still incorrect
+def pow2comb(n_size):
+	start = 1
+	arr = [lin(1)]
+	for i in range(n_size):
+		n = (i+1)
+		p = (n * (n-1))/2
+		tn = pow2(p)
+		start = tn[-1]
 		arr.append(start)
 	return arr
 
-index = np.arange(n_size)
-fact = factorial(n_size)
-p2 = pow2(n_size)
+n = 8
+
+index = np.arange(n+1)
+fact = factorial(n)
+p2 = pow2(n)
+p2c = pow2comb(n)
 
 print index
 print fact
 print p2
+print p2c
 
-plt.plot(index, fact, 'r', index, p2, 'g')
+plt.plot(index, fact, 'r', index, p2, 'g', index, p2c, 'b')
 plt.show()
