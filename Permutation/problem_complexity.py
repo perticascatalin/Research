@@ -1,5 +1,6 @@
 import math
 import numpy as np
+import matplotlib.pyplot as plt
 
 import analysis as co
 import generator as gen
@@ -120,3 +121,6 @@ p2 = pow2(n_size)
 print index
 print fact
 print p2
+
+plt.plot(index, fact, 'r', index, p2, 'g')
+plt.show()
