@@ -98,10 +98,16 @@ def entropy(lsts):
 
 def lin(x):
 	return math.log(x, 2)
-	#return x
+	return x
 
+# returns array of possible arrangements
 def arrangement(maxint, n_size):
-	return 0
+	start = 1
+	arr = [lin(1)]
+	for i in range(n_size):
+		start *= (maxint - i)
+		arr.append(lin(start))
+	return arr
 
 # returns array of factorials
 def factorial(n_size):
@@ -121,7 +127,7 @@ def pow2(n_size):
 		arr.append(lin(start))
 	return arr
 
-# approximate 2^(n^2) - still incorrect
+# returns approximate 2^(n^2)
 def pow2comb(n_size):
 	start = 1
 	arr = [lin(1)]
@@ -136,14 +142,16 @@ def pow2comb(n_size):
 n = 8
 
 index = np.arange(n+1)
+arang = arrangement(50, n)
 fact = factorial(n)
 p2 = pow2(n)
 p2c = pow2comb(n)
 
 print index
+print arang
 print fact
-print p2
 print p2c
+print p2
 
-plt.plot(index, fact, 'r', index, p2, 'g', index, p2c, 'b')
+plt.plot(index, arang, 'm', index, fact, 'r', index, p2, 'g', index, p2c, 'b')
 plt.show()
