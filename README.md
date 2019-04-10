@@ -17,6 +17,7 @@ Applications:
 - information bottleneck (intro+ formula- impl- debate-)
 - scalability, separability - multiple learners (approached)
 - learning complexity (approached)
+- problem complexity
 - relation to mathematical sets (dk)
 - sequences (dk)
 
@@ -260,7 +261,7 @@ Using all datasets
 Scalability vs. problem complexity views:
 
 - **scalability - done**
-- problem complexity
+- **problem complexity - done**
 - N factorial vs. number of samples ratio threshold
 
 |Accuracy|Model Description|
@@ -274,6 +275,10 @@ Next, we try to find some of the underlying reasons. For instance, by measuring 
 
 - important space dimensions (set cardinality):
 - N! vs. MAXINT!/(MAXINT-N)! vs. 2^((N)x(N-1)/2) vs. 2^N
+
+|Growth|Description|
+|:----:|:---------:|
+|![pc_plot](https://raw.githubusercontent.com/perticascatalin/MastersExperiments/master/Permutation/results/pc.png)|Add description|
 
 Then we look for changes in the models or the problem formulation that could help improve our solution.
 
@@ -298,14 +303,12 @@ Neural network has to store the numbers.
 
 6. Constraint non-identical labels
 
-7. Input-output matching cardinality
+7. Feature importances from decision tree
 
-8. Feature importances from decision tree
-
-9. Trick network by having some fixed positions.
+8. Trick network by having some fixed positions.
 K out of N elements are fixed such that solving the problem for them yields better results than for bothering with the rest of the elements.
 
-10. Minimum number of samples to reach decent accuracy.
+9. Minimum number of samples to reach decent accuracy.
 
 ### 6. Experiments vs Theory
 
