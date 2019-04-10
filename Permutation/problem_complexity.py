@@ -139,7 +139,7 @@ def pow2comb(n_size):
 		arr.append(start)
 	return arr
 
-n = 8
+n = 20
 
 index = np.arange(n+1)
 arang = arrangement(50, n)
@@ -153,5 +153,9 @@ print fact
 print p2c
 print p2
 
+figname = 'pc.png'
 plt.plot(index, arang, 'm', index, fact, 'r', index, p2, 'g', index, p2c, 'b')
 plt.show()
+#plt.savefig('./data/' + figname)
+#plt.close()
+

@@ -58,7 +58,9 @@ for n_size in range(1,6):
 	entropy = -(iprob * log_iprob)
 	print entropy
 
-
+# Estimates based on data for:
+#   5   6    7...
+# 120,720,5040...
 def probability_bin(lsts):
 	# use base 2
 	bins = {}
@@ -71,7 +73,7 @@ def probability_bin(lsts):
 		else:
 			bins[num] = 1
 
-	print bins
+	print len(bins)
 
 def probability_base(lsts):
 	# use base n
@@ -91,5 +93,5 @@ def probability_base(lsts):
 def entropy(lsts):
 	return 0
 
-#probability_bin(lsts_val)
+probability_bin(lsts_val)
 #probability_base(orders_val)
