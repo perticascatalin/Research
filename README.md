@@ -278,7 +278,9 @@ Next, we try to find some of the underlying reasons. For instance, by measuring 
 
 |Growth|Description|
 |:----:|:---------:|
-|![pc_plot](https://raw.githubusercontent.com/perticascatalin/MastersExperiments/master/Permutation/results/pc.png)|Add description|
+|![pc_plot](https://raw.githubusercontent.com/perticascatalin/MastersExperiments/master/Permutation/results/pc.png)|Figure showing the **data growth** on a logarithmic scale. Input: **magenta** - number of valid inputs in relation to N. Output: **red** - number of valid outputs in relation to N.|
+||Depending on how the problem is formalized we can manipulate the number of valid inputs with lossless compression (re-abstractization).|
+|Arrangements|Description|
 
 Then we look for changes in the models or the problem formulation that could help improve our solution.
 
