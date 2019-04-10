@@ -276,13 +276,16 @@ Next, we try to find some of the underlying reasons. For instance, by measuring 
 - important space dimensions (set cardinality):
 - N! vs. MAXINT!/(MAXINT-N)! vs. 2^((N)x(N-1)/2) vs. 2^N
 
+Then we look for changes in the models or the problem formulation that could help improve our solution.
+
 |Growth|Description|
 |:----:|:---------:|
 |![pc_plot](https://raw.githubusercontent.com/perticascatalin/MastersExperiments/master/Permutation/results/pc.png)|Figure showing the **data growth** on a logarithmic scale. Input: **magenta** - number of valid inputs in relation to N. Output: **red** - number of valid outputs in relation to N.|
 ||Depending on how the problem is formalized we can manipulate the number of valid inputs with lossless compression (re-abstractization).|
-|Arrangements|Description|
-
-Then we look for changes in the models or the problem formulation that could help improve our solution.
+|**Arrangements**|The number of possible arrangements of unique numbers up to MAXINT of length N (INPUT DATA)|
+|**Permutations**|The number of possible permutations of length N(OUTPUT and INPUT ORDER RELATIONS)|
+|**Exponential**|2 to the power of N - for reference purpose|
+|**Combinations**|The number of possible relations between pairs of numbers|
 
 ### 5. In-progress Work
 
