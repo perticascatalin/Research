@@ -223,9 +223,15 @@ D2 NN now s5.1, after finish 8.7 (0.44 vs 0.74)
 
 **======================**
 
-**Increasing the size**
+**Increasing & decreasing the size**
 
+
+- D0, DC, N10, s   , after finish 
+- D0, DC, N12, s   , after finish 
+- D0, DC, N16, s8.1, after finish 16.0 (1.00 vs 0.69) <----
+- D0, DC, N20, s6.6, after finish 19.9 (0.99 vs 0.57)
 - D0, DC, N24, s6.0, after finish 19.1 (0.80 vs )
+- D0, DC, N28  s   , after finish 
 - D0, DC, N30, s5.4, after finish 10.8 (0.36 vs )
 
 

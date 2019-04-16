@@ -1,7 +1,7 @@
 # For instance N = 10 (wrt position)
 # Inputs   1 2 3 4 5 6 7 8 9 10
 # Generate 2 4 3 1 8 9 6 7 5 10
-num_classes = 8
+num_classes = 16
 num_out_classes = num_classes
 
 # Number of arrays to generate
@@ -20,8 +20,7 @@ num_out_classes = num_classes
 # what is a decent sample?
 # 61% accuracy with default params (last decent accuracy)
 # with current dataset (generalize mah for 8000 classes)
-# num_samples = 60000
-num_samples = 20000
+num_samples = 60000
 
 # Maximum number in array
 maxint = 50
@@ -37,7 +36,7 @@ layer_dropout = [0.0]
 
 # The type of data
 # Can be "data", "order_relations", "all", or "simple_data" for min/max (change ith)
-data_type = "order_relations"
+data_type = "data"
 
 if data_type == "simple_data":
 	num_out_classes = 1
