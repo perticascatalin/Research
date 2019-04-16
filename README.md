@@ -17,7 +17,7 @@ Applications:
 - information bottleneck (intro+ formula- impl- debate-)
 - scalability, separability - multiple learners (approached)
 - learning complexity (approached)
-- problem complexity
+- problem complexity (intro+ formulas~ impl+ debate-)
 - relation to mathematical sets (dk)
 - sequences (dk)
 
@@ -237,7 +237,10 @@ D2 NN now s5.1, after finish 8.7 (0.44 vs 0.74)
 - D0, DC, N30, s5.4, after finish 10.8 (0.36 vs 0.28)
 
 
-**Exploration of [800,200], [800,400]
+**Exploration of A.[800,200], B.[800,400]**
+
+-A. D0, DC, N24, s5.9, after finish 21.5 (0.90)
+-B. 
 
 - Set with total value abstraction
 - So far seems the most scalable (accuracy drops slower)
