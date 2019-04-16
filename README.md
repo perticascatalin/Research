@@ -278,6 +278,7 @@ Scalability vs. problem complexity views:
 |:------:|:---------------:|
 |![asm_plot](https://raw.githubusercontent.com/perticascatalin/MastersExperiments/master/Permutation/results/asm.png)|Extreme forest with 96 estimators vs. multilayer_perceptron with ~1000 neurons in 4 layers (512, 256, 128) dense + N multi-label outputs. Rand ~ 1/N|
 |![asd_plot](https://raw.githubusercontent.com/perticascatalin/MastersExperiments/master/Permutation/results/asd.png)|Add description|
+|![ad_plot](https://raw.githubusercontent.com/perticascatalin/MastersExperiments/master/Permutation/results/ad.png)|Add description|
 
 ### 4. Problem Complexity
 
@@ -327,7 +328,7 @@ K out of N elements are fixed such that solving the problem for them yields bett
 
 ### 6. Experiments vs Theory
 
-1. Adding comparison prior knowledge to data
+1. Adding comparison prior knowledge to data - DONE
 
 2. Storage capability: predicting the order vs. predicting elements in order
 
@@ -339,7 +340,7 @@ K out of N elements are fixed such that solving the problem for them yields bett
 
 6. Models scalability - DONE
 
-7. Problem Complexity
+7. Problem Complexity - DONE
 
 ### 7. Related work
 
