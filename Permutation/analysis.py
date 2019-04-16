@@ -114,7 +114,7 @@ def print_acc_scale_models():
 	plt.savefig('./results/' + 'asm.png')
 	plt.clf()
 
-# ADS plot (accuracy vs. scalability vs. data type)
+# ASD plot (accuracy vs. scalability vs. data type)
 def print_acc_scale_data():
 	ns = [6, 8, 9, 10, 11, 12, 16, 20]
 	set_1 = [1.00, 1.00, 0.97, 0.88, 0.57, 0.41, 0.21, 0.05]
@@ -128,6 +128,20 @@ def print_acc_scale_data():
 	plt.plot(ns, set_3, 'r', linewidth = 2.8, label = 'Order Relations')
 	plt.legend()
 	plt.savefig('./results/' + 'asd.png')
+	plt.clf()
+
+# AD plot (accuracy vs. design)
+def print_acc_design():
+	ns = [10, 12, 16, 20, 24, 28, 30]
+	set_1 = [1.00, 1.00, 0.77, 0.57, 0.40, 0.30, 0.28]
+	set_2 = [1.00, 1.00, 1.00, 0.99, 0.80, 0.49, 0.36]
+	plt.title('Design', fontsize = 18)
+	plt.xlabel('# Elements', fontsize = 16)
+	plt.ylabel('% Correctly Guessed', fontsize = 16)
+	plt.plot(ns, set_1, 'orange', linewidth = 2.8, label = 'Data')
+	plt.plot(ns, set_2, 'r', linewidth = 2.8, label = 'Order Relations')
+	plt.legend()
+	plt.savefig('./results/' + 'ad.png')
 	plt.clf()
 
 def print_pretty(correct_pred, logits, y_exp, x, epoch):
@@ -146,3 +160,4 @@ def print_pretty(correct_pred, logits, y_exp, x, epoch):
 #print_barchart(list([10, 20, 30, 40, 50]), list([1, 2, 3, 4, 5]), list([1, 2, 3, 4, 5]), 'labels_1.png')
 #print_acc_scale_models()
 #print_acc_scale_data()
+print_acc_design()
