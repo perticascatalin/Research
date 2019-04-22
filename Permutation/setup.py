@@ -1,7 +1,7 @@
 # For instance N = 10 (wrt position)
 # Inputs   1 2 3 4 5 6 7 8 9 10
 # Generate 2 4 3 1 8 9 6 7 5 10
-num_classes = 24
+num_classes = 8
 num_out_classes = num_classes
 
 # Number of arrays to generate
@@ -20,7 +20,7 @@ num_out_classes = num_classes
 # what is a decent sample?
 # 61% accuracy with default params (last decent accuracy)
 # with current dataset (generalize mah for 8000 classes)
-num_samples = 60000
+num_samples = 1000
 
 # Maximum number in array
 maxint = 50
@@ -32,7 +32,7 @@ n_estim = 96
 # layer_neurons = [512, 256, 128]
 # layer_dropout = [0.8, 0.8]
 # layer_neurons = [400, 200]
-layer_neurons = [800, 200]
+layer_neurons = [800, 400]
 layer_dropout = [0.0]
 
 # The type of data
