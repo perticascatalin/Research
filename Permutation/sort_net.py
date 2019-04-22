@@ -79,6 +79,10 @@ Y = tf.Variable(y, trainable = False)
 R = tf.matmul(X, Y)
 Rf = tf.nn.sigmoid(1000 * R)
 
+Rr = tf.reshape(Rf, [m,n,n])
+Rp = tf.reduce_sum(Rr, 2)
+Rn = tf.add(-0.5, Rp)
+
 # Initialize the variables (i.e. assign their default value)
 init = tf.global_variables_initializer()
 saver = tf.train.Saver()
@@ -99,4 +103,6 @@ with tf.Session() as sess:
 	sol = np.reshape(sol, (m,n,n))
 	print sol
 	#pdb.set_trace()
+	est = sess.run([Rn])
+	print est
 
