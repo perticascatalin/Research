@@ -10,7 +10,7 @@ import pdb
 # Setup experiment size and parameters
 os.environ['TF_CPP_MIN_LOG_LEVEL']='2'
 N_CLASSES = stp.num_classes
-batch_size = 128
+batch_size = 2
 data_type = "data"
 lsts_train, orders_train = gen.data()
 
@@ -38,8 +38,6 @@ for i in range(N_CLASSES):
 
 v = tf.Variable(ts, trainable = False)
 
-X = X[0]
-
 print 'X shape:', X.shape
 print 'V shape:', v.shape
 
@@ -48,7 +46,6 @@ print 'R shape:', R.shape
 print "========================"
 Rf = tf.nn.sigmoid(1000 * R)
 
-batch_size = 1
 Rr = tf.reshape(Rf, [batch_size,N_CLASSES,N_CLASSES])
 Rp = tf.reduce_sum(Rr, 2)
 Rn = tf.add(-0.5, Rp)
@@ -64,11 +61,12 @@ with tf.Session() as sess:
 	coord = tf.train.Coordinator()
 	threads = tf.train.start_queue_runners(sess = sess, coord = coord)
 
-	sol = sess.run([Rn])
-	y, x = sess.run([Y, X])
-	print x[0]
-	print y[0]
-	print sol[0][0]
+	sol, r, y, x = sess.run([Rn, R, Y, X])
+	print x
+	print x.shape
+	print y
+	print sol
+	print r
 	
 
 print "========================"
