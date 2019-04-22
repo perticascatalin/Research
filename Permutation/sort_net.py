@@ -24,6 +24,8 @@ lsts_train, orders_train = tf.train.slice_input_producer([lsts_train, orders_tra
 
 X, Y = tf.train.batch([lsts_train, orders_train], batch_size = batch_size, capacity = batch_size * 8, num_threads = 4)
 
+print X.shape
+
 #logits_train, y_train = neural_net(X, Y, N_OUT_CLASSES, N_CLASSES, dropout, reuse = False, is_training = False)
 ts = np.zeros((N_CLASSES, N_CLASSES * N_CLASSES), np.float32)
 for i in range(N_CLASSES):
@@ -35,12 +37,18 @@ for i in range(N_CLASSES):
 		ts[j][i*N_CLASSES + j] = -1.0
 
 v = tf.Variable(ts, trainable = False)
-print v.shape
-print X.shape
+
+X = X[0]
+
+print 'X shape:', X.shape
+print 'V shape:', v.shape
 
 R = tf.matmul(X, v)
+print 'R shape:', R.shape
+print "========================"
 Rf = tf.nn.sigmoid(1000 * R)
 
+batch_size = 1
 Rr = tf.reshape(Rf, [batch_size,N_CLASSES,N_CLASSES])
 Rp = tf.reduce_sum(Rr, 2)
 Rn = tf.add(-0.5, Rp)
@@ -63,17 +71,21 @@ with tf.Session() as sess:
 	print sol[0][0]
 	
 
-n = 3
+print "========================"
+
+n = 4
 m = 2
 x = np.zeros((m,n), np.float32)
 x[0][0] = 21
 x[0][1] = 7
 x[0][2] = 16
+x[0][3] = 3
 
 x[1][0] = 12
 x[1][1] = 11
 x[1][2] = 6
-# n*n = 9
+x[1][3] = 14
+# n*n = 16
 y = np.zeros((n,n*n), np.float32)
 for i in range(n):
 	for j in range(n):
@@ -84,8 +96,11 @@ for i in range(n):
 
 X = tf.Variable(x, trainable = False)
 Y = tf.Variable(y, trainable = False)
+print 'X shape:', X
+print 'Y shape:', Y
 
 R = tf.matmul(X, Y)
+print 'R shape:', R
 Rf = tf.nn.sigmoid(1000 * R)
 
 Rr = tf.reshape(Rf, [m,n,n])
