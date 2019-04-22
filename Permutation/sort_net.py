@@ -25,34 +25,43 @@ lsts_train, orders_train = tf.train.slice_input_producer([lsts_train, orders_tra
 X, Y = tf.train.batch([lsts_train, orders_train], batch_size = batch_size, capacity = batch_size * 8, num_threads = 4)
 
 #logits_train, y_train = neural_net(X, Y, N_OUT_CLASSES, N_CLASSES, dropout, reuse = False, is_training = False)
-ts = np.zeros((N_CLASSES, N_CLASSES, N_CLASSES), np.float32)
+ts = np.zeros((N_CLASSES, N_CLASSES * N_CLASSES), np.float32)
 for i in range(N_CLASSES):
 	for j in range(N_CLASSES):
 		if i == j:
 			continue
-		ts[i][j][i] = 1.0
-		ts[i][j][j] = -1.0
 
-print ts[:,0,1], ts[:,1,2], ts[:,1,3]
+		ts[i][i*N_CLASSES + j] = 1.0
+		ts[j][i*N_CLASSES + j] = -1.0
+
 v = tf.Variable(ts, trainable = False)
 print v.shape
 print X.shape
 
-#res = tf.matmul(v, X)
+R = tf.matmul(X, v)
+Rf = tf.nn.sigmoid(1000 * R)
 
-# # Initialize the variables (i.e. assign their default value)
-# init = tf.global_variables_initializer()
-# saver = tf.train.Saver()
+Rr = tf.reshape(Rf, [batch_size,N_CLASSES,N_CLASSES])
+Rp = tf.reduce_sum(Rr, 2)
+Rn = tf.add(-0.5, Rp)
 
-# with tf.Session() as sess:
-# 	# Run the initializer
-# 	sess.run(init)
-# 	# Start the data queue
-# 	coord = tf.train.Coordinator()
-# 	threads = tf.train.start_queue_runners(sess = sess, coord = coord)
+# Initialize the variables (i.e. assign their default value)
+init = tf.global_variables_initializer()
+saver = tf.train.Saver()
 
-# 	sol = sess.run([res])
-# 	pdb.set_trace()
+with tf.Session() as sess:
+	# Run the initializer
+	sess.run(init)
+	# Start the data queue
+	coord = tf.train.Coordinator()
+	threads = tf.train.start_queue_runners(sess = sess, coord = coord)
+
+	sol = sess.run([Rn])
+	y, x = sess.run([Y, X])
+	print x[0]
+	print y[0]
+	print sol[0][0]
+	
 
 n = 3
 m = 2
@@ -102,7 +111,6 @@ with tf.Session() as sess:
 	print sol[0][1]
 	sol = np.reshape(sol, (m,n,n))
 	print sol
-	#pdb.set_trace()
 	est = sess.run([Rn])
 	print est
 
