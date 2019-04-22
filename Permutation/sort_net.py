@@ -58,8 +58,12 @@ n = 3
 m = 2
 x = np.zeros((m,n), np.float32)
 x[0][0] = 21
-x[0][1] = 5
+x[0][1] = 7
 x[0][2] = 16
+
+x[1][0] = 12
+x[1][1] = 11
+x[1][2] = 6
 # n*n = 9
 y = np.zeros((n,n*n), np.float32)
 for i in range(n):
@@ -73,6 +77,7 @@ X = tf.Variable(x, trainable = False)
 Y = tf.Variable(y, trainable = False)
 
 R = tf.matmul(X, Y)
+Rf = tf.nn.sigmoid(1000 * R)
 
 # Initialize the variables (i.e. assign their default value)
 init = tf.global_variables_initializer()
@@ -85,7 +90,7 @@ with tf.Session() as sess:
 	coord = tf.train.Coordinator()
 	threads = tf.train.start_queue_runners(sess = sess, coord = coord)
 
-	sol = sess.run([R])
+	sol = sess.run([Rf])
 	print len(sol)
 	print len(sol[0])
 	print len(sol[0][0])
