@@ -26,7 +26,7 @@ Task: Save loss & accuracy convergence for all models, with hyper-param saved.
 TICKET 6
 Date Issued: 31.03
 Status: not started
-Task: Find a good sortnet using design. Apply it to neural networks for computer vision.
+Task: Find a good sortnet using design.
 
 **TICKET 7**
 Date Issued: 31.03
@@ -48,4 +48,14 @@ Date Issued 7.04
 Status: not started
 Task: Compute entropy and mutual information of input and output variables
 
-STATS: 4 out of 10 solved
+**TICKET 11**
+Date Issued 22.04
+Status: SOLVED
+Task: Implement sort with random k pick
+
+TICKET 12
+Date Issued: 22.04
+Status: not started
+Task: Apply sortnet module to neural networks for computer vision.
+
+STATS: 5 out of 12 solved
