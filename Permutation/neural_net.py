@@ -12,8 +12,9 @@ N_OUT_CLASSES = stp.num_out_classes
 N_FEAT = (N_CLASSES*(N_CLASSES - 1))/2
 dropout = 0.0
 learning_rate = 0.001
-num_steps = 100000
-display_step = 2000
+#num_steps = 100000
+num_steps = 5000
+display_step = 1000
 batch_size = 128
 layer_neurons = stp.layer_neurons
 layer_dropout = stp.layer_dropout
@@ -116,6 +117,7 @@ with tf.Session() as sess:
 	losses = []
 	train_accs = []
 	val_accs = []
+	steps = []
 
 	# Training cycle
 	for step in range(1, num_steps+1):
@@ -150,6 +152,7 @@ with tf.Session() as sess:
 			losses.append(total_loss)
 			train_accs.append(training_accuracy)
 			val_accs.append(validation_accuracy)
+			steps.append(step)
 		else:
 			# Only run the optimization op (backprop)
 			sess.run(train_op)
@@ -157,8 +160,8 @@ with tf.Session() as sess:
 	print("Optimization Finished!")
 	# Dump additional data for later investigation
 	#pickle.dump(losses, open('ml_losses.p', 'wb'))
-	#pickle.dump(train_accs, open('ml_train_accs.p', 'wb'))
-	#pickle.dump(val_accs, open('ml_val_accs.p', 'wb'))
+	# Or just plot it
+	co.print_ltv(losses, train_accs, val_accs, steps, 'sample.png')
 	# Save your model
 	saver.save(sess, './checkpts/')
 	# Stop threads

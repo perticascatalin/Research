@@ -139,6 +139,17 @@ def print_acc_design():
 	plt.savefig('./results/' + 'ad.png')
 	plt.clf()
 
+def print_ltv(A, B, C, x, filename):
+	plt.title('Loss and Accuracy', fontsize = 18)
+	plt.xlabel('# Steps', fontsize = 16)
+	plt.ylabel('% Value', fontsize = 16)
+	plt.plot(x, A, 'blue', linewidth = 2.8, label = 'Loss')
+	plt.plot(x, B, 'orange', linewidth = 2.8, label = 'Training Accuracy')
+	plt.plot(x, C, 'red', linewidth = 2.8, label = 'Validation Accuracy')
+	plt.legend()
+	plt.savefig('./results/' + filename)
+	plt.clf()
+
 def print_pretty(correct_pred, logits, y_exp, x, epoch):
 	out = list()
 	y_pred = list()

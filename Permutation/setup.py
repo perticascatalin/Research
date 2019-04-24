@@ -1,7 +1,7 @@
 # For instance N = 10 (wrt position)
 # Inputs   1 2 3 4 5 6 7 8 9 10
 # Generate 2 4 3 1 8 9 6 7 5 10
-num_classes = 1000
+num_classes = 4
 num_out_classes = num_classes
 
 # Number of arrays to generate
@@ -20,10 +20,11 @@ num_out_classes = num_classes
 # what is a decent sample?
 # 61% accuracy with default params (last decent accuracy)
 # with current dataset (generalize mah for 8000 classes)
-num_samples = 1000
+# num_samples = 60000
+num_samples = 128
 
 # Maximum number in array
-maxint = 2000
+maxint = 50
 
 # Number of estimators for decision tree forests
 n_estim = 96
