@@ -18,10 +18,10 @@ Date Issued: 30.03
 Status: BUG SOLVED
 Task: The model does not work anymore on simple data.
 
-TICKET 5
+**TICKET 5**
 Date Issued: 30.03
-Status: not started
-Task: Save loss & accuracy convergence for all models, with hyper-param saved.
+Status: SOLVED
+Task: Save loss & accuracy convergence for all models, with hyper-param saved (do manually man).
 
 **TICKET 6**
 Date Issued: 31.03
@@ -78,4 +78,4 @@ Date Issued: 24.04
 Status: not started
 Task: Document information theory.
 
-STATS: 7 out of 16 solved
+STATS: 8 out of 16 solved
