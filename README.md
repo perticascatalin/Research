@@ -4,6 +4,13 @@ Thesis Title: **Scaled statistical learning on compositions of functions for rel
 
 ## E1: Order relations compositionality in a sequence of numbers (in progress)
 
+Principles of writing:
+
+- keep theory & speculation in balance with maths and experimental part
+- link neighboring points through story and insight
+- keep flat structure, so that it is clear where to add certain stuff
+- polish partial parts, but leave way for new parts to be created
+
 Applications:
 
 - computer vision
