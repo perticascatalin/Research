@@ -36,26 +36,36 @@ Task: Set dropout by layer.
 TICKET 8
 Date Issued: 5.04
 Status: not started
-Task: Plot graph of linear separator for comparison (the ">" operation)
+Task: Plot graph of linear separator for comparison (the ">" operation).
 
 TICKET 9
 Date Issued: 5.04
 Status: not started
-Task: Plot graph of sum over intervals (the counting operation)
+Task: Plot graph of sum over intervals (the counting operation).
 
 TICKET 10
 Date Issued 7.04
 Status: not started
-Task: Compute entropy and mutual information of input and output variables
+Task: Compute entropy and mutual information of input and output variables.
 
 **TICKET 11**
 Date Issued 22.04
 Status: SOLVED
-Task: Implement sort with random k pick
+Task: Implement sort with random k pick.
 
 TICKET 12
 Date Issued: 22.04
 Status: not started
+Task: Add support for 1 layer network.
+
+TICKET 13
+Date Issued: 24.04
+Status: not started
+Task: Design trainable sortnet module.
+
+TICKET 14
+Date Issued: 24.04
+Status: not started
 Task: Apply sortnet module to neural networks for computer vision.
 
-STATS: 6 out of 12 solved
+STATS: 6 out of 14 solved
