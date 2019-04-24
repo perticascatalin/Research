@@ -13,19 +13,20 @@ N_FEAT = (N_CLASSES*(N_CLASSES - 1))/2
 
 def gen_list(dtype = 'int'):
 	lst, order = list(), list()
+	used = [0] * (MAXINT + 1)
 	for i in range(N_CLASSES):
 		while True:
 			if dtype == 'float':
 				num = random.random()
-			else:
-				num = random.randint(1, MAXINT)
-
-			# Condition to generate unique numbers
-			if lst.count(num) == 0:
 				lst.append(num)
 				break
 			else:
-				continue
+				num = random.randint(1, MAXINT)
+				# Condition to generate unique numbers
+				if used[num] == False:
+					lst.append(num)
+					used[num] = True
+					break
 
 	# Count number of elements smaller than each individual element
 	# That number is its final position
@@ -40,16 +41,16 @@ def gen_list(dtype = 'int'):
 # Just for int
 def gen_ith(ith_target):
 	lst, ith = list(), list()
+	used = [0] * (MAXINT + 1)
 	for i in range(N_CLASSES):
 		while True:
 			num = random.randint(1, MAXINT)
-
 			# Condition to generate unique numbers
-			if lst.count(num) == 0:
+			if used[num] == False:
 				lst.append(num)
+				used[num] = True
 				break
-			else:
-				continue
+
 	# Find the ith element in the sorted list
 	for i in range(N_CLASSES):
 		count = 0
@@ -67,6 +68,8 @@ def data(dtype = 'int'):
 		lst, order = gen_list(dtype)
 		lsts.append(lst)
 		orders.append(order)
+		if i % 100 == 0:
+			print "Generated", i, 'samples'
 	return lsts, orders
 
 # Minimum

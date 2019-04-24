@@ -68,4 +68,9 @@ Date Issued: 24.04
 Status: not started
 Task: Apply sortnet module to neural networks for computer vision.
 
-STATS: 6 out of 14 solved
+**TICKET 15**
+Date Issued: 24.04
+Status: SOLVED
+Task: Optimize generator.
+
+STATS: 7 out of 15 solved

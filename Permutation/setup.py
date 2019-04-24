@@ -1,7 +1,7 @@
 # For instance N = 10 (wrt position)
 # Inputs   1 2 3 4 5 6 7 8 9 10
 # Generate 2 4 3 1 8 9 6 7 5 10
-num_classes = 50
+num_classes = 1000
 num_out_classes = num_classes
 
 # Number of arrays to generate
@@ -23,7 +23,7 @@ num_out_classes = num_classes
 num_samples = 1000
 
 # Maximum number in array
-maxint = 50
+maxint = 2000
 
 # Number of estimators for decision tree forests
 n_estim = 96
