@@ -10,13 +10,17 @@ import pdb
 # Setup experiment size and parameters
 os.environ['TF_CPP_MIN_LOG_LEVEL']='2'
 N_CLASSES = stp.num_classes
-batch_size = 2
+batch_size = 20
 data_type = "data"
 lsts_train, orders_train = gen.data()
+
+print "========================"
+print "General Solution"
 
 def neural_net(x, inputs, n_classes, num_labels, dropout, reuse, is_training):
 	with tf.variable_scope('SortNet', reuse = reuse):
 		v = tf.Variable(tf.zeros([1]), trainable = False)
+	return None, None
 
 lsts_train = tf.convert_to_tensor(lsts_train, dtype = tf.float32)
 orders_train = tf.convert_to_tensor(orders_train, dtype = tf.int32)
@@ -42,34 +46,30 @@ print 'X shape:', X.shape
 print 'V shape:', v.shape
 
 R = tf.matmul(X, v)
-print 'R shape:', R.shape
-print "========================"
 Rf = tf.nn.sigmoid(1000 * R)
-
 Rr = tf.reshape(Rf, [batch_size,N_CLASSES,N_CLASSES])
 Rp = tf.reduce_sum(Rr, 2)
-Rn = tf.add(-0.5, Rp)
+Rn = tf.cast(tf.add(-0.5, Rp), tf.int32)
 
-# Initialize the variables (i.e. assign their default value)
 init = tf.global_variables_initializer()
 saver = tf.train.Saver()
-
 with tf.Session() as sess:
-	# Run the initializer
 	sess.run(init)
-	# Start the data queue
 	coord = tf.train.Coordinator()
 	threads = tf.train.start_queue_runners(sess = sess, coord = coord)
 
 	sol, r, y, x = sess.run([Rn, R, Y, X])
+	print 'Input'
 	print x
-	print x.shape
+	print 'Output'
 	print y
+	print 'Solution'
 	print sol
+	print 'Raw matrix'
 	print r
 	
-
 print "========================"
+print "Small Example"
 
 n = 4
 m = 2
@@ -100,19 +100,14 @@ print 'Y shape:', Y
 R = tf.matmul(X, Y)
 print 'R shape:', R
 Rf = tf.nn.sigmoid(1000 * R)
-
 Rr = tf.reshape(Rf, [m,n,n])
 Rp = tf.reduce_sum(Rr, 2)
 Rn = tf.add(-0.5, Rp)
 
-# Initialize the variables (i.e. assign their default value)
 init = tf.global_variables_initializer()
 saver = tf.train.Saver()
-
 with tf.Session() as sess:
-	# Run the initializer
 	sess.run(init)
-	# Start the data queue
 	coord = tf.train.Coordinator()
 	threads = tf.train.start_queue_runners(sess = sess, coord = coord)
 
