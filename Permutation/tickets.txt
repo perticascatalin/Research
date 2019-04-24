@@ -73,4 +73,9 @@ Date Issued: 24.04
 Status: SOLVED
 Task: Optimize generator.
 
-STATS: 7 out of 15 solved
+TICKET 16
+Date Issued: 24.04
+Status: not started
+Task: Document information theory.
+
+STATS: 7 out of 16 solved

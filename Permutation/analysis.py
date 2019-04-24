@@ -38,10 +38,7 @@ def print_barchart(arr, expect, actual, figname):
 	bar_width = 0.35
 	opacity = 0.8
 
-	# expect1, actual1, expect2, actual2
-	# add another class
 	# expect_t, actual_t, expect_f, actual_f
-
 	expect_t = []
 	e_index_t = []
 	expect_f = []
@@ -70,8 +67,6 @@ def print_barchart(arr, expect, actual, figname):
 	rects2 = plt.bar(np.array(e_index_f), expect_f, bar_width, alpha=opacity, color='y', label='Expected Wrong')
 	rects3 = plt.bar(np.array(a_index_t) + bar_width, actual_t, bar_width, alpha=opacity, color='g', label='Actual Correct')
 	rects4 = plt.bar(np.array(a_index_f) + bar_width, actual_f, bar_width, alpha=opacity, color='r', label='Actual Wrong')
-	#rects1 = plt.bar(index, expect, bar_width, alpha=opacity, color='g', label='Expected')
-	#rects2 = plt.bar(index + bar_width, actual, bar_width, alpha=opacity, color='b', label='Actual')
 	
 	blue_patch = mpatches.Patch(color='b', label='Expected Correct')
 	yellow_patch = mpatches.Patch(color='y', label='Expected Wrong')
@@ -157,7 +152,6 @@ def print_pretty(correct_pred, logits, y_exp, x, epoch):
 
 
 #print_barchart(list([10, 30, 20, 40, 50]), list([1, 3, 2, 4, 5]), list([1, 2, 3, 4, 5]), 'labels_0.png')
-#print_barchart(list([10, 20, 30, 40, 50]), list([1, 2, 3, 4, 5]), list([1, 2, 3, 4, 5]), 'labels_1.png')
 #print_acc_scale_models()
 #print_acc_scale_data()
-print_acc_design()
+#print_acc_design()
