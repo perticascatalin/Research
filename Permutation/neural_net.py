@@ -12,7 +12,7 @@ N_OUT_CLASSES = stp.num_out_classes
 N_FEAT = (N_CLASSES*(N_CLASSES - 1))/2
 dropout = 0.0
 learning_rate = 0.001
-num_steps = 10000
+num_steps = 100000
 display_step = 1000
 batch_size = 128
 layer_neurons = stp.layer_neurons
@@ -151,7 +151,7 @@ with tf.Session() as sess:
 			losses.append(total_loss)
 			train_accs.append(100.0*training_accuracy/N_CLASSES)
 			val_accs.append(100.0*validation_accuracy/N_CLASSES)
-			steps.append(step)
+			steps.append(step/1000)
 		else:
 			# Only run the optimization op (backprop)
 			sess.run(train_op)
