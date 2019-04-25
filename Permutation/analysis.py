@@ -78,7 +78,7 @@ def print_barchart(arr, expect, actual, figname):
 	plt.title('Expected vs. actual labels')
 	plt.xticks(index + bar_width, xticks)
 	plt.legend(bbox_to_anchor=(1.14, 1.14), handles = [blue_patch, yellow_patch, green_patch, red_patch])
-	plt.savefig('./data/' + figname)
+	plt.savefig('./data/labels/' + figname)
 	plt.close()
 
 def check_perm_validity(arr, expect, actual):
@@ -146,7 +146,8 @@ def print_ltv(A, B, C, x, filename):
 	plt.plot(x, A, 'blue', linewidth = 1.0, label = 'Loss')
 	plt.plot(x, B, 'orange', linewidth = 1.0, label = 'Training Accuracy')
 	plt.plot(x, C, 'red', linewidth = 1.0, label = 'Validation Accuracy')
-	plt.legend(loc = 'upper left')
+	# Remove legend altogether
+	#plt.legend(loc = 'upper left')
 	plt.savefig('./results/' + filename)
 	plt.clf()
 

@@ -31,8 +31,7 @@ n_estim = 96
 # Layer neurons for neural network
 # layer_neurons = [512, 256, 128]
 # layer_dropout = [0.8, 0.8]
-# layer_neurons = [400, 200]
-layer_neurons = [800, 400]
+layer_neurons = [400, 200]
 layer_dropout = [0.0]
 
 # The type of data

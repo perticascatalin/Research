@@ -19,6 +19,7 @@ layer_neurons = stp.layer_neurons
 layer_dropout = stp.layer_dropout
 num_layers = len(layer_neurons)
 data_type = stp.data_type
+model_name = "D_20"
 
 def neural_net(x, inputs, n_classes, num_labels, dropout, reuse, is_training):
 	with tf.variable_scope('NeuralNet', reuse = reuse):
@@ -158,7 +159,10 @@ with tf.Session() as sess:
 
 	print("Optimization Finished!")
 	# Dump additional data for later investigation
-	#pickle.dump(losses, open('ml_losses.p', 'wb'))
+	pickle.dump(losses, open('./data/stats/' + model_name + '_ml_losses.p', 'wb'))
+	pickle.dump(train_accs, open('./data/stats/' + model_name + '_ml_t_accs.p', 'wb'))
+	pickle.dump(val_accs, open('./data/stats/' + model_name + '_ml_v_accs.p', 'wb'))
+	pickle.dump(val_accs, open('./data/stats/' + model_name + '_ml_steps.p', 'wb'))
 	# Or just plot it
 	co.print_ltv(losses, train_accs, val_accs, steps, 'sample.png')
 	# Save your model
