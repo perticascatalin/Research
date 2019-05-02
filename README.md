@@ -98,16 +98,6 @@ In the above case, the sorted position of 49 is equal to O(1,1) + O(2,1) + O(3,1
 
 Looking at the input in a sequential manner or deriving rules for correct input parsing - sorted numbers should be easily mapped to 0, 1, 2, 3, ... what if many numbers from a random permutation of numbers? Distributive attention - how to paralelly process 2 different data streams.
 
-Number of total inputs for a given permutation:
-
-How many input states are represented by a node.
-
-Assign first p0 such that you can keep assigning p1,p2... (N-1) avail
-MAXINT = 10
-max_assign = 9 0 up to 9-N
-
-Assign second p1 such s.t. p2, p3
-
 Learning specific permutations and the mapping within them through a Cayley Graph. Distributing the types of inputs to different models goes in the direction of AutoML.
 
 ### 2. Models
@@ -237,7 +227,6 @@ D2 NN now s5.1, after finish 8.7 (0.44 vs 0.74)
 
 **Increasing & decreasing the size**
 
-
 - D0, DC, N10, s   , after finish 	   (1.00 vs 1.00)
 - D0, DC, N12, s   , after finish      (1.00 vs 1.00)
 - D0, DC, N16, s8.1, after finish 16.0 (1.00 vs 0.77)
@@ -253,6 +242,10 @@ D2 NN now s5.1, after finish 8.7 (0.44 vs 0.74)
 -B. D0, DC, N24, s6.9, after finish 10.6 (0.44)
 -B is a lot worse, probably needs dropout or HP change
 -continue with A
+
+**Flat architecture**
+F_30 [1000] 8.8
+G_30 [30]
 
 - Set with total value abstraction
 - So far seems the most scalable (accuracy drops slower)
@@ -287,7 +280,6 @@ Scalability vs. problem complexity views:
 
 - **scalability - done**
 - **problem complexity - done**
-- N factorial vs. number of samples ratio threshold
 
 |Accuracy|Model Description|
 |:------:|:---------------:|
