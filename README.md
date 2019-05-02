@@ -238,14 +238,15 @@ D2 NN now s5.1, after finish 8.7 (0.44 vs 0.74)
 
 **Exploration of A.[800,200], B.[800,400]**
 
--A. D0, DC, N24, s5.9, after finish 21.5 (0.90)
--B. D0, DC, N24, s6.9, after finish 10.6 (0.44)
--B is a lot worse, probably needs dropout or HP change
--continue with A
+- A. D0, DC, N24, s5.9, after finish 21.5 (0.90)
+- B. D0, DC, N24, s6.9, after finish 10.6 (0.44)
+- B is a lot worse, probably needs dropout or HP change
+- continue with A
 
 **Flat architecture**
-F_30 [1000] 8.8
-G_30 [30]
+
+- F_30 [1000] 9.0
+- G_30 [30] 7.4
 
 - Set with total value abstraction
 - So far seems the most scalable (accuracy drops slower)

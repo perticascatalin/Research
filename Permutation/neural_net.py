@@ -19,10 +19,11 @@ layer_neurons = stp.layer_neurons
 layer_dropout = stp.layer_dropout
 num_layers = len(layer_neurons)
 data_type = stp.data_type
-model_name = "F_30"
+model_name = "A"
 # D_20,24,28,30 -> [400,200] with comparisons and N = 20,24,28,30
 # E_30 -> [1000,200] with comparisons and N = 30
 # F_30 flat 1 layer -> [1000] and N = 30
+# G_30 flat 1 layer -> [30] and N = 30
 
 def neural_net(x, inputs, n_classes, num_labels, dropout, reuse, is_training):
 	with tf.variable_scope('NeuralNet', reuse = reuse):
