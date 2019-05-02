@@ -20,11 +20,10 @@ Applications:
 
 ### 1. Introduction
 
-- information bottleneck (intro+ formula- impl- debate-)
-- problem complexity (intro+ formulas~ impl+ debate-)
-- scalability, separability - multiple learners (approached)
-- learning complexity (approached)
-- compositionality (approached)
+- information bottleneck (intro+ formula+ impl- debate-)
+- scalability & problem complexity (intro+ formula+ impl+ debate-)
+- learning complexity & separability (approached)
+- compositionality - multiple learners (approached)
 - relation to mathematical sets (dk)
 - sequences (dk)
 
@@ -308,13 +307,13 @@ Then we look for changes in the models or the problem formulation that could hel
 
 ### 5. In-progress Work
 
-*To investigate further*
+*To investigate further & turn these into tickets*
 
-1. Representation
+1. **Representation**
 
 Sequence of numbers vs. bag of numbers (count sort)
 
-2. Multilabel Classification
+2. **Multilabel Classification**
 
 Vectors for small arrays of numbers. 
 
@@ -322,24 +321,23 @@ Largest enhancements and smallest shrinking preserve array class (all labels).
 
 Bent surface on n-2 space.
 
-3. Regression
+3. **Regression**
 
 Directly predict the numbers in the correct order.
 
 Neural network has to store the numbers.
 
-4. Temporal Generation. Sequence to sequence. Results which can be compared to previous papers on read-write NN.
+4. **Temporal Generation. Sequence to sequence. Results which can be compared to previous papers on read-write NN.**
 
-5. Pre-order to/vs. Post-order
+5. **Pre-order to/vs. Post-order**
 
-6. Constraint non-identical labels
+6. **Constraint non-identical labels**
 
-7. Feature importances from decision tree
+7. **Feature importances from decision tree**
 
-8. Trick network by having some fixed positions.
+8. **Trick network by having some fixed positions.**
+
 K out of N elements are fixed such that solving the problem for them yields better results than for bothering with the rest of the elements.
-
-9. Minimum number of samples to reach decent accuracy.
 
 ### 6. Experiments vs Theory
 
