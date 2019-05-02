@@ -53,9 +53,9 @@ Date Issued 22.04
 Status: SOLVED
 Task: Implement sort with random k pick.
 
-TICKET 12
+**TICKET 12**
 Date Issued: 22.04
-Status: not started
+Status: SOLVED
 Task: Add support for 1 layer network.
 
 TICKET 13
@@ -78,4 +78,4 @@ Date Issued: 24.04
 Status: not started
 Task: Document information theory.
 
-STATS: 8 out of 16 solved
+STATS: 9 out of 16 solved

@@ -19,25 +19,35 @@ layer_neurons = stp.layer_neurons
 layer_dropout = stp.layer_dropout
 num_layers = len(layer_neurons)
 data_type = stp.data_type
-model_name = "D_20"
+model_name = "F_30"
+# D_20,24,28,30 -> [400,200] with comparisons and N = 20,24,28,30
+# E_30 -> [1000,200] with comparisons and N = 30
+# F_30 flat 1 layer -> [1000] and N = 30
 
 def neural_net(x, inputs, n_classes, num_labels, dropout, reuse, is_training):
 	with tf.variable_scope('NeuralNet', reuse = reuse):
 		# activations tried: sigmoid 6.6 , relu X , tanh 8.8 (on data)
 		# layers: first is input-dense with dropout, last is dense-classes no dropout
 
+		# Define first layer
 		fc = tf.layers.dense(x, layer_neurons[0], activation = tf.nn.tanh)
-		fc = tf.layers.dropout(fc, rate = layer_dropout[0], training = is_training)
+		if num_layers >= 2:
+			fc = tf.layers.dropout(fc, rate = layer_dropout[0], training = is_training)
 		layers = [fc]
+
+		# Define hidden layers
 		for i in range(1, num_layers - 1):
 			last_layer = layers[-1]
 			fc = tf.layers.dense(last_layer, layer_neurons[i], activation = tf.nn.tanh)
 			fc = tf.layers.dropout(fc, rate = layer_dropout[i], training = is_training)
 			layers.append(fc)
 
-		last_layer = layers[-1]
-		fc = tf.layers.dense(last_layer, layer_neurons[-1], activation = tf.nn.tanh)
+		# Define last layer
+		if num_layers >= 2:
+			last_layer = layers[-1]
+			fc = tf.layers.dense(last_layer, layer_neurons[-1], activation = tf.nn.tanh)
 
+		# Define outputs
 		outputs = list()
 		for i in range(n_classes):
 			out_i = tf.layers.dense(fc, num_labels)
@@ -164,7 +174,7 @@ with tf.Session() as sess:
 	pickle.dump(val_accs, open('./data/stats/' + model_name + '_ml_v_accs.p', 'wb'))
 	pickle.dump(val_accs, open('./data/stats/' + model_name + '_ml_steps.p', 'wb'))
 	# Or just plot it
-	co.print_ltv(losses, train_accs, val_accs, steps, 'sample.png')
+	co.print_ltv(losses, train_accs, val_accs, steps, model_name + '_sample.png')
 	# Save your model
 	saver.save(sess, './checkpts/')
 	# Stop threads
