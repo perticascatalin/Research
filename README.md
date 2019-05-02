@@ -215,8 +215,8 @@ Error range: +/- 1%
 
 **Comparison to baseline data**
 
-D0 Same, but back to data: NN now s5.3, after finish 11.4 (0.57 vs 0.99)
-D2 NN now s5.1, after finish 8.7 (0.44 vs 0.74)
+D2 Same, but back to data NN now s5.1, after finish 8.7 (0.44 vs 0.74)
+D0 NN now s5.3, after finish 11.4 (0.57 vs 0.99)
 
 **======================**
 
@@ -245,7 +245,9 @@ D2 NN now s5.1, after finish 8.7 (0.44 vs 0.74)
 **Flat architecture**
 
 - F_30 [1000] 9.0
+- F_20 [400] 19.3, d 8.3
 - G_30 [30] 7.4
+- G_20 [20] 9.0, d 3.1
 
 - Set with total value abstraction
 - So far seems the most scalable (accuracy drops slower)
