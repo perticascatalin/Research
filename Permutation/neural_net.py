@@ -22,8 +22,8 @@ data_type = stp.data_type
 model_name = "A"
 # D_20,24,28,30 -> [400,200] with comparisons and N = 20,24,28,30
 # E_30 -> [1000,200] with comparisons and N = 30
-# F_30 flat 1 layer -> [1000] and N = 30
-# G_30 flat 1 layer -> [30] and N = 30
+# F_30,20 flat 1 layer -> [1000][400] and N = 30, 20
+# G_30,20 flat 1 layer -> [30][20] and N = 30, 20
 
 def neural_net(x, inputs, n_classes, num_labels, dropout, reuse, is_training):
 	with tf.variable_scope('NeuralNet', reuse = reuse):
