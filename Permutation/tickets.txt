@@ -78,4 +78,9 @@ Date Issued: 24.04
 Status: not started
 Task: Document information theory.
 
-STATS: 9 out of 16 solved
+TICKET 17
+Date Issued: 15.05
+Status: not started
+Task: Figure out how to create a trainable relational layer (select combinations of 2 features from input).
+
+STATS: 9 out of 17 solved
