@@ -10,12 +10,12 @@ def relational_net(x, inputs, n_classes, num_labels, dropout, reuse, is_training
 				# Combine 2 input units into a relational unit
 				# This is pseudocode for now, but could be 2 possible ways of writing
 				#rel_unit = tf.layers.dense([inputs[:,i], inputs[:,j]], 1)
-				rel_unit = tf.layers.dense(tf.concat([[inputs[:,i]], [inputs[:,j]]], 1), 1)
+				rel_unit = tf.layers.dense(tf.concat([[inputs[:,i]], [inputs[:,j]]], 1), 1, activation = tf.nn.tanh)
 				units_1.append(rel_unit)
 
 		units_2 = []
 		for i in range(n_classes):
-			agg_unit = tf.layers.dense(units_1[i*n_classes:(i+1)*n_classes], 1)
+			agg_unit = tf.layers.dense(units_1[i*n_classes:(i+1)*n_classes], 1, activation = tf.nn.tanh)
 			units_2.append(agg_unit)
 
 		# These are the output units
