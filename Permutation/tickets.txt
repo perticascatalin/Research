@@ -80,7 +80,12 @@ Task: Document information theory.
 
 TICKET 17
 Date Issued: 15.05
-Status: not started
+Status: SOLVED
 Task: Figure out how to create a trainable relational layer (select combinations of 2 features from input).
 
-STATS: 9 out of 17 solved
+TICKET 18
+Date Issued: 19.05
+Status: not started
+Task: Figure out how to create convolutional weights for relational unit and aggregator units.
+
+STATS: 10 out of 18 solved
