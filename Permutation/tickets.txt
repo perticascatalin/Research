@@ -86,6 +86,11 @@ Task: Figure out how to create a trainable relational layer (select combinations
 TICKET 18
 Date Issued: 19.05
 Status: not started
-Task: Figure out how to create convolutional weights for relational unit and aggregator units.
+Task: Figure out how to create convolutional weights for relational units.
 
-STATS: 10 out of 18 solved
+**TICKET 19**
+Date Issued: 19.05
+Status: SOLVED
+Task: Figure out how to create convolutional weights for aggregator units.
+
+STATS: 11 out of 19 solved
