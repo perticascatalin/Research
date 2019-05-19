@@ -234,6 +234,9 @@ D0 NN now s5.3, after finish 11.4 (0.57 vs 0.99)
 - D0, DC, N28  s5.6, after finish 13.8 (0.49 vs 0.30) 
 - D0, DC, N30, s5.4, after finish 10.8 (0.36 vs 0.28)
 
+**With Relational Net**
+
+- D (Data), N28 (batch 64 = half) s4.4, 6.4, 7.6, 8.7, 9.8, 10.6 after finish 
 
 **Exploration of A.[800,200], B.[800,400]**
 

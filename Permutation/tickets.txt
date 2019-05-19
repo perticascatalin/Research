@@ -78,7 +78,7 @@ Date Issued: 24.04
 Status: not started
 Task: Document information theory.
 
-TICKET 17
+**TICKET 17**
 Date Issued: 15.05
 Status: SOLVED
 Task: Figure out how to create a trainable relational layer (select combinations of 2 features from input).
