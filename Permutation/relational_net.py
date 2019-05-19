@@ -36,7 +36,7 @@ def relational_net(x, inputs, n_classes, num_labels, dropout, reuse, is_training
 				# Combine 2 input units into a relational unit
 				a_unit = tf.slice(inputs, [0,i], [batch_size,1])
 				b_unit = tf.slice(inputs, [0,j], [batch_size,1])
-				rel_unit = tf.layers.dense(tf.concat([a_unit, b_unit], 1), 1, activation = tf.nn.tanh)
+				rel_unit = tf.layers.dense(tf.concat([a_unit, b_unit], 1), 1, activation = tf.nn.sigmoid)
 				units_1.append(rel_unit)
 
 		print len(units_1)
