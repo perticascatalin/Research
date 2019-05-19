@@ -24,7 +24,11 @@ model_name = "Q"
 def relational_net(x, inputs, n_classes, num_labels, dropout, reuse, is_training):
 	with tf.variable_scope('RelationalNet', reuse = reuse):
 
+		#print inputs[0,:]
+		inputs = tf.cast(inputs, dtype = tf.float32)
 		print inputs
+		in_2 = tf.slice(inputs, [0,2], [batch_size,1])
+		print in_2
 
 		units_1 = []
 		for i in range(n_classes):
@@ -32,7 +36,8 @@ def relational_net(x, inputs, n_classes, num_labels, dropout, reuse, is_training
 				# Combine 2 input units into a relational unit
 				# This is pseudocode for now, but could be 2 possible ways of writing
 				#rel_unit = tf.layers.dense([inputs[:,i], inputs[:,j]], 1)
-				rel_unit = tf.layers.dense(tf.concat([[tf.cast(inputs[:,i], dtype = tf.float32)], [tf.cast(inputs[:,j], dtype = tf.float32)]], 1), 1, activation = tf.nn.tanh)
+				#rel_unit = tf.layers.dense(tf.concat([[tf.cast(inputs[:,i], dtype = tf.float32)], [tf.cast(inputs[:,j], dtype = tf.float32)]], 1), 1, activation = tf.nn.tanh)
+				rel_unit = tf.layers.dense(tf.concat([[tf.cast(inputs[i,:], dtype = tf.float32)], [tf.cast(inputs[j,:], dtype = tf.float32)]], 1), 1, activation = tf.nn.tanh)
 				units_1.append(rel_unit)
 
 		print len(units_1)
