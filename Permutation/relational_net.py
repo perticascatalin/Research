@@ -34,21 +34,23 @@ def relational_net(x, inputs, n_classes, num_labels, dropout, reuse, is_training
 		for i in range(n_classes):
 			for j in range(n_classes):
 				# Combine 2 input units into a relational unit
-				# This is pseudocode for now, but could be 2 possible ways of writing
-				#rel_unit = tf.layers.dense([inputs[:,i], inputs[:,j]], 1)
-				#rel_unit = tf.layers.dense(tf.concat([[tf.cast(inputs[:,i], dtype = tf.float32)], [tf.cast(inputs[:,j], dtype = tf.float32)]], 1), 1, activation = tf.nn.tanh)
-				rel_unit = tf.layers.dense(tf.concat([[tf.cast(inputs[i,:], dtype = tf.float32)], [tf.cast(inputs[j,:], dtype = tf.float32)]], 1), 1, activation = tf.nn.tanh)
+				a_unit = tf.slice(inputs, [0,i], [batch_size,1])
+				b_unit = tf.slice(inputs, [0,j], [batch_size,1])
+				rel_unit = tf.layers.dense(tf.concat([a_unit, b_unit], 1), 1, activation = tf.nn.tanh)
 				units_1.append(rel_unit)
 
 		print len(units_1)
+		print units_1
 
 		units_2 = []
 		for i in range(n_classes):
-			agg_unit = tf.layers.dense(tf.concat(units_1[i*n_classes:(i+1)*n_classes], 0), 1, activation = tf.nn.tanh)
+			#agg_unit = tf.layers.dense(tf.concat(units_1[i*n_classes:(i+1)*n_classes], 1), 1, activation = tf.nn.tanh)
+			agg_unit = tf.layers.dense(tf.concat(units_1[i*n_classes:(i+1)*n_classes], 1), num_labels, activation = tf.nn.tanh)
 			agg_unit = tf.nn.softmax(agg_unit) if not is_training else agg_unit
 			units_2.append(agg_unit)
 
 		print len(units_2)
+		print units_2
 
 		# These are the output units
 		# No dropout for now
