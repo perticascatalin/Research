@@ -24,11 +24,7 @@ model_name = "Q"
 def relational_net(x, inputs, n_classes, num_labels, dropout, reuse, is_training):
 	with tf.variable_scope('RelationalNet', reuse = reuse):
 
-		#print inputs[0,:]
 		inputs = tf.cast(inputs, dtype = tf.float32)
-		print inputs
-		in_2 = tf.slice(inputs, [0,2], [batch_size,1])
-		print in_2
 
 		units_1 = []
 		for i in range(n_classes):
@@ -39,23 +35,32 @@ def relational_net(x, inputs, n_classes, num_labels, dropout, reuse, is_training
 				rel_unit = tf.layers.dense(tf.concat([a_unit, b_unit], 1), 1, activation = tf.nn.sigmoid)
 				units_1.append(rel_unit)
 
-		print len(units_1)
-		print units_1
+		# This part can also be treated in a convolutional manner
 
+		# Combine a sequence of units into an aggregator unit
 		units_2 = []
 		for i in range(n_classes):
-			#agg_unit = tf.layers.dense(tf.concat(units_1[i*n_classes:(i+1)*n_classes], 1), 1, activation = tf.nn.tanh)
-			agg_unit = tf.layers.dense(tf.concat(units_1[i*n_classes:(i+1)*n_classes], 1), num_labels, activation = tf.nn.tanh)
-			agg_unit = tf.nn.softmax(agg_unit) if not is_training else agg_unit
+			agg_unit = tf.concat(units_1[i*n_classes:(i+1)*n_classes], 1)
 			units_2.append(agg_unit)
 
-		print len(units_2)
-		print units_2
+		# Stack and create last dim channel
+		units_3 = tf.expand_dims(tf.stack(units_2, axis = 2), 3)
+		
+		# Aggregate with a convolution
+		units_4 = tf.layers.conv2d(units_3, 4, [1,n_classes], [1,n_classes], 'same')
 
+		units_5 = tf.contrib.layers.flatten(units_4)
+
+		# Define outputs
+		outputs = list()
+		for i in range(n_classes):
+			out_i = tf.layers.dense(units_5, num_labels)
+			out_i = tf.nn.softmax(out_i) if not is_training else out_i
+			outputs.append(out_i)
 		# These are the output units
 		# No dropout for now
 
-	return units_2, inputs
+	return outputs, inputs
 
 if data_type == "data":
 	print "DATA"
