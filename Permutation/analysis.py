@@ -148,7 +148,7 @@ def print_ltv(A, B, C, x, filename):
 	plt.plot(x, C, 'red', linewidth = 1.0, label = 'Validation Accuracy')
 	# Remove legend altogether
 	#plt.legend(loc = 'upper left')
-	plt.savefig('./results/' + filename)
+	plt.savefig('./results/loss_and_acc/' + filename)
 	plt.clf()
 
 def print_pretty(correct_pred, logits, y_exp, x, epoch):

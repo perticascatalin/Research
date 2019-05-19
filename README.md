@@ -236,7 +236,7 @@ D0 NN now s5.3, after finish 11.4 (0.57 vs 0.99)
 
 **With Relational Net**
 
-- net Q, D (Data), N28 (batch 64 = half) s4.4, 6.4, 7.6, 8.7, 9.8, 10.6 after finish  24.2 (0.86)
+- net Q, D (Data), N28 (batch 64 = half) s4.4, 6.4, 7.6, 8.7, 9.8, 10.6 after finish 27.2 (0.97)
 
 **Exploration of A.[800,200], B.[800,400]**
 
