@@ -1,7 +1,7 @@
 # For instance N = 10 (wrt position)
 # Inputs   1 2 3 4 5 6 7 8 9 10
 # Generate 2 4 3 1 8 9 6 7 5 10
-num_classes = 28
+num_classes = 32
 num_out_classes = num_classes
 
 # Number of arrays to generate
@@ -19,8 +19,8 @@ num_out_classes = num_classes
 # 61% accuracy with default params (last decent accuracy)
 # with current dataset (generalize mah for 8000 classes)
 # 20!/100.000 = 2.4e+13
-num_samples = 60000
-#num_samples = 1000 
+#num_samples = 60000
+num_samples = 10000 
 
 # Maximum number in array
 maxint = 50

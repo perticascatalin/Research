@@ -23,7 +23,7 @@ Applications:
 - information bottleneck (intro+ formula+ impl- debate-)
 - scalability & problem complexity (intro+ formula+ impl+ debate-)
 - learning complexity & separability (approached)
-- compositionality - multiple learners (approached)
+- compositionality - multiple learners (approached, experiments+)
 - relation to mathematical sets (dk)
 - sequences (dk)
 
@@ -236,8 +236,28 @@ D0 NN now s5.3, after finish 11.4 (0.57 vs 0.99)
 
 **With Relational Net**
 
+- Q: relational net
+- R: fully relational net
 - net Q, D (Data), N28 (batch 64 = half) s4.4, 6.4, 7.6, 8.7, 9.8, 10.6 after finish 27.2 (0.97)
-- net R, D (Data), N32 (batch 64 = half, only 10000 samples) s
+- net R, D (Data), N32 (batch 64 = half, only 10000 samples = 1/6) at finish 19.6 (0.61)
+
+The SortNet model can be modified such that it has learnable weights an in principle could learn any total order relation between the array elements. For this reason we re-name it to RelationalNet.
+
+What makes it very applicable is its incorporation of 3 fundamental principles in designing supervised bottom-up learning networks.
+
+These are:
+
+- Re-combination of input chunks (relational unit)
+- Aggregation of learned activations (aggregator unit)
+- Directed acyclic graph structure (logical reasoning from extracted entities)
+
+It is remarkable how handful convolutions come in this case: they facilitate the writing of learnable aggregations, while allowing shared weights which greatly increase the learning efficiency.
+
+**======================**
+
+**Focus area, take-away message: near perfect accuracy becomes accessible for size 30**
+
+**======================**
 
 **Exploration of A.[800,200], B.[800,400]**
 
