@@ -43,15 +43,21 @@ def relational_net(x, inputs, n_classes, num_labels, dropout, reuse, is_training
 			agg_unit = tf.concat(units_1[i*n_classes:(i+1)*n_classes], 1)
 			units_2.append(agg_unit)
 
-		# Stack and create last dim channel
+		# Stack and create last dim channel 
+		# (for conv layer you need [batch_sz, height, width, channels] format)
+		# ([batch_sz, N, N, 1])
 		units_3 = tf.expand_dims(tf.stack(units_2, axis = 2), 3)
 		
 		# Aggregate with a convolution
+		# num_channels: 4 (random even small number)
+		# filter, strides
+		# same or valid "SAME will output the same input length, while VALID will not add zero padding"
 		units_4 = tf.layers.conv2d(units_3, 4, [1,n_classes], [1,n_classes], 'same')
 
+		# Flatten: will result in [batch_sz,4*N] Tensor
 		units_5 = tf.contrib.layers.flatten(units_4)
 
-		# Define outputs
+		# Define outputs: N softmaxes with N classes
 		outputs = list()
 		for i in range(n_classes):
 			out_i = tf.layers.dense(units_5, num_labels)
