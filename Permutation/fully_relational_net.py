@@ -36,19 +36,13 @@ def fully_relational_net(x, inputs, n_classes, num_labels, dropout, reuse, is_tr
 				rel_unit = tf.concat([a_unit, b_unit], 1)
 				units_1.append(rel_unit)
 
-		print units_1
-
 		# Stack and create last dim channel [batch_sz, 2, NxN, 1]
 		units_1a = tf.expand_dims(tf.stack(units_1, axis = 2), 3)
-
-		print units_1a
 
 		# Aggregate with a convolution
 		# num_channels: 1 (just one type of relation)
 		# Returns [batch_sz, 1, NxN, 1]
 		units_1b = tf.layers.conv2d(units_1a, 1, [2,1], [2,1], 'same')
-
-		print units_1b
 		
 		# Aggregate with a convolution
 		# num_channels: 4 (random even small number)

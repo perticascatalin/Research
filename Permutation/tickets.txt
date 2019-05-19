@@ -58,9 +58,9 @@ Date Issued: 22.04
 Status: SOLVED
 Task: Add support for 1 layer network.
 
-TICKET 13
+**TICKET 13**
 Date Issued: 24.04
-Status: not started
+Status: SOLVED
 Task: Design trainable sortnet module.
 
 TICKET 14
@@ -83,9 +83,9 @@ Date Issued: 15.05
 Status: SOLVED
 Task: Figure out how to create a trainable relational layer (select combinations of 2 features from input).
 
-TICKET 18
+**TICKET 18**
 Date Issued: 19.05
-Status: not started
+Status: SOLVED
 Task: Figure out how to create convolutional weights for relational units.
 
 **TICKET 19**
@@ -93,4 +93,4 @@ Date Issued: 19.05
 Status: SOLVED
 Task: Figure out how to create convolutional weights for aggregator units.
 
-STATS: 11 out of 19 solved
+STATS: 13 out of 19 solved
