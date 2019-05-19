@@ -70,6 +70,8 @@ elif data_type == "all":
 	print "ALL DATA"
 	lsts_train, orders_train = gen.all()
 
+print "TRAINING"
+
 lsts_train = tf.convert_to_tensor(lsts_train, dtype = tf.float32)
 orders_train = tf.convert_to_tensor(orders_train, dtype = tf.int32)
 lsts_train, orders_train = tf.train.slice_input_producer([lsts_train, orders_train], shuffle = True)
@@ -82,6 +84,8 @@ elif data_type == "order_relations":
 	lsts_val, orders_val = gen.order_relations()
 elif data_type == "all":
 	lsts_val, orders_val = gen.all()
+
+print "VALIDATION"
 
 lsts_val = tf.convert_to_tensor(lsts_val, dtype = tf.float32)
 orders_val = tf.convert_to_tensor(orders_val, dtype = tf.int32)

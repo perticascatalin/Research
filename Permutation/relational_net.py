@@ -1,5 +1,25 @@
+import os
+import pickle
+import tensorflow as tf
+import analysis as co
+import generator as gen
+import setup as stp
 
-
+# Setup experiment size and parameters
+os.environ['TF_CPP_MIN_LOG_LEVEL']='2'
+N_CLASSES = stp.num_classes
+N_OUT_CLASSES = stp.num_out_classes
+N_FEAT = (N_CLASSES*(N_CLASSES - 1))/2
+dropout = 0.0
+learning_rate = 0.001
+num_steps = 100000
+display_step = 1000
+batch_size = 128
+layer_neurons = stp.layer_neurons
+layer_dropout = stp.layer_dropout
+num_layers = len(layer_neurons)
+data_type = stp.data_type
+model_name = "Q"
 
 def relational_net(x, inputs, n_classes, num_labels, dropout, reuse, is_training):
 	with tf.variable_scope('RelationalNet', reuse = reuse):
@@ -48,5 +68,39 @@ def relational_net(x, inputs, n_classes, num_labels, dropout, reuse, is_training
 
 	return outputs, inputs
 
-inputs = [[1,3,2],[3,2,1]]
-inputs[]????
+if data_type == "data":
+	print "DATA"
+	lsts_train, orders_train = gen.data()
+if data_type == "simple_data":
+	print "SIMPLE DATA"
+	lsts_train, orders_train = gen.simple_data()
+elif data_type == "order_relations":
+	print "ORDER RELATIONS"
+	lsts_train, orders_train = gen.order_relations()
+elif data_type == "all":
+	print "ALL DATA"
+	lsts_train, orders_train = gen.all()
+
+print "TRAINING"
+
+lsts_train = tf.convert_to_tensor(lsts_train, dtype = tf.float32)
+orders_train = tf.convert_to_tensor(orders_train, dtype = tf.int32)
+lsts_train, orders_train = tf.train.slice_input_producer([lsts_train, orders_train], shuffle = True)
+
+if data_type == "data":
+	lsts_val, orders_val = gen.data()
+if data_type == "simple_data":
+	lsts_val, orders_val = gen.simple_data()
+elif data_type == "order_relations":
+	lsts_val, orders_val = gen.order_relations()
+elif data_type == "all":
+	lsts_val, orders_val = gen.all()
+
+print "VALIDATION"
+
+lsts_val = tf.convert_to_tensor(lsts_val, dtype = tf.float32)
+orders_val = tf.convert_to_tensor(orders_val, dtype = tf.int32)
+lsts_val, orders_val = tf.train.slice_input_producer([lsts_val, orders_val], shuffle = True)
+
+X, Y = tf.train.batch([lsts_train, orders_train], batch_size = batch_size, capacity = batch_size * 8, num_threads = 4)
+X_val, Y_val = tf.train.batch([lsts_val, orders_val], batch_size = batch_size, capacity = batch_size * 8, num_threads = 4)
