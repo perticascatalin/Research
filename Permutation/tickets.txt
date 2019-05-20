@@ -93,9 +93,14 @@ Date Issued: 19.05
 Status: SOLVED
 Task: Figure out how to create convolutional weights for aggregator units.
 
-**TICKET 20**
+TICKET 20
 Date Issued: 20.05
 Status: not started
 Task: Refactor NNs code such that code is not duplicated.
 
-STATS: 13 out of 20 solved
+TICKET 21
+Date Issued: 20.05
+Status: not started
+Task: Document, write comments for new NNs.
+
+STATS: 13 out of 21 solved
