@@ -103,4 +103,14 @@ Date Issued: 20.05
 Status: not started
 Task: Document, write comments for new NNs.
 
-STATS: 13 out of 21 solved
+TICKET 22
+Date Issued: 23.05
+Status: not started
+Task: Make plot with accuracy for different NNs (landscape variation height, width, receptive field)
+
+TICKET 23
+Date Issued: 24.05
+Status: not started
+Task: Make combined plots of loss and accuracy for different NNs (compare convergence)
+
+STATS: 13 out of 23 solved
