@@ -117,13 +117,6 @@ Between decision tree and multilayer perceptron. Multiple variants of decision t
 
 ### 3. Results
 
-#### 3.1 Views
-
-Display graphic array before and after: 
-
-- **barchart-done**
-- stacking
-- coloring
 
 | | |
 |:-:|:-:|
@@ -132,22 +125,13 @@ Display graphic array before and after:
 |Epoch 10.000 - 7 out of 10|Epoch 22.000 - 9 out of 10|
 |![l_10000](https://raw.githubusercontent.com/perticascatalin/MastersExperiments/master/Permutation/results/labels/labels_10000.png)|![l_22000](https://raw.githubusercontent.com/perticascatalin/MastersExperiments/master/Permutation/results/labels/labels_22000.png)|
 
-
-#### 3.2 Overall View
-
-Where does the model fail?
-
-Split into categories [useless (less than 10% acc) - guess (max 5) - good guess (7) - problem solved (N)].
-
-Rank all the samples in a batch - by accuracy or mean squared error (proximity).
-
-#### 3.3 Metrics (MOVED Implementation and Experiments)
+#### 4. Metrics (MOVED Implementation and Experiments)
 
 We compute a partial accuracy - the average number of elements whose target position is correctly guessed. Example: we run the experiment on an array of 10 elements and the test dataset is comprised of 3 such arrays with 7, 7, and 9 correct guesses. Then the partial accuracy is (7 + 7 + 9)/3 = 7.7.
 
 Later on, we use a normalized accuracy - the average percentage of correctly guessed elements from the whole array. Example 7 correct guesses in an array of 9 elements has a normalized accuracy of 7 / 9 = 78%.
 
-#### 3.4 Comparisons (PARTIALLY MOVED Implementation and Experiments)
+#### 5. Results by Dataset (PARTIALLY MOVED Implementation and Experiments)
 
 Error range: +/- 1%
 
@@ -281,7 +265,7 @@ It is remarkable how handful convolutions come in this case: they facilitate the
 - So far seems the most scalable (accuracy drops slower)
 - Diffusion and design vs. dropout and information bottleneck
 
-#### 3.5 Scalability (MOVED Implementation and Experiments)
+#### 6. Scalability (MOVED Implementation and Experiments)
 
 We show how this poses scalability problems for the chosen machine learning models (neural networks and decision trees). For instance:
 
@@ -317,7 +301,7 @@ Scalability vs. problem complexity views:
 |![asd_plot](https://raw.githubusercontent.com/perticascatalin/MastersExperiments/master/Permutation/results/asd.png)|Add description|
 |![ad_plot](https://raw.githubusercontent.com/perticascatalin/MastersExperiments/master/Permutation/results/ad.png)|Add description|
 
-### 4. Problem Complexity
+### 7. Problem Complexity
 
 Next, we try to find some of the underlying reasons. For instance, by measuring the impact of data representation: bare numbers or numbers with an order relation. This is done by investigating the properties of the input and target spaces.
 
@@ -334,85 +318,3 @@ Then we look for changes in the models or the problem formulation that could hel
 |**Permutations**|The number of possible permutations of length N(OUTPUT and INPUT ORDER RELATIONS)|
 |**Exponential**|2 to the power of N - for reference purpose|
 |**Combinations**|The number of possible relations between pairs of numbers|
-
-### 5. In-progress Work
-
-*To investigate further & turn these into tickets*
-
-1. **Representation**
-
-Sequence of numbers vs. bag of numbers (count sort)
-
-2. **Multilabel Classification**
-
-Vectors for small arrays of numbers. 
-
-Largest enhancements and smallest shrinking preserve array class (all labels).
-
-Bent surface on n-2 space.
-
-3. **Regression**
-
-Directly predict the numbers in the correct order.
-
-Neural network has to store the numbers.
-
-4. **Temporal Generation. Sequence to sequence. Results which can be compared to previous papers on read-write NN.**
-
-5. **Pre-order to/vs. Post-order**
-
-6. **Constraint non-identical labels**
-
-7. **Feature importances from decision tree**
-
-8. **Trick network by having some fixed positions.**
-
-K out of N elements are fixed such that solving the problem for them yields better results than for bothering with the rest of the elements.
-
-### 6. Experiments vs Theory
-
-1. Adding comparison prior knowledge to data - DONE
-
-2. Models scalability - DONE
-
-3. Problem Complexity - DONE
-
-4. Storage capability: predicting the order vs. predicting elements in order
-
-5. Maximizing expected value vs. optimization
-
-6. Impurity vs. local minima
-
-7. Attribute split vs. non-linear combinations
-
-### 7. Related work
-
-Links to information theory and deep learning [X], [Y].
-Sorting-related experiments with deep learning [A], [B].
-Bottleneck principle [Z], [W].
-
-The importance of prior information and pre-learned intermediate concepts. Composition of 2 highly non-linear tasks and other hypothesis such as local minima obstacle and guided/transfer learning [X].
-
-Gradients in highly composed functions or hard constraints. Accuracy as a function of input dimensionality. Gradient based methods cannot learn reasonably fast random parities and linear-periodic functions [Y].
-
-There are some other works where simple algorithms are inferred via neural networks. For example, in [A], the operations of copying and sorting an array are performed with a fully differentiable network connected to an eternal memory via attention. (**MOVED**)
-
-In another approach, [B] presents a sorting experiment for sets of numbers using a sequence to sequence model. The fundamental question which the study raises is how to represent sets as a sequence when the underlying order is not known or doesn't exist. (**MOVED**)
-
-### 8. References
-
-[A] A. Graves, G. Wayne, and I. Danihelka, “Neural Turing Machines,” arXiv:1410.5401v2, 2014.
-
-[B] O. Vinyals, S. Bengio, and M. Kudlur, “OrderMatters: Sequence to Sequence for Sets”, in 4th International Conference on Learning Representations (ICLR), 2016.
-
-[C] A. Santoro et al, "A simple neural network module for relational reasoning"
-
-[D] D. Hudson and C. Manning, "Compositional Attention Networks for Machine Reasoning"
-
-[X] C. Gulcehre and Y. Bengio, "Knowledge Matters: Importance of Prior Information for Optimization", Journal of Machine Learning Research, 2016.
-
-[Y] S. Shalev-Shwartz and O. Shamir and S. Shammah, "Failures of Gradient-Based Deep Learning", arXiv:1703.07950, 2017.
-
-[Z] Ravid Schwartz-Ziv and Naftali Tishby, "Opening the black box of Deep Neural Networks via Information"
-
-[W] Naftali Tishby and Noga Zaslavsky "Deep Learning and Information Bottleneck Principle"
