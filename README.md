@@ -4,32 +4,7 @@ Thesis Title: **Scaled statistical learning on compositions of functions for rel
 
 ## E1: Order relations compositionality in a sequence of numbers (in progress)
 
-Principles of writing:
-
-- keep theory & speculation in balance with maths and experimental part
-- link neighboring points through story and insight
-- keep flat structure, so that it is clear where to add certain stuff
-- polish partial parts, but leave way for new parts to be created
-
-Applications:
-
-- computer vision
-- all problems involving permutations (even NP problems)
-- rawest example: sequence of inputs, reorder inputs such that some function of the inputs in that particular order is maximized
-- the number of possible permutations grows very fast with N and the possible number of order relations even faster.
-
 ### 1. Introduction
-
-- information bottleneck (intro+ formula+ impl- debate-)
-- scalability & problem complexity (intro+ formula+ impl+ debate-)
-- learning complexity & separability (approached)
-- compositionality - multiple learners (approached, experiments+)
-- relation to mathematical sets (dk)
-- sequences (dk)
-
-#### Information Bottleneck (MOVED Concepts: Information Bottleneck)
-
-The information bottleneck principle links the analysis of deep neural networks to the domain of information theory. The key ideas of the principle are introduced as mathematical tools in a series of papers ([Z], [W]). These are: measuring the information propagation level against the theoretical upper bound and exploring the variation in information propagation during learning (the accuracy gain phase and the compression phase). How information is compressed inside a neural network depends on the data representation which can carry information about target outputs at different relevance levels. In practice, we can estimate the mutual information between random variables representing the input, the activation at a certain level and the output of the network. We can use these measures to intuitively analyze what is going through the network and then find out the factors which contribute to the success of the model design and parametrization.
 
 #### 1.1 Relevance and priority (MOVED Related Work)
 
@@ -93,7 +68,36 @@ The experiment models the manipulation of arrays with different numbers and of d
 
 In the above case, the sorted position of 49 is equal to O(1,1) + O(2,1) + O(3,1).... Similarly, the final position of 3 is equal to O(2,1) + O(2,2) + O(2,3).... Although the operations involved in finding the sorted positions are quite simple, statistical learning models have troubles with computing the correct answer.
 
-#### 1.6 Harder Stuff
+#### Concepts
+
+**Concepts list:**
+
+- information bottleneck (intro+ formula+ impl- debate-)
+- scalability & problem complexity (intro+ formula+ impl+ debate-)
+- learning complexity & separability (approached)
+- compositionality - multiple learners (approached, experiments+)
+- relation to mathematical sets (dk)
+- sequences (dk)
+
+**Principles of writing:**
+
+- keep theory & speculation in balance with maths and experimental part
+- link neighboring points through story and insight
+- keep flat structure, so that it is clear where to add certain stuff
+- polish partial parts, but leave way for new parts to be created
+
+**Applications:**
+
+- computer vision
+- all problems involving permutations (even NP problems)
+- rawest example: sequence of inputs, reorder inputs such that some function of the inputs in that particular order is maximized
+- the number of possible permutations grows very fast with N and the possible number of order relations even faster.
+
+#### Information Bottleneck (MOVED Concepts: Information Bottleneck)
+
+The information bottleneck principle links the analysis of deep neural networks to the domain of information theory. The key ideas of the principle are introduced as mathematical tools in a series of papers ([Z], [W]). These are: measuring the information propagation level against the theoretical upper bound and exploring the variation in information propagation during learning (the accuracy gain phase and the compression phase). How information is compressed inside a neural network depends on the data representation which can carry information about target outputs at different relevance levels. In practice, we can estimate the mutual information between random variables representing the input, the activation at a certain level and the output of the network. We can use these measures to intuitively analyze what is going through the network and then find out the factors which contribute to the success of the model design and parametrization.
+
+#### Harder Stuff
 
 Looking at the input in a sequential manner or deriving rules for correct input parsing - sorted numbers should be easily mapped to 0, 1, 2, 3, ... what if many numbers from a random permutation of numbers? Distributive attention - how to paralelly process 2 different data streams.
 
