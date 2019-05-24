@@ -1,12 +1,12 @@
 # MastersExperiments
 
-Thesis Title: **Scaled statistical learning on compositions of functions for relational operations**
+Thesis Title: **Compositionality of relational operations in neural networks**
 
-## E1: Order relations compositionality in a sequence of numbers (in progress)
+## E1: Order relations compositionality in a sequence of numbers (mostly done)
 
 ### 1. Introduction
 
-#### 1.1 Relevance and priority (MOVED Related Work)
+#### 1.1 Relevance and priority
 
 Whatever tasks they have to model, neural networks often encounter the problem of modeling relevance and priority - how to assign 1st, 2nd, 3rd and so on to data chunks such that it answers some questions. Such an example is the spatial ordering of elements in a visual scene as shown below.
 
@@ -16,7 +16,7 @@ Whatever tasks they have to model, neural networks often encounter the problem o
 
 Understanding how neural networks and other supervised learning models learn to answer such questions by processing large amounts of labeled data is of importance to any visual automated tasks from tracking objects of interest in scenes to self-driving cars. Previous work on how to model this learning task includes [C] and [D]. The two papers are conceptually different, but both of them use CLEVR dataset as benchmark. [C] presents a neural network module which is claimed to better model relational reasoning. [D] goes into the area of attention, memory and composition. However, what they have in common is the apparently hard task of learning composed functions. 
 
-#### 1.2 Visual Tasks (MOVED Related Work)
+#### 1.2 Visual Tasks
 
 For instace, when asking a question about the nearest object to the black sphere, a neural network model has to learn the function of identifying the blue sphere, take the result, look for the furthest object to it, then retrieve it and tell something about its properties, which is yet another task to learn. One may conclude that answering such a simple question is a task in 3 steps, or is a task composed of 3 sub-tasks.
 
@@ -26,7 +26,7 @@ Neural networks owe some of their success to the ability of learning higher leve
 |:-----:|:---------:|
 |![relational_sequence_sets](https://raw.githubusercontent.com/perticascatalin/MastersExperiments/master/Permutation/images/relational_sequence_sets.png)|Data relations: a sequence representing a certain order of the objects - set w. order relation. The set of all permutations. Symmetric group (composition of f and g to visit whole group).|
 
-#### 1.3 Mathematical Structures (MOVED Order Relations)
+#### 1.3 Mathematical Structures
 
 In this study we run experiments on data with mathematical properties such as sets, permutations and groups. And then we look at the impact of their solving difficulty in practical applications. Along the way we mention previously encountered challenges in machine learning from which the problem at hand suffers, but the focus will be on how we can exploit its structure.
 
@@ -34,7 +34,7 @@ The 0-1 hypothesis in permutation representation states that any permutation can
 
 The special arrangement hypothesis assumes an arrangement of multiple neural networks specialized in recreating a specific subset of transformations such that an input can be forwarded through a path or a cycle such that a specific state is always achieved.
 
-#### 1.4 Predicting the correct order (MOVED Sequence of Numbers)
+#### 1.4 Predicting the correct order
 
 The experiment models the manipulation of arrays with different numbers and of different lenghts. First, we formulate the problem of predicting the sorted order of the initial numbers. This problem involves the concepts of order relations, counting and permutations.
 
@@ -49,7 +49,7 @@ The experiment models the manipulation of arrays with different numbers and of d
 |Maximum         |  1|  0|  0|  0|  0|
 |Minimum         |  0|  0|  1|  0|  0|
 
-#### 1.5 Order Relations (MOVED Sequence of Numbers)
+#### 1.5 Order Relations
 
 - Order relations: Is A smaller than B?
 - 0/1 for pair (A/B)
@@ -93,7 +93,7 @@ In the above case, the sorted position of 49 is equal to O(1,1) + O(2,1) + O(3,1
 - rawest example: sequence of inputs, reorder inputs such that some function of the inputs in that particular order is maximized
 - the number of possible permutations grows very fast with N and the possible number of order relations even faster.
 
-#### Information Bottleneck (MOVED Concepts: Information Bottleneck)
+#### Information Bottleneck
 
 The information bottleneck principle links the analysis of deep neural networks to the domain of information theory. The key ideas of the principle are introduced as mathematical tools in a series of papers ([Z], [W]). These are: measuring the information propagation level against the theoretical upper bound and exploring the variation in information propagation during learning (the accuracy gain phase and the compression phase). How information is compressed inside a neural network depends on the data representation which can carry information about target outputs at different relevance levels. In practice, we can estimate the mutual information between random variables representing the input, the activation at a certain level and the output of the network. We can use these measures to intuitively analyze what is going through the network and then find out the factors which contribute to the success of the model design and parametrization.
 
@@ -119,13 +119,13 @@ Between decision tree and multilayer perceptron. Multiple variants of decision t
 |Epoch 10.000 - 7 out of 10|Epoch 22.000 - 9 out of 10|
 |![l_10000](https://raw.githubusercontent.com/perticascatalin/MastersExperiments/master/Permutation/results/labels/labels_10000.png)|![l_22000](https://raw.githubusercontent.com/perticascatalin/MastersExperiments/master/Permutation/results/labels/labels_22000.png)|
 
-#### 4. Metrics (MOVED Implementation and Experiments)
+#### 4. Metrics
 
 We compute a partial accuracy - the average number of elements whose target position is correctly guessed. Example: we run the experiment on an array of 10 elements and the test dataset is comprised of 3 such arrays with 7, 7, and 9 correct guesses. Then the partial accuracy is (7 + 7 + 9)/3 = 7.7.
 
 Later on, we use a normalized accuracy - the average percentage of correctly guessed elements from the whole array. Example 7 correct guesses in an array of 9 elements has a normalized accuracy of 7 / 9 = 78%.
 
-#### 5. Results by Dataset (PARTIALLY MOVED Implementation and Experiments)
+#### 5. Results by Dataset
 
 Error range: +/- 1%
 
@@ -133,7 +133,7 @@ Error range: +/- 1%
 
 **Set 1**
 
-- Data: D (MOVED Implementation and Experiments)
+- Data: D
 
 |Size|Model + Acc|Normalized Acc (vs DC)|Comment  |
 |:--:|:---------:|:--------------------:|:-------:|
@@ -152,7 +152,7 @@ Error range: +/- 1%
 
 **Set 2**
 
-- Data: DC (MOVED Implementation and Experiments)
+- Data: DC
 
 |Size|Worst |Second  |Best    |Comment              |
 |:--:|:----:|:------:|:------:|:-------------------:|
@@ -168,7 +168,7 @@ Error range: +/- 1%
 
 **Set 3**
 
-- Data: C (MOVED Implementation and Experiments)
+- Data: C
 
 |Size|Partial Acc|Normal Acc (vs DC)|Comment          |
 |:--:|:---------:|:----------------:|:---------------:|
@@ -180,6 +180,9 @@ Error range: +/- 1%
 |12  |NN 7.3     | 61% vs  44%      |-17% DC          |
 |16  |NN 5.1     | 32% vs  23%      |- 9% DC          |
 |20  |NN 3.2     | 16% vs   7%      |- 9% DC fails converge|
+
+- Set with total value abstraction
+- So far seems the most scalable (accuracy drops slower)
 
 **START NOT MOVED**
 
@@ -255,11 +258,11 @@ It is remarkable how handful convolutions come in this case: they facilitate the
 - G_30 [30] 7.4
 - G_20 [20] 9.0, d 3.1
 
-- Set with total value abstraction
-- So far seems the most scalable (accuracy drops slower)
 - Diffusion and design vs. dropout and information bottleneck
 
-#### 6. Scalability (MOVED Implementation and Experiments)
+**STOP NOT MOVED**
+
+#### 6. Scalability
 
 We show how this poses scalability problems for the chosen machine learning models (neural networks and decision trees). For instance:
 
