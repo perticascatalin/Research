@@ -113,4 +113,9 @@ Date Issued: 24.05
 Status: not started
 Task: Make combined plots of loss and accuracy for different NNs (compare convergence)
 
+TICKET 24
+Date Issued: 25.05
+Status: not started
+Task: Extract feature importance for decision tree
+
 STATS: 13 out of 23 solved
