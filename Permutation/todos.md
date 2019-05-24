@@ -64,3 +64,9 @@ Where does the model fail?
 Split into categories [useless (less than 10% acc) - guess (max 5) - good guess (7) - problem solved (N)].
 
 Rank all the samples in a batch - by accuracy or mean squared error (proximity).
+
+### Harder Stuff
+
+Looking at the input in a sequential manner or deriving rules for correct input parsing - sorted numbers should be easily mapped to 0, 1, 2, 3, ... what if many numbers from a random permutation of numbers? Distributive attention - how to paralelly process 2 different data streams.
+
+Learning specific permutations and the mapping within them through a Cayley Graph. Distributing the types of inputs to different models goes in the direction of AutoML.
