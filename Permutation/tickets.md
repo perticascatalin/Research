@@ -74,7 +74,7 @@ TICKET 10
 
 Date Issued 7.04
 
-Status: not started
+Status: started
 
 Task: Compute entropy and mutual information of input and output variables.
 
@@ -190,4 +190,12 @@ Status: not started
 
 Task: Extract feature importance for decision tree
 
-STATS: 14 out of 24 solved
+TICKET 25
+
+Date Issued: 29.05
+
+Status: started
+
+Task: Document, write comments for old NN.
+
+STATS: 14 out of 25 solved
