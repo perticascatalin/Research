@@ -7,27 +7,58 @@ import setup as stp
 
 # Setup experiment size and parameters
 os.environ['TF_CPP_MIN_LOG_LEVEL']='2'
+
+# Array of N inputs
 N_CLASSES = stp.num_classes
+
+# Array of N or other number of outputs
 N_OUT_CLASSES = stp.num_out_classes
+
+# Re-representation with relational features
 N_FEAT = (N_CLASSES*(N_CLASSES - 1))/2
+
+# General dropout, initially applied to all layers
 dropout = 0.0
+
+# Learning rate, inflences convergence of model (larger or smaller jumps in gradient descent)
 learning_rate = 0.001
+
+# The number of training steps
 num_steps = 100000
+
+# Displays loss, accuracy and sample classification every display_step iterations
 display_step = 1000
+
+# Number of samples per training step
 batch_size = 128
+
+# Array with number of neurons per layer
 layer_neurons = stp.layer_neurons
+
+# Array with dropout proportions from first layer to before last layer
 layer_dropout = stp.layer_dropout
+
+# Number of layers
 num_layers = len(layer_neurons)
+
+# Data re-representation
 data_type = stp.data_type
+
+# Model name for saving results
 model_name = "A"
+
+# Model names and their description
 # D_20,24,28,30 -> [400,200] with comparisons and N = 20,24,28,30
 # E_30 -> [1000,200] with comparisons and N = 30
 # F_30,20 flat 1 layer -> [1000][400] and N = 30, 20
 # G_30,20 flat 1 layer -> [30][20] and N = 30, 20
 
-def neural_net(x, inputs, n_classes, num_labels, dropout, reuse, is_training):
+def neural_net(x, inputs, num_classes, num_labels, dropout, reuse, is_training):
 	with tf.variable_scope('NeuralNet', reuse = reuse):
-		# activations tried: sigmoid 6.6 , relu X , tanh 8.8 (on data)
+		# Comparison results by activation under baseline model (on simple data)
+		# Sigmoid 6.6 
+		# Relu X (not converge)
+		# tanh 8.8
 		# layers: first is input-dense with dropout, last is dense-classes no dropout
 
 		# Define first layer
