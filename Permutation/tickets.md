@@ -190,19 +190,19 @@ Status: not started
 
 Task: Extract feature importance for decision tree
 
-TICKET 25
+**TICKET 25**
 
 Date Issued: 29.05
 
-Status: started
+Status: SOLVED
 
 Task: Document, write comments for old NN.
 
-TICKET 26
+**TICKET 26**
 
 Date Issued: 29.05
 
-Status: started
+Status: SOLVED
 
 Task: Refactor get data by type in all NNs
 

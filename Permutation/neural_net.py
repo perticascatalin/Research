@@ -6,7 +6,7 @@ import generator as gen
 import setup as stp
 
 # Setup experiment size and parameters
-os.environ['TF_CPP_MIN_LOG_LEVEL']='2'
+os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
 
 # Array of N inputs
 N_CLASSES = stp.num_classes
@@ -91,6 +91,7 @@ def neural_net(x, inputs, num_classes, num_labels, dropout, reuse, is_training):
 lsts_train, orders_train = gen.data_by_type(data_type)
 print "GENERATE TRAINING DATA"
 
+# Convert generated training data into tensors
 lsts_train = tf.convert_to_tensor(lsts_train, dtype = tf.float32)
 orders_train = tf.convert_to_tensor(orders_train, dtype = tf.int32)
 lsts_train, orders_train = tf.train.slice_input_producer([lsts_train, orders_train], shuffle = True)
@@ -98,18 +99,22 @@ lsts_train, orders_train = tf.train.slice_input_producer([lsts_train, orders_tra
 lsts_val, orders_val = gen.data_by_type(data_type)
 print "GENERATE VALIDATION DATA"
 
+# Convert generated validation data into tensors
 lsts_val = tf.convert_to_tensor(lsts_val, dtype = tf.float32)
 orders_val = tf.convert_to_tensor(orders_val, dtype = tf.int32)
 lsts_val, orders_val = tf.train.slice_input_producer([lsts_val, orders_val], shuffle = True)
 
+# Organize data into batches
 X, Y = tf.train.batch([lsts_train, orders_train], batch_size = batch_size, capacity = batch_size * 8, num_threads = 4)
 X_val, Y_val = tf.train.batch([lsts_val, orders_val], batch_size = batch_size, capacity = batch_size * 8, num_threads = 4)
 
+# Define the logits for all datasets
 logits_train, y_train = neural_net(X, Y, N_OUT_CLASSES, N_CLASSES, dropout, reuse = False, is_training = True)
 logits_test, y_test = neural_net(X, Y, N_OUT_CLASSES, N_CLASSES, dropout, reuse = True, is_training = False)
 logits_val, y_val = neural_net(X_val, Y_val, N_OUT_CLASSES, N_CLASSES, dropout, reuse = True, is_training = False)
 logits_eye, y_eye = neural_net(X_val, Y_val, N_OUT_CLASSES, N_CLASSES, dropout, reuse = True, is_training = False)
 
+# Define the loss operation
 loss_op = tf.constant(0.0, dtype = tf.float32)
 for i in range(N_OUT_CLASSES):
 	loss_op = loss_op + tf.reduce_mean(tf.nn.sparse_softmax_cross_entropy_with_logits(\
@@ -119,15 +124,17 @@ for i in range(N_OUT_CLASSES):
 optimizer = tf.train.AdamOptimizer(learning_rate = learning_rate)
 train_op = optimizer.minimize(loss_op)
 
-correct_pred_val = tf.constant(0.0, dtype = tf.float32)
-for i in range(N_OUT_CLASSES):
-	correct_pred_val = correct_pred_val + tf.cast(tf.equal(tf.argmax(logits_val[i], 1), tf.cast(Y_val[:,i], tf.int64)), tf.float32)
-accuracy_val = tf.reduce_mean(correct_pred_val)
-
+# Define loss for prediction on training dataset
 correct_pred_train = tf.constant(0.0, dtype = tf.float32)
 for i in range(N_OUT_CLASSES):
 	correct_pred_train = correct_pred_train + tf.cast(tf.equal(tf.argmax(logits_test[i], 1), tf.cast(Y[:,i], tf.int64)), tf.float32)
 accuracy_train = tf.reduce_mean(correct_pred_train)
+
+# Define loss for prediction ong validation dataset
+correct_pred_val = tf.constant(0.0, dtype = tf.float32)
+for i in range(N_OUT_CLASSES):
+	correct_pred_val = correct_pred_val + tf.cast(tf.equal(tf.argmax(logits_val[i], 1), tf.cast(Y_val[:,i], tf.int64)), tf.float32)
+accuracy_val = tf.reduce_mean(correct_pred_val)
 
 # Initialize the variables (i.e. assign their default value)
 init = tf.global_variables_initializer()
@@ -155,10 +162,12 @@ with tf.Session() as sess:
 			training_accuracy = 0.0
 			validation_accuracy = 0.0
 
+			# Each step walks thorugh 100 & batch_size number of samples
+			# Covers 12800/60000 = ~20% of dataset in an interation
 			for i in range(100):
 				loss, acc_train, acc_val = sess.run([loss_op, accuracy_train, accuracy_val])
 				if i % 100 == 0:
-					correct_pred, logits, y_exp, x = sess.run([correct_pred_val, logits_eye, Y_val, X_val])
+					correct_pred, logits, y_exp, x = sess.run([correct_pred_val, logits_val, Y_val, X_val])
 					co.debugger(correct_pred, logits, y_exp, x)
 					co.print_pretty(correct_pred, logits, y_exp, x, step)
 				
