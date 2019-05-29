@@ -24,7 +24,7 @@ def debugger(correct_pred, logits, y_exp, x, second_choice = False):
 		print out
 
 def debugger_whole_batch(correct_pred, logits, y_exp, x):
-	print "correct predictions size " + str(len(correct_pred))
+	#print "correct predictions size " + str(len(correct_pred))
 	for i in range(len(correct_pred)):
 		out = list()
 		y_pred = list()

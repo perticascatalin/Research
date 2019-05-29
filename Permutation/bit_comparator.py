@@ -8,7 +8,7 @@ import setup as stp
 # Setup experiment size and parameters
 os.environ['TF_CPP_MIN_LOG_LEVEL']='2'
 learning_rate = 0.001
-num_steps = 2000
+num_steps = 10000
 display_step = 100
 batch_size = 32
 model_name = "bc"
@@ -44,7 +44,7 @@ X_val, Y_val = tf.train.batch([lsts_val, orders_val], batch_size = batch_size, c
 logits_train, y_train = bit_comparator(X, Y, reuse = False, is_training = True)
 logits_test, y_test = bit_comparator(X, Y, reuse = True, is_training = False)
 logits_val, y_val = bit_comparator(X_val, Y_val, reuse = True, is_training = False)
-logits_eye, y_eye = bit_comparator(X_val, Y_val, reuse = True, is_training = False)
+
 
 loss_op = tf.constant(0.0, dtype = tf.float32)
 loss_op = loss_op + tf.reduce_mean(tf.nn.sparse_softmax_cross_entropy_with_logits(\
@@ -91,7 +91,7 @@ with tf.Session() as sess:
 			for i in range(100):
 				loss, acc_train, acc_val = sess.run([loss_op, accuracy_train, accuracy_val])
 				if i % 100 == 0:
-					correct_pred, logits, y_exp, x = sess.run([correct_pred_val, logits_eye, Y_val, X_val])
+					correct_pred, logits, y_exp, x = sess.run([correct_pred_val, logits_val, Y_val, X_val])
 					co.debugger_whole_batch(correct_pred, logits, y_exp, x)
 				
 				total_loss += loss
@@ -110,7 +110,7 @@ with tf.Session() as sess:
 			losses.append(total_loss)
 			train_accs.append(100.0*training_accuracy)
 			val_accs.append(100.0*validation_accuracy)
-			steps.append(step/1000)
+			steps.append(step/100)
 		else:
 			# Only run the optimization op (backprop)
 			sess.run(train_op)
