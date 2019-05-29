@@ -7,9 +7,9 @@ import setup as stp
 
 # Setup experiment size and parameters
 os.environ['TF_CPP_MIN_LOG_LEVEL']='2'
-learning_rate = 0.001
-num_steps = 10000
-display_step = 100
+learning_rate = 0.002
+num_steps = 8000
+display_step = 10
 batch_size = 32
 model_name = "bc"
 
@@ -92,7 +92,7 @@ with tf.Session() as sess:
 				loss, acc_train, acc_val = sess.run([loss_op, accuracy_train, accuracy_val])
 				if i % 100 == 0:
 					correct_pred, logits, y_exp, x = sess.run([correct_pred_val, logits_val, Y_val, X_val])
-					co.debugger_whole_batch(correct_pred, logits, y_exp, x)
+					co.debugger_whole_batch(correct_pred, logits, y_exp, x, step)
 				
 				total_loss += loss
 				training_accuracy += acc_train
