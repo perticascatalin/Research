@@ -7,7 +7,7 @@ N_CLASSES = stp.num_classes
 N_OUT_CLASSES = stp.num_out_classes
 
 def debugger(correct_pred, logits, y_exp, x, second_choice = False):
-	print (str(int(correct_pred[0])) + " out of " + str(N_CLASSES))
+	print (str(int(correct_pred[0])) + " out of " + str(N_OUT_CLASSES))
 	# To check first and second choice
 	if (second_choice):
 		out = list()
@@ -22,6 +22,17 @@ def debugger(correct_pred, logits, y_exp, x, second_choice = False):
 					f_max_2 = k
 			out.append((f_max, f_max_2))
 		print out
+
+def debugger_whole_batch(correct_pred, logits, y_exp, x):
+	print "correct predictions size " + str(len(correct_pred))
+	for i in range(len(correct_pred)):
+		out = list()
+		y_pred = list()
+		for j in range(N_OUT_CLASSES):
+			y_pred.append(np.argmax(logits[j][i]))
+		print_1by1(x[i], 'input: ', N_CLASSES)
+		print_1by1(y_exp[i], 'expect:', N_OUT_CLASSES)
+		print_1by1(y_pred, 'pred:  ', N_OUT_CLASSES)
 
 def print_1by1(arr, title, n_classes):
 	line = ""
