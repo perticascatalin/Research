@@ -33,9 +33,9 @@ Date Issued: 31.03
 Status: SOLVED
 Task: Set dropout by layer.
 
-TICKET 8
+**TICKET 8**
 Date Issued: 5.04
-Status: not started
+Status: SOLVED
 Task: Plot graph of linear separator for comparison (the ">" operation).
 
 TICKET 9
