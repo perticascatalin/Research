@@ -72,6 +72,21 @@ def data(dtype = 'int'):
 			print "Generated", i, 'samples'
 	return lsts, orders
 
+# Two numbers to compare
+def comparator():
+	lsts, orders = list(), list()
+	for i in range(N_SAMPLES):
+		x = random.randint(1, MAXINT)
+		y = random.randint(1, MAXINT)
+		while y == x:
+			y = random.randint(1, MAXINT)
+		lst = [x, y]
+		o = 1 if x > y else 0
+		order = [o]
+		lsts.append(lst)
+		orders.append(order)
+	return lsts, orders
+
 # Minimum
 def simple_data():
 	lsts, orders = list(), list()

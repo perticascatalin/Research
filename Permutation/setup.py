@@ -1,7 +1,8 @@
 # For instance N = 10 (wrt position)
 # Inputs   1 2 3 4 5 6 7 8 9 10
 # Generate 2 4 3 1 8 9 6 7 5 10
-num_classes = 32
+#num_classes = 32
+num_classes = 2
 num_out_classes = num_classes
 
 # Number of arrays to generate
@@ -20,7 +21,8 @@ num_out_classes = num_classes
 # with current dataset (generalize mah for 8000 classes)
 # 20!/100.000 = 2.4e+13
 #num_samples = 60000
-num_samples = 10000 
+#num_samples = 10000
+num_samples = 1000
 
 # Maximum number in array
 maxint = 50
@@ -42,8 +44,12 @@ layer_dropout = [0.0]
 #layer_dropout = []
 
 # The type of data
-# Can be "data", "order_relations", "all", or "simple_data" for min/max (change ith)
-data_type = "data"
+# 1. "data"
+# 2. "order_relations"
+# 3. "all"
+# 4. "simple_data" for min/max (change ith)
+# 5. "comparator"
+data_type = "comparator"
 
-if data_type == "simple_data":
+if data_type == "simple_data" or data_type == "comparator":
 	num_out_classes = 1
