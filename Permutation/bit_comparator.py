@@ -8,9 +8,9 @@ import setup as stp
 # Setup experiment size and parameters
 os.environ['TF_CPP_MIN_LOG_LEVEL']='2'
 learning_rate = 0.001
-num_steps = 100
-display_step = 10
-batch_size = 16
+num_steps = 1000
+display_step = 100
+batch_size = 32
 model_name = "bc"
 
 def bit_comparator(x, inputs, reuse, is_training):
@@ -48,18 +48,18 @@ logits_eye, y_eye = bit_comparator(X_val, Y_val, reuse = True, is_training = Fal
 
 loss_op = tf.constant(0.0, dtype = tf.float32)
 loss_op = loss_op + tf.reduce_mean(tf.nn.sparse_softmax_cross_entropy_with_logits(\
-	logits = logits_train[i], labels = Y[:,i]))
+	logits = logits_train[0], labels = Y[:,0]))
 
 # Define loss and optimizer (with train logits, for dropout to take effect)
 optimizer = tf.train.AdamOptimizer(learning_rate = learning_rate)
 train_op = optimizer.minimize(loss_op)
 
 correct_pred_val = tf.constant(0.0, dtype = tf.float32)
-correct_pred_val = correct_pred_val + tf.cast(tf.equal(tf.argmax(logits_val[i], 1), tf.cast(Y_val[:,i], tf.int64)), tf.float32)
+correct_pred_val = correct_pred_val + tf.cast(tf.equal(tf.argmax(logits_val[0], 1), tf.cast(Y_val[:,0], tf.int64)), tf.float32)
 accuracy_val = tf.reduce_mean(correct_pred_val)
 
 correct_pred_train = tf.constant(0.0, dtype = tf.float32)
-correct_pred_train = correct_pred_train + tf.cast(tf.equal(tf.argmax(logits_test[i], 1), tf.cast(Y[:,i], tf.int64)), tf.float32)
+correct_pred_train = correct_pred_train + tf.cast(tf.equal(tf.argmax(logits_test[0], 1), tf.cast(Y[:,0], tf.int64)), tf.float32)
 accuracy_train = tf.reduce_mean(correct_pred_train)
 
 # Initialize the variables (i.e. assign their default value)
