@@ -113,7 +113,7 @@ def order_relations():
 	return lsts, orders
 
 # Numbers and Order Relations
-def all():
+def all_data():
 	lsts, orders = list(), list()
 	for i in range(N_SAMPLES):
 		lst, order = gen_list('int')
@@ -132,13 +132,13 @@ def all():
 def data_by_type(data_type):
 	if data_type == "data":
 		print "DATA"
-		return gen.data()
+		return data()
 	if data_type == "simple_data":
 		print "SIMPLE DATA"
-		return gen.simple_data()
+		return simple_data()
 	elif data_type == "order_relations":
 		print "ORDER RELATIONS"
-		return gen.order_relations()
+		return order_relations()
 	elif data_type == "all":
 		print "ALL DATA"
-		return gen.all()
+		return all_data()

@@ -26,8 +26,8 @@ n_estim = 96
 # Layer neurons and their dropout for neural network
 
 # Uncomment to set baseline NN
-#layer_neurons = [512, 256, 128]
-#layer_dropout = [0.8, 0.8]
+layer_neurons = [512, 256, 128]
+layer_dropout = [0.8, 0.8]
 
 # Uncomment to set by design NN
 #layer_neurons = [400, 200] (typical for 20 scale)

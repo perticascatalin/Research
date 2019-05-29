@@ -45,7 +45,7 @@ num_layers = len(layer_neurons)
 data_type = stp.data_type
 
 # Model name for saving results
-model_name = "a"
+model_name = "a_10"
 
 # Model names and their description
 # D_20,24,28,30 -> [400,200] with comparisons and N = 20,24,28,30
@@ -58,8 +58,8 @@ def neural_net(x, inputs, num_classes, num_labels, dropout, reuse, is_training):
 		# Comparison results by activation under baseline model (on simple data)
 		# Sigmoid 6.6 
 		# Relu X (not converge)
-		# tanh 8.8
-		# layers: first is input-dense with dropout, last is dense-classes no dropout
+		# Tanh 8.8
+		# Layers: first is input-dense with dropout, last is dense-classes no dropout
 
 		# Define first layer
 		fc = tf.layers.dense(x, layer_neurons[0], activation = tf.nn.tanh)
@@ -81,7 +81,7 @@ def neural_net(x, inputs, num_classes, num_labels, dropout, reuse, is_training):
 
 		# Define outputs
 		outputs = list()
-		for i in range(n_classes):
+		for i in range(num_classes):
 			out_i = tf.layers.dense(fc, num_labels)
 			out_i = tf.nn.softmax(out_i) if not is_training else out_i
 			outputs.append(out_i)
@@ -99,7 +99,7 @@ def neural_net(x, inputs, num_classes, num_labels, dropout, reuse, is_training):
 # 	lsts_train, orders_train = gen.order_relations()
 # elif data_type == "all":
 # 	print "ALL DATA"
-# 	lsts_train, orders_train = gen.all()
+# 	lsts_train, orders_train = gen.all_data()
 
 lsts_train, orders_train = gen.data_by_type(data_type)
 print "GENERATE TRAINING DATA"
@@ -115,7 +115,7 @@ lsts_train, orders_train = tf.train.slice_input_producer([lsts_train, orders_tra
 # elif data_type == "order_relations":
 # 	lsts_val, orders_val = gen.order_relations()
 # elif data_type == "all":
-# 	lsts_val, orders_val = gen.all()
+# 	lsts_val, orders_val = gen.all_data()
 
 lsts_val, orders_val = gen.data_by_type(data_type)
 print "GENERATE VALIDATION DATA"
