@@ -22,7 +22,7 @@ num_out_classes = num_classes
 # 20!/100.000 = 2.4e+13
 #num_samples = 60000
 #num_samples = 10000
-num_samples = 1000
+num_samples = 2000
 
 # Maximum number in array
 maxint = 50

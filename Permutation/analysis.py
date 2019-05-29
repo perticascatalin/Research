@@ -23,21 +23,42 @@ def debugger(correct_pred, logits, y_exp, x, second_choice = False):
 			out.append((f_max, f_max_2))
 		print out
 
-def debugger_whole_batch(correct_pred, logits, y_exp, x):
-	#print "correct predictions size " + str(len(correct_pred))
+def debugger_whole_batch(correct_pred, logits, y_exp, x, step):
+	lst = list()
 	for i in range(len(correct_pred)):
-		out = list()
 		y_pred = list()
 		for j in range(N_OUT_CLASSES):
 			y_pred.append(np.argmax(logits[j][i]))
-		print_1by1(x[i], 'input: ', N_CLASSES)
-		print_1by1(y_exp[i], 'expect:', N_OUT_CLASSES)
-		print_1by1(y_pred, 'pred:  ', N_OUT_CLASSES)
+		# print_1by1(x[i], 'input: ', N_CLASSES)
+		# print_1by1(y_exp[i], 'expect:', N_OUT_CLASSES)
+		# print_1by1(y_pred, 'pred:  ', N_OUT_CLASSES)
+		c_lst = list()
+		c_lst.append(int(x[i][0]))
+		c_lst.append(int(x[i][1]))
+		c_lst.append(int(y_pred[0]))
+		lst.append(c_lst)
+	mark_dots(lst, step)
+
+def mark_dots(arr, step):
+	white_x, white_y = list(), list()
+	black_x, black_y = list(), list()
+	for e in arr:
+		if e[2] == 0:
+			white_x.append(e[0])
+			white_y.append(e[1])
+		else:
+			black_x.append(e[0])
+			black_y.append(e[1])
+	plt.plot(white_x, white_y, 'ro')
+	plt.plot(black_x, black_y, 'bo')
+	plt.savefig('./results/comparator/sep_' + str(step) + '.png')
+	if step % 1000 == 0:
+		plt.close()
 
 def print_1by1(arr, title, n_classes):
 	line = ""
 	for i in range(n_classes):
-		line += (str(arr[i]) + " ")
+		line += (str(int(arr[i])) + " ")
 	print (title + line)
 
 # Specific to sorting
