@@ -127,3 +127,18 @@ def all():
 		lsts.append(c_lst)
 		orders.append(order)
 	return lsts, orders
+
+# Get data by type
+def data_by_type(data_type):
+	if data_type == "data":
+		print "DATA"
+		return gen.data()
+	if data_type == "simple_data":
+		print "SIMPLE DATA"
+		return gen.simple_data()
+	elif data_type == "order_relations":
+		print "ORDER RELATIONS"
+		return gen.order_relations()
+	elif data_type == "all":
+		print "ALL DATA"
+		return gen.all()

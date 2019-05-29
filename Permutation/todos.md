@@ -70,3 +70,21 @@ Rank all the samples in a batch - by accuracy or mean squared error (proximity).
 Looking at the input in a sequential manner or deriving rules for correct input parsing - sorted numbers should be easily mapped to 0, 1, 2, 3, ... what if many numbers from a random permutation of numbers? Distributive attention - how to paralelly process 2 different data streams.
 
 Learning specific permutations and the mapping within them through a Cayley Graph. Distributing the types of inputs to different models goes in the direction of AutoML.
+
+### Num samples debate
+
+Depending on num_classes, the num_samples should be above a certain threshold for decent accuracy
+
+The threshold can be computed using N! = num_classes!
+
+- N!/num_samples < T
+- 6! = 720
+- 1000 decent sample (on par)
+- 8! = 40320
+- 10000 decent sample (generalize full for 4 classes)
+- 10! = 3628800
+- 60000 decent sample (generalize well for 60 classes)
+- 12! = 479001600
+
+what is a decent sample size?
+20!/100.000 = 2.4e+13

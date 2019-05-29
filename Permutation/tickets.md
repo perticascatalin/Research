@@ -198,4 +198,20 @@ Status: started
 
 Task: Document, write comments for old NN.
 
-STATS: 14 out of 25 solved
+TICKET 26
+
+Date Issued: 29.05
+
+Status: started
+
+Task: Refactor get data by type in all NNs
+
+**TICKET 27**
+
+Date Issued: 29.05
+
+Status: SOLVED
+
+Task: Cleanup setup
+
+STATS: 15 out of 27 solved
