@@ -61,17 +61,6 @@ def gen_ith(ith_target):
 			ith.append(i)
 	return lst, ith
 
-# Just numbers
-def data(dtype = 'int'):
-	lsts, orders = list(), list()
-	for i in range(N_SAMPLES):
-		lst, order = gen_list(dtype)
-		lsts.append(lst)
-		orders.append(order)
-		if i % 100 == 0:
-			print "Generated", i, 'samples'
-	return lsts, orders
-
 # Two numbers to compare
 def comparator():
 	lsts, orders = list(), list()
@@ -87,6 +76,17 @@ def comparator():
 		orders.append(order)
 	return lsts, orders
 
+# Just numbers
+def data(dtype = 'int'):
+	lsts, orders = list(), list()
+	for i in range(N_SAMPLES):
+		lst, order = gen_list(dtype)
+		lsts.append(lst)
+		orders.append(order)
+		if i % 100 == 0:
+			print "Generated", i, 'samples'
+	return lsts, orders
+
 # Minimum
 def simple_data():
 	lsts, orders = list(), list()
@@ -94,6 +94,8 @@ def simple_data():
 		lst, mins = gen_ith(1)
 		lsts.append(lst)
 		orders.append(mins)
+		if i % 100 == 0:
+			print "Generated", i, 'samples'
 	return lsts, orders
 
 # Just order relations
@@ -110,6 +112,8 @@ def order_relations():
 					c_lst.append(0)
 		lsts.append(c_lst)
 		orders.append(order)
+		if i % 100 == 0:
+			print "Generated", i, 'samples'
 	return lsts, orders
 
 # Numbers and Order Relations
@@ -126,6 +130,8 @@ def all_data():
 					c_lst.append(0)
 		lsts.append(c_lst)
 		orders.append(order)
+		if i % 100 == 0:
+			print "Generated", i, 'samples'
 	return lsts, orders
 
 # Get data by type
