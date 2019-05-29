@@ -14,7 +14,7 @@ N_CLASSES = stp.num_classes
 # Array of N or other number of outputs
 N_OUT_CLASSES = stp.num_out_classes
 
-# Re-representation with relational features
+# Re-representation with relational features (not used explicitly)
 N_FEAT = (N_CLASSES*(N_CLASSES - 1))/2
 
 # General dropout, initially applied to all layers
@@ -88,34 +88,12 @@ def neural_net(x, inputs, num_classes, num_labels, dropout, reuse, is_training):
 
 	return outputs, inputs
 
-# if data_type == "data":
-# 	print "DATA"
-# 	lsts_train, orders_train = gen.data()
-# if data_type == "simple_data":
-# 	print "SIMPLE DATA"
-# 	lsts_train, orders_train = gen.simple_data()
-# elif data_type == "order_relations":
-# 	print "ORDER RELATIONS"
-# 	lsts_train, orders_train = gen.order_relations()
-# elif data_type == "all":
-# 	print "ALL DATA"
-# 	lsts_train, orders_train = gen.all_data()
-
 lsts_train, orders_train = gen.data_by_type(data_type)
 print "GENERATE TRAINING DATA"
 
 lsts_train = tf.convert_to_tensor(lsts_train, dtype = tf.float32)
 orders_train = tf.convert_to_tensor(orders_train, dtype = tf.int32)
 lsts_train, orders_train = tf.train.slice_input_producer([lsts_train, orders_train], shuffle = True)
-
-# if data_type == "data":
-# 	lsts_val, orders_val = gen.data()
-# if data_type == "simple_data":
-# 	lsts_val, orders_val = gen.simple_data()
-# elif data_type == "order_relations":
-# 	lsts_val, orders_val = gen.order_relations()
-# elif data_type == "all":
-# 	lsts_val, orders_val = gen.all_data()
 
 lsts_val, orders_val = gen.data_by_type(data_type)
 print "GENERATE VALIDATION DATA"
