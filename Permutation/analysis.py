@@ -194,6 +194,13 @@ def print_pretty(correct_pred, logits, y_exp, x, epoch):
 	print_barchart(x[0], list(y_exp[0]), y_pred, ('labels_' + str(epoch) + '.png'))
 	check_perm_validity(x[0], list(y_exp[0]), y_pred)
 
+def combine_plots(model_names):
+	dir_name = './data/stats/'
+	for model_name in model_names:
+		model_root = model_name + '_ml_'
+		for metric in ['steps', 'losses', 't_accs', 'v_accs']:
+			filename = dir_name + model_root + metric + '.p'
+			print filename
 
 #print_barchart(list([10, 30, 20, 40, 50]), list([1, 3, 2, 4, 5]), list([1, 2, 3, 4, 5]), 'labels_0.png')
 #print_acc_scale_models()
