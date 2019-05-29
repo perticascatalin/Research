@@ -17,6 +17,20 @@ N_OUT_CLASSES = stp.num_out_classes
 # Re-representation with relational features (not used explicitly)
 N_FEAT = (N_CLASSES*(N_CLASSES - 1))/2
 
+# Data re-representation
+data_type = stp.data_type
+
+# Model name for saving results
+model_name = "ac_10"
+
+# Model names and their description
+# a_10 - baseline model data 10
+# ac_10 - baseline model order_relations 10
+# D_20,24,28,30 -> [400,200] with comparisons and N = 20,24,28,30
+# E_30 -> [1000,200] with comparisons and N = 30
+# F_30,20 flat 1 layer -> [1000][400] and N = 30, 20
+# G_30,20 flat 1 layer -> [30][20] and N = 30, 20
+
 # General dropout, initially applied to all layers
 dropout = 0.0
 
@@ -40,18 +54,6 @@ layer_dropout = stp.layer_dropout
 
 # Number of layers
 num_layers = len(layer_neurons)
-
-# Data re-representation
-data_type = stp.data_type
-
-# Model name for saving results
-model_name = "a_10"
-
-# Model names and their description
-# D_20,24,28,30 -> [400,200] with comparisons and N = 20,24,28,30
-# E_30 -> [1000,200] with comparisons and N = 30
-# F_30,20 flat 1 layer -> [1000][400] and N = 30, 20
-# G_30,20 flat 1 layer -> [30][20] and N = 30, 20
 
 def neural_net(x, inputs, num_classes, num_labels, dropout, reuse, is_training):
 	with tf.variable_scope('NeuralNet', reuse = reuse):

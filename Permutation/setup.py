@@ -45,7 +45,7 @@ layer_dropout = [0.8, 0.8]
 # 3. "all"
 # 4. "simple_data" for min/max (change ith)
 # 5. "comparator"
-data_type = "data"
+data_type = "order_relations"
 
 # Exception for number of output classes
 if data_type == "simple_data" or data_type == "comparator":
