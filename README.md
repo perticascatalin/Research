@@ -16,8 +16,8 @@ Thesis Title: **Compositionality of relational operations in neural networks**
 - **6. Scalability**
 - **7. Problem Complexity**
 - **8. Design Model**
-- **9. SortNet Model**
-- **10. Relational Model**
+- **9. Relational Model**
+- **10. SortNet Model**
 - **11. Conclusions**
 - **12. Future Work**
 - Bibilography
@@ -303,11 +303,7 @@ D0 NN now s5.3, after finish 11.4 (0.57 vs 0.99)
 - D0, DC, N28  s5.6, after finish 13.8 (0.49 vs 0.30) 
 - D0, DC, N30, s5.4, after finish 10.8 (0.36 vs 0.28)
 
-### 9. SortNet Model
-
-Insert figure made in canva.
-
-### 10. Relational Model
+### 9. Relational Model
 
 Insert similar figure to the one here:
 
@@ -340,23 +336,11 @@ It is remarkable how handful convolutions come in this case: they facilitate the
 
 **======================**
 
-**Exploration of A.[800,200], B.[800,400]**
-
-- A. D0, DC, N24, s5.9, after finish 21.5 (0.90)
-- B. D0, DC, N24, s6.9, after finish 10.6 (0.44)
-- B is a lot worse, probably needs dropout or HP change
-- continue with A
-
-**Flat architecture**
-
-- F_30 [1000] 9.0
-- F_20 [400] 19.3, d 8.3
-- G_30 [30] 7.4
-- G_20 [20] 9.0, d 3.1
-
-- Diffusion and design vs. dropout and information bottleneck
-
 **STOP NOT MOVED**
+
+### 10. SortNet Model
+
+Insert figure made in canva.
 
 ### 11. Conclusions
 
