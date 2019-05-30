@@ -264,11 +264,11 @@ Then we look for changes in the models or the problem formulation that could hel
 
 ### 8. Design Model
 
+**START NOT MOVED**
+
 |Figure|Interpretation|
 |:----:|:------------:|
 |![asbs_10](https://raw.githubusercontent.com/perticascatalin/MastersExperiments/master/Permutation/results/asbs_10.png)|Description|
-
-**START NOT MOVED**
 
 **======================**
 
@@ -287,8 +287,6 @@ Then we look for changes in the models or the problem formulation that could hel
 - D0, DC, N30, s5.4, after finish 10.8 (0.36 vs 0.28)
 
 ### 9. Relational Model
-
-Insert similar figure to the one here:
 
 |Figure|Interpretation|
 |:----:|:------------:|
