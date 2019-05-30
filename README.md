@@ -270,7 +270,7 @@ Then we look for changes in the models or the problem formulation that could hel
 
 |Figure|Interpretation|
 |:----:|:------------:|
-|![asbs_10](https://raw.githubusercontent.com/perticascatalin/MastersExperiments/master/Permutation/results/asbs_10.png)|Description|
+|![asbs_10](https://raw.githubusercontent.com/perticascatalin/MastersExperiments/master/Permutation/results/asbs_10.png)|Comparison of the baseline and the design models convergence for N = 10|
 
 
 **Focus area, take-away message: 99 - 57 = 42% accuracy improvement for size 20**
@@ -290,8 +290,8 @@ Then we look for changes in the models or the problem formulation that could hel
 
 |Figure|Interpretation|
 |:----:|:------------:|
-|![bscs_10_20](https://raw.githubusercontent.com/perticascatalin/MastersExperiments/master/Permutation/results/bscs_10_20.png)|Description|
-|![bscs_30](https://raw.githubusercontent.com/perticascatalin/MastersExperiments/master/Permutation/results/bscs_30.png)|Description|
+|![bscs_10_20](https://raw.githubusercontent.com/perticascatalin/MastersExperiments/master/Permutation/results/bscs_10_20.png)|Comparison of the design and the relational models convergence for N = 10, 20|
+|![bscs_30](https://raw.githubusercontent.com/perticascatalin/MastersExperiments/master/Permutation/results/bscs_30.png)|Comparison of the design and the relational models convergence for N = 30|
 
 **With Relational Net**
 
@@ -321,7 +321,7 @@ It is remarkable how handful convolutions come in this case: they facilitate the
 
 |Figure|Interpretation|
 |:----:|:------------:|
-|![sort_net_2](https://raw.githubusercontent.com/perticascatalin/MastersExperiments/master/Permutation/images/sort_net_2.png)|Description|
+|![sort_net_2](https://raw.githubusercontent.com/perticascatalin/MastersExperiments/master/Permutation/images/sort_net_2.png)|A fixed weights (hard-coded) neural model which solves the problem with 100% accuracy for up to N = 500 (depending on hardware)|
 
 ### 11. Conclusions
 
@@ -390,7 +390,7 @@ Kalita, 2017
 
 #### Co-authored work on which the experiment builds upon (published/unpublished)
 
-Tags: Machine Learning; Program Induction; Cognitive side of Programming; Hierarchical Segmentation;
+Tags: Algorithms; Machine Learning; Program Induction; Cognitive side of Programming; Hierarchical Segmentation;
 
 [1] *Finding Patterns in Visualization of Programs*, conference paper, PPIG 2017
 
