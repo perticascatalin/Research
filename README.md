@@ -110,7 +110,8 @@ The information bottleneck principle links the analysis of deep neural networks 
 
 #### Compositionality and Separability
 
-
+Problems involving reasoning about the natural environment (eg. image analysis), as well as those involving structured data (eg. text and code) can often be expressed as series of operations applied to previous computations. In other terms, their solution can be expressed as a high level composition of functions.
+These compositions can differ in their structure. For instance, CNNs use  kernel-based aggregations (hierarchical), while RNNs do recursive aggregations (sequential). Of course, these 2 approaches can be combined. What matters is how they help exploit the structure of the data, such that the computational load is reduced compared to using fully-connected neural networks.
 
 ### 2. Models
 
