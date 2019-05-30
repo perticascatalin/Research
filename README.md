@@ -181,6 +181,68 @@ Error range: +/- 1%
 - Set with total value abstraction
 - So far seems the most scalable (accuracy drops slower)
 
+
+#### 6. Scalability
+
+We show how this poses scalability problems for the chosen machine learning models (neural networks and decision trees). For instance:
+
+Using DC dataset.
+
+|Size|   6|   8|   9|  10|  11|  12|  16|  20|  24|
+|:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|
+|  NN|1.00|1.00|1.00|0.95|0.66|0.44|0.23|0.07|0.04|
+|  DT|1.00|0.99|0.92|0.75|0.68|0.60|0.34|0.23|0.15|
+|Rand|0.17|0.12|0.11|0.10|0.09|0.08|0.06|0.05|0.04|
+
+Up to N = 10 we get very good results with both models. 
+For N = 24, the neural network starts predicting worse than random guessing.
+The neural network performs better than the decision tree-based models up to N = 10, then it has a sudden drop. However, decision trees have a slower drop in accuracy.
+
+Using all datasets
+
+|Size|   6|   8|   9|  10|  11|  12|  16|  20|
+|:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|
+|   D|1.00|1.00|0.97|0.88|0.57|0.41|0.21|0.05|
+|  DC|1.00|1.00|1.00|0.95|0.66|0.44|0.23|0.07|
+|   C|1.00|0.99|0.93|0.83|0.74|0.61|0.32|0.16|
+
+
+Scalability vs. problem complexity views:
+
+- **scalability - done**
+- **problem complexity - done**
+
+|Accuracy|Model Description|
+|:------:|:---------------:|
+|![asm_plot](https://raw.githubusercontent.com/perticascatalin/MastersExperiments/master/Permutation/results/asm.png)|Extreme forest with 96 estimators vs. multilayer_perceptron with ~1000 neurons in 4 layers (512, 256, 128) dense + N multi-label outputs. Rand ~ 1/N|
+|![asd_plot](https://raw.githubusercontent.com/perticascatalin/MastersExperiments/master/Permutation/results/asd.png)|Add description|
+|![ad_plot](https://raw.githubusercontent.com/perticascatalin/MastersExperiments/master/Permutation/results/ad.png)|Add description|
+
+### 7. Problem Complexity
+
+Next, we try to find some of the underlying reasons. For instance, by measuring the impact of data representation: bare numbers or numbers with an order relation. This is done by investigating the properties of the input and target spaces.
+
+- important space dimensions (set cardinality):
+- N! vs. MAXINT!/(MAXINT-N)! vs. 2^((N)x(N-1)/2) vs. 2^N
+
+Then we look for changes in the models or the problem formulation that could help improve our solution.
+
+|Growth|Description|
+|:----:|:---------:|
+|![pc_plot](https://raw.githubusercontent.com/perticascatalin/MastersExperiments/master/Permutation/results/pc.png)|Figure showing the **data growth** on a logarithmic scale. Input: **magenta** - number of valid inputs in relation to N. Output: **red** - number of valid outputs in relation to N.|
+||Depending on how the problem is formalized we can manipulate the number of valid inputs with lossless compression (re-abstractization).|
+|**Arrangements**|The number of possible arrangements of unique numbers up to MAXINT of length N (INPUT DATA)|
+|**Permutations**|The number of possible permutations of length N(OUTPUT and INPUT ORDER RELATIONS)|
+|**Exponential**|2 to the power of N - for reference purpose|
+|**Combinations**|The number of possible relations between pairs of numbers|
+
+
+### 8. Design Model
+
+|Figure|Interpretation|
+|:----:|:------------:|
+|![asbs_10](https://raw.githubusercontent.com/perticascatalin/MastersExperiments/master/Permutation/results/asbs_10.png)|Description|
+
 **START NOT MOVED**
 
 **Exploration of [400,200] layering**
@@ -258,57 +320,3 @@ It is remarkable how handful convolutions come in this case: they facilitate the
 - Diffusion and design vs. dropout and information bottleneck
 
 **STOP NOT MOVED**
-
-#### 6. Scalability
-
-We show how this poses scalability problems for the chosen machine learning models (neural networks and decision trees). For instance:
-
-Using DC dataset.
-
-|Size|   6|   8|   9|  10|  11|  12|  16|  20|  24|
-|:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|
-|  NN|1.00|1.00|1.00|0.95|0.66|0.44|0.23|0.07|0.04|
-|  DT|1.00|0.99|0.92|0.75|0.68|0.60|0.34|0.23|0.15|
-|Rand|0.17|0.12|0.11|0.10|0.09|0.08|0.06|0.05|0.04|
-
-Up to N = 10 we get very good results with both models. 
-For N = 24, the neural network starts predicting worse than random guessing.
-The neural network performs better than the decision tree-based models up to N = 10, then it has a sudden drop. However, decision trees have a slower drop in accuracy.
-
-Using all datasets
-
-|Size|   6|   8|   9|  10|  11|  12|  16|  20|
-|:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|
-|   D|1.00|1.00|0.97|0.88|0.57|0.41|0.21|0.05|
-|  DC|1.00|1.00|1.00|0.95|0.66|0.44|0.23|0.07|
-|   C|1.00|0.99|0.93|0.83|0.74|0.61|0.32|0.16|
-
-
-Scalability vs. problem complexity views:
-
-- **scalability - done**
-- **problem complexity - done**
-
-|Accuracy|Model Description|
-|:------:|:---------------:|
-|![asm_plot](https://raw.githubusercontent.com/perticascatalin/MastersExperiments/master/Permutation/results/asm.png)|Extreme forest with 96 estimators vs. multilayer_perceptron with ~1000 neurons in 4 layers (512, 256, 128) dense + N multi-label outputs. Rand ~ 1/N|
-|![asd_plot](https://raw.githubusercontent.com/perticascatalin/MastersExperiments/master/Permutation/results/asd.png)|Add description|
-|![ad_plot](https://raw.githubusercontent.com/perticascatalin/MastersExperiments/master/Permutation/results/ad.png)|Add description|
-
-### 7. Problem Complexity
-
-Next, we try to find some of the underlying reasons. For instance, by measuring the impact of data representation: bare numbers or numbers with an order relation. This is done by investigating the properties of the input and target spaces.
-
-- important space dimensions (set cardinality):
-- N! vs. MAXINT!/(MAXINT-N)! vs. 2^((N)x(N-1)/2) vs. 2^N
-
-Then we look for changes in the models or the problem formulation that could help improve our solution.
-
-|Growth|Description|
-|:----:|:---------:|
-|![pc_plot](https://raw.githubusercontent.com/perticascatalin/MastersExperiments/master/Permutation/results/pc.png)|Figure showing the **data growth** on a logarithmic scale. Input: **magenta** - number of valid inputs in relation to N. Output: **red** - number of valid outputs in relation to N.|
-||Depending on how the problem is formalized we can manipulate the number of valid inputs with lossless compression (re-abstractization).|
-|**Arrangements**|The number of possible arrangements of unique numbers up to MAXINT of length N (INPUT DATA)|
-|**Permutations**|The number of possible permutations of length N(OUTPUT and INPUT ORDER RELATIONS)|
-|**Exponential**|2 to the power of N - for reference purpose|
-|**Combinations**|The number of possible relations between pairs of numbers|
