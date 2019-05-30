@@ -325,6 +325,12 @@ It is remarkable how handful convolutions come in this case: they facilitate the
 
 ### 11. Conclusions
 
+In the first part we looked at challenges posed to fairly complex neural networks by the failure to abstract the structure of the data from a relational point of view. We overcome this obstacle by re-abstracting the data and by creating a model designed to exploit the relational structure. This way we were able to scale from high accuracy for 10 elements to high accuracy for 20 elements. 
+
+Moreover, we presented an algorithm for sorting that is written in "neural networks" language, which a model with the capacity to represent it; could learn the weights to implement it. We compare the differences between a baseline knowledge-agnostic model, with a well-designed model and the pseudo-code (hard-coded) model - which was tried experimentally and scales well up to 500 elements.
+
+Afterwards, we designed an adaptive model capable of learning these weights, which was able to scale its ability to learn how to sort a collection of objects up to 30 elements.
+
 #### 11.1 Summary of Results
 
 #### 11.2 Interpretation of Results
