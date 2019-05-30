@@ -195,11 +195,11 @@ def print_pretty(correct_pred, logits, y_exp, x, epoch):
 	print_barchart(x[0], list(y_exp[0]), y_pred, ('labels_' + str(epoch) + '.png'))
 	check_perm_validity(x[0], list(y_exp[0]), y_pred)
 
-def combine_plots(model_names, colors, target_metric, fig_name):
+def combine_plots(model_names, colors, target_metric, label_names, fig_name, title_name):
 	dir_name = './data/stats/'
-	plt.title('Accuracy', fontsize = 18)
+	plt.title(title_name, fontsize = 18)
 	plt.xlabel('# Steps', fontsize = 16)
-	for (model_name, color) in zip(model_names, colors):
+	for (model_name, color, label_name) in zip(model_names, colors, label_names):
 		model_root = model_name + '_ml_'
 		for metric in ['steps', 'losses', 't_accs', 'v_accs']:
 			if metric == target_metric:
@@ -209,12 +209,14 @@ def combine_plots(model_names, colors, target_metric, fig_name):
 				seq = pickle.load(open(val_filename, 'r'))
 				print seq
 				steps = np.linspace(1, 100000, 100)
-				plt.plot(steps, seq, color, linewidth = 1.0, label = model_name)
+				plt.plot(steps, seq, color, linewidth = 1.8, label = label_name)
 	plt.legend(loc = 'lower right')
+	plt.ylim([0, 105])
 	plt.savefig('./results/' + fig_name + '.png')
 	plt.clf()
 
-combine_plots(['a_10', 'ac_10'], ['r', 'b'], 'v_accs', 'as')
+combine_plots(['a_10', 'ac_10', 'b_10', 'bc_10'], ['r', 'b', 'g', 'm'], 'v_accs', \
+	['C-Baseline', 'C-Baseline (order rel)', 'C-Design', 'C-Design (order rel)'], 'asbs_10', 'Accuracy N = 10')
 
 #print_barchart(list([10, 30, 20, 40, 50]), list([1, 3, 2, 4, 5]), list([1, 2, 3, 4, 5]), 'labels_0.png')
 #print_acc_scale_models()
