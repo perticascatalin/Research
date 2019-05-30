@@ -64,35 +64,15 @@ def fully_relational_net(x, inputs, n_classes, num_labels, dropout, reuse, is_tr
 
 	return outputs, inputs
 
-if data_type == "data":
-	print "DATA"
-	lsts_train, orders_train = gen.data()
-if data_type == "simple_data":
-	print "SIMPLE DATA"
-	lsts_train, orders_train = gen.simple_data()
-elif data_type == "order_relations":
-	print "ORDER RELATIONS"
-	lsts_train, orders_train = gen.order_relations()
-elif data_type == "all":
-	print "ALL DATA"
-	lsts_train, orders_train = gen.all()
-
-print "TRAINING"
+lsts_train, orders_train = gen.data_by_type(data_type)
+print "GENERATE TRAINING DATA"
 
 lsts_train = tf.convert_to_tensor(lsts_train, dtype = tf.float32)
 orders_train = tf.convert_to_tensor(orders_train, dtype = tf.int32)
 lsts_train, orders_train = tf.train.slice_input_producer([lsts_train, orders_train], shuffle = True)
 
-if data_type == "data":
-	lsts_val, orders_val = gen.data()
-if data_type == "simple_data":
-	lsts_val, orders_val = gen.simple_data()
-elif data_type == "order_relations":
-	lsts_val, orders_val = gen.order_relations()
-elif data_type == "all":
-	lsts_val, orders_val = gen.all()
-
-print "VALIDATION"
+lsts_val, orders_val = gen.data_by_type(data_type)
+print "GENERATE VALIDATION DATA"
 
 lsts_val = tf.convert_to_tensor(lsts_val, dtype = tf.float32)
 orders_val = tf.convert_to_tensor(orders_val, dtype = tf.int32)
@@ -115,15 +95,15 @@ for i in range(N_OUT_CLASSES):
 optimizer = tf.train.AdamOptimizer(learning_rate = learning_rate)
 train_op = optimizer.minimize(loss_op)
 
-correct_pred_val = tf.constant(0.0, dtype = tf.float32)
-for i in range(N_OUT_CLASSES):
-	correct_pred_val = correct_pred_val + tf.cast(tf.equal(tf.argmax(logits_val[i], 1), tf.cast(Y_val[:,i], tf.int64)), tf.float32)
-accuracy_val = tf.reduce_mean(correct_pred_val)
-
 correct_pred_train = tf.constant(0.0, dtype = tf.float32)
 for i in range(N_OUT_CLASSES):
 	correct_pred_train = correct_pred_train + tf.cast(tf.equal(tf.argmax(logits_test[i], 1), tf.cast(Y[:,i], tf.int64)), tf.float32)
 accuracy_train = tf.reduce_mean(correct_pred_train)
+
+correct_pred_val = tf.constant(0.0, dtype = tf.float32)
+for i in range(N_OUT_CLASSES):
+	correct_pred_val = correct_pred_val + tf.cast(tf.equal(tf.argmax(logits_val[i], 1), tf.cast(Y_val[:,i], tf.int64)), tf.float32)
+accuracy_val = tf.reduce_mean(correct_pred_val)
 
 # Initialize the variables (i.e. assign their default value)
 init = tf.global_variables_initializer()
