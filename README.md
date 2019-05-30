@@ -6,7 +6,7 @@ Thesis Title: **Compositionality of relational operations in neural networks**
 
 **Table of Contents**:
 
-**Section 1** offers background and formulates the problem. **Section 2** offers an overview of the models tested in the experiments. **Sections 3-7** discusses results with baseline models (neural nets and decision trees), data re-representation (different datasets), the problem of scalability and how this relates to the problem complexity. **Sections 8-10** propose different solutions for improving the scalability and learning efficiency and provides supporting results. **Section 11** extracts the conclusions from the experiments. **Section 12** situates the importance of the experimental results in the larger goal.
+**Section 1** offers background and formulates the problem. **Section 2** offers an overview of the models tested in the experiments. **Sections 3-7** discusses results with baseline models (neural nets and decision trees), data re-representation (different datasets), the problem of scalability and how this relates to the problem complexity. **Sections 8-10** propose different solutions for improving the scalability and learning efficiency and provides supporting results. **Section 11** extracts the conclusions from the experiments. **Section 12** situates the importance of the experimental results in the larger goal. The bibilography offers a concise view of the readings involved in conducting this project.
 
 - **1. Introduction**
 - **2. Models**
@@ -91,7 +91,7 @@ In the above case, the sorted position of 49 is equal to O(1,1) + O(2,1) + O(3,1
 **Concepts list:**
 
 - information bottleneck (intro+ formula+ impl- debate-)
-- scalability & problem complexity (intro+ formula+ impl+ debate-)
+- scalability & problem complexity (intro+ formula+ impl+ debate+)
 - learning complexity & separability (experiments+)
 - compositionality - multiple learners (experiments+)
 - relation to mathematical sets
@@ -381,9 +381,9 @@ Kalita, 2017
 
 [Y] S. Shalev-Shwartz and O. Shamir and S. Shammah, "Failures of Gradient-Based Deep Learning", arXiv:1703.07950, 2017.
 
-[Z] Ravid Schwartz-Ziv and Naftali Tishby, "Opening the black box of Deep Neural Networks via Information"
+[Z] *Opening the black box of Deep Neural Networks via Information*, Ravid Schwartz-Ziv and Naftali Tishby
 
-[W] Naftali Tishby and Noga Zaslavsky "Deep Learning and Information Bottleneck Principle"
+[W] *Deep Learning and Information Bottleneck Principle*, Naftali Tishby and Noga Zaslavsky
 
 #### My own and joint work (published and unpublished)
 
@@ -397,12 +397,13 @@ Kalita, 2017
 
 [5] Modeling cognitive processes underlying computer programming, conference paper, PPIG 2018
 
+[6] License Plates Detection in Street View images, unpublished, Accesa technical report 2018
 
 #### Misc
 
 [J] I. Kant, Critique of Pure Reason
 
-[K]
+[K] S. MacLane, Mathematics, Form and Function
 
 [L] R. Sutton, The Bitter Lesson
 
@@ -410,9 +411,9 @@ Kalita, 2017
 
 [N] Tensorflow, Word2Vec, url = https://www.tensorflow.org/tutorials/word2vec
 
-[O]
+[O] M. Patrascu, Problema SortNet, Infoarena, url = https://infoarena.ro/problema/sortnet
 
-[P] M. Patrascu, Problema SortNet, Infoarena, url = https://infoarena.ro/problema/sortnet
+[P] 
 
 [Q]
 
