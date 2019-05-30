@@ -88,3 +88,10 @@ The threshold can be computed using N! = num_classes!
 
 what is a decent sample size?
 20!/100.000 = 2.4e+13
+
+### Principles of writing
+
+- keep theory & speculation in balance with maths and experimental part
+- link neighboring points through story and insight
+- keep flat structure, so that it is clear where to add certain stuff
+- polish partial parts, but leave way for new parts to be created

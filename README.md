@@ -79,13 +79,6 @@ In the above case, the sorted position of 49 is equal to O(1,1) + O(2,1) + O(3,1
 - relation to mathematical sets (dk)
 - sequences (dk)
 
-**Principles of writing:**
-
-- keep theory & speculation in balance with maths and experimental part
-- link neighboring points through story and insight
-- keep flat structure, so that it is clear where to add certain stuff
-- polish partial parts, but leave way for new parts to be created
-
 **Applications:**
 
 - computer vision
@@ -96,6 +89,10 @@ In the above case, the sorted position of 49 is equal to O(1,1) + O(2,1) + O(3,1
 #### Information Bottleneck
 
 The information bottleneck principle links the analysis of deep neural networks to the domain of information theory. The key ideas of the principle are introduced as mathematical tools in a series of papers ([Z], [W]). These are: measuring the information propagation level against the theoretical upper bound and exploring the variation in information propagation during learning (the accuracy gain phase and the compression phase). How information is compressed inside a neural network depends on the data representation which can carry information about target outputs at different relevance levels. In practice, we can estimate the mutual information between random variables representing the input, the activation at a certain level and the output of the network. We can use these measures to intuitively analyze what is going through the network and then find out the factors which contribute to the success of the model design and parametrization.
+
+#### Compositionality and Separability
+
+
 
 ### 2. Models
 
