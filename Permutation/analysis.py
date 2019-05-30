@@ -215,6 +215,10 @@ def combine_plots(model_names, colors, target_metric, label_names, fig_name, tit
 	plt.savefig('./results/' + fig_name + '.png')
 	plt.clf()
 
+def print_pickle(filename):
+	seq = pickle.load(open(filename, 'r'))
+	print seq
+
 # combine_plots(['a_10', 'ac_10', 'b_10', 'bc_10'], ['r', 'b', 'g', 'm'], 'v_accs', \
 # 	['C-Baseline', 'C-Baseline (order rel)', 'C-Design', 'C-Design (order rel)'], 'asbs_10', 'Accuracy N = 10')
 
@@ -224,6 +228,7 @@ def combine_plots(model_names, colors, target_metric, label_names, fig_name, tit
 # combine_plots(['b_30', 'bc_30', 'c_30'], ['lightgreen', 'green', 'blue'], 'v_accs', \
 # 	['C-Design 30', 'C-Design (order rel) 30', 'C-FRN 30'], 'bscs_30', 'Accuracy N = 30')
 
+#print_pickle('./data/stats/c_30_ml_v_accs.p')
 #print_barchart(list([10, 30, 20, 40, 50]), list([1, 3, 2, 4, 5]), list([1, 2, 3, 4, 5]), 'labels_0.png')
 #print_acc_scale_models()
 #print_acc_scale_data()

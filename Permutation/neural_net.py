@@ -21,7 +21,7 @@ N_FEAT = (N_CLASSES*(N_CLASSES - 1))/2
 data_type = stp.data_type
 
 # Model name for saving results
-model_name = "ac_10"
+model_name = "a_10"
 
 # Model names and their description
 # a_10 - baseline model data 10

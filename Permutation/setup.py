@@ -4,7 +4,7 @@
 
 # INPUT NUMBER OF CLASSES
 #num_classes = 32 # (fully relational experiment)
-#num_classes = 20 # (by design experiment)
+#num_classes = 30 # (by design experiment)
 #num_classes = 2 # (comparator experiment)
 num_classes = 10 # (baseline experiment)
 
@@ -26,13 +26,13 @@ n_estim = 96
 # Layer neurons and their dropout for neural network
 
 # Uncomment to set baseline NN
-layer_neurons = [512, 256, 128]
-layer_dropout = [0.8, 0.8]
+#layer_neurons = [512, 256, 128]
+#layer_dropout = [0.8, 0.8]
 
 # Uncomment to set by design NN
-#layer_neurons = [400, 200] (typical for 20 scale)
+layer_neurons = [400, 200] #(typical for 20 scale)
 #layer_neurons = [1000, 200]
-#layer_dropout = [0.0]
+layer_dropout = [0.0]
 
 # Uncomment to set single layer NN
 #layer_neurons = [400] (typical for 20 scale)
@@ -45,7 +45,7 @@ layer_dropout = [0.8, 0.8]
 # 3. "all"
 # 4. "simple_data" for min/max (change ith)
 # 5. "comparator"
-data_type = "order_relations"
+data_type = "data"
 
 # Exception for number of output classes
 if data_type == "simple_data" or data_type == "comparator":
