@@ -2,7 +2,11 @@
 
 Thesis Title: **Compositionality of relational operations in neural networks**
 
-## E1: Order relations compositionality in a sequence of numbers (almost done 4.3/5)
+Objective: This document contains a brief introduction, the results from the first experiments (1/2) and the bibliography of the Masters Thesis.
+
+## E1: Order relations compositionality in a sequence of numbers 
+
+(almost done 4.5/5)
 
 **Table of Contents**:
 
@@ -68,6 +72,8 @@ The experiment models the manipulation of arrays with different numbers and of d
 |Minimum         |  0|  0|  1|  0|  0|
 
 #### 1.5 Order Relations
+
+*Total order relations are binary operators for which the value matrix has certain mathematical properties (a type of prior knowledge which can be exploited in statistical learning).*
 
 - Order relations: Is A smaller than B?
 - 0/1 for pair (A/B)
@@ -148,6 +154,8 @@ Between decision tree and multilayer perceptron. Multiple variants of decision t
 |Epoch 10.000 - 7 out of 10|Epoch 22.000 - 9 out of 10|
 |![l_10000](https://raw.githubusercontent.com/perticascatalin/MastersExperiments/master/Permutation/results/labels/labels_10000.png)|![l_22000](https://raw.githubusercontent.com/perticascatalin/MastersExperiments/master/Permutation/results/labels/labels_22000.png)|
 
+SAMPLE RESULTS DISPLAY FOR BASELINE MODEL ON AN ARRAY OF 10
+
 #### 4. Metrics
 
 We compute a partial accuracy - the average number of elements whose target position is correctly guessed. Example: we run the experiment on an array of 10 elements and the test dataset is comprised of 3 such arrays with 7, 7, and 9 correct guesses. Then the partial accuracy is (7 + 7 + 9)/3 = 7.7.
@@ -160,9 +168,7 @@ Error range: +/- 1%
 
 - Knowledge Prior: Set 1 vs. Set 2 vs. Set 3
 
-**Set 1**
-
-- Data: D
+**Set 1 (Data: D)**
 
 |Size|Model + Acc|Normalized Acc (vs DC)|Comment  |
 |:--:|:---------:|:--------------------:|:-------:|
@@ -176,12 +182,9 @@ Error range: +/- 1%
 |20  |NN  1.0    |  5% vs   7%          |+ 2% DC, +18% with HP, stays same|
 
 - Basic Set
-- Min 1 element guessed threshold stop investigation
 - Hyperparams tuning necessary when too much diffusion
 
-**Set 2**
-
-- Data: DC
+**Set 2 (Data: DC)**
 
 |Size|Worst |Second  |Best    |Comment              |
 |:--:|:----:|:------:|:------:|:-------------------:|
@@ -195,9 +198,7 @@ Error range: +/- 1%
 
 - Set with additional prior knowledge
 
-**Set 3**
-
-- Data: C
+**Set 3 (Data: C)**
 
 |Size|Partial Acc|Normal Acc (vs DC)|Comment          |
 |:--:|:---------:|:----------------:|:---------------:|
@@ -246,7 +247,9 @@ Using all datasets
 
 ### 7. Problem Complexity
 
-Next, we try to find some of the underlying reasons. For instance, by measuring the impact of data representation: bare numbers or numbers with an order relation. This is done by investigating the properties of the input and target spaces.
+Next, we try to find some of the underlying reasons. For instance, by measuring the impact of data representation: bare numbers or numbers with an order relation. 
+
+This is done by investigating the properties of the input and target spaces.
 
 - important space dimensions (set cardinality):
 - N! vs. MAXINT!/(MAXINT-N)! vs. 2^((N)x(N-1)/2) vs. 2^N
