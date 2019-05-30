@@ -174,11 +174,11 @@ Status: not started
 
 Task: Make plot with accuracy for different NNs (landscape variation height, width, receptive field)
 
-TICKET 23
+**TICKET 23**
 
 Date Issued: 24.05
 
-Status: not started
+Status: SOLVED
 
 Task: Make combined plots of loss and accuracy for different NNs (compare convergence)
 
@@ -214,4 +214,4 @@ Status: SOLVED
 
 Task: Cleanup setup
 
-STATS: 15 out of 27 solved
+STATS: 16 out of 27 solved
