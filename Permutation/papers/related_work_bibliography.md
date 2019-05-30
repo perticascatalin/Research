@@ -41,6 +41,28 @@ Gradients in highly composed functions or hard constraints. Accuracy as a functi
 [I] Deep Learning applied to Natural Language Processing, M-M. Lopez, J.
 Kalita, 2017
 
+#### Deep learning theory
+
+[X] C. Gulcehre and Y. Bengio, "Knowledge Matters: Importance of Prior Information for Optimization", Journal of Machine Learning Research, 2016.
+
+[Y] S. Shalev-Shwartz and O. Shamir and S. Shammah, "Failures of Gradient-Based Deep Learning", arXiv:1703.07950, 2017.
+
+[Z] Ravid Schwartz-Ziv and Naftali Tishby, "Opening the black box of Deep Neural Networks via Information"
+
+[W] Naftali Tishby and Noga Zaslavsky "Deep Learning and Information Bottleneck Principle"
+
+#### My own and joint work (published and unpublished)
+
+[1] Finding Patterns in Visualization of Programs, conference paper, PPIG 2017
+
+[2] Using the Self-Organizing Map to cluster Computer Programs based on Spatio-Temporal Features extracted from Execution Traces, unpublished, 4 versions presented for Masters & Research reports
+
+[3] Detection and Emulation of Algorithms from Execution Traces, under review KNOSYS Elsevier journal
+
+[4] Hierarchical segmentation of graphical interfaces for Document Object Model reconstruction, workshop paper, ICML 2018
+
+[5] Modeling cognitive processes underlying computer programming, conference paper, PPIG 2018
+
 
 #### Misc
 
@@ -69,25 +91,3 @@ Kalita, 2017
 [U]
 
 [V]
-
-#### Deep learning theory
-
-[X] C. Gulcehre and Y. Bengio, "Knowledge Matters: Importance of Prior Information for Optimization", Journal of Machine Learning Research, 2016.
-
-[Y] S. Shalev-Shwartz and O. Shamir and S. Shammah, "Failures of Gradient-Based Deep Learning", arXiv:1703.07950, 2017.
-
-[Z] Ravid Schwartz-Ziv and Naftali Tishby, "Opening the black box of Deep Neural Networks via Information"
-
-[W] Naftali Tishby and Noga Zaslavsky "Deep Learning and Information Bottleneck Principle"
-
-#### My own and joint work (published and unpublished)
-
-[1] Finding Patterns in Visualization of Programs, conference paper, PPIG 2017
-
-[2] Using the Self-Organizing Map to cluster Computer Programs based on Spatio-Temporal Features extracted from Execution Traces, unpublished, 4 versions presented for Masters & Research reports
-
-[3] Detection and Emulation of Algorithms from Execution Traces, under review KNOSYS Elsevier journal
-
-[4] Hierarchical segmentation of graphical interfacesf or Document Object Model reconstruction, workshop paper, ICML 2018
-
-[5] Modeling cognitive processes underlying computer programming, conference paper, PPIG 2018
