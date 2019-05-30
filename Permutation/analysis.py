@@ -215,8 +215,11 @@ def combine_plots(model_names, colors, target_metric, label_names, fig_name, tit
 	plt.savefig('./results/' + fig_name + '.png')
 	plt.clf()
 
-combine_plots(['a_10', 'ac_10', 'b_10', 'bc_10'], ['r', 'b', 'g', 'm'], 'v_accs', \
-	['C-Baseline', 'C-Baseline (order rel)', 'C-Design', 'C-Design (order rel)'], 'asbs_10', 'Accuracy N = 10')
+# combine_plots(['a_10', 'ac_10', 'b_10', 'bc_10'], ['r', 'b', 'g', 'm'], 'v_accs', \
+# 	['C-Baseline', 'C-Baseline (order rel)', 'C-Design', 'C-Design (order rel)'], 'asbs_10', 'Accuracy N = 10')
+
+# combine_plots(['b_10', 'bc_10', 'c_10', 'b_20', 'bc_20', 'c_20'], ['lightgreen', 'magenta', 'orange', 'green', 'blue', 'red'], 'v_accs', \
+# 	['C-Design 10', 'C-Design (order rel) 10', 'C-FRN 10', 'C-Design 20', 'C-Design (order rel) 20', 'C-FRN 20'], 'bscs_10_20', 'Accuracy N = 10, 20')
 
 #print_barchart(list([10, 30, 20, 40, 50]), list([1, 3, 2, 4, 5]), list([1, 2, 3, 4, 5]), 'labels_0.png')
 #print_acc_scale_models()
