@@ -2,6 +2,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 import matplotlib.patches as mpatches
 import setup as stp
+import pickle
 
 N_CLASSES = stp.num_classes
 N_OUT_CLASSES = stp.num_out_classes
@@ -194,13 +195,26 @@ def print_pretty(correct_pred, logits, y_exp, x, epoch):
 	print_barchart(x[0], list(y_exp[0]), y_pred, ('labels_' + str(epoch) + '.png'))
 	check_perm_validity(x[0], list(y_exp[0]), y_pred)
 
-def combine_plots(model_names):
+def combine_plots(model_names, colors, target_metric, fig_name):
 	dir_name = './data/stats/'
-	for model_name in model_names:
+	plt.title('Accuracy', fontsize = 18)
+	plt.xlabel('# Steps', fontsize = 16)
+	for (model_name, color) in zip(model_names, colors):
 		model_root = model_name + '_ml_'
 		for metric in ['steps', 'losses', 't_accs', 'v_accs']:
-			filename = dir_name + model_root + metric + '.p'
-			print filename
+			if metric == target_metric:
+				val_filename = dir_name + model_root + metric + '.p'
+				step_filename = dir_name + model_root + 'steps' + '.p'
+				print 'Retrieve values from ' + val_filename
+				seq = pickle.load(open(val_filename, 'r'))
+				print seq
+				steps = np.linspace(1, 100000, 100)
+				plt.plot(steps, seq, color, linewidth = 1.0, label = model_name)
+	plt.legend(loc = 'lower right')
+	plt.savefig('./results/' + fig_name + '.png')
+	plt.clf()
+
+combine_plots(['a_10', 'ac_10'], ['r', 'b'], 'v_accs', 'as')
 
 #print_barchart(list([10, 30, 20, 40, 50]), list([1, 3, 2, 4, 5]), list([1, 2, 3, 4, 5]), 'labels_0.png')
 #print_acc_scale_models()
