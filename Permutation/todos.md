@@ -95,3 +95,37 @@ what is a decent sample size?
 - link neighboring points through story and insight
 - keep flat structure, so that it is clear where to add certain stuff
 - polish partial parts, but leave way for new parts to be created
+
+### Exploration of [400,200] layering
+
+- With HP Range 20 (60.000) : NN 8.6 (0.43 vs 0.23) [400,200] rest same, improv 20%
+- With HP Range 20 (150.000) add data: NN 8.9 (0.45 vs 0.43) 2% very marginal improvement
+
+**Range 20**
+
+- D6 Less dropout (0.6), no additional data: NN 10.3 (0.52 vs 0.43) improv 9%
+- D4 Less dropout (0.4), same: NN prev s6.1, now s6.4, after finish 12.1 (0.61 vs 0.43) improv 18%
+- D2 Even less (0.2), same: NN now s6.5, after finish 14.7 (0.74 vs 0.43) improv 31%
+- D0 None (0.0), same: NN now s6.6, after finish 19.9 (0.99 vs 0.43) improv 56%
+
+**Comparison to baseline data**
+
+D2 Same, but back to data NN now s5.1, after finish 8.7 (0.44 vs 0.74)
+D0 NN now s5.3, after finish 11.4 (0.57 vs 0.99)
+
+### Exploration of A.[800,200], B.[800,400]
+
+- A. D0, DC, N24, s5.9, after finish 21.5 (0.90)
+- B. D0, DC, N24, s6.9, after finish 10.6 (0.44)
+- B is a lot worse, probably needs dropout or HP change
+- continue with A
+
+### Flat architecture
+
+- F_30 [1000] 9.0
+- F_20 [400] 19.3, d 8.3
+- G_30 [30] 7.4
+- G_20 [20] 9.0, d 3.1
+
+- Diffusion and design vs. dropout and information bottleneck
+

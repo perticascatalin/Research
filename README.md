@@ -270,23 +270,6 @@ Then we look for changes in the models or the problem formulation that could hel
 
 **START NOT MOVED**
 
-**Exploration of [400,200] layering**
-
-- With HP Range 20 (60.000) : NN 8.6 (0.43 vs 0.23) [400,200] rest same, improv 20%
-- With HP Range 20 (150.000) add data: NN 8.9 (0.45 vs 0.43) 2% very marginal improvement
-
-**Range 20**
-
-- D6 Less dropout (0.6), no additional data: NN 10.3 (0.52 vs 0.43) improv 9%
-- D4 Less dropout (0.4), same: NN prev s6.1, now s6.4, after finish 12.1 (0.61 vs 0.43) improv 18%
-- D2 Even less (0.2), same: NN now s6.5, after finish 14.7 (0.74 vs 0.43) improv 31%
-- D0 None (0.0), same: NN now s6.6, after finish 19.9 (0.99 vs 0.43) improv 56%
-
-**Comparison to baseline data**
-
-D2 Same, but back to data NN now s5.1, after finish 8.7 (0.44 vs 0.74)
-D0 NN now s5.3, after finish 11.4 (0.57 vs 0.99)
-
 **======================**
 
 **Focus area, take-away message: 99 - 57 = 42% accuracy improvement for size 20**
