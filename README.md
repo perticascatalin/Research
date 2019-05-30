@@ -240,8 +240,8 @@ Using all datasets
 |Accuracy|Model Description|
 |:------:|:---------------:|
 |![asm_plot](https://raw.githubusercontent.com/perticascatalin/MastersExperiments/master/Permutation/results/asm.png)|Extreme forest with 96 estimators vs. multilayer_perceptron with ~1000 neurons in 4 layers (512, 256, 128) dense + N multi-label outputs. Rand ~ 1/N|
-|![asd_plot](https://raw.githubusercontent.com/perticascatalin/MastersExperiments/master/Permutation/results/asd.png)|Add description|
-|![ad_plot](https://raw.githubusercontent.com/perticascatalin/MastersExperiments/master/Permutation/results/ad.png)|Add description|
+|![asd_plot](https://raw.githubusercontent.com/perticascatalin/MastersExperiments/master/Permutation/results/asd.png)|Baseline model, 3 types of feature sets (datasets). Normalized accuracy expressed in [0,1]|
+|![ad_plot](https://raw.githubusercontent.com/perticascatalin/MastersExperiments/master/Permutation/results/ad.png)|Accuracy fot architecture based on previous design for different input representations (different datasets). [input, aN^2, bN, output]. In this case, layer widths are in relation to N = 20.|
 
 ### 7. Problem Complexity
 
