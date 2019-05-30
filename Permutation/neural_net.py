@@ -199,7 +199,7 @@ with tf.Session() as sess:
 	pickle.dump(losses, open('./data/stats/' + model_name + '_ml_losses.p', 'wb'))
 	pickle.dump(train_accs, open('./data/stats/' + model_name + '_ml_t_accs.p', 'wb'))
 	pickle.dump(val_accs, open('./data/stats/' + model_name + '_ml_v_accs.p', 'wb'))
-	pickle.dump(val_accs, open('./data/stats/' + model_name + '_ml_steps.p', 'wb'))
+	pickle.dump(steps, open('./data/stats/' + model_name + '_ml_steps.p', 'wb'))
 	# Or just plot it
 	co.print_ltv(losses, train_accs, val_accs, steps, model_name + '_sample.png')
 	# Save your model
