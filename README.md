@@ -6,7 +6,9 @@ Thesis Title: **Compositionality of relational operations in neural networks**
 
 **Table of Contents**:
 
-- 1.Introduction
+Section 1 offers background and formulates the problem. Section 2 offers an overview of the models tested in the experiments. Sections 3-7 discusses results with baseline models (neural nets and decision trees), data re-representation (different datasets), the problem of scalability and how this relates to the problem complexity. Sections 8-10 propose different solutions for improving the scalability and learning efficiency and provides supporting results. Section 11 extracts the conclusions from the experiments. Section 12 situates the importance of the experimental results in the larger goal.
+
+- **1. Introduction**
 - 2.Models
 - 3.Results
 - 4.Metrics
