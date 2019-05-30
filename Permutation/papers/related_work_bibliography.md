@@ -80,6 +80,14 @@ Kalita, 2017
 
 [W] Naftali Tishby and Noga Zaslavsky "Deep Learning and Information Bottleneck Principle"
 
-#### My own published and unpublished work
+#### My own and joint work (published and unpublished)
 
-[1] 
+[1] Finding Patterns in Visualization of Programs, conference paper, PPIG 2017
+
+[2] Using the Self-Organizing Map to cluster Computer Programs based on Spatio-Temporal Features extracted from Execution Traces, unpublished, 4 versions presented for Masters & Research reports
+
+[3] Detection and Emulation of Algorithms from Execution Traces, under review KNOSYS Elsevier journal
+
+[4] Hierarchical segmentation of graphical interfacesf or Document Object Model reconstruction, workshop paper, ICML 2018
+
+[5] Modeling cognitive processes underlying computer programming, conference paper, PPIG 2018
