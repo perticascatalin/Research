@@ -2,11 +2,11 @@
 
 Thesis Title: **Compositionality of relational operations in neural networks**
 
-## E1: Order relations compositionality in a sequence of numbers (almost done 4.1/5)
+## E1: Order relations compositionality in a sequence of numbers (almost done 4.2/5)
 
 **Table of Contents**:
 
-**Section 1** offers background and formulates the problem. **Section 2** offers an overview of the models tested in the experiments. **Sections 3-7** discusses results with baseline models (neural nets and decision trees), data re-representation (different datasets), the problem of scalability and how this relates to the problem complexity. **Sections 8-10** propose different solutions for improving the scalability and learning efficiency and provides supporting results. Section 11 extracts the conclusions from the experiments. **Section 12** situates the importance of the experimental results in the larger goal.
+**Section 1** offers background and formulates the problem. **Section 2** offers an overview of the models tested in the experiments. **Sections 3-7** discusses results with baseline models (neural nets and decision trees), data re-representation (different datasets), the problem of scalability and how this relates to the problem complexity. **Sections 8-10** propose different solutions for improving the scalability and learning efficiency and provides supporting results. **Section 11** extracts the conclusions from the experiments. **Section 12** situates the importance of the experimental results in the larger goal.
 
 - **1. Introduction**
 - **2. Models**
@@ -115,6 +115,19 @@ The information bottleneck principle links the analysis of deep neural networks 
 ### 2. Models
 
 Briefly describe the models used and the intuitions behind them. Illustrate their structure and mechanism.
+
+|Model name|Model description|
+|:--------:|:---------------:|
+|C-Design  |2-layer densely connected neural network with quadratic scaling|
+|C-Baseline|3-layer densely connected neural network|
+|C-1-Layer |1-layer densely connected neural network|
+|C-Perceptron | perceptron for comparison operation |
+|C-SortNet |model for algebraic sorting|
+|C-FRN     |fully relational network with re-arrangments and convolutional aggregation at all layers|
+|C-RN      |elational network with re-arrangments and convolutional first layer|
+|d-DT      |Decision Tree Classifier|
+|d-RF      |Random Forest Classifier|
+|d-EF      |Extreme Forest Classifier|
 
 #### 2.1 Input data
 
