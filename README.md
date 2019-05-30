@@ -2,7 +2,7 @@
 
 Thesis Title: **Compositionality of relational operations in neural networks**
 
-## E1: Order relations compositionality in a sequence of numbers (almost done 4.2/5)
+## E1: Order relations compositionality in a sequence of numbers (almost done 4.3/5)
 
 **Table of Contents**:
 
@@ -305,7 +305,15 @@ D0 NN now s5.3, after finish 11.4 (0.57 vs 0.99)
 
 ### 9. SortNet Model
 
+Insert figure made in canva.
+
 ### 10. Relational Model
+
+Insert similar figure to the one here:
+
+|Figure|Interpretation|
+|:----:|:------------:|
+|![asbs_10](https://raw.githubusercontent.com/perticascatalin/MastersExperiments/master/Permutation/results/asbs_10.png)|Description|
 
 **With Relational Net**
 
@@ -351,6 +359,10 @@ It is remarkable how handful convolutions come in this case: they facilitate the
 **STOP NOT MOVED**
 
 ### 11. Conclusions
+
+#### 11.1 Summary of Results
+
+#### 11.2 Interpretation of Results
 
 ### 12. Future Work
 
