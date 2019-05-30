@@ -124,7 +124,7 @@ Briefly describe the models used and the intuitions behind them. Illustrate thei
 |C-Perceptron | perceptron for comparison operation |
 |C-SortNet |model for algebraic sorting|
 |C-FRN     |fully relational network with re-arrangments and convolutional aggregation at all layers|
-|C-RN      |elational network with re-arrangments and convolutional first layer|
+|C-RN      |relational network with re-arrangments and convolutional first layer|
 |d-DT      |Decision Tree Classifier|
 |d-RF      |Random Forest Classifier|
 |d-EF      |Extreme Forest Classifier|
@@ -313,7 +313,7 @@ Insert similar figure to the one here:
 
 |Figure|Interpretation|
 |:----:|:------------:|
-|![asbs_10](https://raw.githubusercontent.com/perticascatalin/MastersExperiments/master/Permutation/results/asbs_10.png)|Description|
+|![bscs_10_20](https://raw.githubusercontent.com/perticascatalin/MastersExperiments/master/Permutation/results/bscs_10_20.png)|Description|
 
 **With Relational Net**
 
