@@ -2,10 +2,12 @@
 
 ### Related work
 
-Links to information theory and deep learning [X], [Y].
-Sorting-related experiments with deep learning [A], [B].
-Relational reasoning [C], [D].
-Bottleneck principle [Z], [W].
+- Sorting-related experiments with deep learning [A], [B].
+- Relational reasoning [C], [D].
+- Semantic Relations in sequential representations (word embeddings) [E], [F].
+- Convolutional Neural Networks for Natural Language Processing [G], [H], [I].
+- Links to information theory and deep learning [X], [Y].
+- Bottleneck principle [Z], [W].
 
 The importance of prior information and pre-learned intermediate concepts. Composition of 2 highly non-linear tasks and other hypothesis such as local minima obstacle and guided/transfer learning [X].
 
@@ -25,13 +27,43 @@ In another approach, [B] presents a sorting experiment for sets of numbers using
 
 [D] D. Hudson and C. Manning, "Compositional Attention Networks for Machine Reasoning"
 
-[I] I. Kant, Critique of Pure Reason
+[E] Distributed Representations of Words and Phrases and their Compositionally, T. Mikolov, 2013
+
+[F] Distributed Representations of Sentences and Documents, Q. Le, T. Mikolov, 2014
+
+[G] Convolutional Neural Networks for Sentence Classification, Y. Kim, 2014
+
+[H] Convolutional Neural Networks for Modelling Sentences, N. Kalchbrenner,
+2014
+
+[I] Deep Learning applied to Natural Language Processing, M-M. Lopez, J.
+Kalita, 2017
+
+[J] I. Kant, Critique of Pure Reason
+
+[K]
+
+[L]
 
 [M] Matlab, DAG, url = https://www.mathworks.com/help/deeplearning/ref/dagnetwork.html
 
+[N] Tensorflow, Word2Vec, url = https://www.tensorflow.org/tutorials/word2vec
+
+[O]
+
 [P] M. Patrascu, Problema SortNet, Infoarena, url = https://infoarena.ro/problema/sortnet
 
+[Q]
+
 [R] R. Sutton, The Bitter Lesson
+
+[S]
+
+[T]
+
+[U]
+
+[V] 
 
 [X] C. Gulcehre and Y. Bengio, "Knowledge Matters: Importance of Prior Information for Optimization", Journal of Machine Learning Research, 2016.
 
