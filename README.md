@@ -2,7 +2,7 @@
 
 Thesis Title: **Compositionality of relational operations in neural networks**
 
-## E1: Order relations compositionality in a sequence of numbers (mostly done)
+## E1: Order relations compositionality in a sequence of numbers (almost done 4/5)
 
 ### 1. Introduction
 
@@ -68,7 +68,7 @@ The experiment models the manipulation of arrays with different numbers and of d
 
 In the above case, the sorted position of 49 is equal to O(1,1) + O(2,1) + O(3,1).... Similarly, the final position of 3 is equal to O(2,1) + O(2,2) + O(2,3).... Although the operations involved in finding the sorted positions are quite simple, statistical learning models have troubles with computing the correct answer.
 
-#### Concepts
+#### 1.6 Concepts
 
 **Concepts list:**
 
@@ -206,12 +206,6 @@ Using all datasets
 |  DC|1.00|1.00|1.00|0.95|0.66|0.44|0.23|0.07|
 |   C|1.00|0.99|0.93|0.83|0.74|0.61|0.32|0.16|
 
-
-Scalability vs. problem complexity views:
-
-- **scalability - done**
-- **problem complexity - done**
-
 |Accuracy|Model Description|
 |:------:|:---------------:|
 |![asm_plot](https://raw.githubusercontent.com/perticascatalin/MastersExperiments/master/Permutation/results/asm.png)|Extreme forest with 96 estimators vs. multilayer_perceptron with ~1000 neurons in 4 layers (512, 256, 128) dense + N multi-label outputs. Rand ~ 1/N|
@@ -278,6 +272,10 @@ D0 NN now s5.3, after finish 11.4 (0.57 vs 0.99)
 - D0, DC, N28  s5.6, after finish 13.8 (0.49 vs 0.30) 
 - D0, DC, N30, s5.4, after finish 10.8 (0.36 vs 0.28)
 
+### 9. SortNet Model
+
+### 10. Relational Model
+
 **With Relational Net**
 
 - Q: relational net
@@ -320,3 +318,9 @@ It is remarkable how handful convolutions come in this case: they facilitate the
 - Diffusion and design vs. dropout and information bottleneck
 
 **STOP NOT MOVED**
+
+### 11. Conclusions
+
+### 12. Future Work
+
+### Bibliography
