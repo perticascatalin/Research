@@ -214,4 +214,12 @@ Status: SOLVED
 
 Task: Cleanup setup
 
-STATS: 16 out of 27 solved
+**TICKET 28**
+
+Date Issued: 30.05
+
+STATUS: SOLVED
+
+Task: Bibliography format: title, names, years
+
+STATS: 17 out of 28 solved

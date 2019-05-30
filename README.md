@@ -355,65 +355,65 @@ Gradients in highly composed functions or hard constraints. Accuracy as a functi
 
 #### Core deep learning models
 
-[A] A. Graves, G. Wayne, and I. Danihelka, “Neural Turing Machines,” arXiv:1410.5401v2, 2014.
+[A] *Neural Turing Machines*, A. Graves, G. Wayne, and I. Danihelka, arXiv:1410.5401v2, 2014.
 
-[B] O. Vinyals, S. Bengio, and M. Kudlur, “OrderMatters: Sequence to Sequence for Sets”, in 4th International Conference on Learning Representations (ICLR), 2016.
+[B] *OrderMatters: Sequence to Sequence for Sets*, O. Vinyals, S. Bengio, and M. Kudlur, in 4th International Conference on Learning Representations (ICLR), 2016.
 
-[C] A. Santoro et al, "A simple neural network module for relational reasoning"
+[C] *A simple neural network module for relational reasoning*, A. Santoro et al, 2017
 
-[D] D. Hudson and C. Manning, "Compositional Attention Networks for Machine Reasoning"
+[D] *Compositional Attention Networks for Machine Reasoning*, D. Hudson and C. Manning, 2018
 
-[E] Distributed Representations of Words and Phrases and their Compositionally, T. Mikolov, 2013
+[E] *Distributed Representations of Words and Phrases and their Compositionally*, T. Mikolov, 2013
 
-[F] Distributed Representations of Sentences and Documents, Q. Le, T. Mikolov, 2014
+[F] *Distributed Representations of Sentences and Documents*, Q. Le, T. Mikolov, 2014
 
-[G] Convolutional Neural Networks for Sentence Classification, Y. Kim, 2014
+[G] *Convolutional Neural Networks for Sentence Classification*, Y. Kim, 2014
 
-[H] Convolutional Neural Networks for Modelling Sentences, N. Kalchbrenner,
+[H] *Convolutional Neural Networks for Modelling Sentences*, N. Kalchbrenner,
 2014
 
-[I] Deep Learning applied to Natural Language Processing, M-M. Lopez, J.
+[I] *Deep Learning applied to Natural Language Processing*, M-M. Lopez, J.
 Kalita, 2017
 
 #### Deep learning theory
 
-[X] C. Gulcehre and Y. Bengio, "Knowledge Matters: Importance of Prior Information for Optimization", Journal of Machine Learning Research, 2016.
+[X] *Knowledge Matters: Importance of Prior Information for Optimization*, C. Gulcehre and Y. Bengio, Journal of Machine Learning Research, 2016.
 
-[Y] S. Shalev-Shwartz and O. Shamir and S. Shammah, "Failures of Gradient-Based Deep Learning", arXiv:1703.07950, 2017.
+[Y] *Failures of Gradient-Based Deep Learning*, S. Shalev-Shwartz and O. Shamir and S. Shammah, arXiv:1703.07950, 2017.
 
-[Z] *Opening the black box of Deep Neural Networks via Information*, Ravid Schwartz-Ziv and Naftali Tishby
+[Z] *Opening the black box of Deep Neural Networks via Information*, Ravid Schwartz-Ziv and Naftali Tishby, 2017
 
-[W] *Deep Learning and Information Bottleneck Principle*, Naftali Tishby and Noga Zaslavsky
+[W] *Deep Learning and Information Bottleneck Principle*, Naftali Tishby and Noga Zaslavsky, 2015
 
-#### My own and joint work (published and unpublished)
+#### Co-authored work on which the experiment builds upon (published/unpublished)
 
-[1] Finding Patterns in Visualization of Programs, conference paper, PPIG 2017
+[1] *Finding Patterns in Visualization of Programs*, conference paper, PPIG 2017
 
-[2] Using the Self-Organizing Map to cluster Computer Programs based on Spatio-Temporal Features extracted from Execution Traces, unpublished, 4 versions presented for Masters & Research reports
+[2] *Using the Self-Organizing Map to cluster Computer Programs based on Spatio-Temporal Features extracted from Execution Traces*, unpublished, 4 versions presented for Masters & Research reports, 2017-2018 
 
-[3] Detection and Emulation of Algorithms from Execution Traces, under review KNOSYS Elsevier journal
+[3] *Detection and Emulation of Algorithms from Execution Traces*, under review KNOSYS Elsevier journal, 2017-2018, submitted Feb 2019
 
-[4] Hierarchical segmentation of graphical interfaces for Document Object Model reconstruction, workshop paper, ICML 2018
+[4] *Hierarchical segmentation of graphical interfaces for Document Object Model reconstruction*, workshop short paper & poster, ICML 2018
 
-[5] Modeling cognitive processes underlying computer programming, conference paper, PPIG 2018
+[5] *Modeling cognitive processes underlying computer programming*, conference paper, PPIG 2018
 
-[6] License Plates Detection in Street View images, unpublished, Accesa technical report 2018
+[6] *License Plates Detection in Street View Images*, unpublished, Accesa technical report 2018
 
 #### Misc
 
-[J] I. Kant, Critique of Pure Reason
+[J] *Critique of Pure Reason*, I. Kant
 
-[K] S. MacLane, Mathematics, Form and Function
+[K] *Mathematics, Form and Function*, S. MacLane
 
-[L] R. Sutton, The Bitter Lesson
+[L] *The Bitter Lesson*, R. Sutton
 
-[M] Matlab, DAG, url = https://www.mathworks.com/help/deeplearning/ref/dagnetwork.html
+[M] *DAG*, Matlab, url = https://www.mathworks.com/help/deeplearning/ref/dagnetwork.html
 
-[N] Tensorflow, Word2Vec, url = https://www.tensorflow.org/tutorials/word2vec
+[N] *CNN*, Wikipedia, url = https://en.wikipedia.org/wiki/Convolutional_neural_network
 
-[O] M. Patrascu, Problema SortNet, Infoarena, url = https://infoarena.ro/problema/sortnet
+[O] *Word2Vec*, Tensorflow, url = https://www.tensorflow.org/tutorials/word2vec
 
-[P] 
+[P] *Problema SortNet*, M. Patrascu, Infoarena, url = https://infoarena.ro/problema/sortnet 
 
 [Q]
 
