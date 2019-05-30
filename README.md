@@ -319,6 +319,8 @@ It is remarkable how handful convolutions come in this case: they facilitate the
 
 ### 10. SortNet Model
 
+|Figure|Interpretation|
+|:----:|:------------:|
 |![sort_net_2](https://raw.githubusercontent.com/perticascatalin/MastersExperiments/master/Permutation/images/sort_net_2.png)|Description|
 
 ### 11. Conclusions
