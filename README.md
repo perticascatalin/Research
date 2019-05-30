@@ -268,17 +268,13 @@ Then we look for changes in the models or the problem formulation that could hel
 
 ### 8. Design Model
 
-**START NOT MOVED**
-
 |Figure|Interpretation|
 |:----:|:------------:|
 |![asbs_10](https://raw.githubusercontent.com/perticascatalin/MastersExperiments/master/Permutation/results/asbs_10.png)|Description|
 
-**======================**
 
 **Focus area, take-away message: 99 - 57 = 42% accuracy improvement for size 20**
 
-**======================**
 
 **Increasing & decreasing the size**
 
@@ -317,17 +313,13 @@ These are:
 
 It is remarkable how handful convolutions come in this case: they facilitate the writing of learnable aggregations, while allowing shared weights which greatly increase the learning efficiency.
 
-**======================**
 
 **Focus area, take-away message: near perfect accuracy becomes accessible for size 30**
 
-**======================**
-
-**STOP NOT MOVED**
 
 ### 10. SortNet Model
 
-Insert figure made in canva.
+|![sort_net_2](https://raw.githubusercontent.com/perticascatalin/MastersExperiments/master/Permutation/images/sort_net_2.png)|Description|
 
 ### 11. Conclusions
 
