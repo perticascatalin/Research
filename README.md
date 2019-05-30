@@ -92,10 +92,10 @@ In the above case, the sorted position of 49 is equal to O(1,1) + O(2,1) + O(3,1
 
 - information bottleneck (intro+ formula+ impl- debate-)
 - scalability & problem complexity (intro+ formula+ impl+ debate-)
-- learning complexity & separability (approached)
-- compositionality - multiple learners (approached, experiments+)
-- relation to mathematical sets (dk)
-- sequences (dk)
+- learning complexity & separability (experiments+)
+- compositionality - multiple learners (experiments+)
+- relation to mathematical sets
+- sequences
 
 **Applications:**
 

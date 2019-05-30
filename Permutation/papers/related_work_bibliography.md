@@ -4,6 +4,7 @@
 
 Links to information theory and deep learning [X], [Y].
 Sorting-related experiments with deep learning [A], [B].
+Relational reasoning [C], [D].
 Bottleneck principle [Z], [W].
 
 The importance of prior information and pre-learned intermediate concepts. Composition of 2 highly non-linear tasks and other hypothesis such as local minima obstacle and guided/transfer learning [X].
@@ -23,6 +24,14 @@ In another approach, [B] presents a sorting experiment for sets of numbers using
 [C] A. Santoro et al, "A simple neural network module for relational reasoning"
 
 [D] D. Hudson and C. Manning, "Compositional Attention Networks for Machine Reasoning"
+
+[I] I. Kant, Critique of Pure Reason
+
+[M] Matlab, DAG, url = https://www.mathworks.com/help/deeplearning/ref/dagnetwork.html
+
+[P] M. Patrascu, Problema SortNet, Infoarena, url = https://infoarena.ro/problema/sortnet
+
+[R] R. Sutton, The Bitter Lesson
 
 [X] C. Gulcehre and Y. Bengio, "Knowledge Matters: Importance of Prior Information for Optimization", Journal of Machine Learning Research, 2016.
 
