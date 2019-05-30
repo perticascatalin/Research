@@ -2,7 +2,23 @@
 
 Thesis Title: **Compositionality of relational operations in neural networks**
 
-## E1: Order relations compositionality in a sequence of numbers (almost done 4/5)
+## E1: Order relations compositionality in a sequence of numbers (almost done 4.1/5)
+
+**Table of Contents**:
+
+- 1. Introduction
+- 2. Models
+- 3. Results
+- 4. Metrics
+- 5. Results by Dataset
+- 6. Scalability
+- 7. Problem Complexity
+- 8. Design Model
+- 9. SortNet Model
+- 10. Relational Model
+- 11. Conclusions
+- 12. Future Work
+- Bibilography
 
 ### 1. Introduction
 
