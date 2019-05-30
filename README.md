@@ -6,18 +6,18 @@ Thesis Title: **Compositionality of relational operations in neural networks**
 
 **Table of Contents**:
 
-- 1. Introduction
-- 2. Models
-- 3. Results
-- 4. Metrics
-- 5. Results by Dataset
-- 6. Scalability
-- 7. Problem Complexity
-- 8. Design Model
-- 9. SortNet Model
-- 10. Relational Model
-- 11. Conclusions
-- 12. Future Work
+- 1.Introduction
+- 2.Models
+- 3.Results
+- 4.Metrics
+- 5.Results by Dataset
+- 6.Scalability
+- 7.Problem Complexity
+- 8.Design Model
+- 9.SortNet Model
+- 10.Relational Model
+- 11.Conclusions
+- 12.Future Work
 - Bibilography
 
 ### 1. Introduction
