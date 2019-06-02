@@ -119,6 +119,8 @@ The information bottleneck principle links the analysis of deep neural networks 
 Problems involving reasoning about the natural environment (eg. image analysis), as well as those involving structured data (eg. text and code) can often be expressed as series of operations applied to previous computations. In other terms, their solution can be expressed as a high level composition of functions.
 These compositions can differ in their structure. For instance, CNNs use  kernel-based aggregations (hierarchical), while RNNs do recursive aggregations (sequential). Of course, these 2 approaches can be combined. What matters is how they help exploit the structure of the data, such that the computational load is reduced compared to using fully-connected neural networks.
 
+The problem of learning to sort a collection of numbers can be defined both algebraically and geometrically. While the problem of representing compositions of functions is performed algebraically (eg. counting applied to pair comparisons), the learning process happens in a geometrical space where hyper-planes define regions assigned to different labels.
+
 ### 2. Models
 
 Briefly describe the models used and the intuitions behind them. Illustrate their structure and mechanism.
