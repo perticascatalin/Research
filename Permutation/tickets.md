@@ -222,4 +222,12 @@ STATUS: SOLVED
 
 Task: Bibliography format: title, names, years
 
-STATS: 17 out of 28 solved
+TICKET 29
+
+Date Issued: 2.06
+
+STATUS: not started
+
+Task: Write cubiod classifier for counting operation
+
+STATS: 17 out of 29 solved
