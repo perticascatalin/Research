@@ -230,4 +230,12 @@ STATUS: not started
 
 Task: Write cubiod classifier for counting operation
 
-STATS: 17 out of 29 solved
+**TICKET 30**
+
+Date Issued: 4.06
+
+STATUS: DONE
+
+Task: Basic documentation for all figures
+
+STATS: 18 out of 30 solved
