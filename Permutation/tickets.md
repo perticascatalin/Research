@@ -238,4 +238,12 @@ STATUS: DONE
 
 Task: Basic documentation for all figures
 
-STATS: 18 out of 30 solved
+TICKET 31
+
+Date Issued: 6.06
+
+STATUS: not started
+
+Task: Verify correctness for debugger whole batch comparator experiment 
+
+STATS: 18 out of 31 solved
