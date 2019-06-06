@@ -61,6 +61,20 @@ def gen_ith(ith_target):
 			ith.append(i)
 	return lst, ith
 
+# Three numbers to add (in range [0,1])
+# Output will be rounded to nearest integer
+def counter():
+	lsts, orders = list(), list()
+	for i in range(N_SAMPLES):
+		x = random.random()
+		y = random.random()
+		z = random.random()
+		lst = [x, y, z]
+		order = [round(x + y + z)]
+		lsts.append(lst)
+		orders.append(order)
+	return lsts, orders
+
 # Two numbers to compare
 def comparator():
 	lsts, orders = list(), list()

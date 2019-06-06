@@ -13,9 +13,10 @@ num_out_classes = num_classes
 
 # Number of arrays to generate
 
-num_samples = 60000
+#num_samples = 60000
 #num_samples = 10000
-#num_samples = 2000 (comparator experiment)
+#num_samples = 2000 # (comparator experiment)
+num_samples = 1000 # (counter experiment)
 
 # Maximum number in array
 maxint = 50
