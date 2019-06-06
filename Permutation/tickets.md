@@ -244,6 +244,14 @@ Date Issued: 6.06
 
 STATUS: not started
 
-Task: Verify correctness for debugger whole batch comparator experiment (logits shape)
+Task: Verify correctness for debuggers in comparator and counter(logits shape), rename properly
 
-STATS: 20 out of 31 solved
+TICKET 32
+
+Date Issued: 6.06
+
+STATUS: not started
+
+Task: Document all data formats
+
+STATS: 20 out of 32 solved
