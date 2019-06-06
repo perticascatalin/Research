@@ -40,6 +40,10 @@ def debugger_whole_batch(correct_pred, logits, y_exp, x, step):
 		lst.append(c_lst)
 	mark_dots(lst, step)
 
+def debugger_whole_batch_cuboid(correct_pred, logits, y_exp, x, step):
+	# do nothing for now
+	return 0
+
 def mark_dots(arr, step):
 	white_x, white_y = list(), list()
 	black_x, black_y = list(), list()

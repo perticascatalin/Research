@@ -70,7 +70,7 @@ def counter():
 		y = random.random()
 		z = random.random()
 		lst = [x, y, z]
-		order = [round(x + y + z)]
+		order = [int(round(x + y + z))]
 		lsts.append(lst)
 		orders.append(order)
 	return lsts, orders
