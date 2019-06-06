@@ -98,16 +98,6 @@ def mark_dots_cube(arr, step):
 			yellow_y.append(e[1])
 			yellow_z.append(e[2])
 
-	# fig = plt.figure()
-	# ax = fig.add_subplot(111, projection='3d')
-	# ax.scatter(red_x, red_y, red_z, c = 'red')
-	# ax.scatter(blue_x, blue_y, blue_z, c = 'blue')
-	# ax.scatter(green_x, green_y, green_z, c = 'green')
-	# ax.scatter(yellow_x, yellow_y, yellow_z, c = 'yellow')
-	# plt.savefig('./results/counter/sep_' + str(step) + '.png')
-	# if step % 1000 == 0:
-	# 	plt.close()
-
 	ax = plt.subplot(111, projection='3d')
 	ax.scatter(red_x, red_y, red_z, c = 'red')
 	ax.scatter(blue_x, blue_y, blue_z, c = 'blue')
