@@ -1,6 +1,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 import matplotlib.patches as mpatches
+from mpl_toolkits.mplot3d import Axes3D
 import setup as stp
 import pickle
 
@@ -40,10 +41,6 @@ def debugger_whole_batch(correct_pred, logits, y_exp, x, step):
 		lst.append(c_lst)
 	mark_dots(lst, step)
 
-def debugger_whole_batch_cuboid(correct_pred, logits, y_exp, x, step):
-	# do nothing for now
-	return 0
-
 def mark_dots(arr, step):
 	white_x, white_y = list(), list()
 	black_x, black_y = list(), list()
@@ -60,10 +57,77 @@ def mark_dots(arr, step):
 	if step % 1000 == 0:
 		plt.close()
 
+def debugger_whole_batch_cuboid(correct_pred, logits, y_exp, x, step):
+	lst = list()
+	for i in range(len(correct_pred)):
+		y_pred = list()
+		for j in range(N_OUT_CLASSES):
+			y_pred.append(np.argmax(logits[i]))
+		# print_1by1_asis(x[i], 'input: ', N_CLASSES)
+		# print_1by1(y_exp[i], 'expect:', N_OUT_CLASSES)
+		# print_1by1(y_pred, 'pred:  ', N_OUT_CLASSES)
+	 	c_lst = list()
+	 	c_lst.append(x[i][0])
+	 	c_lst.append(x[i][1])
+	 	c_lst.append(x[i][2])
+		c_lst.append(int(y_pred[0])) # for predicted
+		#c_lst.append(int(y_exp[i])) # for ground-truth
+		lst.append(c_lst)
+	mark_dots_cube(lst, step)
+
+def mark_dots_cube(arr, step):
+	red_x, red_y, red_z = list(), list(), list()
+	blue_x, blue_y, blue_z = list(), list(), list()
+	green_x, green_y, green_z = list(), list(), list()
+	yellow_x, yellow_y, yellow_z = list(), list(), list()
+	for e in arr:
+		if e[3] == 0:
+			red_x.append(e[0])
+			red_y.append(e[1])
+			red_z.append(e[2])
+		elif e[3] == 1:
+			blue_x.append(e[0])
+			blue_y.append(e[1])
+			blue_z.append(e[2])
+		elif e[3] == 2:
+			green_x.append(e[0])
+			green_y.append(e[1])
+			green_z.append(e[2])
+		elif e[3] == 3:
+			yellow_x.append(e[0])
+			yellow_y.append(e[1])
+			yellow_z.append(e[2])
+
+	# fig = plt.figure()
+	# ax = fig.add_subplot(111, projection='3d')
+	# ax.scatter(red_x, red_y, red_z, c = 'red')
+	# ax.scatter(blue_x, blue_y, blue_z, c = 'blue')
+	# ax.scatter(green_x, green_y, green_z, c = 'green')
+	# ax.scatter(yellow_x, yellow_y, yellow_z, c = 'yellow')
+	# plt.savefig('./results/counter/sep_' + str(step) + '.png')
+	# if step % 1000 == 0:
+	# 	plt.close()
+
+	ax = plt.subplot(111, projection='3d')
+	ax.scatter(red_x, red_y, red_z, c = 'red')
+	ax.scatter(blue_x, blue_y, blue_z, c = 'blue')
+	ax.scatter(green_x, green_y, green_z, c = 'green')
+	ax.scatter(yellow_x, yellow_y, yellow_z, c = 'yellow')
+	plt.savefig('./results/counter/sep_' + str(step) + '.png')
+	if step % 1000 == 0:
+		plt.close()
+
+
 def print_1by1(arr, title, n_classes):
 	line = ""
 	for i in range(n_classes):
 		line += (str(int(arr[i])) + " ")
+	print (title + line)
+
+def print_1by1_asis(arr, title, n_classes):
+	line = ""
+	for i in range(n_classes):
+		line += (str(round(arr[i], 3)) + " ")
 	print (title + line)
 
 # Specific to sorting

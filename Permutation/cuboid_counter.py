@@ -1,5 +1,6 @@
 import os
 import pickle
+import numpy as np
 import tensorflow as tf
 import analysis as co
 import generator as gen
@@ -7,16 +8,22 @@ import setup as stp
 
 # Setup experiment size and parameters
 os.environ['TF_CPP_MIN_LOG_LEVEL']='2'
-learning_rate = 0.002
-num_steps = 8000
+learning_rate = 0.001
+num_steps = 4000
 display_step = 10
-batch_size = 32
-model_name = "cc"
+batch_size = 64
+model_name = "ccb"
 
 def cuboid_counter(x, inputs, reuse, is_training):
 	with tf.variable_scope('CuboidCounter', reuse = reuse):
 		# Define perceptron
-		perceptron = tf.layers.dense(x, 1, activation = tf.nn.sigmoid)
+		#perceptron = tf.layers.dense(x, 1, activation = tf.nn.sigmoid)
+
+		# Try with more units to check if maybe not learnable with 1 unit
+		perceptron = tf.layers.dense(x, 4, activation = tf.nn.tanh)
+
+		# Try with more layers if maybe not learnable with 1 layer
+		perceptron = tf.layers.dense(perceptron, 8, activation = tf.nn.tanh)
 		
 		# Define output
 		output = tf.layers.dense(perceptron, 4)
@@ -78,6 +85,7 @@ with tf.Session() as sess:
 	val_accs = []
 	steps = []
 
+	cp, logs, yexp, xs = [], [], [], []
 	# Training cycle
 	for step in range(1, num_steps+1):
 		if step % display_step == 0:
@@ -92,11 +100,25 @@ with tf.Session() as sess:
 				loss, acc_train, acc_val = sess.run([loss_op, accuracy_train, accuracy_val])
 				if i % 100 == 0:
 					correct_pred, logits, y_exp, x = sess.run([correct_pred_val, logits_val, Y_val, X_val])
-					co.debugger_whole_batch_cuboid(correct_pred, logits, y_exp, x, step)
-				
+					cp.extend(correct_pred)
+					#logs.extend(logits)
+					if len(logs) == 0:
+						logs = np.squeeze(np.array(logits), axis = 0)
+					else:
+						print logs.shape
+						logits = np.squeeze(np.array(logits), axis = 0)
+						print logits.shape
+						logs = np.append(logs, logits, axis = 0)
+					yexp.extend(y_exp)
+					xs.extend(x)
+
 				total_loss += loss
 				training_accuracy += acc_train
 				validation_accuracy += acc_val
+
+			if step % 100 == 0:
+				co.debugger_whole_batch_cuboid(cp, logs, yexp, xs, step)
+				cp, logs, yexp, xs = [], [], [], []
 
 			total_loss /= 100.0
 			training_accuracy /= 100.0    

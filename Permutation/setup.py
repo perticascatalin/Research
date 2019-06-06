@@ -6,7 +6,8 @@
 #num_classes = 32 # (fully relational experiment)
 #num_classes = 30 # (by design experiment)
 #num_classes = 2 # (comparator experiment)
-num_classes = 10 # (baseline experiment)
+num_classes = 3 # (counter experiment)
+#num_classes = 10 # (baseline experiment)
 
 # OUTPUT NUMBER OF CLASSES
 num_out_classes = num_classes
@@ -15,8 +16,8 @@ num_out_classes = num_classes
 
 #num_samples = 60000
 #num_samples = 10000
+num_samples = 8000 # (counter experiment)
 #num_samples = 2000 # (comparator experiment)
-num_samples = 1000 # (counter experiment)
 
 # Maximum number in array
 maxint = 50
@@ -46,8 +47,9 @@ layer_dropout = [0.0]
 # 3. "all"
 # 4. "simple_data" for min/max (change ith)
 # 5. "comparator"
-data_type = "data"
+# 6. "counter"
+data_type = "counter"
 
 # Exception for number of output classes
-if data_type == "simple_data" or data_type == "comparator":
+if data_type == "simple_data" or data_type == "comparator" or data_type == "counter":
 	num_out_classes = 1
