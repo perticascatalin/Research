@@ -62,11 +62,11 @@ Status: SOLVED
 
 Task: Plot graph of linear separator for comparison (the ">" operation).
 
-TICKET 9
+**TICKET 9**
 
 Date Issued: 5.04
 
-Status: not started
+Status: SOLVED
 
 Task: Plot graph of sum over intervals (the counting operation).
 
@@ -222,11 +222,11 @@ STATUS: SOLVED
 
 Task: Bibliography format: title, names, years
 
-TICKET 29
+**TICKET 29**
 
 Date Issued: 2.06
 
-STATUS: not started
+STATUS: SOLVED
 
 Task: Write cubiod classifier for counting operation
 
@@ -244,6 +244,6 @@ Date Issued: 6.06
 
 STATUS: not started
 
-Task: Verify correctness for debugger whole batch comparator experiment 
+Task: Verify correctness for debugger whole batch comparator experiment (logits shape)
 
-STATS: 18 out of 31 solved
+STATS: 20 out of 31 solved
