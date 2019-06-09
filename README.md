@@ -130,7 +130,8 @@ Briefly describe the models used and the intuitions behind them. Illustrate thei
 |C-Design  |2-layer densely connected neural network with quadratic scaling|
 |C-Baseline|3-layer densely connected neural network|
 |C-1-Layer |1-layer densely connected neural network|
-|C-Perceptron | perceptron for comparison operation |
+|C-Perceptron |perceptron for comparison operation |
+|C-MiniNet |several perceptron for counter operation |
 |C-SortNet |model for algebraic sorting|
 |C-FRN     |fully relational network with re-arrangments and convolutional aggregation at all layers|
 |C-RN      |relational network with re-arrangments and convolutional first layer|
