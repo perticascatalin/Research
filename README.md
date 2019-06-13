@@ -303,6 +303,7 @@ Then we look for changes in the models or the problem formulation that could hel
 - net Q, D (Data), N28 (batch 64 = half) s4.4, 6.4, 7.6, 8.7, 9.8, 10.6 after finish 27.2 (0.97)
 - net R, D (Data), N30 (batch 64 = half) at finish 20.1 (0.67)
 - net R, D (Data), N32 (batch 64 = half) at finish 19.6 (0.61)
+- net R plus (double data 120000, double iterations 200000), N30, at finish 
 
 The SortNet model can be modified such that it has learnable weights an in principle could learn any total order relation between the array elements. For this reason we re-name it to RelationalNet.
 

@@ -12,14 +12,15 @@ N_OUT_CLASSES = stp.num_out_classes
 N_FEAT = (N_CLASSES*(N_CLASSES - 1))/2
 dropout = 0.0
 learning_rate = 0.001
-num_steps = 100000
+#num_steps = 100000
+num_steps = 200000
 display_step = 1000
 batch_size = 64
 layer_neurons = stp.layer_neurons
 layer_dropout = stp.layer_dropout
 num_layers = len(layer_neurons)
 data_type = stp.data_type
-model_name = "R"
+model_name = "R_plus"
 
 def fully_relational_net(x, inputs, n_classes, num_labels, dropout, reuse, is_training):
 	with tf.variable_scope('FullyRelationalNet', reuse = reuse):
