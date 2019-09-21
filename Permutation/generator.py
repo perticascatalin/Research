@@ -119,6 +119,8 @@ def lis_data():
 		lst, order = gen_lis()
 		lsts.append(lst)
 		orders.append(order)
+		if i % 100 == 0:
+			print "Generated", i, 'samples'
 	return lsts, orders
 
 # Minimum

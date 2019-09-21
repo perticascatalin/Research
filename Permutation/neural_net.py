@@ -176,8 +176,8 @@ with tf.Session() as sess:
 					correct_pred, logits, y_exp, x = sess.run([correct_pred_val, logits_val, Y_val, X_val])
 					co.debugger(correct_pred, logits, y_exp, x)
 					co.print_pretty(correct_pred, logits, y_exp, x, step)
-					# also count strictly correctly sorted
-					co.print_pretty(correct_pred, logits, y_exp, x, step, True)
+					# also count strictly correctly sorted (uncomment next line)
+					#co.print_pretty(correct_pred, logits, y_exp, x, step, True)
 				
 				total_loss += loss
 				training_accuracy += acc_train
