@@ -242,7 +242,7 @@ def print_ltv(A, B, C, x, filename):
 	plt.savefig('./results/loss_and_acc/' + filename)
 	plt.clf()
 
-def print_pretty(correct_pred, logits, y_exp, x, epoch):
+def print_pretty(correct_pred, logits, y_exp, x, epoch, count_correct = False):
 	out = list()
 	y_pred = list()
 	for j in range(N_OUT_CLASSES):
@@ -252,6 +252,25 @@ def print_pretty(correct_pred, logits, y_exp, x, epoch):
 	print_1by1(y_pred, 'pred:  ', N_OUT_CLASSES)
 	print_barchart(x[0], list(y_exp[0]), y_pred, ('labels_' + str(epoch) + '.png'))
 	check_perm_validity(x[0], list(y_exp[0]), y_pred)
+
+	if count_correct:
+		num_correct = 0
+		num_all = 100
+		for i in range(num_all):
+			print (str(int(correct_pred[i])) + " out of " + str(N_OUT_CLASSES))
+			if correct_pred[i] == N_OUT_CLASSES:
+				num_correct+=1
+			out = list()
+			y_pred = list()
+			for j in range(N_OUT_CLASSES):
+				y_pred.append(np.argmax(logits[j][i]))
+			print_1by1(x[i], 'input: ', N_CLASSES)
+			print_1by1(y_exp[i], 'expect:', N_OUT_CLASSES)
+			print_1by1(y_pred, 'pred:  ', N_OUT_CLASSES)
+			print_barchart(x[i], list(y_exp[i]), y_pred, ('labels_' + str(epoch) + '.png'))
+			check_perm_validity(x[i], list(y_exp[i]), y_pred)
+		print 'Number of correctly sorted:', num_correct
+
 
 def combine_plots(model_names, colors, target_metric, label_names, fig_name, title_name):
 	dir_name = './data/stats/'

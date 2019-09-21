@@ -101,6 +101,26 @@ def data(dtype = 'int'):
 			print "Generated", i, 'samples'
 	return lsts, orders
 
+def gen_lis():
+	lst, order = list(), list()
+	for i in range(N_CLASSES):
+		num = random.randint(1, MAXINT)
+		max_seq = 0
+		for j in range(len(lst)):
+			if lst[j] < num and max_seq < order[j]:
+				max_seq = order[j]
+		lst.append(num)
+		order.append(max_seq + 1)
+	return lst, order
+
+def lis_data():
+	lsts, orders = list(), list()
+	for i in range(N_SAMPLES):
+		lst, order = gen_lis()
+		lsts.append(lst)
+		orders.append(order)
+	return lsts, orders
+
 # Minimum
 def simple_data():
 	lsts, orders = list(), list()
@@ -150,6 +170,9 @@ def all_data():
 
 # Get data by type
 def data_by_type(data_type):
+	if data_type == "lis":
+		print "LIS"
+		return lis_data()
 	if data_type == "data":
 		print "DATA"
 		return data()

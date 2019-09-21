@@ -21,7 +21,11 @@ N_FEAT = (N_CLASSES*(N_CLASSES - 1))/2
 data_type = stp.data_type
 
 # Model name for saving results
-model_name = "a_10"
+#model_name = "baseline"
+#model_name = "design"
+#model_name = "single"
+#model_name = "baseline_less_drop"
+model_name = "lis"
 
 # Model names and their description
 # a_10 - baseline model data 10
@@ -41,7 +45,7 @@ learning_rate = 0.001
 num_steps = 100000
 
 # Displays loss, accuracy and sample classification every display_step iterations
-display_step = 1000
+display_step = 5000
 
 # Number of samples per training step
 batch_size = 128
@@ -172,6 +176,8 @@ with tf.Session() as sess:
 					correct_pred, logits, y_exp, x = sess.run([correct_pred_val, logits_val, Y_val, X_val])
 					co.debugger(correct_pred, logits, y_exp, x)
 					co.print_pretty(correct_pred, logits, y_exp, x, step)
+					# also count strictly correctly sorted
+					co.print_pretty(correct_pred, logits, y_exp, x, step, True)
 				
 				total_loss += loss
 				training_accuracy += acc_train

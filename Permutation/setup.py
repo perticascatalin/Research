@@ -7,19 +7,19 @@
 #num_classes = 30 # (by design experiment)
 #num_classes = 2 # (comparator experiment)
 #num_classes = 3 # (counter experiment)
-#num_classes = 10 # (baseline experiment)
-num_classes = 30
+num_classes = 10 # (baseline experiment)
+#num_classes = 30 (prev last used)
 
 # OUTPUT NUMBER OF CLASSES
 num_out_classes = num_classes
 
 # Number of arrays to generate
 
-#num_samples = 60000
+num_samples = 60000
 #num_samples = 10000
 #num_samples = 8000 # (counter experiment)
 #num_samples = 2000 # (comparator experiment)
-num_samples = 120000# (R plus experiment)
+#num_samples = 120000# (R plus experiment)
 
 # Maximum number in array
 maxint = 50
@@ -30,16 +30,17 @@ n_estim = 96
 # Layer neurons and their dropout for neural network
 
 # Uncomment to set baseline NN
-#layer_neurons = [512, 256, 128]
+layer_neurons = [512, 256, 128]
 #layer_dropout = [0.8, 0.8]
+layer_dropout = [0.6, 0.6]
 
 # Uncomment to set by design NN
-layer_neurons = [400, 200] #(typical for 20 scale)
+#layer_neurons = [400, 200] #(typical for 20 scale)
 #layer_neurons = [1000, 200]
-layer_dropout = [0.0]
+#layer_dropout = [0.0]
 
 # Uncomment to set single layer NN
-#layer_neurons = [400] (typical for 20 scale)
+#layer_neurons = [400] #(typical for 20 scale)
 #layer_neurons = [20]
 #layer_dropout = []
 
@@ -50,7 +51,8 @@ layer_dropout = [0.0]
 # 4. "simple_data" for min/max (change ith)
 # 5. "comparator"
 # 6. "counter"
-data_type = "data"
+# 7. "lis"
+data_type = "lis"
 
 # Exception for number of output classes
 if data_type == "simple_data" or data_type == "comparator" or data_type == "counter":
