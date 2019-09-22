@@ -101,6 +101,7 @@ def data(dtype = 'int'):
 			print "Generated", i, 'samples'
 	return lsts, orders
 
+# Longest increasing sequence
 def gen_lis():
 	lst, order = list(), list()
 	for i in range(N_CLASSES):
@@ -111,8 +112,12 @@ def gen_lis():
 				max_seq = order[j]
 		lst.append(num)
 		order.append(max_seq + 1)
+	# subtract 1 to have numbers in range [0,N_CLASSES)
+	for i in range(N_CLASSES):
+		order[i] = order[i] - 1
 	return lst, order
 
+# Longest increasing sequence
 def lis_data():
 	lsts, orders = list(), list()
 	for i in range(N_SAMPLES):

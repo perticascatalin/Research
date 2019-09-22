@@ -7,8 +7,8 @@
 #num_classes = 30 # (by design experiment)
 #num_classes = 2 # (comparator experiment)
 #num_classes = 3 # (counter experiment)
-num_classes = 10 # (baseline experiment)
-#num_classes = 30 (prev last used)
+#num_classes = 10 # (baseline experiment)
+num_classes = 8
 
 # OUTPUT NUMBER OF CLASSES
 num_out_classes = num_classes
