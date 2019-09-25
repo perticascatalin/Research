@@ -171,7 +171,7 @@ with tf.Session() as sess:
 			# Covers 12800/60000 = ~20% of dataset in an interation
 			for i in range(100):
 				loss, acc_train, acc_val = sess.run([loss_op, accuracy_train, accuracy_val])
-				if i % 100 == 0:
+				if i == 0:
 					correct_pred, logits, y_exp, x = sess.run([correct_pred_val, logits_val, Y_val, X_val])
 					co.debugger(correct_pred, logits, y_exp, x)
 					co.print_pretty(correct_pred, logits, y_exp, x, step)
