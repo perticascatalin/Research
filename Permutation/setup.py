@@ -7,19 +7,19 @@
 #num_classes = 30 # (by design experiment)
 #num_classes = 2 # (comparator experiment)
 #num_classes = 3 # (counter experiment)
-#num_classes = 10 # (baseline experiment)
-num_classes = 8
+num_classes = 10 # (baseline experiment)
 
 # OUTPUT NUMBER OF CLASSES
 num_out_classes = num_classes
 
 # Number of arrays to generate
 
-num_samples = 60000
+#num_samples = 60000 # default
 #num_samples = 10000
 #num_samples = 8000 # (counter experiment)
 #num_samples = 2000 # (comparator experiment)
 #num_samples = 120000# (R plus experiment)
+num_samples = 100
 
 # Maximum number in array
 maxint = 50
@@ -52,7 +52,7 @@ layer_dropout = [0.6, 0.6]
 # 5. "comparator"
 # 6. "counter"
 # 7. "lis"
-data_type = "lis"
+data_type = "data"
 
 # Exception for number of output classes
 if data_type == "simple_data" or data_type == "comparator" or data_type == "counter":

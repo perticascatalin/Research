@@ -118,7 +118,6 @@ X_val, Y_val = tf.train.batch([lsts_val, orders_val], batch_size = batch_size, c
 logits_train, y_train = neural_net(X, Y, N_OUT_CLASSES, N_CLASSES, dropout, reuse = False, is_training = True)
 logits_test, y_test = neural_net(X, Y, N_OUT_CLASSES, N_CLASSES, dropout, reuse = True, is_training = False)
 logits_val, y_val = neural_net(X_val, Y_val, N_OUT_CLASSES, N_CLASSES, dropout, reuse = True, is_training = False)
-logits_eye, y_eye = neural_net(X_val, Y_val, N_OUT_CLASSES, N_CLASSES, dropout, reuse = True, is_training = False)
 
 # Define the loss operation
 loss_op = tf.constant(0.0, dtype = tf.float32)
