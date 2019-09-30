@@ -1,0 +1,25 @@
+{
+    // node types
+    "body": {"tag": "body"},
+    "header": {"tag": "div", "attrib": {"class": "header"}},
+
+    // left column nodes
+    "left_column": {"tag": "div", "attrib": {"class": "left-column"}},
+    "column_item": {"tag": "div", "attrib": {"class": "column-item"}},
+    "col_item_title": {"tag": "h3", "attrib": {"class": "col-item-title"}, "text": "random_text_1"},
+    "col_item_text": {"tag": "p", "attrib": {"class": "col-item-text"}, "text": "random_text_16"},
+
+    // right grid nodes
+    "right_grid": {"tag": "div", "attrib": {"class": "right-grid"}},
+    "grid_row": {"tag": "div", "attrib": {"class": "grid-row"}},
+    "grid_item": {"tag": "div", "attrib": {"class": "grid-item"}},
+    
+    "grid_item_image": {"tag": "img", "attrib": {"class": "grid-item-img", "src": "random_image"}},
+    "grid_item_button": {"tag": "button", "attrib": {"class": "grid-item-btn"}, "text": "random_text_1"},
+    "grid_item_text": {"tag": "p", "attrib": {"class": "grid-item-text"}, "text": "random_text_16"},
+
+    // node extra classes
+    "blue_bg": {"class": "blue-bg"},
+    "green_bg": {"class": "green-bg"},
+    "yellow_bg": {"class": "yellow-bg"}
+}
