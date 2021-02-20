@@ -11,6 +11,7 @@
 - integrating relational reasoning into deep learning models
 - using deep learning to estimate the probability of a primitive existing inside a program from deep coder
 - for general program synthesis, it is necessary that an AI can derive the relations between the objects it acts on (eg. object oriented programming)
+- neural problem solving, operations inside neural networks
 
 ### Datasets
 
