@@ -2,10 +2,22 @@
 
 ### Abstract
 
+### Ideas
+
+- abstraction and reasoning in a minimalist setup, to model a measure for intelligence of AI systems
+- answering questions based on scenes with objects
+- solving a task by writing a program which maps input (initial state) to output (finish state) from dream coder
+- exploiting relations between objects as prior knowledge
+- integrating relational reasoning into deep learning models
+- using deep learning to estimate the probability of a primitive existing inside a program from deep coder
+- for general program synthesis, it is necessary that an AI can derive the relations between the objects it acts on (eg. object oriented programming)
+
 ### Datasets
 
-1. ARC (1, 2)
-2. CLEVR (4, 5)
+1. ARC - input & output grids (1, 2)
+2. Synthetic/collected datasets - programs, inputs & outputs, primitives, DSLs (6, 7)
+3. CLEVR - images (4, 5)
+4. Open Images (3)
 
 ### References
 
