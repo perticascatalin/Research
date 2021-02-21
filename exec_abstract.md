@@ -10,9 +10,10 @@ These kind of tasks pose challenges to traditional deep learning models because 
 
 If we come to think of it, it would seem that relational reasoning in neural models touches some key points from the old connectionism vs symbolic manipulation AI debate, which is briefly explained in [8]. On one hand we need the adaptive power and fault tolerance properties of connectionist models to be able to process a wide range of sensory inputs, while on the other hand we require symbolic and computational abilities to make sense of the extracted facts and the relations between them in order to draw conclusions, which is what reasoning would seem to do at a very simplistic level.
 
+Another area of research studies the broader aspect of integrating abstraction and reasoning into machine learning models. The recent work of (Chollet [2]) discusses aspects to be taken into account in order to define a measure for machine intelligence and proposes a dataset devised for testing whether a machine learning model incorporates various reasoning abilities. This dataset has recently been used for an online competition [1], where one can still test various approaches to the problem. The general idea is to train a model on numerous different tasks, each with a few samples of input-output pairs. For assessing the model's general reasoning abilities, a test dataset containing novel tasks is used. In this case, input-output pairs are represented as grids of different sizes, with cells taking a limited number of discrete values. However, the diversity of tasks that can be defined on this minimalist setup is quite high.
+
 ### Ideas
 
-- abstraction and reasoning in a minimalist setup, to model a measure for intelligence of AI systems
 - solving a task by writing a program which maps input (initial state) to output (finish state) from dream coder
 - using deep learning to estimate the probability of a primitive existing inside a program from deep coder
 - for general program synthesis, it is necessary that an AI can derive the relations between the objects it acts on (eg. object oriented programming)
@@ -27,7 +28,7 @@ If we come to think of it, it would seem that relational reasoning in neural mod
 
 ### References
 
-1. [Abstract Reasoning Challenge, Kaggle 2020](https://www.kaggle.com/c/abstraction-and-reasoning-challenge)
+1. [Abstraction & Reasoning Challenge, Kaggle 2020](https://www.kaggle.com/c/abstraction-and-reasoning-challenge)
 2. [On the Measure of Intelligence, 2019](https://arxiv.org/pdf/1911.01547.pdf)
 3. [Open Images - Visual Relationship, Kaggle 2019](https://www.kaggle.com/c/open-images-2019-visual-relationship/)
 4. [Compositional Attention Networks for Machine Reasoning, 2018](https://arxiv.org/pdf/1803.03067.pdf)
