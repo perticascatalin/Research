@@ -2,6 +2,12 @@
 
 ### Abstract
 
+Deep learning has seen great success in the automated extraction of facts from large and diverse sensory inputs. More recently there has been an increased interest in the development of models that also have the ability to reason at some level about these facts.
+
+One such area of research is visual relational reasoning, which aims not only to detect objects and their classes in a visual scene, but to answer questions about these objects as well. Examples of this kind of modelling include the works of (Santoro et al. [5]) and (Hudson & Manning [4]). Their setups consist of 3D scenes of objects which are presented to a machine learning model that needs to answer questions involving relationships between the objects. Such a question could be:  "What is the shape of the object behind the blue sphere?". These kind of tasks pose challenges to traditional deep learning models because they need to abstract what consitutes and object and then they have to perform reasoning based on the object's position, features and relationships with the other objects.
+
+If we come to think of it, ... connectionism vs symbolic manipulation paragraph.
+
 ### Ideas
 
 - abstraction and reasoning in a minimalist setup, to model a measure for intelligence of AI systems
