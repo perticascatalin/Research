@@ -14,12 +14,14 @@ Another area of research studies the broader aspect of integrating abstraction a
 
 The ARC dataset has recently been used for an online competition [1], where one can still test various approaches to the problem. The general idea is to train a model on numerous different tasks, each with a few samples of input-output pairs. For assessing the model's general reasoning abilities, a test dataset containing novel tasks is used. In this case, input-output pairs are represented as grids of different sizes, with cells taking a limited number of discrete values which are visualized as different colors. Although the setup defined appears minimalist, the tasks that can be defined on it are quite diverse. These include the fill algorithm, filling missing patterns, fractals, switching colors, etc.
 
-More generally, the task of finding a series of instructions that map an input to an output given several training input-output pairs is referred to as program induction, or program synthesis if the model not only learns the mapping, but also outputs the program which performs the mapping. Otherwise, this is referred to as latent program induction - the model learns one or more programs, but the programs are not accessible in the form of series of instructions. One of the earlier works in this field, (Balog et al. [7]) ...
+More generally, the task of finding a series of instructions that map an input to an output given several training input-output pairs is referred to as program induction, or program synthesis if the model not only learns the mapping, but also outputs the program which performs the mapping. Otherwise, this is referred to as latent program induction - the model learns one or more programs, but the programs are not accessible in the form of series of instructions.
+
+One of the earlier works in this field, (Balog et al. [7]) exploits deep learning to estimate the probability of a primitive existing inside a program. The primitives are defined within a DSL containing both first-order functions and high-order functions. The estimated probabilities are then used to guide a search for programs consistent with the provided input-output pairs.
+
+More complex models of program synthesis have emerged recently, such as the work of (Ellis et al. [6]), which aims at creating systems that solve problems by writing programs. These programs map the initial input state to the desired final output state and overall the system can solve tasks from many domains, such as lists manipulation, formulas from physics and graphical patterns generation. Broadly speaking, the model is based on search, refactoring and the construction of libraries from learned concepts that are derived from primitives. These concepts are stored as modules and are reused for solving novel problems. The model proposed also has an imagination component, which is used for sampling and replaying problems.
 
 ### Ideas
 
-- solving a task by writing a program which maps input (initial state) to output (finish state) from dream coder
-- using deep learning to estimate the probability of a primitive existing inside a program from deep coder
 - for general program synthesis, it is necessary that an AI can derive the relations between the objects it acts on (eg. object oriented programming)
 - neural problem solving, operations inside neural networks
 
