@@ -27,6 +27,9 @@ Thus, we arrive at another goal of this research, which is to explore the role o
 |Start|Duration|Phase|Description|
 |:---:|:------:|:---:|:---------:|
 |Mid Feb|2 weeks|Broad Research|Collect materials for thesis, discuss & decide theme|
+|March|2 weeks|In-Depth Understanding & Practice|Study material in detail, check techniques involved, practice with them, comparison of past results|
+|Mid March|6 weeks|Experiments & Evaluation of Results|Visual Rel., Abstr. & Reason., Deep Coder, Comparison on CLEVR, Neural Problem Solving|
+|May|6 weeks|Thesis Elaboration|
 
 ### Datasets
 
