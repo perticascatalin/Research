@@ -20,10 +20,13 @@ One of the earlier works in this field, (Balog et al. [7]) exploits deep learnin
 
 More complex models of program synthesis have emerged recently, such as the work of (Ellis et al. [6]), which aims at creating systems that solve problems by writing programs. These programs map the initial input state to the desired final output state and overall the system can solve tasks from many domains, such as lists manipulation, formulas from physics and graphical patterns generation. Broadly speaking, the model is based on search, refactoring and the construction of libraries from learned concepts that are derived from primitives. These concepts are stored as modules and are reused for solving novel problems. The model proposed also has an imagination component, which is used for sampling and replaying problems.
 
-### Ideas
+Thus, we arrive at another goal of this research, which is to explore the role of relational reasoning in programming tasks. My view is that general program synthesis would require an AI model capable of deriving the relations between the objects it acts upon (eg. object oriented programming). Furthermore, based on cognitive studies, it would seem that a broad category of humans are visual problem solvers, so they could be deriving relations between key actors in the problem that they are solving by using visualization. This would suggest a strong link between visualization, relational reasoning and problem solving.
 
-- for general program synthesis, it is necessary that an AI can derive the relations between the objects it acts on (eg. object oriented programming)
-- neural problem solving, operations inside neural networks
+### Plan
+
+|Start|Duration|Phase|Description|
+|:---:|:------:|:---:|:---------:|
+|Mid Feb|2 weeks|Broad Research|Collect materials for thesis, discuss & decide theme|
 
 ### Datasets
 
