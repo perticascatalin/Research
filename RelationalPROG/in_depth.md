@@ -6,9 +6,9 @@ Sample code for Sort-of-CLEVR, open source: https://github.com/clvrai/Relation-N
 
 #### Code Running Logs
 
-Deprecated since Tensorflow2 (attempted to migrate to TF2, but got stuck at contrib.layers.optimize_loss, no equivalent in TF2).
+This repository is deprecated since Tensorflow2 (attempted to migrate to TF2, but got stuck at `contrib.layers.optimize_loss`, no equivalent in TF2).
 
-Revert to TF1, implies reverting to Python 3.6, was using Python 3.8. Got stuck with pyenv, cannot revert to 3.6.
+Revert to TF1. This implies reverting to Python 3.6, was using Python 3.8. Got stuck with pyenv, cannot revert to 3.6.
 
 Finally tried using:
 
@@ -20,5 +20,9 @@ Should use Python 2.7, with Tensorflow 1.15, got a working version this way. Plo
 - `python generator.py`
 - `python trainer.py`
 - `tensorboard --logdir ./train_dir`
+
+![Tensorboard](https://raw.githubusercontent.com/perticascatalin/Research/master/RelationalPROG/images/tensorboard.png)
+
+![Sample images](https://github.com/perticascatalin/Research/blob/master/RelationalPROG/images/samples.png)
 
 ### 2. Deep Coder: Learning to Write Programs
