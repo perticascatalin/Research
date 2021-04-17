@@ -21,8 +21,16 @@ Should use Python 2.7, with Tensorflow 1.15, got a working version this way. Plo
 - `python trainer.py`
 - `tensorboard --logdir ./train_dir`
 
+Tensorboard then provides us with a localhost link and we can look at training statistics in the browser:
+
 ![Tensorboard](https://raw.githubusercontent.com/perticascatalin/Research/master/RelationalPROG/images/tensorboard.png)
 
+After 15.000 training steps, we take a look at the currently tested images and we can see that 3 of 4 questions were answered correctly:
+
 ![Sample images](https://github.com/perticascatalin/Research/blob/master/RelationalPROG/images/samples.png)
+
+After another 15.000 training steps the accuracy on the testing data reaches an average of 95%, while the loss drops to around 0.1:
+
+![Accuracy and Loss](https://raw.githubusercontent.com/perticascatalin/Research/master/RelationalPROG/images/loss_acc.png)
 
 ### 2. Deep Coder: Learning to Write Programs
