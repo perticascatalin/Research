@@ -2,11 +2,13 @@
 
 ### 1. A simple Neural Network Model for Relational Reasoning
 
+#### Summary
+
 This study presents a general machine learning model which can be used for solving relational tasks. In a similar fashion to CNNs (used for extracting spatial and translation invariant properties) and LSTMs (used for extracting sequential dependencies), the RN (relational network) contains a built-in mechanism for capturing core common properties of relational reasoning.
 
 The RN is used on 3 different tasks, all of which require relational reasoning on a set of objects:
 
-- visual question answering
+- visual question answering (datasets: CLEVR - 3d, Sort-of-CLEVR - 2d)
 - text-based question answering
 - complex reasoning about dynamic physical systems
 
@@ -19,6 +21,10 @@ Other similar approaches (relation-centric) include:
 However, the RN is a plug & play module, meaning that it can be placed on top of other deep learning models. Its equation is defined as follows:
 
 ![RN Formula](https://raw.githubusercontent.com/perticascatalin/Research/master/RelationalPROG/images/formula.png)
+
+- O set of objects {o1, o2, ..., on}
+- g outputs a relation
+- f overall network output (across all pairs of objects)
 
 Sample code for Sort-of-CLEVR, open source: https://github.com/clvrai/Relation-Network-Tensorflow
 
