@@ -23,8 +23,9 @@ However, the RN is a plug & play module, meaning that it can be placed on top of
 ![RN Formula](https://raw.githubusercontent.com/perticascatalin/Research/master/RelationalPROG/images/formula.png)
 
 - O set of objects {o1, o2, ..., on}
-- g outputs a relation
 - f overall network output (across all pairs of objects)
+- g outputs a relation between 2 objects (same for all pairs)
+- f & g can be MLPs
 
 Sample code for Sort-of-CLEVR, open source: https://github.com/clvrai/Relation-Network-Tensorflow
 
