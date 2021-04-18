@@ -2,6 +2,24 @@
 
 ### 1. A simple Neural Network Model for Relational Reasoning
 
+This study presents a general machine learning model which can be used for solving relational tasks. In a similar fashion to CNNs (used for extracting spatial and translation invariant properties) and LSTMs (used for extracting sequential dependencies), the RN (relational network) contains a built-in mechanism for capturing core common properties of relational reasoning.
+
+The RN is used on 3 different tasks, all of which require relational reasoning on a set of objects:
+
+- visual question answering
+- text-based question answering
+- complex reasoning about dynamic physical systems
+
+Other similar approaches (relation-centric) include:
+
+- graph neural networks
+- gated graph sequential neural networks
+- interaction networks
+
+However, the RN is a plug & play module, meaning that it can be placed on top of other deep learning models. Its equation is defined as follows:
+
+![RN Formula](https://raw.githubusercontent.com/perticascatalin/Research/master/RelationalPROG/images/formula.png)
+
 Sample code for Sort-of-CLEVR, open source: https://github.com/clvrai/Relation-Network-Tensorflow
 
 #### Code Running Logs
@@ -27,7 +45,7 @@ Tensorboard then provides us with a localhost link and we can look at training s
 
 After 15.000 training steps, we take a look at the currently tested images and we can see that 3 of 4 questions were answered correctly:
 
-![Sample images](https://github.com/perticascatalin/Research/blob/master/RelationalPROG/images/samples.png)
+![Sample images](https://raw.githubusercontent.com/perticascatalin/Research/master/RelationalPROG/images/samples.png)
 
 After another 15.000 training steps the accuracy on the testing data reaches an average of 95%, while the loss drops to around 0.1:
 
