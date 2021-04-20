@@ -2,12 +2,12 @@
 
 **Report on Bibliography**
 
+Based on our overall research goals, the current report presents a study of our selected bibliography by making a detailed pass through the material referenced in [study abstract](https://github.com/perticascatalin/Research/blob/master/RelationalPROG/exec_abstract.md).
+
 **Overall Goals:**
 
 - research possible ways to integrate relational reasoning in deep learning models
 - investigate the role of relational reasoning in solving programming tasks
-
-Based on our overall research goals, the current report presents a study of our selected bibliography by making a detailed pass through the material referenced in [study abstract](https://github.com/perticascatalin/Research/blob/master/RelationalPROG/exec_abstract.md).
 
 ### Content
 
