@@ -34,7 +34,7 @@ Whatever tasks they have to model, neural networks often encounter the problem o
 
 |Example|Description|
 |:-----:|:---------:|
-|![logico_visual](https://raw.githubusercontent.com/perticascatalin/MastersExperiments/master/Permutation/images/logico_visual.png)|Start from logico-visual tasks learned by a neural network and continue with set theory and an analysis to solve particular questions.|
+|![logico_visual](https://raw.githubusercontent.com/perticascatalin/Research/master/PermutationRN/images/logico_visual.png)|Start from logico-visual tasks learned by a neural network and continue with set theory and an analysis to solve particular questions.|
 
 Understanding how neural networks and other supervised learning models learn to answer such questions by processing large amounts of labeled data is of importance to any visual automated tasks from tracking objects of interest in scenes to self-driving cars. Previous work on how to model this learning task includes [C] and [D]. The two papers are conceptually different, but both of them use CLEVR dataset as benchmark. [C] presents a neural network module which is claimed to better model relational reasoning. [D] goes into the area of attention, memory and composition. However, what they have in common is the apparently hard task of learning composed functions. 
 
@@ -46,7 +46,7 @@ Neural networks owe some of their success to the ability of learning higher leve
 
 |Example|Description|
 |:-----:|:---------:|
-|![relational_sequence_sets](https://raw.githubusercontent.com/perticascatalin/MastersExperiments/master/Permutation/images/relational_sequence_sets.png)|Data relations: a sequence representing a certain order of the objects - set w. order relation. The set of all permutations. Symmetric group (composition of f and g to visit whole group).|
+|![relational_sequence_sets](https://raw.githubusercontent.com/perticascatalin/Research/master/PermutationRN/images/relational_sequence_sets.png)|Data relations: a sequence representing a certain order of the objects - set w. order relation. The set of all permutations. Symmetric group (composition of f and g to visit whole group).|
 
 #### 1.3 Mathematical Structures
 
@@ -153,9 +153,9 @@ Between decision tree and multilayer perceptron. Multiple variants of decision t
 | | |
 |:-:|:-:|
 |Epoch 1.000 - 5 out of 10|Epoch 5.000 - 6 out of 10|
-|![l_1000](https://raw.githubusercontent.com/perticascatalin/MastersExperiments/master/Permutation/results/labels/labels_1000.png)|![l_5000](https://raw.githubusercontent.com/perticascatalin/MastersExperiments/master/Permutation/results/labels/labels_5000.png)|
+|![l_1000](https://raw.githubusercontent.com/perticascatalin/Research/master/PermutationRN/results/labels/labels_1000.png)|![l_5000](https://raw.githubusercontent.com/perticascatalin/Research/master/PermutationRN/results/labels/labels_5000.png)|
 |Epoch 10.000 - 7 out of 10|Epoch 22.000 - 9 out of 10|
-|![l_10000](https://raw.githubusercontent.com/perticascatalin/MastersExperiments/master/Permutation/results/labels/labels_10000.png)|![l_22000](https://raw.githubusercontent.com/perticascatalin/MastersExperiments/master/Permutation/results/labels/labels_22000.png)|
+|![l_10000](https://raw.githubusercontent.com/perticascatalin/Research/master/PermutationRN/results/labels/labels_10000.png)|![l_22000](https://raw.githubusercontent.com/perticascatalin/Research/master/PermutationRN/results/labels/labels_22000.png)|
 
 SAMPLE RESULTS DISPLAY FOR BASELINE MODEL ON AN ARRAY OF 10
 
@@ -244,9 +244,9 @@ Using all datasets
 
 |Accuracy|Model Description|
 |:------:|:---------------:|
-|![asm_plot](https://raw.githubusercontent.com/perticascatalin/MastersExperiments/master/Permutation/results/asm.png)|Extreme forest with 96 estimators vs. multilayer_perceptron with ~1000 neurons in 4 layers (512, 256, 128) dense + N multi-label outputs. Rand ~ 1/N|
-|![asd_plot](https://raw.githubusercontent.com/perticascatalin/MastersExperiments/master/Permutation/results/asd.png)|Baseline model, 3 types of feature sets (datasets). Normalized accuracy expressed in [0,1]|
-|![ad_plot](https://raw.githubusercontent.com/perticascatalin/MastersExperiments/master/Permutation/results/ad.png)|Accuracy fot architecture based on previous design for different input representations (different datasets). [input, aN^2, bN, output]. In this case, layer widths are in relation to N = 20.|
+|![asm_plot](https://raw.githubusercontent.com/perticascatalin/Research/master/PermutationRN/results/asm.png)|Extreme forest with 96 estimators vs. multilayer_perceptron with ~1000 neurons in 4 layers (512, 256, 128) dense + N multi-label outputs. Rand ~ 1/N|
+|![asd_plot](https://raw.githubusercontent.com/perticascatalin/Research/master/PermutationRN/results/asd.png)|Baseline model, 3 types of feature sets (datasets). Normalized accuracy expressed in [0,1]|
+|![ad_plot](https://raw.githubusercontent.com/perticascatalin/Research/master/PermutationRN/results/ad.png)|Accuracy fot architecture based on previous design for different input representations (different datasets). [input, aN^2, bN, output]. In this case, layer widths are in relation to N = 20.|
 
 ### 7. Problem Complexity
 
@@ -261,7 +261,7 @@ Then we look for changes in the models or the problem formulation that could hel
 
 |Growth|Description|
 |:----:|:---------:|
-|![pc_plot](https://raw.githubusercontent.com/perticascatalin/MastersExperiments/master/Permutation/results/pc.png)|Figure showing the **data growth** on a logarithmic scale. Input: **magenta** - number of valid inputs in relation to N. Output: **red** - number of valid outputs in relation to N.|
+|![pc_plot](https://raw.githubusercontent.com/perticascatalin/Research/master/PermutationRN/results/pc.png)|Figure showing the **data growth** on a logarithmic scale. Input: **magenta** - number of valid inputs in relation to N. Output: **red** - number of valid outputs in relation to N.|
 ||Depending on how the problem is formalized we can manipulate the number of valid inputs with lossless compression (re-abstractization).|
 |**Arrangements**|The number of possible arrangements of unique numbers up to MAXINT of length N (INPUT DATA)|
 |**Permutations**|The number of possible permutations of length N(OUTPUT and INPUT ORDER RELATIONS)|
@@ -273,7 +273,7 @@ Then we look for changes in the models or the problem formulation that could hel
 
 |Figure|Interpretation|
 |:----:|:------------:|
-|![asbs_10](https://raw.githubusercontent.com/perticascatalin/MastersExperiments/master/Permutation/results/asbs_10.png)|Comparison of the baseline and the design models convergence for N = 10|
+|![asbs_10](https://raw.githubusercontent.com/perticascatalin/Research/master/PermutationRN/results/asbs_10.png)|Comparison of the baseline and the design models convergence for N = 10|
 
 
 **Focus area, take-away message: 99 - 57 = 42% accuracy improvement for size 20**
@@ -293,8 +293,8 @@ Then we look for changes in the models or the problem formulation that could hel
 
 |Figure|Interpretation|
 |:----:|:------------:|
-|![bscs_10_20](https://raw.githubusercontent.com/perticascatalin/MastersExperiments/master/Permutation/results/bscs_10_20.png)|Comparison of the design and the relational models convergence for N = 10, 20|
-|![bscs_30](https://raw.githubusercontent.com/perticascatalin/MastersExperiments/master/Permutation/results/bscs_30.png)|Comparison of the design and the relational models convergence for N = 30|
+|![bscs_10_20](https://raw.githubusercontent.com/perticascatalin/Research/master/PermutationRN/results/bscs_10_20.png)|Comparison of the design and the relational models convergence for N = 10, 20|
+|![bscs_30](https://raw.githubusercontent.com/perticascatalin/Research/master/PermutationRN/results/bscs_30.png)|Comparison of the design and the relational models convergence for N = 30|
 
 **With Relational Net**
 
@@ -325,7 +325,7 @@ It is remarkable how handful convolutions come in this case: they facilitate the
 
 |Figure|Interpretation|
 |:----:|:------------:|
-|![sort_net_2](https://raw.githubusercontent.com/perticascatalin/MastersExperiments/master/Permutation/images/sort_net_2.png)|A fixed weights (hard-coded) neural model which solves the problem with 100% accuracy for up to N = 500 (depending on hardware)|
+|![sort_net_2](https://raw.githubusercontent.com/perticascatalin/Research/master/PermutationRN/images/sort_net_2.png)|A fixed weights (hard-coded) neural model which solves the problem with 100% accuracy for up to N = 500 (depending on hardware)|
 
 ### 11. Conclusions
 
