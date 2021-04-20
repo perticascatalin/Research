@@ -1,6 +1,13 @@
 ## Relational reasoning in deep learning: a parallel between solving visual and programming tasks
 
-The current report makes a detailed pass through the referenced material in [study abstract](https://github.com/perticascatalin/Research/blob/master/RelationalPROG/exec_abstract.md).
+**Report on Bibliography**
+
+**Overall Goals:**
+
+- research possible ways to integrate relational reasoning in deep learning models
+- investigate the role of relational reasoning in solving programming tasks
+
+Based on our overall research goals, the current report presents a study of our selected bibliography by making a detailed pass through the material referenced in [study abstract](https://github.com/perticascatalin/Research/blob/master/RelationalPROG/exec_abstract.md).
 
 ### Content
 
@@ -36,7 +43,7 @@ However, the RN is a plug & play module, meaning that it can be placed on top of
 - f, g can be MLPs
 - RN end-to-end differentiable
 
-Sample open source [code](https://github.com/clvrai/Relation-Network-Tensorflow) using the Sort-of-CLEVR dataset.
+Sample open source [code](https://github.com/clvrai/Relation-Network-Tensorflow) applying relational networks to the Sort-of-CLEVR dataset.
 
 #### 1.2 Code Running Logs
 
@@ -66,6 +73,8 @@ After 15.000 training steps, we take a look at the currently tested images and w
 After another 15.000 training steps the accuracy on the testing data reaches an average of 95%, while the loss drops to around 0.1:
 
 ![Accuracy and Loss](https://raw.githubusercontent.com/perticascatalin/Research/master/RelationalPROG/images/loss_acc.png)
+
+This test run was performed on a dataset containing images with 4 objects. The images used have 128 x 128 pixels of various colors. The sizes of the images and the number of objects can be customized. The model's performance can be compared to baseline MLP/CNN models which do not use a relational function.
 
 ### 2. Deep Coder: Learning to Write Programs
 
