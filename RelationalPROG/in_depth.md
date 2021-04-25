@@ -2,7 +2,7 @@
 
 ### Report on Bibliography
 
-Based on our overall research goals, the current report presents a study of our selected bibliography by making a detailed pass through the material referenced in [study abstract](https://github.com/perticascatalin/Research/blob/master/RelationalPROG/exec_abstract.md).
+This report continues the study started in the [thesis proposal](https://github.com/perticascatalin/Research/blob/master/RelationalPROG/exec_abstract.md) by developing an in-depth analysis of the selected bibliography. The review on related literature is carried out with regards to our previously set research goals.
 
 **Overall Goals:**
 
@@ -19,6 +19,10 @@ Based on our overall research goals, the current report presents a study of our 
 
 1. Relational Reasoning: the capacity to reason about and find solutions to problems involving a set of objects which are related to one another through some properties that need to be discovered.
 
+2. Program Induction:
+
+### Studies
+
 #### 1. A simple Neural Network Model for Relational Reasoning
 
 ##### 1.1 High-Level Summary
@@ -28,7 +32,7 @@ This study presents a general machine learning model used for solving relational
 - CNNs used for extracting spatial and translation invariant properties
 - LSTMs used for extracting sequential dependencies
 
-The RN is used on 3 different tasks, all of which require relational reasoning on a set of objects:
+The RN is used on 3 different tasks, all of which require some kind of relational inference on a set of objects:
 
 - Visual question answering (datasets: CLEVR - 3d, Sort-of-CLEVR - 2d)
 - Text-based question answering
@@ -40,7 +44,7 @@ Other similar approaches (relation-centric) include:
 - Gated graph sequential neural networks
 - Interaction networks
 
-However, the RN is a plug & play module, meaning that it can be placed on top of other deep learning models. Its equation is defined as follows:
+An important aspect is that the RN is a plug & play module, meaning that it can be placed on top of other deep learning models. Its equation is defined as follows:
 
 ![RN Formula](https://raw.githubusercontent.com/perticascatalin/Research/master/RelationalPROG/images/formula.png)
 
