@@ -1,6 +1,6 @@
 ## Relational reasoning in deep learning: a parallel between solving visual and programming tasks
 
-**Report on Bibliography**
+### Report on Bibliography
 
 Based on our overall research goals, the current report presents a study of our selected bibliography by making a detailed pass through the material referenced in [study abstract](https://github.com/perticascatalin/Research/blob/master/RelationalPROG/exec_abstract.md).
 
@@ -9,19 +9,19 @@ Based on our overall research goals, the current report presents a study of our 
 - research possible ways to integrate relational reasoning in deep learning models
 - investigate the role of relational reasoning in solving programming tasks
 
-### Definitions
-
-1. Relational Reasoning: the capacity to reason about and find solutions to problems involving a set of objects which are related to one another through some properties that need to be discovered.
-
-### Content
+**Content**
 
 [1. A simple Neural Network Model for Relational Reasoning](https://arxiv.org/pdf/1706.01427.pdf)
 
 [2. Deep Coder: Learning to Write Programs](https://arxiv.org/pdf/1611.01989.pdf)
 
-### 1. A simple Neural Network Model for Relational Reasoning
+### Definitions
 
-#### 1.1 High-Level Summary
+1. Relational Reasoning: the capacity to reason about and find solutions to problems involving a set of objects which are related to one another through some properties that need to be discovered.
+
+#### 1. A simple Neural Network Model for Relational Reasoning
+
+##### 1.1 High-Level Summary
 
 This study presents a general machine learning model used for solving relational tasks. The relational network (RN) model contains a built-in mechanism for capturing core common properties of relational reasoning. From this perspective, we can draw parallels to other machine learning models designed with different properties in mind, such as the well known:
 
@@ -52,7 +52,7 @@ However, the RN is a plug & play module, meaning that it can be placed on top of
 
 Sample open source [code](https://github.com/clvrai/Relation-Network-Tensorflow) applying RN to the Sort-of-CLEVR dataset.
 
-#### 1.2 Code Running Logs
+##### 1.2 Code Running Logs
 
 This repository is deprecated since Tensorflow2 (attempted to migrate to TF2, but got stuck at `contrib.layers.optimize_loss`, no equivalent in TF2).
 
@@ -83,6 +83,6 @@ After another 15.000 training steps the accuracy on the testing data reaches an 
 
 This test run was performed on a dataset containing images with 4 objects. The images used have 128 x 128 pixels of various colors. The sizes of the images and the number of objects can be customized. The model's performance can be compared to baseline MLP/CNN models which do not use a relational function.
 
-### 2. Deep Coder: Learning to Write Programs
+#### 2. Deep Coder: Learning to Write Programs
 
-#### 2.1 High-Level Summary
+##### 2.1 High-Level Summary
