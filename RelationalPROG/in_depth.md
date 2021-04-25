@@ -9,6 +9,10 @@ Based on our overall research goals, the current report presents a study of our 
 - research possible ways to integrate relational reasoning in deep learning models
 - investigate the role of relational reasoning in solving programming tasks
 
+### Definitions
+
+1. Relational Reasoning: the capacity to reason about and find solutions to problems involving a set of objects which are related to one another through some properties that need to be discovered.
+
 ### Content
 
 [1. A simple Neural Network Model for Relational Reasoning](https://arxiv.org/pdf/1706.01427.pdf)
@@ -19,7 +23,10 @@ Based on our overall research goals, the current report presents a study of our 
 
 #### 1.1 High-Level Summary
 
-This study presents a general machine learning model used for solving relational tasks. In a similar fashion to CNNs (used for extracting spatial and translation invariant properties) and LSTMs (used for extracting sequential dependencies), the RN (relational network) contains a built-in mechanism for capturing core common properties of relational reasoning.
+This study presents a general machine learning model used for solving relational tasks. The relational network (RN) model contains a built-in mechanism for capturing core common properties of relational reasoning. From this perspective, we can draw parallels to other machine learning models designed with different properties in mind, such as the well known:
+
+- CNNs used for extracting spatial and translation invariant properties
+- LSTMs used for extracting sequential dependencies
 
 The RN is used on 3 different tasks, all of which require relational reasoning on a set of objects:
 
@@ -43,7 +50,7 @@ However, the RN is a plug & play module, meaning that it can be placed on top of
 - f, g can be MLPs
 - RN end-to-end differentiable
 
-Sample open source [code](https://github.com/clvrai/Relation-Network-Tensorflow) applying relational networks to the Sort-of-CLEVR dataset.
+Sample open source [code](https://github.com/clvrai/Relation-Network-Tensorflow) applying RN to the Sort-of-CLEVR dataset.
 
 #### 1.2 Code Running Logs
 
