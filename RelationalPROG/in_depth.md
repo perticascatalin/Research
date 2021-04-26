@@ -6,8 +6,8 @@ This report continues the study started in the [thesis proposal](https://github.
 
 **Overall Goals:**
 
-- research possible ways to integrate relational reasoning in deep learning models
-- investigate the role of relational reasoning in solving programming tasks
+- Research possible ways to integrate relational reasoning in deep learning models
+- Investigate the role of relational reasoning in solving programming tasks
 
 **Content**
 
@@ -19,7 +19,7 @@ This report continues the study started in the [thesis proposal](https://github.
 
 1. Relational Reasoning: the capacity to reason about and find solutions to problems involving a set of objects which are related to one another through some properties that need to be discovered.
 
-2. Program Induction:
+2. Program Induction: the process of generating an executable program for solving a problem which is given in the form of input-output pairs, or other types of constraints.
 
 ### Studies
 
