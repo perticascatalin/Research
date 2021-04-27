@@ -17,9 +17,9 @@ This report continues the study started in the [thesis proposal](https://github.
 
 ### Definitions
 
-1. Relational Reasoning: the capacity to reason about and find solutions to problems involving a set of objects which are related to one another through some properties that need to be discovered.
+1. **Relational Reasoning**: the capacity to reason about and find solutions to problems involving a set of objects which are related to one another through some properties that need to be discovered.
 
-2. Program Induction: the process of generating an executable program for solving a problem which is given in the form of input-output pairs, or other types of constraints.
+2. **Program Induction**: the process of generating an executable program for solving a problem which is given in the form of input-output pairs, or other types of constraints.
 
 ### Studies
 
@@ -90,3 +90,20 @@ This test run was performed on a dataset containing images with 4 objects. The i
 #### 2. Deep Coder: Learning to Write Programs
 
 ##### 2.1 High-Level Summary
+
+A method of using neural networks to predict the probability that certain functions (from DSL) appear in a program satisfying a set of given input-output constraints. These probabilities are then used to optimize the search for the program satisfying the input-output constraints.
+
+**First Order Functions**
+
+Head, Last, Take, Drop, ...
+
+**Higher Order Functions**
+
+Map, Filter, ...
+
+**Neural Networks**
+
+- M input-output examples used as input for the network
+- network outputs predictions for program attributes (probability that a function from the DSL will appear in the program)
+
+**Search**
