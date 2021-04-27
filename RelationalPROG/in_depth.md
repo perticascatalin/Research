@@ -19,6 +19,8 @@ This report continues the study started in the [thesis proposal](https://github.
 
 [4. Dream Coder: Growing generalizable, interpretable knowledge with wake-sleep Bayesian program learning](https://arxiv.org/pdf/2006.08381.pdf)
 
+[5. On the Measure of Intelligence](https://arxiv.org/pdf/1911.01547.pdf)
+
 ### Definitions
 
 1. **Relational Reasoning**: the capacity to reason about and find solutions to problems involving a set of objects which are related to one another through some properties that need to be discovered.
@@ -26,6 +28,10 @@ This report continues the study started in the [thesis proposal](https://github.
 2. **Program Induction**: the process of generating an executable program for solving a problem which is given in the form of input-output pairs, or other types of constraints.
 
 3. **Feature Map**: A collection of kernel activations which result in a convolutional network layer by applying filters to the previous layer. The filters / kernels are represented by learnable weights, while the feature map is the output of a CNN at an intermediary layer.
+
+4. **Embedding**: A relatively low-dimensional space into which high-dimensional vectors can be translated.
+
+5. **Latent Representation**: A representation of data which is available in a neural network's hidden layers.
 
 ### Studies
 
@@ -60,9 +66,11 @@ Other similar approaches (relation-centric) include:
 - f, g can be MLPs
 - RN end-to-end differentiable
 
+For our purposes, we will focus on how the visual question answering task is performed. Thus, the first step is to examine what constitutes an object in the context of RNs.
+
 Sample open source [code](https://github.com/clvrai/Relation-Network-Tensorflow) applying RN to the Sort-of-CLEVR dataset.
 
-|Dataset|Question/Answer|
+|Image/Dataset|Question/Answer|
 |:-----:|:-------------:|
 |![Sort-of-CLEVR](https://raw.githubusercontent.com/perticascatalin/Research/master/RelationalPROG/images/sort_of_clevr.png)| What is the color of the nearest object to the yellow object?|
 |Sort-of-CLEVR|Green|
@@ -120,3 +128,7 @@ Map, Filter, ...
 - network outputs predictions for program attributes (probability that a function from the DSL will appear in the program)
 
 **Search**
+
+### Concluding Remarks
+
+### Additional Bibliography
