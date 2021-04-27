@@ -21,18 +21,6 @@ This report continues the study started in the [thesis proposal](https://github.
 
 [5. On the Measure of Intelligence](https://arxiv.org/pdf/1911.01547.pdf)
 
-### Definitions
-
-1. **Relational Reasoning**: the capacity to reason about and find solutions to problems involving a set of objects which are related to one another through some properties that need to be discovered.
-
-2. **Program Induction**: the process of generating an executable program for solving a problem which is given in the form of input-output pairs, or other types of constraints.
-
-3. **Feature Map**: a collection of kernel activations which result in a convolutional network layer by applying filters to the previous layer. The filters / kernels are represented by learnable weights, while the feature map is the output of a CNN at an intermediary layer.
-
-4. **Embedding**: a relatively low-dimensional space into which high-dimensional vectors can be translated.
-
-5. **Latent Representation**: a representation of data which is available in a neural network's hidden layers. These representations fill a latent space, which can be viewed as an embedding when the network acts as an encoder (when it compresses data). To note the type embeddings which have semantic properties, such as Word2Vec (Mikolov et al. [1]).
-
 ### Studies
 
 #### 1. A simple Neural Network Model for Relational Reasoning
@@ -130,6 +118,18 @@ Map, Filter, ...
 **Search**
 
 ### Concluding Remarks
+
+### Definitions
+
+1. **Relational Reasoning**: the capacity to reason about and find solutions to problems involving a set of objects which are related to one another through some properties that need to be discovered.
+
+2. **Program Induction**: the process of generating an executable program for solving a problem which is given in the form of input-output pairs, or other types of constraints.
+
+3. **Feature Map**: a collection of kernel activations which result in a convolutional network layer by applying filters to the previous layer. The filters / kernels are represented by learnable weights, while the feature map is the output of a CNN at an intermediary layer.
+
+4. **Embedding**: a relatively low-dimensional space into which high-dimensional vectors can be translated.
+
+5. **Latent Representation**: a representation of data which is available in a neural network's hidden layers. These representations fill a latent space, which can be viewed as an embedding when the network acts as an encoder (when it compresses data). To note the type of embeddings which retain semantic properties, such as Word2Vec (Mikolov et al. [1]).
 
 ### Additional Bibliography
 
