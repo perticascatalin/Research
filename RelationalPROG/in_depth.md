@@ -15,6 +15,10 @@ This report continues the study started in the [thesis proposal](https://github.
 
 [2. Deep Coder: Learning to Write Programs](https://arxiv.org/pdf/1611.01989.pdf)
 
+[3. Compositional Attention Networks for Machine Reasoning](https://arxiv.org/pdf/1803.03067.pdf)
+
+[4. Dream Coder: Growing generalizable, interpretable knowledge with wake-sleep Bayesian program learning](https://arxiv.org/pdf/2006.08381.pdf)
+
 ### Definitions
 
 1. **Relational Reasoning**: the capacity to reason about and find solutions to problems involving a set of objects which are related to one another through some properties that need to be discovered.
@@ -44,9 +48,9 @@ Other similar approaches (relation-centric) include:
 - Gated graph sequential neural networks
 - Interaction networks
 
-An important aspect is that the RN is a plug & play module, meaning that it can be placed on top of other deep learning models. Its equation is defined as follows:
-
-![RN Formula](https://raw.githubusercontent.com/perticascatalin/Research/master/RelationalPROG/images/formula.png)
+|Equation|Note|
+|:------:|:--:|
+|![RN Formula](https://raw.githubusercontent.com/perticascatalin/Research/master/RelationalPROG/images/formula.png)|An important aspect is that the RN is a plug & play module, meaning that it can be placed on top of other deep learning models.|
 
 - O set of objects {o1, o2, ..., on}
 - f overall network output (across all pairs of objects)
@@ -55,6 +59,10 @@ An important aspect is that the RN is a plug & play module, meaning that it can 
 - RN end-to-end differentiable
 
 Sample open source [code](https://github.com/clvrai/Relation-Network-Tensorflow) applying RN to the Sort-of-CLEVR dataset.
+
+|Sort-of-CLEVR|CLEVR|
+|:-----------:|:---:|
+|![Sort-of-CLEVR](https://raw.githubusercontent.com/perticascatalin/Research/master/RelationalPROG/images/sort_of_clevr.png)|![CLEVR](https://raw.githubusercontent.com/perticascatalin/Research/master/RelationalPROG/images/clevr.png)|
 
 ##### 1.2 Code Running Logs
 
@@ -91,7 +99,7 @@ This test run was performed on a dataset containing images with 4 objects. The i
 
 ##### 2.1 High-Level Summary
 
-A method of using neural networks to predict the probability that certain functions (from DSL) appear in a program satisfying a set of given input-output constraints. These probabilities are then used to optimize the search for the program satisfying the input-output constraints.
+This paper presents an approach to program induction involving the use of neural networks to predict the probability that certain methods (from a predefined DSL) appear in a program satisfying a set of given input-output constraints. These probabilities are then used to optimize the search for the program satisfying the input-output constraints.
 
 **First Order Functions**
 
