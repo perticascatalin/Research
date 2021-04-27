@@ -27,11 +27,11 @@ This report continues the study started in the [thesis proposal](https://github.
 
 2. **Program Induction**: the process of generating an executable program for solving a problem which is given in the form of input-output pairs, or other types of constraints.
 
-3. **Feature Map**: A collection of kernel activations which result in a convolutional network layer by applying filters to the previous layer. The filters / kernels are represented by learnable weights, while the feature map is the output of a CNN at an intermediary layer.
+3. **Feature Map**: a collection of kernel activations which result in a convolutional network layer by applying filters to the previous layer. The filters / kernels are represented by learnable weights, while the feature map is the output of a CNN at an intermediary layer.
 
-4. **Embedding**: A relatively low-dimensional space into which high-dimensional vectors can be translated.
+4. **Embedding**: a relatively low-dimensional space into which high-dimensional vectors can be translated.
 
-5. **Latent Representation**: A representation of data which is available in a neural network's hidden layers.
+5. **Latent Representation**: a representation of data which is available in a neural network's hidden layers. These representations fill a latent space, which can be viewed as an embedding when the network acts as an encoder (when it compresses data). To note the type embeddings which have semantic properties, such as Word2Vec (Mikolov et al. [1]).
 
 ### Studies
 
@@ -66,7 +66,7 @@ Other similar approaches (relation-centric) include:
 - f, g can be MLPs
 - RN end-to-end differentiable
 
-For our purposes, we will focus on how the visual question answering task is performed. Thus, the first step is to examine what constitutes an object in the context of RNs.
+For our purposes, we will focus on how the visual question answering task is performed. Thus, the first step is to examine what constitutes an object in the context of RNs. 
 
 Sample open source [code](https://github.com/clvrai/Relation-Network-Tensorflow) applying RN to the Sort-of-CLEVR dataset.
 
@@ -132,3 +132,5 @@ Map, Filter, ...
 ### Concluding Remarks
 
 ### Additional Bibliography
+
+1. [Efficient Estimation of Word Representations in Vector Space, 2013](https://arxiv.org/pdf/1301.3781.pdf)
