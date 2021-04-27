@@ -62,11 +62,12 @@ Other similar approaches (relation-centric) include:
 
 Sample open source [code](https://github.com/clvrai/Relation-Network-Tensorflow) applying RN to the Sort-of-CLEVR dataset.
 
-|Sort-of-CLEVR|Question|
-|:-----------:|:---:|
-|![Sort-of-CLEVR](https://raw.githubusercontent.com/perticascatalin/Research/master/RelationalPROG/images/sort_of_clevr.png)| What is the color of the nearest object to the yellow object? (green)|
-|CLEVR|Question|
-|![CLEVR](https://raw.githubusercontent.com/perticascatalin/Research/master/RelationalPROG/images/clevr.png)|What size is the cylinder that is left of the brown metal thing that is left of the big sphere? (small)|
+|Dataset|Question/Answer|
+|:-----:|:-------------:|
+|![Sort-of-CLEVR](https://raw.githubusercontent.com/perticascatalin/Research/master/RelationalPROG/images/sort_of_clevr.png)| What is the color of the nearest object to the yellow object?|
+|Sort-of-CLEVR|Green|
+|![CLEVR](https://raw.githubusercontent.com/perticascatalin/Research/master/RelationalPROG/images/clevr.png)|What size is the cylinder that is left of the brown metal thing that is left of the big sphere?|
+|CLEVR|Small|
 
 ##### 1.2 Code Running Logs
 
