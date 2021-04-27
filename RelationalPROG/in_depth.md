@@ -25,6 +25,8 @@ This report continues the study started in the [thesis proposal](https://github.
 
 2. **Program Induction**: the process of generating an executable program for solving a problem which is given in the form of input-output pairs, or other types of constraints.
 
+3. **Feature Map**: A collection of kernel activations which result in a convolutional network layer by applying filters to the previous layer. The filters / kernels are represented by learnable weights, while the feature map is the output of a CNN at an intermediary layer.
+
 ### Studies
 
 #### 1. A simple Neural Network Model for Relational Reasoning
@@ -60,9 +62,11 @@ Other similar approaches (relation-centric) include:
 
 Sample open source [code](https://github.com/clvrai/Relation-Network-Tensorflow) applying RN to the Sort-of-CLEVR dataset.
 
-|Sort-of-CLEVR|CLEVR|
+|Sort-of-CLEVR|Question|
 |:-----------:|:---:|
-|![Sort-of-CLEVR](https://raw.githubusercontent.com/perticascatalin/Research/master/RelationalPROG/images/sort_of_clevr.png)|![CLEVR](https://raw.githubusercontent.com/perticascatalin/Research/master/RelationalPROG/images/clevr.png)|
+|![Sort-of-CLEVR](https://raw.githubusercontent.com/perticascatalin/Research/master/RelationalPROG/images/sort_of_clevr.png)| What is the color of the nearest object to the yellow object? (green)|
+|CLEVR|Question|
+|![CLEVR](https://raw.githubusercontent.com/perticascatalin/Research/master/RelationalPROG/images/clevr.png)|What size is the cylinder that is left of the brown metal thing that is left of the big sphere? (small)|
 
 ##### 1.2 Code Running Logs
 
