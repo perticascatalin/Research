@@ -67,12 +67,6 @@ Thus, an object could comprise:
 - a texture
 - conjuctions of physical objects
 
-The second step is to examine how the make the object extraction question dependent. Questions are processed word-by-word (list of integers assigned to words) by an LSTM and the final state (an embedding of the question) is passed on to the RN together with the objects pair.
-
-From my understanding, these triples are batched through an MLP for learning a relational function (which pairs of objects are relevant), then these are aggregated in a second MLP that provides the answer to the question. Finally, the information about what constitues objects and how to parse the question is backpropagated in the CNN and in the LSTM.
-
-Sample open source [code](https://github.com/clvrai/Relation-Network-Tensorflow) applying RN to the Sort-of-CLEVR dataset.
-
 |Image/Dataset|Question/Answer|
 |:-----:|:-------------:|
 |![Sort-of-CLEVR](https://raw.githubusercontent.com/perticascatalin/Research/master/RelationalPROG/images/sort_of_clevr.png)| What is the color of the nearest object to the yellow object?|
@@ -80,19 +74,17 @@ Sample open source [code](https://github.com/clvrai/Relation-Network-Tensorflow)
 |![CLEVR](https://raw.githubusercontent.com/perticascatalin/Research/master/RelationalPROG/images/clevr.png)|What size is the cylinder that is left of the brown metal thing that is left of the big sphere?|
 |CLEVR|Small|
 
+The second step is to examine how the make the object extraction question dependent. Questions are processed word-by-word (list of integers assigned to words) by an LSTM and the final state (an embedding of the question) is passed on to the RN together with the objects pair.
+
+From my understanding, these triples are batched through an MLP for learning a relational function (which pairs of objects are relevant), then these are aggregated in a second MLP that provides the answer to the question. Finally, the information about what constitues objects and how to parse the question is backpropagated in the CNN and in the LSTM.
+
+Sample open source [code](https://github.com/clvrai/Relation-Network-Tensorflow) applying RN to the Sort-of-CLEVR dataset.
+
 ##### 1.2 Code Running Logs
 
-This repository is deprecated since Tensorflow2 (attempted to migrate to TF2, but got stuck at `contrib.layers.optimize_loss`, no equivalent in TF2).
+This repository is deprecated since Tensorflow2 (attempted to migrate to TF2, but got stuck at `contrib.layers.optimize_loss`, no equivalent in TF2). Revert to TF1. This implies reverting to Python 3.6, was using Python 3.8. Got stuck with pyenv, cannot revert to 3.6. Finally tried using Python 2.7, with Tensorflow 1.15, got a working version this way. Plots visualized via Tensorflow-Plot.
 
-Revert to TF1. This implies reverting to Python 3.6, was using Python 3.8. Got stuck with pyenv, cannot revert to 3.6.
-
-Finally tried using:
-
-- `sudo python -m pip install package` (for python 2.7)
-- `sudo python3 -m pip install package` (for python 3.8)
-
-Should use Python 2.7, with Tensorflow 1.15, got a working version this way. Plots visualized via Tensorflow-Plot.
-
+- `sudo python/python3 -m pip install package` (for python 2.7/3.8)
 - `python generator.py`
 - `python trainer.py`
 - `tensorboard --logdir ./train_dir`
