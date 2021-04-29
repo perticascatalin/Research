@@ -67,6 +67,10 @@ Thus, an object could comprise:
 - a texture
 - conjuctions of physical objects
 
+The second step is to examine how the make the object extraction question dependent. Questions are processed word-by-word (list of integers assigned to words) by an LSTM and the final state (an embedding of the question) is passed on to the RN together with the objects pair.
+
+From my understanding, these triples are batched through an MLP for learning a relational function (which pairs of objects are relevant), then these are aggregated in a second MLP that provides the answer to the question. Finally, the information about what constitues objects and how to parse the question is backpropagated in the CNN and in the LSTM.
+
 Sample open source [code](https://github.com/clvrai/Relation-Network-Tensorflow) applying RN to the Sort-of-CLEVR dataset.
 
 |Image/Dataset|Question/Answer|
