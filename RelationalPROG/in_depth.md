@@ -76,7 +76,7 @@ Thus, an object could comprise:
 
 The second step is to examine how the make the object extraction question dependent. Questions are processed word-by-word (list of integers assigned to words) by an LSTM and the final state (an embedding of the question) is passed on to the RN together with the objects pair.
 
-From my understanding, these triples are batched through an MLP for learning a relational function (which pairs of objects are relevant), then these are aggregated in a second MLP that provides the answer to the question. Finally, the information about what constitues objects and how to parse the question is backpropagated in the CNN and in the LSTM.
+These triples are batched through an MLP for learning the relational function g (the output of which is a measure of relevance for object pairs). These outputs are then aggregated by a second MLP which learns the function f used for providing the answer to the question. Finally, the information about what constitues objects and how to parse the question is backpropagated in the CNN and in the LSTM. This approach shows a 27% improvement in accuracy on the CLEVR  dataset compared to the state-of-the-art at the time of the publication and a 31% improvement in accuracy on the Sort-of-CLEVR dataset compared to a baseline CNN-MLP architecture.
 
 Sample open source [code](https://github.com/clvrai/Relation-Network-Tensorflow) applying RN to the Sort-of-CLEVR dataset.
 
@@ -124,15 +124,17 @@ Map, Filter, ...
 
 **Search**
 
+Sample open source [code1](https://github.com/dkamm/deepcoder), [code2](https://github.com/HiroakiMikami/deep-coder).
+
 ### Concluding Remarks
 
 ### Definitions
 
 1. **Relational Reasoning**: the capacity to reason about and find solutions to problems involving a set of objects which are related to one another through some properties that need to be discovered.
 
-2. **Program Induction**: the process of generating an executable program for solving a problem which is given in the form of input-output pairs, or other types of constraints.
+2. **Program Induction**: the inference of computer programs designed to solve problems given in the form of partial data, either input-output pairs, or other types of constraints.
 
-3. **Feature Map**: a collection of kernel activations which result in a convolutional network layer by applying filters to the previous layer. The filters / kernels are represented by learnable weights, while the feature map is the output of a CNN at an intermediary layer.
+3. **Feature Map**: a collection of kernel activations which are the result of applying filters from one convolutional network layer to the next layer. The filters / kernels are represented by learnable weights, while the feature map is the activation of a CNN at an intermediary layer.
 
 4. **Embedding**: a relatively low-dimensional space into which high-dimensional vectors can be translated.
 
@@ -140,4 +142,4 @@ Map, Filter, ...
 
 ### Additional Bibliography
 
-1. [Efficient Estimation of Word Representations in Vector Space, 2013](https://arxiv.org/pdf/1301.3781.pdf)
+1. [Distributed Representations of Words and Phrases and their Compositionality, 2013](https://arxiv.org/pdf/1310.4546.pdf)
