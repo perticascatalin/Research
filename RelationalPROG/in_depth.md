@@ -1,6 +1,6 @@
 ## Relational reasoning in deep learning: a parallel between solving visual and programming tasks
 
-### Report on Bibliography
+### 5. Report on Bibliography
 
 This report continues the study started in the [thesis proposal](https://github.com/perticascatalin/Research/blob/master/RelationalPROG/exec_abstract.md) by developing an in-depth analysis of the selected bibliography. The review on related literature is carried out with regards to our previously set research goals.
 
@@ -21,7 +21,7 @@ This report continues the study started in the [thesis proposal](https://github.
 
 [5. On the Measure of Intelligence](https://arxiv.org/pdf/1911.01547.pdf)
 
-### Studies
+### 6. Studies
 
 #### 1. A simple Neural Network Model for Relational Reasoning
 
@@ -113,7 +113,7 @@ Overall, the study showcases a potential solution to the IPS problem (Inductive 
 
 - **1. DSL specifications and Program attributes**: the use of a DSL is generally necessary for the purpose of restricting the search space of programs (by abstracting away the technical details). Current program synthesis methods do not work well on general programming languages because of the combinatorial explosion of the search space. However, experiments have been performed on Python ASTs, such as (P. Yin & G. Neubig [2]), where a neural network is used to encode natural language specifications into a latent representation and then a second neural network decodes the representation into an AST. In the case of Deep Coder, the program attributes are represented by the estimated probabilities of a method from the DSL to appear in the target program. These attributes are then further used to reduce the search space.
 
-- **2. Data generation**: the advantages of using DSLs are not limited to search space reduction. One can leverage DSLs to generate synthetic data which can be used for training. In the case of Deep Coder, the generated data consists of small programs which can be evaluated on random input data for the purpose of obtaining input-output pairs. The IO pairs and the program are then used in training a neural network to predict the desired program attributes.
+- **2. Data generation**: the advantages of using DSLs are not limited to search space reduction. One can leverage DSLs to generate synthetic data which can be used for training. In the case of Deep Coder, the generated data consists of small programs which can be evaluated on random input data for the purpose of obtaining input-output pairs. The IO pairs and the program are then used in training a neural network to predict the program attributes used for narrowing down the search problem.
 
 - **3. Machine Learning Model to predict Program Attributes**:
 
@@ -142,9 +142,9 @@ Map, Filter, ...
 
 Sample open source [code1](https://github.com/dkamm/deepcoder), [code2](https://github.com/HiroakiMikami/deep-coder).
 
-### Concluding Remarks
+### 7. Concluding Remarks
 
-### Definitions
+### 8. Definitions
 
 1. **Relational Reasoning**: the capacity to reason about and find solutions to problems involving a set of objects which are related to one another through some properties that need to be discovered.
 
@@ -160,7 +160,7 @@ Sample open source [code1](https://github.com/dkamm/deepcoder), [code2](https://
 
 7. **Abstract Syntax Tree**: AST, a tree representation of the abstract syntactic structure of source code written in a programming language.
 
-### Additional Bibliography
+### 9. Additional References
 
 1. [Distributed Representations of Words and Phrases and their Compositionality, 2013](https://arxiv.org/pdf/1310.4546.pdf)
 

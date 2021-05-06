@@ -1,6 +1,6 @@
 ## Relational reasoning in deep learning: a parallel between solving visual and programming tasks
 
-### Abstract
+### 1. Abstract
 
 Deep learning has seen great success in the automated extraction of facts from large and diverse sensory inputs. More recently there has been an increased interest in the development of models that also have the ability to reason at some level about these facts.
 
@@ -22,7 +22,7 @@ More complex models of program synthesis have emerged recently, such as the work
 
 Thus, we arrive at another goal of this research, which is to explore the role of relational reasoning in programming tasks. My view is that general program synthesis would require an AI model capable of deriving the relations between the objects it acts upon (eg. object oriented programming). Furthermore, based on cognitive studies, it would seem that a broad category of humans are visual problem solvers, so they could be deriving relations between key actors in the problem that they are solving by using visualization. This would suggest a strong link between visualization, relational reasoning and problem solving.
 
-### Plan
+### 2. Plan
 
 |Start|Duration|Phase|Description|
 |:---:|:------:|:---:|:---------:|
@@ -31,14 +31,14 @@ Thus, we arrive at another goal of this research, which is to explore the role o
 |Mid March|6 weeks|Experiments & Evaluation of Results|Visual Rel., Abstr. & Reason., Deep Coder, Comparison on CLEVR, Neural Problem Solving|
 |May|6 weeks|Thesis Elaboration|Designated for writing about findings, results, comparisons etc.|
 
-### Datasets
+### 3. Datasets
 
 1. ARC - input & output grids (1, 2)
 2. Synthetic/collected datasets - programs, inputs & outputs, primitives, DSLs (6, 7)
 3. CLEVR - images (4, 5)
 4. Open Images (3)
 
-### References
+### 4. References
 
 1. [Abstraction & Reasoning Challenge, Kaggle 2020](https://www.kaggle.com/c/abstraction-and-reasoning-challenge)
 2. [On the Measure of Intelligence, 2019](https://arxiv.org/pdf/1911.01547.pdf)
