@@ -13,11 +13,11 @@ This report continues the study started in the [thesis proposal](https://github.
 
 [1. A simple Neural Network Model for Relational Reasoning](https://arxiv.org/pdf/1706.01427.pdf)
 
-[2. Deep Coder: Learning to Write Programs](https://arxiv.org/pdf/1611.01989.pdf)
+[2. Compositional Attention Networks for Machine Reasoning](https://arxiv.org/pdf/1803.03067.pdf)
 
-[3. Dream Coder: Growing generalizable, interpretable knowledge with wake-sleep Bayesian program learning](https://arxiv.org/pdf/2006.08381.pdf)
+[3. Deep Coder: Learning to Write Programs](https://arxiv.org/pdf/1611.01989.pdf)
 
-[4. Compositional Attention Networks for Machine Reasoning](https://arxiv.org/pdf/1803.03067.pdf)
+[4. Dream Coder: Growing generalizable, interpretable knowledge with wake-sleep Bayesian program learning](https://arxiv.org/pdf/2006.08381.pdf)
 
 [5. On the Measure of Intelligence](https://arxiv.org/pdf/1911.01547.pdf)
 
@@ -103,9 +103,9 @@ After another 15.000 training steps the accuracy on the testing data reaches an 
 
 This test run was performed on a dataset containing images with 4 objects. The images used have 128 x 128 pixels of various colors. The sizes of the images and the number of objects can be customized. The model's performance can be compared to baseline MLP/CNN models which do not use a relational function.
 
-#### 2. Deep Coder: Learning to Write Programs
+#### 3. Deep Coder: Learning to Write Programs
 
-##### 2.1 High-Level Summary
+##### 3.1 High-Level Summary
 
 This paper presents an approach to program induction involving the use of neural networks to predict the probability that certain methods (from a predefined DSL) appear in a program satisfying a set of given input-output constraints. These probabilities are then used to optimize the search for the program satisfying the input-output constraints.
 
@@ -155,13 +155,11 @@ Map, Filter, ...
 
 **Search**
 
-
-
 Sample open source [code1](https://github.com/dkamm/deepcoder), [code2](https://github.com/HiroakiMikami/deep-coder).
 
-### 7. Concluding Remarks
+### 7. Intermediary Remarks
 
-### 8. Definitions
+### 8. Definitions and Notes
 
 1. **Relational Reasoning**: the capacity to reason about and find solutions to problems involving a set of objects which are related to one another through some properties that need to be discovered.
 
