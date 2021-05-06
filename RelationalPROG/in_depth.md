@@ -109,6 +109,10 @@ This test run was performed on a dataset containing images with 4 objects. The i
 
 This paper presents an approach to program induction involving the use of neural networks to predict the probability that certain methods (from a predefined DSL) appear in a program satisfying a set of given input-output constraints. These probabilities are then used to optimize the search for the program satisfying the input-output constraints.
 
+Overall, the study showcases a potential solution to the IPS problem (Inductive Program Synthesis), called LIPS (Learning Inductive Program Synthesis). This approach can be split into 4 sub-parts:
+
+- DSL specifications and program attributes: the use of a DSL is generally necessary for the purpose of restricting the search space of programs. Current program synthesis methods do not work well on general programming languages because of combinatorial explosion. However, experiments have been performed on Python ASTs, for instance (P. Yin & G. Neubig [2]).
+
 **First Order Functions**
 
 Head, Last, Take, Drop, ...
@@ -117,12 +121,14 @@ Head, Last, Take, Drop, ...
 
 Map, Filter, ...
 
-**Neural Networks**
+**Neural Network**
 
 - M input-output examples used as input for the network
-- network outputs predictions for program attributes (probability that a function from the DSL will appear in the program)
+- The network outputs predictions for program attributes (probability that a function from the DSL will appear in the program)
 
 **Search**
+
+
 
 Sample open source [code1](https://github.com/dkamm/deepcoder), [code2](https://github.com/HiroakiMikami/deep-coder).
 
@@ -140,6 +146,12 @@ Sample open source [code1](https://github.com/dkamm/deepcoder), [code2](https://
 
 5. **Latent Representation**: a representation of data which is available in a neural network's hidden layers. These representations fill a latent space, which can be viewed as an embedding when the network acts as an encoder (when it compresses data). To note the type of embeddings which retain semantic properties, such as Word2Vec (Mikolov et al. [1]).
 
+6. **Inductive Program Synthesis**: IPS problem, given input-output examples, produce a program that has behavior consistent with the examples. This requires solving 2 problems: defining the program space & the search procedure and solving the ranking problem - deciding which program is to be preferred when several solutions are available.
+
+7. **Abstract Syntax Tree**: AST, ...
+
 ### Additional Bibliography
 
 1. [Distributed Representations of Words and Phrases and their Compositionality, 2013](https://arxiv.org/pdf/1310.4546.pdf)
+
+2. [A Syntactic Neural Model for General-Purpose Code Generation, 2017](https://arxiv.org/pdf/1704.01696.pdf)
