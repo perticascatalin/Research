@@ -117,7 +117,24 @@ Overall, the study showcases a potential solution to the IPS problem (Inductive 
 
 - **3. Machine Learning Model to predict Program Attributes**:
 
+![Program Example](https://raw.githubusercontent.com/perticascatalin/Research/master/RelationalPROG/images/prog.png)
+
+![Program Attributes](https://raw.githubusercontent.com/perticascatalin/Research/master/RelationalPROG/images/attrib.png)
+
+![Model](https://raw.githubusercontent.com/perticascatalin/Research/master/RelationalPROG/images/dcnn.png)
+
 - **4. Search Strategy guided by estimated Program Attributes**:
+
+![Model](https://raw.githubusercontent.com/perticascatalin/Research/master/RelationalPROG/images/dcnn.png)
+
+**Abstract Syntax Trees**
+
+| Implementation   | # Lines | # Nodes | # Attributes |
+|:----------------:|:-------:|:-------:|:------------:|
+| Euclid Algorithm | 7       | 48      | 70           |
+| Iteration        | 9       | 73      | 99           |
+
+![AST](https://raw.githubusercontent.com/perticascatalin/Research/master/RelationalPROG/images/ast.png)
 
 **Domain Specific Language**
 
