@@ -15,9 +15,9 @@ This report continues the study started in the [thesis proposal](https://github.
 
 [2. Deep Coder: Learning to Write Programs](https://arxiv.org/pdf/1611.01989.pdf)
 
-[3. Compositional Attention Networks for Machine Reasoning](https://arxiv.org/pdf/1803.03067.pdf)
+[3. Dream Coder: Growing generalizable, interpretable knowledge with wake-sleep Bayesian program learning](https://arxiv.org/pdf/2006.08381.pdf)
 
-[4. Dream Coder: Growing generalizable, interpretable knowledge with wake-sleep Bayesian program learning](https://arxiv.org/pdf/2006.08381.pdf)
+[4. Compositional Attention Networks for Machine Reasoning](https://arxiv.org/pdf/1803.03067.pdf)
 
 [5. On the Measure of Intelligence](https://arxiv.org/pdf/1911.01547.pdf)
 
@@ -111,13 +111,23 @@ This paper presents an approach to program induction involving the use of neural
 
 Overall, the study showcases a potential solution to the IPS problem (Inductive Program Synthesis), called LIPS (Learning Inductive Program Synthesis). This approach can be split into 4 sub-parts:
 
-- DSL specifications and program attributes: the use of a DSL is generally necessary for the purpose of restricting the search space of programs. Current program synthesis methods do not work well on general programming languages because of combinatorial explosion. However, experiments have been performed on Python ASTs, for instance (P. Yin & G. Neubig [2]).
+- **1. DSL specifications and Program attributes**: the use of a DSL is generally necessary for the purpose of restricting the search space of programs (by abstracting away the technical details). Current program synthesis methods do not work well on general programming languages because of the combinatorial explosion of the search space. However, experiments have been performed on Python ASTs, such as (P. Yin & G. Neubig [2]), where a neural network is used to encode natural language specifications into a latent representation and then a second neural network decodes the representation into an AST. In the case of Deep Coder, the program attributes are represented by the estimated probabilities of a method from the DSL to appear in the target program. These attributes are then further used to reduce the search space.
 
-**First Order Functions**
+- **2. Data generation**: the advantages of using DSLs are not limited to search space reduction. One can leverage DSLs to generate synthetic data which can be used for training. In the case of Deep Coder, the generated data consists of small programs which can be evaluated on random input data for the purpose of obtaining input-output pairs. The IO pairs and the program are then used in training a neural network to predict the desired program attributes.
+
+- **3. Machine Learning Model to predict Program Attributes**:
+
+- **4. Search Strategy guided by estimated Program Attributes**:
+
+**Domain Specific Language**
+
+The DSL defined in this study is comprised of first order and higher order functions.
+
+*First Order Functions*
 
 Head, Last, Take, Drop, ...
 
-**Higher Order Functions**
+*Higher Order Functions*
 
 Map, Filter, ...
 
@@ -148,7 +158,7 @@ Sample open source [code1](https://github.com/dkamm/deepcoder), [code2](https://
 
 6. **Inductive Program Synthesis**: IPS problem, given input-output examples, produce a program that has behavior consistent with the examples. This requires solving 2 problems: defining the program space & the search procedure and solving the ranking problem - deciding which program is to be preferred when several solutions are available.
 
-7. **Abstract Syntax Tree**: AST, ...
+7. **Abstract Syntax Tree**: AST, a tree representation of the abstract syntactic structure of source code written in a programming language.
 
 ### Additional Bibliography
 
