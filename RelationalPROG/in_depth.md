@@ -103,6 +103,10 @@ After another 15.000 training steps the accuracy on the testing data reaches an 
 
 This test run was performed on a dataset containing images with 4 objects. The images used have 128 x 128 pixels of various colors. The sizes of the images and the number of objects can be customized. The model's performance can be compared to baseline MLP/CNN models which do not use a relational function.
 
+#### 2. Compositional Attention Networks for Machine Reasoning
+
+##### 2.1 High-Level Summary
+
 #### 3. Deep Coder: Learning to Write Programs
 
 ##### 3.1 High-Level Summary
@@ -166,6 +170,14 @@ We can notice that although only a few lines long, both programs require a signi
 |Abstract Syntax Tree|![AST](https://raw.githubusercontent.com/perticascatalin/Research/master/RelationalPROG/images/ast.png)|
 
 Sample open source [code1](https://github.com/dkamm/deepcoder), [code2](https://github.com/HiroakiMikami/deep-coder) implementing Deep Coder.
+
+#### 4. Dream Coder: Growing generalizable, interpretable knowledge with wake-sleep Bayesian program learning
+
+##### 4.1 High-Level Summary
+
+#### 5. On the Measure of Intelligence
+
+##### 5.1 High-Level Summary
 
 ### 7. Remarks
 
