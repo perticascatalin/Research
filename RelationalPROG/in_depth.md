@@ -115,17 +115,20 @@ Overall, the study showcases a potential solution to the IPS problem (Inductive 
 
 - **2. Data generation**: the advantages of using DSLs are not limited to search space reduction. One can leverage DSLs to generate synthetic data which can be used for training. In the case of Deep Coder, the generated data consists of small programs which can be evaluated on random input data for the purpose of obtaining input-output pairs. The IO pairs and the program are then used in training a neural network to predict the program attributes used for narrowing down the search problem.
 
-- **3. Machine Learning Model to predict Program Attributes**:
+- **3. Machine Learning Model to predict Program Attributes**: M input-output examples (M = 5) are used as input for the network (these are padded with a special value in order to have a fixed length). Next, the encoder part of the network concatenates the input & output examples types, as well as their embeddings into a final program state representation vector. The different examples available are aggregated by averaging. Finally, the network outputs predictions for program attributes (probability that a function from the DSL will appear or will be absent in the program).
 
-![Program Example](https://raw.githubusercontent.com/perticascatalin/Research/master/RelationalPROG/images/prog.png)
+|Component|Illustration|
+|:-------:|:----------:|
+|Sample Program|![Program Example](https://raw.githubusercontent.com/perticascatalin/Research/master/RelationalPROG/images/prog.png)|
+|MLP Architecture|![Model](https://raw.githubusercontent.com/perticascatalin/Research/master/RelationalPROG/images/dcnn.png)|
+|MLP Output|![Program Attributes](https://raw.githubusercontent.com/perticascatalin/Research/master/RelationalPROG/images/attrib.png)|
 
-![Program Attributes](https://raw.githubusercontent.com/perticascatalin/Research/master/RelationalPROG/images/attrib.png)
+- **4. Search Strategy guided by estimated Program Attributes**: the study tests and compares 2 different search strategies (DFS and sort & add enumeration), with and without guidance from the estimated program attributes. The approach based on program attributes shows a considerable search performance improvement. The comparisons to other baseline methods - Beam Search & the SMT solver from (A. Solar-Lezama [3]) are made available. To note however that the program sizes are quite small, up to T = 5 instructions.
 
-![Model](https://raw.githubusercontent.com/perticascatalin/Research/master/RelationalPROG/images/dcnn.png)
-
-- **4. Search Strategy guided by estimated Program Attributes**:
-
-![Model](https://raw.githubusercontent.com/perticascatalin/Research/master/RelationalPROG/images/g_search.png)
+|Component|Illustration|
+|:-------:|:----------:|
+|Search Tree|![Search](https://raw.githubusercontent.com/perticascatalin/Research/master/RelationalPROG/images/g_search.png)|
+|Search Times|![Times](https://raw.githubusercontent.com/perticascatalin/Research/master/RelationalPROG/images/dc_times.png)|
 
 **Abstract Syntax Trees**
 
@@ -134,7 +137,9 @@ Overall, the study showcases a potential solution to the IPS problem (Inductive 
 | Euclid Algorithm | 7       | 48      | 70           |
 | Iteration        | 9       | 73      | 99           |
 
-![AST](https://raw.githubusercontent.com/perticascatalin/Research/master/RelationalPROG/images/ast.png)
+|Component|Illustration|
+|:-------:|:----------:|
+|Abstract Syntax Tree|![AST](https://raw.githubusercontent.com/perticascatalin/Research/master/RelationalPROG/images/ast.png)|
 
 **Domain Specific Language**
 
@@ -148,16 +153,9 @@ Head, Last, Take, Drop, ...
 
 Map, Filter, ...
 
-**Neural Network**
-
-- M input-output examples used as input for the network
-- The network outputs predictions for program attributes (probability that a function from the DSL will appear in the program)
-
-**Search**
-
 Sample open source [code1](https://github.com/dkamm/deepcoder), [code2](https://github.com/HiroakiMikami/deep-coder).
 
-### 7. Intermediary Remarks
+### 7. Remarks
 
 ### 8. Definitions and Notes
 
@@ -175,8 +173,12 @@ Sample open source [code1](https://github.com/dkamm/deepcoder), [code2](https://
 
 7. **Abstract Syntax Tree**: AST, a tree representation of the abstract syntactic structure of source code written in a programming language.
 
+8. **Beam Search**:
+
 ### 9. Additional References
 
 1. [Distributed Representations of Words and Phrases and their Compositionality, 2013](https://arxiv.org/pdf/1310.4546.pdf)
 
 2. [A Syntactic Neural Model for General-Purpose Code Generation, 2017](https://arxiv.org/pdf/1704.01696.pdf)
+
+3. [The Sketching Approach to Program Synthesis, 2008](https://people.csail.mit.edu/asolar/papers/Solar-Lezama09.pdf)
