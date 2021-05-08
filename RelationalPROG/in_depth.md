@@ -125,7 +125,7 @@ Overall, the study showcases a potential solution to the IPS problem (Inductive 
 
 - **4. Search Strategy guided by estimated Program Attributes**:
 
-![Model](https://raw.githubusercontent.com/perticascatalin/Research/master/RelationalPROG/images/dcnn.png)
+![Model](https://raw.githubusercontent.com/perticascatalin/Research/master/RelationalPROG/images/g_search.png)
 
 **Abstract Syntax Trees**
 
