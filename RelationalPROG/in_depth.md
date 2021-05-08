@@ -159,6 +159,8 @@ In order to understand why ASTs are a challenging program representation in the 
 | Euclid Algorithm | 7       | 48      | 70           |
 | Iteration        | 9       | 73      | 99           |
 
+We can notice that although only a few lines long, both programs require a significantly large number of nodes and attributes when represented as an AST. The role of a DSL in such cases is to condense the representation to a bare minimum by abstracting away technical details.
+
 |Component|Illustration|
 |:-------:|:----------:|
 |Abstract Syntax Tree|![AST](https://raw.githubusercontent.com/perticascatalin/Research/master/RelationalPROG/images/ast.png)|
