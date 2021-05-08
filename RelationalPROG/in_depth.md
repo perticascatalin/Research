@@ -130,6 +130,8 @@ Overall, the study showcases a potential solution to the IPS problem (Inductive 
 |Search Tree|![Search](https://raw.githubusercontent.com/perticascatalin/Research/master/RelationalPROG/images/g_search.png)|
 |Search Times|![Times](https://raw.githubusercontent.com/perticascatalin/Research/master/RelationalPROG/images/dc_times.png)|
 
+##### 3.2 Programs Representation
+
 **Abstract Syntax Trees**
 
 | Implementation   | # Lines | # Nodes | # Attributes |
@@ -153,7 +155,7 @@ Head, Last, Take, Drop, ...
 
 Map, Filter, ...
 
-Sample open source [code1](https://github.com/dkamm/deepcoder), [code2](https://github.com/HiroakiMikami/deep-coder).
+Sample open source [code1](https://github.com/dkamm/deepcoder), [code2](https://github.com/HiroakiMikami/deep-coder) implementing Deep Coder.
 
 ### 7. Remarks
 
@@ -173,7 +175,7 @@ Sample open source [code1](https://github.com/dkamm/deepcoder), [code2](https://
 
 7. **Abstract Syntax Tree**: AST, a tree representation of the abstract syntactic structure of source code written in a programming language.
 
-8. **Beam Search**:
+8. **Beam Search**: a version of BFS, which uses a heuristic to only keep a subset of (best) partial solutions explored at any given point during the search process.
 
 ### 9. Additional References
 
