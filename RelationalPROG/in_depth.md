@@ -107,6 +107,21 @@ This test run was performed on a dataset containing images with 4 objects. The i
 
 ##### 2.1 High-Level Summary
 
+The study presents a novel neural network architecture which relies on structural constraints in order to guide the network towards compositional reasoning and to facilitate interpretability of the inferred resuls.
+
+Components:
+
+- Control unit
+- Read unit
+- Write unit
+- Control state
+- Memory state
+- Knowledge base
+
+Results: 98.9% accuracy on CLEVR compared to 95.5% accuracy obtained by the earlier relational network.
+
+Original open source [code](https://github.com/stanfordnlp/mac-network) implementation of MAC network.
+
 #### 3. Deep Coder: Learning to Write Programs
 
 ##### 3.1 High-Level Summary
