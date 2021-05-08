@@ -132,11 +132,11 @@ Overall, the study showcases a potential solution to the IPS problem (Inductive 
 
 ##### 3.2 Programs Representation
 
-This section summarizes the scope of the DSL used in Deep Coder and briefly explains the complexity of using ASTs, which have the capability to represent general purpose programs and do not have to be synthetically generated, such as DSLs.
+This section summarizes the scope of the DSL used in Deep Coder and briefly explains the complexity of using ASTs, which have the capability to represent general purpose programs and do not have to be synthetically generated, such as DSLs. They could be extracted from open source code instead.
 
 **Domain Specific Language**
 
-The DSL defined in this study is comprised of first order and higher order functions. The supported data types are int, bool and array. It is designed to be applicable to simple programming competitions problems.
+The DSL defined in this study is comprised of first order and higher order functions. The supported data types are int, bool and array. Each function is defined on an input type to an output type. Additional methods are defined for equality, comparisons and operations with a predetermined set of numbers. The experiments reported are performed on programs of length up to 5. The DSL is designed to be applicable to simple programming competitions problems.
 
 *First Order Functions*
 
@@ -147,6 +147,12 @@ Head, Last, Take, Drop, ...
 Map, Filter, Count, Zip, ...
 
 **Abstract Syntax Trees**
+
+In order to understand why ASTs are a challenging program representation in the context of machine learning, we can look at two different implementations for the problem of finding the greatest common divisor. One solution implements Euclid's algorithm, the other iteratively subtracts the smaller number from the larger one until the two are equal.
+
+|Euclid's Algorithm|Iteration|
+|:-------:|:----------:|
+|![7](https://raw.githubusercontent.com/perticascatalin/Research/master/RelationalPROG/images/7.png)|![9](https://raw.githubusercontent.com/perticascatalin/Research/master/RelationalPROG/images/9.png)|
 
 | Implementation   | # Lines | # Nodes | # Attributes |
 |:----------------:|:-------:|:-------:|:------------:|
