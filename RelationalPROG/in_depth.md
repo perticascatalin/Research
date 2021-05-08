@@ -134,6 +134,18 @@ Overall, the study showcases a potential solution to the IPS problem (Inductive 
 
 This section summarizes the scope of the DSL used in Deep Coder and briefly explains the complexity of using ASTs, which have the capability to represent general purpose programs and do not have to be synthetically generated, such as DSLs.
 
+**Domain Specific Language**
+
+The DSL defined in this study is comprised of first order and higher order functions. The supported data types are int, bool and array. It is designed to be applicable to simple programming competitions problems.
+
+*First Order Functions*
+
+Head, Last, Take, Drop, ...
+
+*Higher Order Functions*
+
+Map, Filter, Count, Zip, ...
+
 **Abstract Syntax Trees**
 
 | Implementation   | # Lines | # Nodes | # Attributes |
@@ -144,18 +156,6 @@ This section summarizes the scope of the DSL used in Deep Coder and briefly expl
 |Component|Illustration|
 |:-------:|:----------:|
 |Abstract Syntax Tree|![AST](https://raw.githubusercontent.com/perticascatalin/Research/master/RelationalPROG/images/ast.png)|
-
-**Domain Specific Language**
-
-The DSL defined in this study is comprised of first order and higher order functions.
-
-*First Order Functions*
-
-Head, Last, Take, Drop, ...
-
-*Higher Order Functions*
-
-Map, Filter, ...
 
 Sample open source [code1](https://github.com/dkamm/deepcoder), [code2](https://github.com/HiroakiMikami/deep-coder) implementing Deep Coder.
 
