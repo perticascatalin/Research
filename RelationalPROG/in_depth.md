@@ -67,13 +67,6 @@ Thus, an object could comprise:
 - a texture
 - conjuctions of physical objects
 
-<!-- |Image/Dataset|Question/Answer|
-|:-----:|:-------------:|
-|![Sort-of-CLEVR](https://raw.githubusercontent.com/perticascatalin/Research/master/RelationalPROG/images/sort_of_clevr.png)| What is the color of the nearest object to the yellow object?|
-|Sort-of-CLEVR|Green|
-|![CLEVR](https://raw.githubusercontent.com/perticascatalin/Research/master/RelationalPROG/images/clevr.png)|What size is the cylinder that is left of the brown metal thing that is left of the big sphere?|
-|CLEVR|Small| -->
-
 |Sort-of-CLEVR|CLEVR|
 |:-----:|:---------:|
 |![Sort-of-CLEVR](https://raw.githubusercontent.com/perticascatalin/Research/master/RelationalPROG/images/sort_of_clevr.png)|![CLEVR](https://raw.githubusercontent.com/perticascatalin/Research/master/RelationalPROG/images/clevr.png)|
@@ -117,7 +110,9 @@ The sizes of the images and the number of objects can be customized. The model's
 
 ##### 2.1 High-Level Summary
 
-The study presents a recurrent neural network architecture which relies on structural constraints in order to guide the network towards compositional reasoning and to facilitate interpretability of the inferred results.
+The study presents a recurrent neural network architecture which relies on structural constraints in order to guide the network towards compositional reasoning and to facilitate interpretability of the inferred results. The network is called MAC (memory, attention, composition) because of its specific architecture which separates control from memory and imposes structural constraints that regulate interaction. As opposed to the RN, which is a module, MAC is a network learning cell.
+
+This design is based on more recent advances in machine learning, where a trend to adopt symbolic structures (resembling expression trees of programming languages) can be noticed. However, these systems generally rely on externally provided structured representations. The MAC architecture addresses this issue in a more general fashion, by decomposing a problem into a series of attention-based reasoning steps. These steps aggregate relevant information from the memory and knowledge base and then updates the memory accordingly. This model is applied on the CLEVR dataset, which has a very suitable structure for emphasizing MAC's ability to learn step-by-step reasoning. 
 
 Components:
 
