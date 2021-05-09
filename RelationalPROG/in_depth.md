@@ -107,7 +107,7 @@ This test run was performed on a dataset containing images with 4 objects. The i
 
 ##### 2.1 High-Level Summary
 
-The study presents a novel neural network architecture which relies on structural constraints in order to guide the network towards compositional reasoning and to facilitate interpretability of the inferred resuls.
+The study presents a recurrent neural network architecture which relies on structural constraints in order to guide the network towards compositional reasoning and to facilitate interpretability of the inferred results.
 
 Components:
 
@@ -118,7 +118,13 @@ Components:
 - Memory state
 - Knowledge base
 
-Results: 98.9% accuracy on CLEVR compared to 95.5% accuracy obtained by the earlier relational network.
+|MAC Network|MAC Cell|
+|:---------:|:------:|
+|![Network](https://raw.githubusercontent.com/perticascatalin/Research/master/RelationalPROG/images/mac.png)|![Cell](https://raw.githubusercontent.com/perticascatalin/Research/master/RelationalPROG/images/mac_cell.png)|
+
+Results: 98.9% accuracy on CLEVR compared to 95.5% accuracy obtained by the earlier relational network. An additional claimed advantage is that is requires (5x) less training data than other models to achieve strong results.
+
+Other memory based approaches: (A. Graves et al. [4]). Example applications: graph problems - finding shortest paths. A detailed overview of machine learning approaches (graph neural networks) to solving combinatorial optimization problems can be found in (Q. Cappart et al. [5]).
 
 Original open source [code](https://github.com/stanfordnlp/mac-network) implementation of MAC network.
 
@@ -221,3 +227,7 @@ Sample open source [code1](https://github.com/dkamm/deepcoder), [code2](https://
 2. [A Syntactic Neural Model for General-Purpose Code Generation, 2017](https://arxiv.org/pdf/1704.01696.pdf)
 
 3. [The Sketching Approach to Program Synthesis, 2008](https://people.csail.mit.edu/asolar/papers/Solar-Lezama09.pdf)
+
+4. [Hybrid computing using a neural network with dynamic external memory, 2016](https://www.nature.com/articles/nature20101) [+](https://deepmind.com/blog/article/differentiable-neural-computers)
+
+5. [Combinatorial Optimization and Reasoning with Graph Neural Networks, 2021](https://arxiv.org/pdf/2102.09544.pdf)
