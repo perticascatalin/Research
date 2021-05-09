@@ -150,10 +150,9 @@ Overall, the study showcases a potential solution to the IPS problem (Inductive 
 
 - **4. Search Strategy guided by estimated Program Attributes**: the study tests and compares 2 different search strategies (DFS, Sort & Add enumeration - a branch and bound type of strategy, Beam Search - a version of BFS), with and without guidance from the estimated program attributes. The approach based on program attributes shows considerable search performance improvements. The comparisons to other baseline methods - Beam Search & the SMT solver from (A. Solar-Lezama [3]) are made available. To note however that the program sizes are quite small, up to T = 5 instructions.
 
-|Component|Illustration|
+|Search Tree|Search Times|
 |:-------:|:----------:|
-|Search Tree|![Search](https://raw.githubusercontent.com/perticascatalin/Research/master/RelationalPROG/images/g_search.png)|
-|Search Times|![Times](https://raw.githubusercontent.com/perticascatalin/Research/master/RelationalPROG/images/dc_times.png)|
+|![Search](https://raw.githubusercontent.com/perticascatalin/Research/master/RelationalPROG/images/g_search.png)|![Times](https://raw.githubusercontent.com/perticascatalin/Research/master/RelationalPROG/images/dc_times.png)|
 
 ##### 3.2 Programs Representation
 
