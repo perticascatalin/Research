@@ -67,16 +67,24 @@ Thus, an object could comprise:
 - a texture
 - conjuctions of physical objects
 
-|Image/Dataset|Question/Answer|
+<!-- |Image/Dataset|Question/Answer|
 |:-----:|:-------------:|
 |![Sort-of-CLEVR](https://raw.githubusercontent.com/perticascatalin/Research/master/RelationalPROG/images/sort_of_clevr.png)| What is the color of the nearest object to the yellow object?|
 |Sort-of-CLEVR|Green|
 |![CLEVR](https://raw.githubusercontent.com/perticascatalin/Research/master/RelationalPROG/images/clevr.png)|What size is the cylinder that is left of the brown metal thing that is left of the big sphere?|
-|CLEVR|Small|
+|CLEVR|Small| -->
+
+|Sort-of-CLEVR|CLEVR|
+|:-----:|:---------:|
+|![Sort-of-CLEVR](https://raw.githubusercontent.com/perticascatalin/Research/master/RelationalPROG/images/sort_of_clevr.png)|![CLEVR](https://raw.githubusercontent.com/perticascatalin/Research/master/RelationalPROG/images/clevr.png)|
+|What is the color of the nearest object to the yellow object?| What size is the cylinder that is left of the brown metal thing that is left of the big sphere?|
+|Green|Small|
 
 The second step is to examine how the make the object extraction question dependent. Questions are processed word-by-word (list of integers assigned to words) by an LSTM and the final state (an embedding of the question) is passed on to the RN together with the objects pair.
 
-These triples are batched through an MLP for learning the relational function g (the output of which is a measure of relevance for object pairs). These outputs are then aggregated by a second MLP which learns the function f used for providing the answer to the question. Finally, the information about what constitues objects and how to parse the question is backpropagated in the CNN and in the LSTM. This approach shows a 27% improvement in accuracy on the CLEVR  dataset compared to the state-of-the-art at the time of the publication and a 31% improvement in accuracy on the Sort-of-CLEVR dataset compared to a baseline CNN-MLP architecture.
+These triples are batched through an MLP for learning the relational function g (the output of which is a measure of relevance for object pairs). These outputs are then aggregated by a second MLP which learns the function f used for providing the answer to the question.
+
+Finally, the information about what constitues objects and how to parse the question is backpropagated in the CNN and in the LSTM. This approach shows a 27% improvement in accuracy on the CLEVR  dataset compared to the state-of-the-art at the time of the publication and a 31% improvement in accuracy on the Sort-of-CLEVR dataset compared to a baseline CNN-MLP architecture.
 
 Sample open source [code](https://github.com/clvrai/Relation-Network-Tensorflow) applying RN to the Sort-of-CLEVR dataset.
 
@@ -101,7 +109,9 @@ After another 15.000 training steps the accuracy on the testing data reaches an 
 
 ![Accuracy and Loss](https://raw.githubusercontent.com/perticascatalin/Research/master/RelationalPROG/images/loss_acc.png)
 
-This test run was performed on a dataset containing images with 4 objects. The images used have 128 x 128 pixels of various colors. The sizes of the images and the number of objects can be customized. The model's performance can be compared to baseline MLP/CNN models which do not use a relational function.
+This test run was performed on a dataset containing images with 4 objects. The images used have 128 x 128 pixels of various colors.
+
+The sizes of the images and the number of objects can be customized. The model's performance can be compared to baseline MLP/CNN models which do not use a relational function.
 
 #### 2. Compositional Attention Networks for Machine Reasoning
 
