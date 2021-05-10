@@ -200,6 +200,17 @@ Sample open source [code1](https://github.com/dkamm/deepcoder), [code2](https://
 
 ##### 4.1 High-Level Summary
 
+- a system that learns to solve problems by writing programs
+- start by using primitives to learn programs based on input-output pairs
+- adds up new symbolic abstractions (refactoring) based on imagined and replayed problems, learns libraries of concepts
+- builds expertise by creating programming languages for expressing domain concepts
+
+Tasks:
+
+- classic inductive programming tasks
+- drawing pictures, building scenes
+- rediscovers basics of modern functional programming, vector algebra, classical physics
+
 #### 5. On the Measure of Intelligence
 
 ##### 5.1 High-Level Summary
