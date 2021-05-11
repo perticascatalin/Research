@@ -202,7 +202,8 @@ Sample open source [code1](https://github.com/dkamm/deepcoder), [code2](https://
 
 - a system that learns to solve problems by writing programs
 - start by using primitives to learn programs based on input-output pairs
-- adds up new symbolic abstractions (refactoring) based on imagined and replayed problems, learns libraries of concepts
+- adds up new symbolic abstractions (refactoring) based on imagined and replayed problems
+- learns libraries of concepts
 - builds expertise by creating programming languages for expressing domain concepts
 
 Tasks:
@@ -214,6 +215,14 @@ Tasks:
 #### 5. On the Measure of Intelligence
 
 ##### 5.1 High-Level Summary
+
+- the need to define & evaluate intelligence (capacity for reasoning) in a way that enables comparisons between 2 systems
+- 2 broad historical conceptions:
+	- AI: comprison of skills exhibited by AIs & humans at specific tasks
+	- Psychology: TBD
+- since skills are highly modulated by prior knowledge & experience, then unlimited priors & training data allow experiments to buy aribitrary levels of skills for a system
+- proposed definition of intelligence: skill-acquisition efficiency
+- highlight on concepts (critical pieces in intelligent systems) such as: scope, generalization difficulty, priors & experience
 
 ### 7. Remarks
 
