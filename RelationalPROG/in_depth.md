@@ -219,14 +219,13 @@ Tasks:
 - the need to define & evaluate intelligence (capacity for reasoning) in a way that enables comparisons between 2 systems
 - 2 broad historical conceptions:
 	- AI: comprison of skills exhibited by AIs & humans at specific tasks
-	- Psychology: TBD
+	- Psychology: levaraging modern insight into developmental cognitive psychology
 - since skills are highly modulated by prior knowledge & experience, then unlimited priors & training data allow experiments to buy aribitrary levels of skills for a system
 - proposed definition of intelligence: skill-acquisition efficiency
 - highlight on concepts (critical pieces in intelligent systems) such as: scope, generalization difficulty, priors & experience
+- overall, the study offers a more phylosophical, but grounded in research view on intelligence and makes a case for the design of general AI benchmark datasets  
 
-### 7. Remarks
-
-### 8. Definitions and Notes
+### 7. Definitions and Notes
 
 1. **Relational Reasoning**: the capacity to reason about and find solutions to problems involving a set of objects which are related to one another through some properties that need to be discovered.
 
@@ -244,7 +243,7 @@ Tasks:
 
 8. **Beam Search**: a version of BFS, which uses a heuristic to only keep a subset of (best) partial solutions explored at any given point during the search process.
 
-### 9. Additional References
+### 8. Additional References
 
 1. [Distributed Representations of Words and Phrases and their Compositionality, 2013](https://arxiv.org/pdf/1310.4546.pdf)
 
