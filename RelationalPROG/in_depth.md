@@ -106,6 +106,8 @@ This test run was performed on a dataset containing images with 4 objects. The i
 
 The sizes of the images and the number of objects can be customized. The model's performance can be compared to baseline MLP/CNN models which do not use a relational function.
 
+**Note**: the evaluated implementation of the RN model does not process question embeddings.
+
 #### 2. Compositional Attention Networks for Machine Reasoning
 
 ##### 2.1 High-Level Summary
