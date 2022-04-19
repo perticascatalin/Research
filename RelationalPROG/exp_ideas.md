@@ -16,4 +16,8 @@ How are questions generated in a programming setup?
 
 Debate on how MLP would implement logic in RN.
 
+- Design: eg. using an adequate neural network structure
+- Prior Knowledge: eg. using the order relations as input
+- Relational Network: Design + Prior Knowledge
+
 #### 10.4 A more general comparison of relational and composite machine learning models
