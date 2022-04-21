@@ -18,13 +18,13 @@ One problem with this model was that it was not capable to properly encode longe
 
 |Img|Description|
 |:-:|:---------:|
-|![Encoder-Decoder versions](https://raw.githubusercontent.com/perticascatalin/Research/master/RelationalPROG/images/encoder_decoder.png)|Encoder-Decoder versions. (a) Vanilla Encoder-Decoder: only the final hidden state of the encoder is passed on to the decoder. (b) Attention based Encoder-Decoder: intermediary hidden states are weighted in according to an attention function.|
-|![Attention function](https://raw.githubusercontent.com/perticascatalin/Research/master/RelationalPROG/images/attention_function.png)|Attention function. TODO|
+|![Encoder-Decoder versions](https://raw.githubusercontent.com/perticascatalin/Research/master/RelationalPROG/images/encoder_decoder.png)|Encoder-Decoder versions. (a) Vanilla Encoder-Decoder: only the final hidden state of the encoder is passed on to the decoder as initial input. (b) Attention based Encoder-Decoder: intermediary hidden states from the encoder are weighted in according to an attention function and fed into the decoder at all steps.|
+|![Attention function](https://raw.githubusercontent.com/perticascatalin/Research/master/RelationalPROG/images/attention_function.png)|Attention function: a more detailed view of the mechanism and computation.|
 
 |Img|Description|
 |:-:|:---------:|
 |![Attention matrix](https://raw.githubusercontent.com/perticascatalin/Research/master/RelationalPROG/images/attention_matrix.png)|Attention matrix (see 10.3). Displays how much should the hidden state obtained when processing the j-th english word contribute to predicting the i-th french word.|
-|![MAC Attention map](https://raw.githubusercontent.com/perticascatalin/Research/master/RelationalPROG/images/mac_attention.png)|MAC Attention map (see 5.2). TODO|
+|![MAC Attention map](https://raw.githubusercontent.com/perticascatalin/Research/master/RelationalPROG/images/mac_attention.png)|MAC Attention map (see 5.2). 3-steps reasoning based on the interaction of the memory, attention and control units.|
 
 ##### 9.1.3 SortNet (rel) vs. RN
 
