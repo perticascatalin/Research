@@ -245,6 +245,8 @@ Tasks:
 
 8. **Beam Search**: a version of BFS, which uses a heuristic to only keep a subset of (best) partial solutions explored at any given point during the search process.
 
+9. **Kernel**: Convolution matrix or mask, used for applying a filter to an image.
+
 ### 8. Additional References
 
 1. [Distributed Representations of Words and Phrases and their Compositionality, 2013](https://arxiv.org/pdf/1310.4546.pdf)

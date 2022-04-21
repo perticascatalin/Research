@@ -1,49 +1,63 @@
 ## Relational reasoning in deep learning: a parallel between solving visual and programming tasks
 
-### 9. Additional Studies
+### 9. Experiments and evaluation of results (part 1)
 
-#### 9.1 More imprtant papers
+#### 9.1 A Comparison of relational and compositional machine learning models
 
-[1. Competition-Level Code Generation with AlphaCode](https://storage.googleapis.com/deepmind-media/AlphaCode/competition_level_code_generation_with_alphacode.pdf)
+Based on the literature studied so far (and the experiments performed in 2019) we can start highlighting some similarities between the deep learning models which aim to perform relational reasoning / inference. Generally, the shortcomings in capturing relational properties from a dataset by a machine learning model are due to the lack of proper design and/or prior knowledge. However, this problem manifests itself differently depending on the case. Let us take a look at 2 well known examples.
 
-[2. Fast Transformer Decoding](https://arxiv.org/pdf/1911.02150.pdf)
+##### 9.1.1 Convolutions
 
-[3. Neural Machine Translation by Jointly Learning to Align and Translate](https://arxiv.org/pdf/1409.0473.pdf)
+In visual recognition tasks, CNNs outperform MLPs simply because they exploit spatial relationships. Instead of having fully connected layers with different learnable weights, CNNs have shared weights (kernels / convolutions) and thus learn locally invariant features, meaning that the same properties (edges, textures, etc.) are learnt across every region of the image, whereas a MLP would not have this constraint and thus would have the potential to overfit specific properties of a given region. So we could state that CNNs have the proper design to learn (fit) relations between pixels and regions in images which are generally (and not only locally) useful for computing the required output in a visual task.
 
-[4. Sequence to Sequence Learning with Neural Networks](https://arxiv.org/pdf/1409.3215.pdf)
+##### 9.1.2 Attention
 
-[5. Show, Attend and Tell](https://arxiv.org/pdf/1502.03044.pdf)
+The next example is a machine translation model, namely the sequence to sequence modelling, where a recurrent neural network is fed an input sequence and has to produce an output sequence, such as translating a sentence from english to french (see 10.1) or synthesizing a program from a problem description (see 10.2). One major breakthrough in this area was the use of an attention function (see 10.3). Various atttention models implementation (see 10.4) and visual attention (see 10.5). The seq2seq model was initially designed as an encoder-decoder architecture, where an RNN would process the input and provide a vector / state for the decoder to decode into the output. One problem with this model was that it was not capable to encode long sentences into a finite hidden state at the end of processing the input. And so information would be lost this way.
 
-#### 9.2 Tutorials and supporting documentation
+##### 9.1.1 SortNet (rel) vs. RN
 
-[1. LSTM and Attention](https://medium.com/swlh/a-simple-overview-of-rnn-lstm-and-attention-mechanism-9e844763d07b)
-
-[2. Encoder Decoder Attention](https://machinelearningmastery.com/how-does-attention-work-in-encoder-decoder-recurrent-neural-networks/)
-
-[3. Recurrent Relational Networks](https://paperswithcode.com/paper/recurrent-relational-networks)
-
-[4. Andrew Ng](https://www.youtube.com/watch?v=RLWuzLLSIgw)
-
-### 10. Experimental Ideas
-
-#### 10.1 Relational input-output pairs
-
-Consider input-output pairs in IPS to be program states, which we can generate embeddings for. If the program attributes that need to be estimated were to be relational, then an RN could in theory improve the MLP used for estimating the program attributes. This item would be worth testing in a setup where relational program attributes could somehow be used to optimize the program search.
-
-#### 10.2 Program attributes as questions
-
-The cognitive process of designing a program to solve a problem is a highly complex task. Often times, it is a longer interactive process during which the solver has to ask a series of questions in order to arrive at the right programming technique and abstractions through meaningful decisions. Thus, the ability to ask meaningful questions seems to be a necessary component when trying to design a more general reasoning system.
-
-How are questions generated in a programming setup? 
-
-#### 10.3 SortNet (rel) vs. RN
-
-Debate on how MLP would implement logic in RN.
+SortNet steps (2019 experiments)
 
 - Design: eg. using an adequate neural network structure
 - Prior Knowledge: eg. using the order relations as input
 - Relational Network: Design + Prior Knowledge
 
-#### 10.4 A more general comparison of relational and composite machine learning models
+Debate on how MLP would implement logic in RN.
 
-RN vs MAC
+##### 9.1.2 RN vs MAC
+
+#### 9.2 Relational reasoning and question answering in programming
+
+##### 9.2.1 Relational input-output pairs
+
+Consider input-output pairs in IPS to be program states, which we can generate embeddings for. If the program attributes that need to be estimated were to be relational, then an RN could in theory improve the MLP used for estimating the program attributes. This item would be worth testing in a setup where relational program attributes could somehow be used to optimize the program search.
+
+##### 9.2.2 Program attributes as questions
+
+The cognitive process of designing a program to solve a problem is a highly complex task. Often times, it is a longer interactive process during which the solver has to ask a series of questions in order to arrive at the right programming technique and abstractions through meaningful decisions. Thus, the ability to ask meaningful questions seems to be a necessary component when trying to design a more general reasoning system.
+
+How are questions generated in a programming setup?
+
+### 10. Additional studies / learning material
+
+#### More imprtant papers
+
+[1. Sequence to Sequence Learning with Neural Networks](https://arxiv.org/pdf/1409.3215.pdf)
+
+[2. Competition-Level Code Generation with AlphaCode](https://storage.googleapis.com/deepmind-media/AlphaCode/competition_level_code_generation_with_alphacode.pdf)
+
+[3. Neural Machine Translation by Jointly Learning to Align and Translate](https://arxiv.org/pdf/1409.0473.pdf)
+
+[4. Fast Transformer Decoding](https://arxiv.org/pdf/1911.02150.pdf)
+
+[5. Show, Attend and Tell](https://arxiv.org/pdf/1502.03044.pdf)
+
+#### Tutorials and supporting documentation
+
+[A. LSTM and Attention](https://medium.com/swlh/a-simple-overview-of-rnn-lstm-and-attention-mechanism-9e844763d07b)
+
+[B. Encoder-Decoder Attention](https://machinelearningmastery.com/how-does-attention-work-in-encoder-decoder-recurrent-neural-networks/)
+
+[C. Recurrent Relational Networks](https://paperswithcode.com/paper/recurrent-relational-networks)
+
+[D. Andrew Ng Tutorials](https://www.youtube.com/watch?v=RLWuzLLSIgw)
