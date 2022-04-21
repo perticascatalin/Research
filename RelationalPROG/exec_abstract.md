@@ -24,6 +24,8 @@ Thus, we arrive at another goal of this research, which is to explore the role o
 
 ### 2. Plan
 
+**Note**: This plan was designed for 2nd semester of the 2021 academic year and only the first 2 phases were carried out successfully. Resuming at phase 3.
+
 |Start|Duration|Time|Phase|Description|
 |:---:|:------:|:--:|:---:|:---------:|
 |Mid Feb|2 weeks|10|Broad Research|Collect materials for thesis, discuss & decide theme|

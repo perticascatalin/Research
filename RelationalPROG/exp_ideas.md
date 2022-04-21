@@ -12,7 +12,9 @@ In visual recognition tasks, CNNs outperform MLPs simply because they exploit sp
 
 ##### 9.1.2 Attention
 
-The next example is a machine translation model, namely the sequence to sequence modelling, where a recurrent neural network is fed an input sequence and has to produce an output sequence, such as translating a sentence from english to french (see 10.1) or synthesizing a program from a problem description (see 10.2). One major breakthrough in this area was the use of an attention function (see 10.3). Various atttention models implementation (see 10.4) and visual attention (see 10.5). The seq2seq model was initially designed as an encoder-decoder architecture, where an RNN would process the input and provide a vector / state for the decoder to decode into the output. One problem with this model was that it was not capable to encode long sentences into a finite hidden state at the end of processing the input. And so information would be lost this way.
+The next example is a machine translation model, namely the sequence to sequence modelling, where a recurrent neural network is fed an input sequence and has to produce an output sequence, such as translating a sentence from english to french (see 10.1) or synthesizing a program from a problem description (see 10.2). One major breakthrough in this area was the use of an attention function (see 10.3). Various atttention models implementation (see 10.4) and visual attention (see 10.5). The seq2seq model was initially designed as an encoder-decoder architecture, where an RNN would process the input and provide a vector / state for the decoder to decode into the output.
+
+One problem with this model was that it was not capable to encode long sentences into a finite hidden state at the end of processing the input. And so information would be lost this way. The attention function alters this behaviour by constraining the decoder to attend to the hidden states of the encoder for a finite subsequence around the target word, thus providing a context at each step in the output sequence. The practical consequence of this modification is an enhanced ability to correctly learn to generate larger sequences (improved generalization capabilities).
 
 ##### 9.1.1 SortNet (rel) vs. RN
 
@@ -44,7 +46,7 @@ How are questions generated in a programming setup?
 
 [1. Sequence to Sequence Learning with Neural Networks](https://arxiv.org/pdf/1409.3215.pdf)
 
-[2. Competition-Level Code Generation with AlphaCode](https://storage.googleapis.com/deepmind-media/AlphaCode/competition_level_code_generation_with_alphacode.pdf)
+[2. Competition-Level Code Generation with AlphaCode](https://storage.googleapis.com/deepmind-media/AlphaCode/competition_level_code_generation_with_alphacode.pdf) [+](https://www.deepmind.com/blog/competitive-programming-with-alphacode)
 
 [3. Neural Machine Translation by Jointly Learning to Align and Translate](https://arxiv.org/pdf/1409.0473.pdf)
 
