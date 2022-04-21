@@ -16,6 +16,11 @@ The next example is a machine translation model, namely the sequence to sequence
 
 One problem with this model was that it was not capable to encode long sentences into a finite hidden state at the end of processing the input. And so information would be lost this way. The attention function alters this behaviour by constraining the decoder to attend to the hidden states of the encoder for a finite subsequence around the target word, thus providing a context at each step in the output sequence. The practical consequence of this modification is an enhanced ability to correctly learn to generate larger sequences (improved generalization capabilities).
 
+|Img|Description|
+|:-:|:---------:|
+|![Encoder-Decoder versions](https://raw.githubusercontent.com/perticascatalin/Research/master/RelationalPROG/images/encoder_decoder.png)|Encoder-Decoder versions|
+|![Attention function](https://raw.githubusercontent.com/perticascatalin/Research/master/RelationalPROG/images/attention_function.png)|Attention function|
+
 ##### 9.1.1 SortNet (rel) vs. RN
 
 SortNet steps (2019 experiments)
