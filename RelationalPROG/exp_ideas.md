@@ -18,13 +18,13 @@ One problem with this model was that it was not capable to properly encode longe
 
 |Img|Description|
 |:-:|:---------:|
-|![Encoder-Decoder versions](https://raw.githubusercontent.com/perticascatalin/Research/master/RelationalPROG/images/encoder_decoder.png)|Encoder-Decoder versions|
-|![Attention function](https://raw.githubusercontent.com/perticascatalin/Research/master/RelationalPROG/images/attention_function.png)|Attention function|
+|![Encoder-Decoder versions](https://raw.githubusercontent.com/perticascatalin/Research/master/RelationalPROG/images/encoder_decoder.png)|Encoder-Decoder versions. TODO|
+|![Attention function](https://raw.githubusercontent.com/perticascatalin/Research/master/RelationalPROG/images/attention_function.png)|Attention function. TODO|
 
 |Img|Description|
 |:-:|:---------:|
-|![Attention matrix](https://raw.githubusercontent.com/perticascatalin/Research/master/RelationalPROG/images/attention_matrix.png)|Attention matrix|
-|![MAC Attention map](https://raw.githubusercontent.com/perticascatalin/Research/master/RelationalPROG/images/mac_attention.png)|MAC Attention map|
+|![Attention matrix](https://raw.githubusercontent.com/perticascatalin/Research/master/RelationalPROG/images/attention_matrix.png)|Attention matrix (see 10.3). Displays how much should the hidden state obtained when processing the j-th english word contribute to predicting the i-th french word.|
+|![MAC Attention map](https://raw.githubusercontent.com/perticascatalin/Research/master/RelationalPROG/images/mac_attention.png)|MAC Attention map (see 5.2). TODO|
 
 ##### 9.1.3 SortNet (rel) vs. RN
 
