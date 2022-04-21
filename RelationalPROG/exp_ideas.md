@@ -6,11 +6,11 @@
 
 Based on the literature studied so far (and the experiments performed in 2019) we can start highlighting some similarities between the deep learning models which aim to perform relational reasoning / inference. Generally, the shortcomings in capturing relational properties from a dataset by a machine learning model are due to the lack of proper design and/or prior knowledge. However, this problem manifests itself differently depending on the case. Let us take a look at 2 well known examples.
 
-##### 9.1.1 Convolutions
+##### 9.1.1 Convolution Maps
 
 In visual recognition tasks, CNNs outperform MLPs simply because they exploit spatial relationships. Instead of having fully connected layers with different learnable weights, CNNs have shared weights (kernels / convolutions) and thus learn locally invariant features, meaning that the same properties (edges, textures, etc.) are learnt across every region of the image, whereas a MLP would not have this constraint and thus would have the potential to overfit specific properties of a given region. So we could state that CNNs have the proper design to learn (fit) relations between pixels and regions in images which are generally (and not only locally) useful for computing the required output in a visual task.
 
-##### 9.1.2 Attention
+##### 9.1.2 Attention Functions
 
 The next example is a machine translation model, namely the sequence to sequence modelling, where a recurrent neural network is fed an input sequence and has to produce an output sequence, such as translating a sentence from english to french (see 10.1) or synthesizing a program from a problem description (see 10.2). One major breakthrough in this area was the use of an attention function (see 10.3). Various implementations of attention models (see 10.4) and visual attention (see 10.5). The seq2seq model was initially designed as an encoder-decoder architecture, where an RNN would process the input and provide a vector / state for the decoder to decode into the output.
 
@@ -18,7 +18,7 @@ One problem with this model was that it was not capable to properly encode longe
 
 |Img|Description|
 |:-:|:---------:|
-|![Encoder-Decoder versions](https://raw.githubusercontent.com/perticascatalin/Research/master/RelationalPROG/images/encoder_decoder.png)|Encoder-Decoder versions. TODO|
+|![Encoder-Decoder versions](https://raw.githubusercontent.com/perticascatalin/Research/master/RelationalPROG/images/encoder_decoder.png)|Encoder-Decoder versions. (a) Vanilla Encoder-Decoder: only the final hidden state of the encoder is passed on to the decoder. (b) Attention based Encoder-Decoder: intermediary hidden states are weighted in according to an attention function.|
 |![Attention function](https://raw.githubusercontent.com/perticascatalin/Research/master/RelationalPROG/images/attention_function.png)|Attention function. TODO|
 
 |Img|Description|
