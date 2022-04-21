@@ -233,19 +233,21 @@ Tasks:
 
 2. **Program Induction**: the inference of computer programs designed to solve problems given in the form of partial data, either input-output pairs, or other types of constraints.
 
-3. **Feature Map**: a collection of kernel activations which are the result of applying filters from one convolutional network layer to the next layer. The filters / kernels are represented by learnable weights, while the feature map is the activation of a CNN at an intermediary layer.
+3. **Inductive Program Synthesis**: IPS problem, given input-output examples, produce a program that has behavior consistent with the examples. This requires solving 2 problems: defining the program space & the search procedure and solving the ranking problem - deciding which program is to be preferred when several solutions are available.
 
-4. **Embedding**: a relatively low-dimensional space into which high-dimensional vectors can be translated.
+4. **Abstract Syntax Tree**: AST, a tree representation of the abstract syntactic structure of source code written in a programming language.
 
-5. **Latent Representation**: a representation of data which is available in a neural network's hidden layers. These representations fill a latent space, which can be viewed as an embedding when the network acts as an encoder (when it compresses data). To note the type of embeddings which retain semantic properties, such as Word2Vec (Mikolov et al. [1]).
+5. **Kernel**: Convolution matrix or mask, used for applying a filter to an image.
 
-6. **Inductive Program Synthesis**: IPS problem, given input-output examples, produce a program that has behavior consistent with the examples. This requires solving 2 problems: defining the program space & the search procedure and solving the ranking problem - deciding which program is to be preferred when several solutions are available.
+6. **Feature Map**: a collection of kernel activations which are the result of applying filters from one convolutional network layer to the next layer. The filters / kernels are represented by learnable weights, while the feature map is the activation of a CNN at an intermediary layer.
 
-7. **Abstract Syntax Tree**: AST, a tree representation of the abstract syntactic structure of source code written in a programming language.
+7. **Embedding**: a relatively low-dimensional space into which high-dimensional vectors can be translated.
 
-8. **Beam Search**: a version of BFS, which uses a heuristic to only keep a subset of (best) partial solutions explored at any given point during the search process.
+8. **Latent Representation**: a representation of data which is available in a neural network's hidden layers. These representations fill a latent space, which can be viewed as an embedding when the network acts as an encoder (when it compresses data). To note the type of embeddings which retain semantic properties, such as Word2Vec (Mikolov et al. [1]).
 
-9. **Kernel**: Convolution matrix or mask, used for applying a filter to an image.
+9. **Beam Search**: a version of BFS, which uses a heuristic to only keep a subset of (best) partial solutions explored at any given point during the search process.
+
+10. **BLEU Score**: bilingual evaluation understudy is a metric for evaluating machine translated text.
 
 ### 8. Additional References
 
