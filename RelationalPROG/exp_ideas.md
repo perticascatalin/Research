@@ -12,16 +12,21 @@ In visual recognition tasks, CNNs outperform MLPs simply because they exploit sp
 
 ##### 9.1.2 Attention
 
-The next example is a machine translation model, namely the sequence to sequence modelling, where a recurrent neural network is fed an input sequence and has to produce an output sequence, such as translating a sentence from english to french (see 10.1) or synthesizing a program from a problem description (see 10.2). One major breakthrough in this area was the use of an attention function (see 10.3). Various atttention models implementation (see 10.4) and visual attention (see 10.5). The seq2seq model was initially designed as an encoder-decoder architecture, where an RNN would process the input and provide a vector / state for the decoder to decode into the output.
+The next example is a machine translation model, namely the sequence to sequence modelling, where a recurrent neural network is fed an input sequence and has to produce an output sequence, such as translating a sentence from english to french (see 10.1) or synthesizing a program from a problem description (see 10.2). One major breakthrough in this area was the use of an attention function (see 10.3). Various implementations of attention models (see 10.4) and visual attention (see 10.5). The seq2seq model was initially designed as an encoder-decoder architecture, where an RNN would process the input and provide a vector / state for the decoder to decode into the output.
 
-One problem with this model was that it was not capable to encode long sentences into a finite hidden state at the end of processing the input. And so information would be lost this way. The attention function alters this behaviour by constraining the decoder to attend to the hidden states of the encoder for a finite subsequence around the target word, thus providing a context at each step in the output sequence. The practical consequence of this modification is an enhanced ability to correctly learn to generate larger sequences (improved generalization capabilities).
+One problem with this model was that it was not capable to properly encode longer sentences into a finite hidden state at the end of processing the input. And so essential information would be lost this way. The attention function alters this behaviour by constraining the decoder to attend to the hidden states of the encoder in a finite subsequence around the target word (interval), thus providing a context at each step in the output sequence by utilizing potential relations between consecutive words. The practical consequence of this modification is an enhanced ability to correctly learn to generate larger sequences (improved generalization capabilities).
 
 |Img|Description|
 |:-:|:---------:|
 |![Encoder-Decoder versions](https://raw.githubusercontent.com/perticascatalin/Research/master/RelationalPROG/images/encoder_decoder.png)|Encoder-Decoder versions|
 |![Attention function](https://raw.githubusercontent.com/perticascatalin/Research/master/RelationalPROG/images/attention_function.png)|Attention function|
 
-##### 9.1.1 SortNet (rel) vs. RN
+|Img|Description|
+|:-:|:---------:|
+|![Attention matrix](https://raw.githubusercontent.com/perticascatalin/Research/master/RelationalPROG/images/attention_matrix.png)|Attention matrix|
+|![MAC Attention map](https://raw.githubusercontent.com/perticascatalin/Research/master/RelationalPROG/images/mac_attention.png)|MAC Attention map|
+
+##### 9.1.3 SortNet (rel) vs. RN
 
 SortNet steps (2019 experiments)
 
@@ -31,7 +36,7 @@ SortNet steps (2019 experiments)
 
 Debate on how MLP would implement logic in RN.
 
-##### 9.1.2 RN vs MAC
+##### 9.1.4 RN vs MAC
 
 #### 9.2 Relational reasoning and question answering in programming
 
