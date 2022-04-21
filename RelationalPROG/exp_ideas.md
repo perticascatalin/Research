@@ -1,6 +1,6 @@
 ## Relational reasoning in deep learning: a parallel between solving visual and programming tasks
 
-### 9. Experiments and evaluation of results (part 1)
+### 9. Comparisons, experiments and evaluation of results (part 1)
 
 #### 9.1 A Comparison of relational and compositional machine learning models
 
@@ -16,27 +16,39 @@ The next example is a machine translation model, namely the sequence to sequence
 
 One problem with this model was that it was not capable to properly encode longer sentences into a finite hidden state at the end of processing the input. And so essential information would be lost this way. The attention function alters this behaviour by constraining the decoder to attend to the hidden states of the encoder in a finite subsequence around the target word (interval), thus providing a context at each step in the output sequence by utilizing potential relations between consecutive words. The practical consequence of this modification is an enhanced ability to correctly learn to generate larger sequences (improved generalization capabilities).
 
-|Img|Description|
+|Seq2seq|Info|
 |:-:|:---------:|
 |![Encoder-Decoder versions](https://raw.githubusercontent.com/perticascatalin/Research/master/RelationalPROG/images/encoder_decoder.png)|**Encoder-Decoder versions**. (a) Vanilla Encoder-Decoder: only the final hidden state of the encoder is passed on to the decoder as initial input. (b) Attention based Encoder-Decoder: intermediary hidden states from the encoder are weighted in according to an attention function and fed into the decoder at all steps.|
 |![Attention function](https://raw.githubusercontent.com/perticascatalin/Research/master/RelationalPROG/images/attention_function.png)|**Attention function**: a more detailed view of the mechanism and computation.|
 
-|Img|Description|
+|Attention matrix|Info|
 |:-:|:---------:|
-|![Attention matrix](https://raw.githubusercontent.com/perticascatalin/Research/master/RelationalPROG/images/attention_matrix.png)|**Attention matrix** (see 10.3). Displays how much should the hidden state obtained when processing the j-th english word contribute to predicting the i-th french word.|
-|![MAC Attention map](https://raw.githubusercontent.com/perticascatalin/Research/master/RelationalPROG/images/mac_attention.png)|**MAC Attention map** (see 5.2). 3-steps reasoning based on the interaction of the memory, attention and control units.|
+|![Attention matrix](https://raw.githubusercontent.com/perticascatalin/Research/master/RelationalPROG/images/attention_matrix.png)|Source: 10.3. Displays how much should the hidden state obtained when processing the j-th english word contribute to predicting the i-th french word.|
 
-##### 9.1.3 SortNet (rel) vs. RN
+|MAC Attention map|Info|
+|:-:|:---------:|
+|![MAC Attention map](https://raw.githubusercontent.com/perticascatalin/Research/master/RelationalPROG/images/mac_attention.png)|Source: 5.2. 3-steps reasoning based on the interaction of the memory, attention and control units.|
 
-SortNet steps (2019 experiments)
+##### 9.1.3 SortNet vs. RN (5.1)
+
+**SortNet steps** (2019 experiments)
 
 - Design: eg. using an adequate neural network structure
 - Prior Knowledge: eg. using the order relations as input
-- Relational Network: Design + Prior Knowledge
+- Relational Network: Design + Prior Knowledge - integrating the prior knowledge into a neural network's design without data transformation 
+
+**Comparison**
+
+Both the SortNet and the RN learn relations between objects in the input, but the learning is modelled in a slightly different way.
+
+- Using convolutions to represent relations in the SortNet case.
+- Using pairs as separate training data for a relational function in the RN case.
 
 Debate on how MLP would implement logic in RN.
 
-##### 9.1.4 RN vs MAC
+##### 9.1.4 RN (5.1) vs MAC (5.2)
+
+The relational function learned at the level of paired objects (CNN feature maps) in the RN model is very similar at the conceptual level with the attention function learned in the seq2seq model for pairs of words in different languages.
 
 #### 9.2 Relational reasoning and question answering in programming
 
