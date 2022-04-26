@@ -30,7 +30,7 @@ Thus, we arrive at another goal of this research, which is to explore the role o
 |:---:|:------:|:--:|:---:|:---------:|
 |Mid Feb|2 weeks|10|Broad Research|Collect materials for thesis, discuss & decide theme|
 |March|2 weeks|30|In-Depth Understanding & Practice|Study material in detail, check techniques involved, practice on sample code, comparison of past results|
-|Mid March|6 weeks|16|Experiments & Evaluation of Results|Visual Rel., Abstr. & Reason., Deep Coder, Comparison on CLEVR, Neural Problem Solving|
+|Mid March|6 weeks|18|Experiments & Evaluation of Results|Visual Rel., Abstr. & Reason., Deep Coder, Comparison on CLEVR, Neural Problem Solving|
 |May|6 weeks|0|Thesis Elaboration|Designated for writing about findings, results, comparisons etc.|
 
 ### 3. Datasets
@@ -50,3 +50,13 @@ Thus, we arrive at another goal of this research, which is to explore the role o
 6. [Dream Coder: Growing generalizable, interpretable knowledge with wake-sleep Bayesian program learning, 2020](https://arxiv.org/pdf/2006.08381.pdf)
 7. [Deep Coder: Learning to Write Programs, 2017](https://arxiv.org/pdf/1611.01989.pdf)
 8. [Connectionism vs. computationalism debate, Wikipedia](https://en.wikipedia.org/wiki/Connectionism)
+9. [Distributed Representations of Words and Phrases and their Compositionality, 2013](https://arxiv.org/pdf/1310.4546.pdf)
+10. [A Syntactic Neural Model for General-Purpose Code Generation, 2017](https://arxiv.org/pdf/1704.01696.pdf)
+11. [The Sketching Approach to Program Synthesis, 2008](https://people.csail.mit.edu/asolar/papers/Solar-Lezama09.pdf)
+12. [Hybrid computing using a neural network with dynamic external memory, 2016](https://www.nature.com/articles/nature20101) [+](https://deepmind.com/blog/article/differentiable-neural-computers)
+13. [Combinatorial Optimization and Reasoning with Graph Neural Networks, 2021](https://arxiv.org/pdf/2102.09544.pdf)
+14. [Sequence to Sequence Learning with Neural Networks, 2014](https://arxiv.org/pdf/1409.3215.pdf)
+15. [Competition-Level Code Generation with AlphaCode, 2022](https://storage.googleapis.com/deepmind-media/AlphaCode/competition_level_code_generation_with_alphacode.pdf) [+](https://www.deepmind.com/blog/competitive-programming-with-alphacode)
+16. [Neural Machine Translation by Jointly Learning to Align and Translate, 2015](https://arxiv.org/pdf/1409.0473.pdf)
+17. [Fast Transformer Decoding, 2019](https://arxiv.org/pdf/1911.02150.pdf)
+18. [Show, Attend and Tell, 2016](https://arxiv.org/pdf/1502.03044.pdf)

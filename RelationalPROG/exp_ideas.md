@@ -8,13 +8,13 @@ Based on the literature studied so far (and the experiments performed in 2019) w
 
 ##### 9.1.1 Convolution Maps
 
-In visual recognition tasks, CNNs outperform MLPs simply because they exploit spatial relationships. Instead of having fully connected layers with different learnable weights, CNNs have shared weights (kernels / convolutions) and thus learn locally invariant features, meaning that the same properties (edges, textures, etc.) are learnt across every region of the image, whereas a MLP would not have this constraint and thus would have the potential to overfit specific properties of a given region. So we could state that CNNs have the proper design to learn (fit) relations between pixels and regions in images which are generally (and not only locally) useful for computing the required output in a visual task.
+In visual recognition tasks, CNNs outperform MLPs simply because they exploit spatial relationships. Instead of having fully connected layers with different learnable weights, CNNs have shared weights (kernels / convolutions) and thus learn locally invariant features, meaning that the same properties (edges, textures, etc.) are learnt across every region of the image, whereas a MLP would not have this constraint and thus would have the potential to overfit specific properties of a given region. For this reason, we can conclude that CNNs have the proper design to learn (fit) relations between pixels and regions in images which are generally (and not only locally) useful for computing the required output in a visual task.
 
 ##### 9.1.2 Attention Functions
 
-The next example is a machine translation model, namely the sequence to sequence modelling, where a recurrent neural network is fed an input sequence and has to produce an output sequence, such as translating a sentence from english to french (see 10.1) or synthesizing a program from a problem description (see 10.2). One major breakthrough in this area was the use of an attention function (see 10.3). Various implementations of attention models (see 10.4) and visual attention (see 10.5). The seq2seq model was initially designed as an encoder-decoder architecture, where an RNN would process the input and provide a vector / state for the decoder to decode into the output.
+The next example is a machine translation model, namely the sequence to sequence modelling, where a recurrent neural network is fed an input sequence and has to produce an output sequence, such as translating a sentence from english to french (Sutskever et al. [14]) or synthesizing a program from a problem description (Li et al. [15]). One major breakthrough in this area was the use of an attention function (Bahdanau et al. [16]). Various implementations of attention models (Shazeer [17]) and visual attention (Xu et al. [18]). The seq2seq model was initially designed as an encoder-decoder architecture, where an RNN would process the input and provide a vector / state for the decoder to decode into the output.
 
-One problem with this model was that it was not capable to properly encode longer sentences into a finite hidden state at the end of processing the input. And so essential information would be lost this way. The attention function alters this behaviour by constraining the decoder to attend to the hidden states of the encoder in a finite subsequence around the target word (interval), thus providing a context at each step in the output sequence by utilizing potential relations between consecutive words. The practical consequence of this modification is an enhanced ability to correctly learn to generate larger sequences (improved generalization capabilities).
+One problem with this model was that it was not capable to properly encode longer sentences into a finite hidden state (fixed length vector) at the end of processing the input. And so essential information would be lost this way. The attention function alters this behaviour by constraining the decoder to attend to the hidden states of the encoder in a finite subsequence around the target word (interval), thus providing a context at each step in the output sequence by utilizing potential relations between consecutive words. The practical consequence of this modification is an enhanced ability to correctly learn to generate larger sequences (improved generalization capabilities).
 
 |Seq2seq|Info|
 |:-:|:---------:|
@@ -23,13 +23,13 @@ One problem with this model was that it was not capable to properly encode longe
 
 |Attention matrix|Info|
 |:-:|:---------:|
-|![Attention matrix](https://raw.githubusercontent.com/perticascatalin/Research/master/RelationalPROG/images/attention_matrix.png)|Source: 10.3. Displays how much should the hidden state obtained when processing the j-th english word contribute to predicting the i-th french word.|
+|![Attention matrix](https://raw.githubusercontent.com/perticascatalin/Research/master/RelationalPROG/images/attention_matrix.png)|Source: Bahdanau et al. [16]. Displays how much should the hidden state obtained when processing the j-th english word contribute to predicting the i-th french word.|
 
 |MAC Attention map|Info|
 |:-:|:---------:|
-|![MAC Attention map](https://raw.githubusercontent.com/perticascatalin/Research/master/RelationalPROG/images/mac_attention.png)|Source: 5.2. 3-steps reasoning based on the interaction of the memory, attention and control units.|
+|![MAC Attention map](https://raw.githubusercontent.com/perticascatalin/Research/master/RelationalPROG/images/mac_attention.png)|Source: Hudson & Manning [4]. 3-steps reasoning based on the interaction of the memory, attention and control units.|
 
-##### 9.1.3 SortNet vs. RN (5.1)
+##### 9.1.3 SortNet vs. RN (Santoro et al. [5])
 
 **SortNet steps** (2019 experiments)
 
@@ -46,7 +46,7 @@ Both the SortNet and the RN learn relations between objects in the input, but th
 
 Debate on how MLP would implement logic in RN.
 
-##### 9.1.4 RN (5.1) vs MAC (5.2)
+##### 9.1.4 RN (Santoro et al. [5]) vs MAC (Hudson & Manning [4])
 
 The relational function learned at the level of paired objects (CNN feature maps) in the RN model is very similar at the conceptual level with the attention function learned in the seq2seq model for pairs of words in different languages.
 
@@ -62,21 +62,7 @@ The cognitive process of designing a program to solve a problem is a highly comp
 
 How are questions generated in a programming setup?
 
-### 10. Additional studies / learning material
-
-#### More imprtant papers
-
-[1. Sequence to Sequence Learning with Neural Networks](https://arxiv.org/pdf/1409.3215.pdf)
-
-[2. Competition-Level Code Generation with AlphaCode](https://storage.googleapis.com/deepmind-media/AlphaCode/competition_level_code_generation_with_alphacode.pdf) [+](https://www.deepmind.com/blog/competitive-programming-with-alphacode)
-
-[3. Neural Machine Translation by Jointly Learning to Align and Translate](https://arxiv.org/pdf/1409.0473.pdf)
-
-[4. Fast Transformer Decoding](https://arxiv.org/pdf/1911.02150.pdf)
-
-[5. Show, Attend and Tell](https://arxiv.org/pdf/1502.03044.pdf)
-
-#### Tutorials and supporting documentation
+### 10. Tutorials and supporting documentation
 
 [A. LSTM and Attention](https://medium.com/swlh/a-simple-overview-of-rnn-lstm-and-attention-mechanism-9e844763d07b)
 
