@@ -63,8 +63,8 @@ def neural_net(x, inputs, num_classes, num_labels, dropout, reuse, is_training):
 	with tf.variable_scope('NeuralNet', reuse = reuse):
 		# Comparison results by activation under baseline model (on simple data)
 		# Sigmoid 6.6 
-		# Relu X (not converge)
 		# Tanh 8.8
+		# Relu X (no converge)
 		# Layers: first is input-dense with dropout, last is dense-classes no dropout
 
 		# Define first layer
