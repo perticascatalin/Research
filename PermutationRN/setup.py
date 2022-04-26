@@ -14,12 +14,12 @@ num_out_classes = num_classes
 
 # Number of arrays to generate
 
-#num_samples = 60000 # default
+num_samples = 60000 # default
 #num_samples = 10000
 #num_samples = 8000 # (counter experiment)
 #num_samples = 2000 # (comparator experiment)
 #num_samples = 120000# (R plus experiment)
-num_samples = 100
+#num_samples = 100
 
 # Maximum number in array
 maxint = 50
