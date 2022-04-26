@@ -1,6 +1,6 @@
 ## Relational reasoning in deep learning: a parallel between solving visual and programming tasks
 
-### A Comparison of relational and compositional machine learning models (part 1)
+### 8. A Comparison of relational and compositional machine learning models (part 1)
 
 Based on the literature studied so far (and the experiments performed in 2019) we can start highlighting some similarities between the deep learning models which aim to perform relational reasoning / inference. Generally, the shortcomings in capturing relational properties from a dataset by a machine learning model are due to the lack of proper design and/or prior knowledge. However, this problem manifests itself differently depending on the case. Let us take a look at 2 well known examples.
 
@@ -27,7 +27,7 @@ One problem with this model was that it was not capable to properly encode longe
 |:-:|:---------:|
 |![MAC Attention map](https://raw.githubusercontent.com/perticascatalin/Research/master/RelationalPROG/images/mac_attention.png)|Source: Hudson & Manning [4]. 3-steps reasoning based on the interaction of the memory, attention and control units.|
 
-#### 8.1.3 Tutorials and supporting documentation
+#### 8.3 Tutorials and supporting documentation
 
 [A. LSTM and Attention](https://medium.com/swlh/a-simple-overview-of-rnn-lstm-and-attention-mechanism-9e844763d07b)
 
@@ -60,7 +60,7 @@ Debate on how MLP would implement logic in RN.
 
 The relational function learned at the level of paired objects (CNN feature maps) in the RN model is very similar at the conceptual level with the attention function learned in the seq2seq model for pairs of words in different languages.
 
-### 10 Relational reasoning and question answering in programming
+### 10. Relational reasoning and question answering in programming
 
 #### 10.1 Relational input-output pairs
 
