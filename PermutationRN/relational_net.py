@@ -68,15 +68,15 @@ def relational_net(x, inputs, n_classes, num_labels, dropout, reuse, is_training
 
 	return outputs, inputs
 
-lsts_train, orders_train = gen.data_by_type(data_type)
-print "GENERATE TRAINING DATA"
+lsts_train, orders_train = gen.data_by_type(data_type, is_training = True)
+print "GENERATED TRAINING DATA"
 
 lsts_train = tf.convert_to_tensor(lsts_train, dtype = tf.float32)
 orders_train = tf.convert_to_tensor(orders_train, dtype = tf.int32)
 lsts_train, orders_train = tf.train.slice_input_producer([lsts_train, orders_train], shuffle = True)
 
-lsts_val, orders_val = gen.data_by_type(data_type)
-print "GENERATE VALIDATION DATA"
+lsts_val, orders_val = gen.data_by_type(data_type, is_training = False)
+print "GENERATED VALIDATION DATA"
 
 lsts_val = tf.convert_to_tensor(lsts_val, dtype = tf.float32)
 orders_val = tf.convert_to_tensor(orders_val, dtype = tf.int32)

@@ -15,7 +15,7 @@ N_CLASSES = stp.num_classes
 N_OUT_CLASSES = stp.num_out_classes
 
 # Re-representation with relational features (not used explicitly)
-N_FEAT = (N_CLASSES*(N_CLASSES - 1))/2
+#N_FEAT = (N_CLASSES*(N_CLASSES - 1))/2
 
 # Data re-representation
 data_type = stp.data_type
@@ -23,17 +23,9 @@ data_type = stp.data_type
 # Model name for saving results
 #model_name = "baseline"
 #model_name = "design"
-#model_name = "single"
-#model_name = "baseline_less_drop"
-model_name = "lis"
-
-# Model names and their description
-# a_10 - baseline model data 10
-# ac_10 - baseline model order_relations 10
-# D_20,24,28,30 -> [400,200] with comparisons and N = 20,24,28,30
-# E_30 -> [1000,200] with comparisons and N = 30
-# F_30,20 flat 1 layer -> [1000][400] and N = 30, 20
-# G_30,20 flat 1 layer -> [30][20] and N = 30, 20
+#model_name = "lis"
+model_name = "test" # 10
+model_name = "test_20"
 
 # General dropout, initially applied to all layers
 dropout = 0.0
@@ -62,9 +54,7 @@ num_layers = len(layer_neurons)
 def neural_net(x, inputs, num_classes, num_labels, dropout, reuse, is_training):
 	with tf.variable_scope('NeuralNet', reuse = reuse):
 		# Comparison results by activation under baseline model (on simple data)
-		# Sigmoid 6.6 
-		# Tanh 8.8
-		# Relu X (no converge)
+		# Sigmoid: 6.6, Tanh: 8.8, Relu: X (no convergence)
 		# Layers: first is input-dense with dropout, last is dense-classes no dropout
 
 		# Define first layer
@@ -94,16 +84,16 @@ def neural_net(x, inputs, num_classes, num_labels, dropout, reuse, is_training):
 
 	return outputs, inputs
 
-lsts_train, orders_train = gen.data_by_type(data_type)
-print "GENERATE TRAINING DATA"
+lsts_train, orders_train = gen.data_by_type(data_type, is_training = True)
+print "GENERATED TRAINING DATA"
 
 # Convert generated training data into tensors
 lsts_train = tf.convert_to_tensor(lsts_train, dtype = tf.float32)
 orders_train = tf.convert_to_tensor(orders_train, dtype = tf.int32)
 lsts_train, orders_train = tf.train.slice_input_producer([lsts_train, orders_train], shuffle = True)
 
-lsts_val, orders_val = gen.data_by_type(data_type)
-print "GENERATE VALIDATION DATA"
+lsts_val, orders_val = gen.data_by_type(data_type, is_training = False)
+print "GENERATED VALIDATION DATA"
 
 # Convert generated validation data into tensors
 lsts_val = tf.convert_to_tensor(lsts_val, dtype = tf.float32)
@@ -167,7 +157,7 @@ with tf.Session() as sess:
 			training_accuracy = 0.0
 			validation_accuracy = 0.0
 
-			# Each step walks thorugh 100 & batch_size number of samples
+			# Each step walks through 100 x batch_size number of samples
 			# Covers 12800/60000 = ~20% of dataset in an interation
 			for i in range(100):
 				loss, acc_train, acc_val = sess.run([loss_op, accuracy_train, accuracy_val])

@@ -90,17 +90,6 @@ def comparator():
 		orders.append(order)
 	return lsts, orders
 
-# Just numbers
-def data(dtype = 'int'):
-	lsts, orders = list(), list()
-	for i in range(1,N_SAMPLES+1):
-		lst, order = gen_list(dtype)
-		lsts.append(lst)
-		orders.append(order)
-		if i % 1000 == 0:
-			print "Generated", i, 'samples'
-	return lsts, orders
-
 # Longest increasing sequence
 def gen_lis():
 	lst, order = list(), list()
@@ -118,9 +107,9 @@ def gen_lis():
 	return lst, order
 
 # Longest increasing sequence
-def lis_data():
+def lis_data(n_samples):
 	lsts, orders = list(), list()
-	for i in range(1,N_SAMPLES+1):
+	for i in range(1,n_samples+1):
 		lst, order = gen_lis()
 		lsts.append(lst)
 		orders.append(order)
@@ -129,9 +118,9 @@ def lis_data():
 	return lsts, orders
 
 # Minimum
-def simple_data():
+def simple_data(n_samples):
 	lsts, orders = list(), list()
-	for i in range(1,N_SAMPLES+1):
+	for i in range(1,n_samples+1):
 		lst, mins = gen_ith(1)
 		lsts.append(lst)
 		orders.append(mins)
@@ -139,10 +128,21 @@ def simple_data():
 			print "Generated", i, 'samples'
 	return lsts, orders
 
-# Just order relations
-def order_relations():
+# Just numbers
+def data(n_samples):
 	lsts, orders = list(), list()
-	for i in range(1,N_SAMPLES+1):
+	for i in range(1,n_samples+1):
+		lst, order = gen_list('int')
+		lsts.append(lst)
+		orders.append(order)
+		if i % 1000 == 0:
+			print "Generated", i, 'samples'
+	return lsts, orders
+
+# Just order relations
+def order_relations(n_samples):
+	lsts, orders = list(), list()
+	for i in range(1,n_samples+1):
 		lst, order = gen_list('int')
 		c_lst = list()
 		for j in range(N_CLASSES - 1):
@@ -158,9 +158,9 @@ def order_relations():
 	return lsts, orders
 
 # Numbers and Order Relations
-def all_data():
+def all_data(n_samples):
 	lsts, orders = list(), list()
-	for i in range(1,N_SAMPLES+1):
+	for i in range(1,n_samples+1):
 		lst, order = gen_list('int')
 		c_lst = lst
 		for j in range(N_CLASSES - 1):
@@ -176,19 +176,24 @@ def all_data():
 	return lsts, orders
 
 # Get data by type
-def data_by_type(data_type):
+def data_by_type(data_type, is_training = True):
+	n_samples = N_SAMPLES
+	if not is_training:
+		# Only generate 20% of samples for validation
+		n_samples = n_samples / 5
+
 	if data_type == "lis":
 		print "LIS"
-		return lis_data()
-	if data_type == "data":
-		print "DATA"
-		return data()
-	if data_type == "simple_data":
+		return lis_data(n_samples)
+	elif data_type == "simple_data":
 		print "SIMPLE DATA"
-		return simple_data()
+		return simple_data(n_samples)
+	elif data_type == "data":
+		print "DATA"
+		return data(n_samples)
 	elif data_type == "order_relations":
 		print "ORDER RELATIONS"
-		return order_relations()
+		return order_relations(n_samples)
 	elif data_type == "all":
 		print "ALL DATA"
-		return all_data()
+		return all_data(n_samples)
