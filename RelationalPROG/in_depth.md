@@ -1,6 +1,6 @@
 ## Relational reasoning in deep learning: a parallel between solving visual and programming tasks
 
-### 5. Report on Bibliography
+### 5. Report on the initial Bibliography
 
 This report continues the study started in the [thesis proposal](https://github.com/perticascatalin/Research/blob/master/RelationalPROG/exec_abstract.md) by developing an in-depth analysis of the selected bibliography. The review on related literature is carried out with regards to our previously set research goals.
 
