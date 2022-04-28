@@ -230,13 +230,14 @@ def print_acc_design():
 	plt.savefig('./results/' + 'ad.png')
 	plt.clf()
 
-def print_ltv(A, B, C, x, filename):
+def print_ltv(A, B, C, D, x, filename):
 	plt.title('Loss and Accuracy', fontsize = 18)
 	plt.xlabel('# Steps', fontsize = 16)
 	plt.ylabel('% Value', fontsize = 16)
-	plt.plot(x, A, 'blue', linewidth = 1.0, label = 'Loss')
-	plt.plot(x, B, 'orange', linewidth = 1.0, label = 'Training Accuracy')
-	plt.plot(x, C, 'red', linewidth = 1.0, label = 'Validation Accuracy')
+	plt.plot(x, A, 'blue', linewidth = 1.0, label = 'Training Loss')
+	plt.plot(x, B, 'cyan', linewidth = 1.0, label = 'Validation Loss')
+	plt.plot(x, C, 'orange', linewidth = 1.0, label = 'Training Accuracy')
+	plt.plot(x, D, 'red', linewidth = 1.0, label = 'Validation Accuracy')
 	# Remove legend altogether
 	#plt.legend(loc = 'upper left')
 	plt.savefig('./results/loss_and_acc/' + filename)
