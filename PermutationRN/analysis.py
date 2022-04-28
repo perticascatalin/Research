@@ -279,7 +279,7 @@ def combine_plots(model_names, colors, target_metric, label_names, fig_name, tit
 	plt.xlabel('# Steps', fontsize = 16)
 	for (model_name, color, label_name) in zip(model_names, colors, label_names):
 		model_root = model_name + '_ml_'
-		for metric in ['steps', 'losses', 't_accs', 'v_accs']:
+		for metric in ['steps', 't_losses', 'v_losses', 't_accs', 'v_accs']:
 			if metric == target_metric:
 				val_filename = dir_name + model_root + metric + '.p'
 				step_filename = dir_name + model_root + 'steps' + '.p'

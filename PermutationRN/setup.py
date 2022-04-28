@@ -41,6 +41,7 @@ layer_dropout = [0.0]
 # 6. "counter"
 # 7. "lis"
 data_type = "data"
+#data_type = "order_relations"
 
 # Exception for number of output classes
 if data_type == "simple_data" or data_type == "comparator" or data_type == "counter":

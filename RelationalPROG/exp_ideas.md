@@ -47,6 +47,8 @@ One problem with this model was that it was not capable to properly encode longe
 - Prior Knowledge: eg. using the order relations as input
 - Relational Network: Design + Prior Knowledge - integrating the prior knowledge into a neural network's design without data transformation 
 
+**Problem Formulation**
+
 **Comparison**
 
 Both the SortNet and the RN learn relations between objects in the input, but the learning is modelled in a slightly different way.

@@ -24,7 +24,7 @@ data_type = stp.data_type
 #model_name = "baseline"
 #model_name = "design"
 #model_name = "lis"
-model_name = "test"
+model_name = "test2"
 
 # General dropout, initially applied to all layers
 dropout = 0.0
@@ -106,8 +106,6 @@ X_val, Y_val = tf.train.batch([lsts_val, orders_val], batch_size = batch_size, c
 # Define the logits for all datasets
 logits_train, y_train = neural_net(X, Y, N_OUT_CLASSES, N_CLASSES, dropout, reuse = False, is_training = True)
 logits_test, y_test = neural_net(X, Y, N_OUT_CLASSES, N_CLASSES, dropout, reuse = True, is_training = False)
-# Note: valt is val with is_training set to True, important for getting the actual validation loss
-# Similar to train vs test
 logits_valt, y_valt = neural_net(X_val, Y_val, N_OUT_CLASSES, N_CLASSES, dropout, reuse = True, is_training = True)
 logits_val, y_val = neural_net(X_val, Y_val, N_OUT_CLASSES, N_CLASSES, dropout, reuse = True, is_training = False)
 
