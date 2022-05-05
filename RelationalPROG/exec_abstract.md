@@ -44,14 +44,17 @@ Thus, we arrive at another goal of this research, which is to explore the role o
 
 #### Extended
 
-|Dataset Name |Reference |Domain      |Input                 |Output                   |Description / Task (details) |Nat/Sync |
-|:-----------:|:--------:|:----------:|:--------------------:|:-----------------------:|:---------------------------:|:-------:|
-|Open Images  |3         |img         |img                   |bbox (pos) + rel (class) |rel between obj in img       |Yes      |
-|CLEVR        |4,5       |img, lang   |img + text (question) |word (class)             |rel vs non-rel questions     |Yes      |
-|Sort of CLEVR|-         |img         |img + multi-class     |word (class)             |...                          |No       |
-|ARC          |1,2       |?           |grid (multi-class)    |grid (multi-class)       |...                          |No       |
-|Dream Coder  |6         |DSL & other |?                     |?                        |program generation           |No       |
-|Deep Coder   |7         |DSL         |input-output pairs    |program from DSL         |program search               |No       |
+|Dataset Name |Reference |Domain      |Input                   |Output                   |Description / Task (details) |Nat/Sync |
+|:-----------:|:--------:|:----------:|:----------------------:|:-----------------------:|:---------------------------:|:-------:|
+|Open Images  |3         |img         |img                     |bbox (pos) + rel (class) |rel between obj in img       |Yes      |
+|CLEVR        |4,5       |img, lang   |img + txt (question)    |word (class)             |rel vs non-rel questions     |Yes      |
+|Sort of CLEVR|-         |img         |img + multi-class       |word (class)             |...                          |No       |
+|ARC          |1,2       |?           |grid (multi-class)      |grid (multi-class)       |...                          |No       |
+|Dream Coder  |6         |DSL & other |?                       |?                        |program generation           |No       |
+|Deep Coder   |7         |DSL         |input-output pairs      |program from DSL         |program search               |No       |
+|Alpha Code   |15        |source code |problem statement (txt) |code                     |program induction seq2seq    |Yes      |
+|Eng - Fr tbd |14, 16    |lang        |txt                     |txt                      |machine translation seq2seq  |Yes      |
+|Img descript?|18        |img, lang   |img                     |txt                      |image description            |Yes      |
 
 
 ### 4. References
