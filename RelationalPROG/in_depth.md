@@ -11,7 +11,7 @@ This report continues the study started in the [thesis proposal](https://github.
 
 **Content**
 
-[1. A simple Neural Network Model for Relational Reasoning](https://arxiv.org/pdf/1706.01427.pdf)
+[1. A Simple Neural Network Model for Relational Reasoning](https://arxiv.org/pdf/1706.01427.pdf)
 
 [2. Compositional Attention Networks for Machine Reasoning](https://arxiv.org/pdf/1803.03067.pdf)
 

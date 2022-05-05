@@ -30,15 +30,27 @@ Thus, we arrive at another goal of this research, which is to explore the role o
 |:---:|:------:|:--:|:---:|:---------:|
 |Mid Feb|2 weeks|10|Broad Research|Collect materials for thesis, discuss & decide theme|
 |March|2 weeks|30|In-Depth Understanding & Practice|Study material in detail, check techniques involved, practice on sample code, comparison of past results|
-|Mid March|6 weeks|18|Experiments & Evaluation of Results|Visual Rel., Abstr. & Reason., Deep Coder, Comparison on CLEVR, Neural Problem Solving|
+|Mid March|6 weeks|19.5|Experiments & Evaluation of Results|Visual Rel., Abstr. & Reason., Deep Coder, Comparison on CLEVR, Neural Problem Solving|
 |May|6 weeks|0|Thesis Elaboration|Designated for writing about findings, results, comparisons etc.|
 
 ### 3. Datasets
+
+#### 3.1 Version 1
 
 1. ARC - input & output grids (1, 2)
 2. Synthetic/collected datasets - programs, inputs & outputs, primitives, DSLs (6, 7)
 3. CLEVR - images (4, 5)
 4. Open Images (3)
+
+#### 3.2 Version 2
+
+|Name         |Reference     |Domain      |Input              |Output                   |Description (details)    |
+|:-----------:|:------------:|:----------:|:-----------------:|:-----------------------:|:-----------------------:|
+|CLEVR        |4,5           |image, lang |image + text       |word (class)             |rel vs non-rel questions |
+|Sort of CLEVR|-             |image       |image + multi-class|word (class)             |...                      |  
+|Open Images  |3             |image       |image              |bb (pos)  + rel (class)  |...                      |
+
+
 
 ### 4. References
 
