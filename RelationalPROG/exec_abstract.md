@@ -30,8 +30,51 @@ Thus, we arrive at another goal of this research, which is to explore the role o
 |:---:|:------:|:--:|:---:|:---------:|
 |Mid Feb|2 weeks|10|Broad Research|Collect materials for thesis, discuss & decide theme|
 |March|2 weeks|30|In-Depth Understanding & Practice|Study material in detail, check techniques involved, practice on sample code, comparison of past results|
-|Mid March|6 weeks|20|Experiments & Evaluation of Results|Visual Rel., Abstr. & Reason., Deep Coder, Comparison on CLEVR, Neural Problem Solving|
+|Mid March|6 weeks|25|Experiments & Evaluation of Results|Visual Rel., Abstr. & Reason., Deep Coder, Comparison on CLEVR, Neural Problem Solving|
 |May|6 weeks|0|Thesis Elaboration|Designated for writing about findings, results, comparisons etc.|
+
+#### Thesis Structure and Layout
+
+**Need to get the required template**
+
+##### Abstract
+
+Todo at the end
+
+##### 1. Outline
+
+Brief chapters description
+
+##### 2. Introduction
+
+*High level summary*
+Content from the executive abstract
+General background
+
+##### 3. Related work
+
+Content from the in depth analysis of the selected bibliography
+Specific background and concepts
+
+##### 4. Experimental results
+
+*Functional description*
+Content from the experimental ideas
+Problem formulation, models, analysis of results and comparison with other studies
+
+##### 5. Technical details
+
+Models, parameters, limitations, scalability
+
+##### 6. Applications
+
+Tbd if possible
+
+##### 7. Conclusions
+
+Todo at the end
+
+##### Bibliography
 
 ### 3. Datasets
 
@@ -49,6 +92,7 @@ Thus, we arrive at another goal of this research, which is to explore the role o
 |Open Images  |3         |img         |img                     |bbox (pos) + rel (class) |rel between obj in img       |Yes      |
 |CLEVR        |4,5       |img, lang   |img + txt (question)    |word (class)             |rel vs non-rel questions     |Yes      |
 |Sort of CLEVR|-         |img         |img + multi-class       |word (class)             |...                          |No       |
+|bAbi|5|QA|?|?|question answer|Yes|
 |ARC          |1,2       |?           |grid (multi-class)      |grid (multi-class)       |...                          |No       |
 |Dream Coder  |6         |DSL & other |?                       |?                        |program generation           |No       |
 |Deep Coder   |7         |DSL         |input-output pairs      |program from DSL         |program search               |No       |
