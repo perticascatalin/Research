@@ -35,49 +35,47 @@ Thus, we arrive at another goal of this research, which is to explore the role o
 
 #### Thesis Structure and Layout
 
-**Need to get the required template**
+**Note**: Need to get the required template
 
 ##### Abstract
 
-Todo at the end
+- Todo at the end
 
 ##### 1. Outline
 
-Brief chapters description
+- Brief chapters description
 
 ##### 2. Introduction
 
 *High level summary*
 
-Content from the executive abstract
-
-General background
+- Content from the executive abstract
+- General background
 
 ##### 3. Related work
 
-Content from the in depth analysis of the selected bibliography
-
-Specific background and concepts
+- Content from the in depth analysis of the selected bibliography
+- Specific background and concepts
 
 ##### 4. Experimental results
 
-*Functional description*
-
-Content from the experimental ideas
-
-Problem formulation, models, analysis of results and comparison with other studies
+- *Functional description*
+- Content from the experimental ideas
+- Problem formulation, models, analysis of results and comparison with other studies
 
 ##### 5. Technical details
 
-Models, parameters, limitations, scalability
+- Content from the practice report
+- Models, parameters, limitations, scalability
+- Libraries, modules
 
 ##### 6. Applications
 
-Tbd if possible
+- Tbd if possible
 
 ##### 7. Conclusions
 
-Todo at the end
+- Todo at the end
 
 ##### Bibliography
 
