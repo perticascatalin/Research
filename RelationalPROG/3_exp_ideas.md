@@ -70,9 +70,12 @@ Consider input-output pairs in IPS to be program states, which we can generate e
 
 #### 10.2 Program attributes as questions
 
-The cognitive process of designing a program to solve a problem is a highly complex task. Often times, it is a longer interactive process during which the solver has to ask a series of questions in order to arrive at the right programming technique and abstractions through meaningful decisions. Thus, the ability to ask meaningful questions seems to be a necessary component when trying to design a more general reasoning system.
-
-How are questions generated in a programming setup?
+The cognitive process of designing a program to solve a problem is a highly complex task. Often times, it is a longer interactive process during which the solver has to ask a series of questions in order to arrive at the right programming technique and abstractions through meaningful decisions. Thus, the ability to ask meaningful questions seems to be a necessary component when trying to design a more general reasoning system. To research how questions could be generated in a programming setup?
 
 ### 11. Directions in Program Induction
 
+#### 11.1 Latent Induction vs Code Synthesis
+
+#### 11.2 Specifications vs Input-Output Pairs
+
+#### 11.3 End-to-End Learning vs Intermediate Steps Prediction
