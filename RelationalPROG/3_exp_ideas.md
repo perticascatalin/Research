@@ -25,7 +25,7 @@ One problem with this model was that it was not capable to properly encode longe
 
 |MAC Attention map|Info|
 |:-:|:---------:|
-|![MAC Attention map](https://raw.githubusercontent.com/perticascatalin/Research/master/RelationalPROG/images/mac_attention.png)|Source: Hudson & Manning [4]. 3-steps reasoning based on the interaction of the memory, attention and control units.|
+|![MAC Attention map](https://raw.githubusercontent.com/perticascatalin/Research/master/RelationalPROG/images/mac_attention.png)|Source: Hudson & Manning [4]. 3-steps reasoning (MAC network of length 3)based on the interaction of the memory, attention and control units.|
 
 #### 8.3 Tutorials and supporting documentation
 
@@ -75,6 +75,14 @@ The cognitive process of designing a program to solve a problem is a highly comp
 ### 11. Directions in Program Induction
 
 #### 11.1 Latent Induction vs Code Synthesis
+
+The first important bifurcation in the approaches for generating programs is the choice of program representation. When a neural network learns to map input to output, thus solving a programming task, the program is stored in the network and executed by the network through neural activations. This is called latent program induction, because the representation of the generated program is not human-readable.
+
+The second choice is to formulate the problem such that the neural network outputs a program in a language, which is then executed to get the desired output. This is generally referred to as program synthesis.
+
+A comparison of the two approaches applied on string transformation problems is carried in Devlin et al. [21].
+
+Latent programs are written in the language of neural networks, whereas synthesized programs are written in a language of choice. Both approaches have shown success, however it is not possible to pick one that works best because they have different strengths. For instance, induction is more likely to provide a good approximation of the output function for the type of inputs provided, but might not generalize so well for new inputs. On the other hand, synthesis will either find the correct program and generalize the solution well for all inputs, or find the wrong solution which over-fits the presented input. Synthesis is thus more capable, but also the riskier approach.
 
 #### 11.2 Specifications vs Input-Output Pairs
 
