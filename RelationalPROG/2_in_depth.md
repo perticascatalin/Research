@@ -1,6 +1,6 @@
 ## Relational reasoning in deep learning: a parallel between solving visual and programming tasks
 
-### 5. Report on the initial Bibliography
+### 5. Report: Studies on the initial Bibliography
 
 This report continues the study started in the [thesis proposal](https://github.com/perticascatalin/Research/blob/master/RelationalPROG/exec_abstract.md) by developing an in-depth analysis of the selected bibliography. The review on related literature is carried out with regards to our previously set research goals.
 
@@ -20,8 +20,6 @@ This report continues the study started in the [thesis proposal](https://github.
 [4. Dream Coder: Growing generalizable, interpretable knowledge with wake-sleep Bayesian program learning](https://arxiv.org/pdf/2006.08381.pdf)
 
 [5. On the Measure of Intelligence](https://arxiv.org/pdf/1911.01547.pdf)
-
-### 6. Studies
 
 #### 1. A simple Neural Network Model for Relational Reasoning
 

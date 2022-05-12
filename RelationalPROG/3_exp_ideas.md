@@ -25,17 +25,13 @@ One problem with this model was that it was not capable to properly encode longe
 
 |MAC Attention map|Info|
 |:-:|:---------:|
-|![MAC Attention map](https://raw.githubusercontent.com/perticascatalin/Research/master/RelationalPROG/images/mac_attention.png)|Source: Hudson & Manning [4]. 3-steps reasoning (MAC network of length 3)based on the interaction of the memory, attention and control units.|
+|![MAC Attention map](https://raw.githubusercontent.com/perticascatalin/Research/master/RelationalPROG/images/mac_attention.png)|Source: Hudson & Manning [4]. 3-steps reasoning (MAC network of length 3) based on the interaction of the memory, attention and control units.|
 
 #### 8.3 Tutorials and supporting documentation
 
-[A. LSTM and Attention](https://medium.com/swlh/a-simple-overview-of-rnn-lstm-and-attention-mechanism-9e844763d07b)
+[A. LSTM, Encoder-Decoder and Attention](https://medium.com/swlh/a-simple-overview-of-rnn-lstm-and-attention-mechanism-9e844763d07b)[+](https://machinelearningmastery.com/how-does-attention-work-in-encoder-decoder-recurrent-neural-networks/)
 
-[B. Encoder-Decoder Attention](https://machinelearningmastery.com/how-does-attention-work-in-encoder-decoder-recurrent-neural-networks/)
-
-[C. Andrew Ng Tutorials](https://www.youtube.com/watch?v=RLWuzLLSIgw)
-
-[D. Recurrent Relational Networks](https://paperswithcode.com/paper/recurrent-relational-networks)
+[B. Andrew Ng Tutorials](https://www.youtube.com/watch?v=RLWuzLLSIgw)
 
 ### 9. A Comparison of relational and compositional machine learning models (part 2)
 
@@ -85,5 +81,9 @@ A comparison of the two approaches applied on string transformation problems is 
 Latent programs are written in the language of neural networks, whereas synthesized programs are written in a language of choice. Both approaches have shown success, however it is not possible to pick one that works best because they have different strengths. For instance, induction is more likely to provide a good approximation of the output function for the type of inputs provided, but might not generalize so well for new inputs. On the other hand, synthesis will either find the correct program and generalize the solution well for all inputs, or find the wrong solution which over-fits the presented input. Synthesis is thus more capable, but also the riskier approach.
 
 #### 11.2 Specifications vs Input-Output Pairs
+
+The second important ramification in formulating a program learning task is based on how the problem is conveyed to the network. Two directions are currently being extensively researched, one is to have specifications for solving the problem in natural language, the other is based on feeding the model with many input-output pairs.
+
+There are also hybrid methods, where both types of information are presented to the learning model. While Yin and Neubig [10] present a method for inferring code from specifications, Balog et al. [7] and Parisotto et al., [23] perform program synthesis based on input-output pairs. The methods in (Ling et al., 2016 add ref) and (Ling et al., 2017 add ref) are examples of hybrid approaches.
 
 #### 11.3 End-to-End Learning vs Intermediate Steps Prediction
