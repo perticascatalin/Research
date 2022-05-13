@@ -2,7 +2,7 @@
 
 ### 5. Report: Studies on the initial Bibliography
 
-This report continues the study started in the [thesis proposal](https://github.com/perticascatalin/Research/blob/master/RelationalPROG/exec_abstract.md) by developing an in-depth analysis of the selected bibliography. The review on related literature is carried out with regards to our previously set research goals.
+This report continues the study started in the [thesis proposal](https://github.com/perticascatalin/Research/blob/master/RelationalPROG/1_exec_abstract.md) by developing an in-depth analysis of the selected bibliography. The review on related literature is carried out with regards to our previously set research goals.
 
 **Overall Goals:**
 
@@ -21,9 +21,7 @@ This report continues the study started in the [thesis proposal](https://github.
 
 [5. On the Measure of Intelligence](https://arxiv.org/pdf/1911.01547.pdf)
 
-#### 1. A simple Neural Network Model for Relational Reasoning
-
-##### 1.1 High-Level Summary
+#### 5.1 A simple Neural Network Model for Relational Reasoning
 
 This study presents a general machine learning model used for solving relational tasks. The relational network (RN) model contains a built-in mechanism for capturing core common properties of relational reasoning. From this perspective, we can draw parallels to other machine learning models designed with different properties in mind, such as the well known:
 
@@ -79,36 +77,9 @@ Finally, the information about what constitues objects and how to parse the ques
 
 Sample open source [code](https://github.com/clvrai/Relation-Network-Tensorflow) applying RN to the Sort-of-CLEVR dataset.
 
-##### 1.2 Code Running Logs
+Code running logs: see [practice report](https://github.com/perticascatalin/Research/blob/master/RelationalPROG/4_practice_report.md)
 
-This repository is deprecated since Tensorflow2 (attempted to migrate to TF2, but got stuck at `contrib.layers.optimize_loss`, no equivalent in TF2). Revert to TF1. This implies reverting to Python 3.6, was using Python 3.8. Got stuck with pyenv, cannot revert to 3.6. Finally tried using Python 2.7, with Tensorflow 1.15, got a working version this way. Plots visualized via Tensorflow-Plot.
-
-- `sudo python2/python3 -m pip install package` (for python 2.7/3.8)
-- `python generator.py`
-- `python trainer.py`
-- `tensorboard --logdir ./train_dir`
-
-Tensorboard then provides us with a localhost link and we can look at training statistics in the browser:
-
-![Tensorboard](https://raw.githubusercontent.com/perticascatalin/Research/master/RelationalPROG/images/tensorboard.png)
-
-After 15.000 training steps, we take a look at the currently tested images and we can see that 3 of 4 questions were answered correctly:
-
-![Sample images](https://raw.githubusercontent.com/perticascatalin/Research/master/RelationalPROG/images/samples.png)
-
-After another 15.000 training steps the accuracy on the testing data reaches an average of 95%, while the loss drops to around 0.1:
-
-![Accuracy and Loss](https://raw.githubusercontent.com/perticascatalin/Research/master/RelationalPROG/images/loss_acc.png)
-
-This test run was performed on a dataset containing images with 4 objects. The images used have 128 x 128 pixels of various colors.
-
-The sizes of the images and the number of objects can be customized. The model's performance can be compared to baseline MLP/CNN models which do not use a relational function.
-
-**Note**: the evaluated implementation of the RN model does not process question embeddings.
-
-#### 2. Compositional Attention Networks for Machine Reasoning
-
-##### 2.1 High-Level Summary
+#### 5.2 Compositional Attention Networks for Machine Reasoning
 
 The study presents a recurrent neural network architecture which relies on structural constraints in order to guide the network towards compositional reasoning and to facilitate interpretability of the inferred results. The network is called MAC (memory, attention, composition) because of its specific architecture which separates control from memory and imposes structural constraints that regulate interaction. As opposed to the RN, which is a module, MAC is a network learning cell.
 
@@ -133,21 +104,11 @@ Other memory based approaches: (A. Graves et al. [12]). Example applications: gr
 
 Original open source [code](https://github.com/stanfordnlp/mac-network) implementation of MAC network.
 
-##### 2.2 Code Running Logs
+Code running logs: see [practice report](https://github.com/perticascatalin/Research/blob/master/RelationalPROG/4_practice_report.md)
 
-Encountered some problems with `imread` from `scipy.misc` when trying to extract the ResNet-101 features prerequisite for training. Probably solved, using `from PIL import Image` and replacing the reading and resizing functions accordingly.
+#### 5.3 Deep Coder: Learning to Write Programs
 
-Needed to install torch and torchvision. The code cannot run with tourch installed without CUDA enabled. Solved by removing `model.cuda()`.
-
-Checking a package version: eg. `import tensorflow as tf`, `tf.__version__`.
-
-Finally, managed to run the code for extracting features (using python2 because python 3 has tf version too much ahead), but since it's not running on GPUs, this process can be quite lenghty, estimated at around 4 hours for the whole dataset. So I limit the number of images from 70000 to 3000 just to see what happens.
-
-`python2 main.py --expName "clevrExperiment" --train --trainedNum 3000 --testedNum 3000 --epochs 25 --netLength 4 @configs/args.txt`
-
-#### 3. Deep Coder: Learning to Write Programs
-
-##### 3.1 High-Level Summary
+##### High-Level Summary
 
 This paper presents an approach to program induction involving the use of neural networks to predict the probability that certain methods (from a predefined DSL) appear in a program satisfying a set of given input-output constraints. These probabilities are then used to optimize the search for the program satisfying the input-output constraints.
 
@@ -171,7 +132,7 @@ Overall, the study showcases a potential solution to the IPS problem (Inductive 
 |:-------:|:----------:|
 |![Search](https://raw.githubusercontent.com/perticascatalin/Research/master/RelationalPROG/images/g_search.png)|![Times](https://raw.githubusercontent.com/perticascatalin/Research/master/RelationalPROG/images/dc_times.png)|
 
-##### 3.2 Programs Representation
+##### Programs Representation
 
 This section summarizes the scope of the DSL used in Deep Coder and briefly explains the complexity of using ASTs, which have the capability to represent general purpose programs and do not have to be synthetically generated, such as DSLs. They could be extracted from open source code instead.
 
@@ -208,9 +169,7 @@ We can notice that although only a few lines long, both programs require a signi
 
 Sample open source [code1](https://github.com/dkamm/deepcoder), [code2](https://github.com/HiroakiMikami/deep-coder) implementing Deep Coder.
 
-#### 4. Dream Coder: Growing generalizable, interpretable knowledge with wake-sleep Bayesian program learning
-
-##### 4.1 High-Level Summary
+#### 5.4 Dream Coder: Growing generalizable, interpretable knowledge with wake-sleep Bayesian program learning
 
 - a system that learns to solve problems by writing programs
 - start by using primitives to learn programs based on input-output pairs
@@ -224,9 +183,7 @@ Tasks:
 - drawing pictures, building scenes
 - rediscovers basics of modern functional programming, vector algebra, classical physics
 
-#### 5. On the Measure of Intelligence
-
-##### 5.1 High-Level Summary
+#### 5.5 On the Measure of Intelligence
 
 - the need to define & evaluate intelligence (capacity for reasoning) in a way that enables comparisons between 2 systems
 - 2 broad historical conceptions:
