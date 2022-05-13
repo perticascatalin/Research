@@ -3,7 +3,7 @@ import pickle
 import setup as stp
 
 # Setup experiment size and parameters
-N_CLASSES = stp.num_classes
+N_CLASSES = stp.num_labels
 N_SAMPLES = stp.num_samples
 MAXINT = stp.maxint
 

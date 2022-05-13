@@ -5,7 +5,7 @@ from mpl_toolkits.mplot3d import Axes3D
 import setup as stp
 import pickle
 
-N_CLASSES = stp.num_classes
+N_CLASSES = stp.num_labels
 N_OUT_CLASSES = stp.num_out_classes
 
 def debugger(correct_pred, logits, y_exp, x, second_choice = False):

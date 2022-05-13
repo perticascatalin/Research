@@ -12,6 +12,31 @@ What is particularly useful in this case is the fact that we do not have to trai
 
 *Implementation using python 2.7 and TensorFlow 1.15*
 
+```python
+import tensorflow as tf
+
+layer_neurons = [512,256]
+def neural_net(x, num_classes, num_labels, dropout, reuse, is_training):
+	with tf.variable_scope('NeuralNet', reuse = reuse):
+		layers = []
+		for i in range(0, num_layers):
+			last_layer = x if i == 0 else layers[-1]
+			this_layer = tf.layers.dense(last_layer, layer_neurons[i], activation = tf.nn.tanh)
+			this_layer = this_layer if i == num_layers - 1 else tf.layers.dropout(this_layer, rate = layer_dropout[i], training = is_training)
+			layers.append(this_layer)
+
+		# Define outputs (note: num_labels can differ by i)
+		outputs = []
+		for i in range(num_classes):
+			out_i = tf.layers.dense(this_layer, num_labels)
+			out_i = out_i if is_training else tf.nn.softmax(out_i)
+			outputs.append(out_i)
+
+	return outputs
+
+...
+```
+
 #### 10.2 Tasks
 
 #### 10.3 Frameworks

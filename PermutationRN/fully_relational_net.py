@@ -7,14 +7,13 @@ import setup as stp
 
 # Setup experiment size and parameters
 os.environ['TF_CPP_MIN_LOG_LEVEL']='2'
-N_CLASSES = stp.num_classes
+N_CLASSES = stp.num_labels
 N_OUT_CLASSES = stp.num_out_classes
 N_FEAT = (N_CLASSES*(N_CLASSES - 1))/2
 dropout = 0.0
 learning_rate = 0.001
 num_steps = 100000
 #num_steps = 200000
-#display_step = 1000
 display_step = 5000
 batch_size = 64
 layer_neurons = stp.layer_neurons

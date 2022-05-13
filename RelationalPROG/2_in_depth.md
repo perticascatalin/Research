@@ -15,11 +15,13 @@ This report continues the study started in the [thesis proposal](https://github.
 
 [2. Compositional Attention Networks for Machine Reasoning](https://arxiv.org/pdf/1803.03067.pdf)
 
-[3. Deep Coder: Learning to Write Programs](https://arxiv.org/pdf/1611.01989.pdf)
+[3. Recurrent Relational Networks](https://arxiv.org/pdf/1711.08028v4.pdf)
 
-[4. Dream Coder: Growing generalizable, interpretable knowledge with wake-sleep Bayesian program learning](https://arxiv.org/pdf/2006.08381.pdf)
+[4. Deep Coder: Learning to Write Programs](https://arxiv.org/pdf/1611.01989.pdf)
 
-[5. On the Measure of Intelligence](https://arxiv.org/pdf/1911.01547.pdf)
+[5. Dream Coder: Growing generalizable, interpretable knowledge with wake-sleep Bayesian program learning](https://arxiv.org/pdf/2006.08381.pdf)
+
+[6. On the Measure of Intelligence](https://arxiv.org/pdf/1911.01547.pdf)
 
 #### 4.1 A simple Neural Network Model for Relational Reasoning
 
@@ -106,7 +108,9 @@ Original open source [code](https://github.com/stanfordnlp/mac-network) implemen
 
 Code running logs: see [practice report](https://github.com/perticascatalin/Research/blob/master/RelationalPROG/4_practice_report.md)
 
-#### 4.3 Deep Coder: Learning to Write Programs
+#### 4.3 Recurrent Relational Networks
+
+#### 4.4 Deep Coder: Learning to Write Programs
 
 ##### High-Level Summary
 
@@ -169,7 +173,7 @@ We can notice that although only a few lines long, both programs require a signi
 
 Sample open source [code1](https://github.com/dkamm/deepcoder), [code2](https://github.com/HiroakiMikami/deep-coder) implementing Deep Coder.
 
-#### 4.4 Dream Coder: Growing generalizable, interpretable knowledge with wake-sleep Bayesian program learning
+#### 4.5 Dream Coder: Growing generalizable, interpretable knowledge with wake-sleep Bayesian program learning
 
 - a system that learns to solve problems by writing programs
 - start by using primitives to learn programs based on input-output pairs
@@ -183,7 +187,7 @@ Tasks:
 - drawing pictures, building scenes
 - rediscovers basics of modern functional programming, vector algebra, classical physics
 
-#### 4.5 On the Measure of Intelligence
+#### 4.6 On the Measure of Intelligence
 
 - the need to define & evaluate intelligence (capacity for reasoning) in a way that enables comparisons between 2 systems
 - 2 broad historical conceptions:

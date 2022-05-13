@@ -30,7 +30,7 @@ Thus, we arrive at another goal of this research, which is to explore the role o
 |:---:|:------:|:--:|:---:|:---------:|
 |Mid Feb|2 weeks|10|Broad Research|Collect materials for thesis, discuss & decide theme|
 |March|2 weeks|30|In-Depth Understanding & Practice|Study material in detail, check techniques involved, practice on sample code, comparison of past results|
-|Mid March|6 weeks|28 + 10|Experiments & Evaluation of Results|Visual Rel., Abstr. & Reason., Deep Coder, Comparison on CLEVR, Neural Problem Solving|
+|Mid March|6 weeks|28 + 14|Experiments & Evaluation of Results|Visual Rel., Abstr. & Reason., Deep Coder, Comparison on CLEVR, Neural Problem Solving|
 |May|6 weeks|0|Thesis Elaboration|Designated for writing about findings, results, comparisons etc.|
 
 #### Thesis Structure and Layout

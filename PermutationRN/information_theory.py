@@ -4,7 +4,7 @@ import analysis as co
 import generator as gen
 import setup as stp
 
-n = stp.num_classes
+n = stp.num_labels
 data_type = stp.data_type
 
 print 'num classes:', n

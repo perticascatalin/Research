@@ -9,7 +9,7 @@ import pdb
 
 # Setup experiment size and parameters
 os.environ['TF_CPP_MIN_LOG_LEVEL']='2'
-N_CLASSES = stp.num_classes
+N_CLASSES = stp.num_labels
 batch_size = 128
 data_type = "data"
 lsts_train, orders_train = gen.data()
