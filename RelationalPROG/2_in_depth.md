@@ -133,6 +133,14 @@ Other memory based approaches: (A. Graves et al. [12]). Example applications: gr
 
 Original open source [code](https://github.com/stanfordnlp/mac-network) implementation of MAC network.
 
+##### 2.2 Code Running Logs
+
+Encountered some problems with `imread` from `scipy.misc` when trying to extract the ResNet-101 features prerequisite for training. Probably solved, using `from PIL import Image` and replacing the reading and resizing functions accordingly.
+
+Needed to install torch and torchvision. The code cannot run with tourch installed without CUDA enabled. Solved by removing `model.cuda()`.
+
+Finally, managed to run the code for extracting features, but since it's not running on GPUs, this process can be quite lenghty, estimated at around 4 hours for the whole dataset. So I limit the number of images from 70000 to 3000 just to see what happens.
+
 #### 3. Deep Coder: Learning to Write Programs
 
 ##### 3.1 High-Level Summary
