@@ -59,7 +59,8 @@ Thus, we arrive at another goal of this research, which is to explore the role o
 
 ##### 4. Experimental results
 
-- *Functional description*
+*Functional description*
+
 - Content from the experimental ideas
 - Problem formulation, models, analysis of results and comparison with other studies
 
