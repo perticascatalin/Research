@@ -8,7 +8,7 @@ os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
 
 # Setup experiment size and parameters
 model_name    = "test"              # Model name for saving results
-N_LABELS      = stp.num_labels      # Array of N inputs (N_FEAT = (N_LABELS*(N_LABELS - 1))/2) if order relations
+N_LABELS      = stp.num_labels      # Array of N inputs, (N_FEAT = (N_LABELS*(N_LABELS - 1))/2) if order relations
 N_CLASSES     = stp.num_out_classes # Array of N or other number of outputs
 data_type     = stp.data_type       # Data re-representation
 layer_neurons = stp.layer_neurons   # Array with number of neurons per layer
@@ -125,7 +125,7 @@ with tf.Session() as sess:
 					correct_pred, logits, y_exp, x = sess.run([correct_pred_val, logits_val, Y_val, X_val])
 					co.debugger(correct_pred, logits, y_exp, x)
 					co.print_pretty(correct_pred, logits, y_exp, x, step)
-					# also count strictly correctly sorted (uncomment next line)
+					# Also count strictly correctly sorted (uncomment next line)
 					#co.print_pretty(correct_pred, logits, y_exp, x, step, True)
 				
 				training_loss += loss_train

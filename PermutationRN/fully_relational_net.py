@@ -4,26 +4,23 @@ import tensorflow as tf
 import analysis as co
 import generator as gen
 import setup as stp
+os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
 
 # Setup experiment size and parameters
-os.environ['TF_CPP_MIN_LOG_LEVEL']='2'
+model_name = "R_test"
 N_CLASSES = stp.num_labels
 N_OUT_CLASSES = stp.num_out_classes
 N_FEAT = (N_CLASSES*(N_CLASSES - 1))/2
-dropout = 0.0
 learning_rate = 0.001
 num_steps = 100000
-#num_steps = 200000
 display_step = 5000
 batch_size = 64
 layer_neurons = stp.layer_neurons
 layer_dropout = stp.layer_dropout
 num_layers = len(layer_neurons)
 data_type = stp.data_type
-#model_name = "R_plus"
-model_name = "R_test"
 
-def fully_relational_net(x, inputs, n_classes, num_labels, dropout, reuse, is_training):
+def fully_relational_net(x, inputs, n_classes, num_labels, reuse, is_training):
 	with tf.variable_scope('FullyRelationalNet', reuse = reuse):
 
 		inputs = tf.cast(inputs, dtype = tf.float32)
@@ -83,10 +80,10 @@ lsts_val, orders_val = tf.train.slice_input_producer([lsts_val, orders_val], shu
 X, Y = tf.train.batch([lsts_train, orders_train], batch_size = batch_size, capacity = batch_size * 8, num_threads = 4)
 X_val, Y_val = tf.train.batch([lsts_val, orders_val], batch_size = batch_size, capacity = batch_size * 8, num_threads = 4)
 
-logits_train, y_train = fully_relational_net(X, Y, N_OUT_CLASSES, N_CLASSES, dropout, reuse = False, is_training = True)
-logits_test, y_test = fully_relational_net(X, Y, N_OUT_CLASSES, N_CLASSES, dropout, reuse = True, is_training = False)
-logits_valt, y_valt = fully_relational_net(X_val, Y_val, N_OUT_CLASSES, N_CLASSES, dropout, reuse = True, is_training = True)
-logits_val, y_val = fully_relational_net(X_val, Y_val, N_OUT_CLASSES, N_CLASSES, dropout, reuse = True, is_training = False)
+logits_train, y_train = fully_relational_net(X, Y, N_OUT_CLASSES, N_CLASSES, reuse = False, is_training = True)
+logits_test, y_test = fully_relational_net(X, Y, N_OUT_CLASSES, N_CLASSES, reuse = True, is_training = False)
+logits_valt, y_valt = fully_relational_net(X_val, Y_val, N_OUT_CLASSES, N_CLASSES, reuse = True, is_training = True)
+logits_val, y_val = fully_relational_net(X_val, Y_val, N_OUT_CLASSES, N_CLASSES, reuse = True, is_training = False)
 
 train_loss_op = tf.constant(0.0, dtype = tf.float32)
 for i in range(N_OUT_CLASSES):
@@ -179,10 +176,11 @@ with tf.Session() as sess:
 	pickle.dump(train_accs, open('./data/stats/' + model_name + '_ml_t_accs.p', 'wb'))
 	pickle.dump(val_accs, open('./data/stats/' + model_name + '_ml_v_accs.p', 'wb'))
 	pickle.dump(steps, open('./data/stats/' + model_name + '_ml_steps.p', 'wb'))
-	# Or just plot it
+
+	# Plot data and save model
 	co.print_ltv(train_losses, val_losses, train_accs, val_accs, steps, model_name + '_sample.png')
-	# Save your model
 	saver.save(sess, './checkpts/')
+
 	# Stop threads
 	coord.request_stop()
 	coord.join(threads)
