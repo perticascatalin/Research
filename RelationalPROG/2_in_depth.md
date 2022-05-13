@@ -83,7 +83,7 @@ Sample open source [code](https://github.com/clvrai/Relation-Network-Tensorflow)
 
 This repository is deprecated since Tensorflow2 (attempted to migrate to TF2, but got stuck at `contrib.layers.optimize_loss`, no equivalent in TF2). Revert to TF1. This implies reverting to Python 3.6, was using Python 3.8. Got stuck with pyenv, cannot revert to 3.6. Finally tried using Python 2.7, with Tensorflow 1.15, got a working version this way. Plots visualized via Tensorflow-Plot.
 
-- `sudo python/python3 -m pip install package` (for python 2.7/3.8)
+- `sudo python2/python3 -m pip install package` (for python 2.7/3.8)
 - `python generator.py`
 - `python trainer.py`
 - `tensorboard --logdir ./train_dir`
@@ -139,7 +139,11 @@ Encountered some problems with `imread` from `scipy.misc` when trying to extract
 
 Needed to install torch and torchvision. The code cannot run with tourch installed without CUDA enabled. Solved by removing `model.cuda()`.
 
-Finally, managed to run the code for extracting features, but since it's not running on GPUs, this process can be quite lenghty, estimated at around 4 hours for the whole dataset. So I limit the number of images from 70000 to 3000 just to see what happens.
+Checking a package version: eg. `import tensorflow as tf`, `tf.__version__`.
+
+Finally, managed to run the code for extracting features (using python2 because python 3 has tf version too much ahead), but since it's not running on GPUs, this process can be quite lenghty, estimated at around 4 hours for the whole dataset. So I limit the number of images from 70000 to 3000 just to see what happens.
+
+`python2 main.py --expName "clevrExperiment" --train --trainedNum 3000 --testedNum 3000 --epochs 25 --netLength 4 @configs/args.txt`
 
 #### 3. Deep Coder: Learning to Write Programs
 
