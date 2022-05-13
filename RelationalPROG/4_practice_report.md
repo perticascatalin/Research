@@ -16,6 +16,8 @@ What is particularly useful in this case is the fact that we do not have to trai
 import tensorflow as tf
 
 layer_neurons = [512,256]
+
+# Defining the neural network
 def neural_net(x, num_classes, num_labels, dropout, reuse, is_training):
 	with tf.variable_scope('NeuralNet', reuse = reuse):
 		layers = []
@@ -42,6 +44,19 @@ def neural_net(x, num_classes, num_labels, dropout, reuse, is_training):
 #### 10.3 Frameworks
 
 ##### Tensorflow
+
+###### V1
+
+**Functions:**
+
+```python
+tf.variable_scope
+tf.layers.dense
+tf.layers.dropout
+tf.nn.softmax
+```
+
+###### V2
 
 #### 10.4 Pre-Processing
 

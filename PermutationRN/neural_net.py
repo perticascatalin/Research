@@ -42,18 +42,14 @@ def neural_net(x, num_classes, num_labels, dropout, reuse, is_training):
 
 	return outputs
 
+print "GENERATE TRAINING DATA"
 lsts_train, orders_train = gen.data_by_type(data_type, is_training = True)
-print "GENERATED TRAINING DATA"
-
-# Convert generated training data into tensors
 lsts_train = tf.convert_to_tensor(lsts_train, dtype = tf.float32)
 orders_train = tf.convert_to_tensor(orders_train, dtype = tf.int32)
 lsts_train, orders_train = tf.train.slice_input_producer([lsts_train, orders_train], shuffle = True)
 
+print "GENERATE VALIDATION DATA"
 lsts_val, orders_val = gen.data_by_type(data_type, is_training = False)
-print "GENERATED VALIDATION DATA"
-
-# Convert generated validation data into tensors
 lsts_val = tf.convert_to_tensor(lsts_val, dtype = tf.float32)
 orders_val = tf.convert_to_tensor(orders_val, dtype = tf.int32)
 lsts_val, orders_val = tf.train.slice_input_producer([lsts_val, orders_val], shuffle = True)
