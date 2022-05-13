@@ -12,15 +12,14 @@ N_LABELS      = stp.num_labels      # Array of N inputs (N_FEAT = (N_LABELS*(N_L
 N_CLASSES     = stp.num_out_classes # Array of N or other number of outputs
 data_type     = stp.data_type       # Data re-representation
 layer_neurons = stp.layer_neurons   # Array with number of neurons per layer
-layer_dropout = stp.layer_dropout   # Array with dropout proportions from first layer to before last layer
+layer_dropout = stp.layer_dropout   # Array with dropouts for all layers but last
 num_layers    = len(layer_neurons)  # Number of layers
-dropout       = 0.0                 # General dropout, initially applied to all layers
 learning_rate = 0.001               # Learning rate, inflences convergence of model (larger or smaller jumps in gradient descent)
 num_steps     = 100000              # The number of training steps
 display_step  = 5000                # Displays loss, accuracy and sample classification every display_step iterations
 batch_size    = 128                 # Number of samples per training step
 
-def neural_net(x, num_classes, num_labels, dropout, reuse, is_training):
+def neural_net(x, num_classes, num_labels, reuse, is_training):
 	with tf.variable_scope('NeuralNet', reuse = reuse):
 		# Comparative results by activation under baseline model (on simple data)
 		# Sigmoid: 6.6, Tanh: 8.8, Relu: X (no convergence)
@@ -59,10 +58,10 @@ X, Y = tf.train.batch([lsts_train, orders_train], batch_size = batch_size, capac
 X_val, Y_val = tf.train.batch([lsts_val, orders_val], batch_size = batch_size, capacity = batch_size * 8, num_threads = 4)
 
 # Define the logits for all datasets
-logits_train = neural_net(X,     N_CLASSES, N_LABELS, dropout, reuse = False, is_training = True)
-logits_test  = neural_net(X,     N_CLASSES, N_LABELS, dropout, reuse = True,  is_training = False)
-logits_valt  = neural_net(X_val, N_CLASSES, N_LABELS, dropout, reuse = True,  is_training = True)
-logits_val   = neural_net(X_val, N_CLASSES, N_LABELS, dropout, reuse = True,  is_training = False)
+logits_train = neural_net(X,     N_CLASSES, N_LABELS, reuse = False, is_training = True)
+logits_test  = neural_net(X,     N_CLASSES, N_LABELS, reuse = True,  is_training = False)
+logits_valt  = neural_net(X_val, N_CLASSES, N_LABELS, reuse = True,  is_training = True)
+logits_val   = neural_net(X_val, N_CLASSES, N_LABELS, reuse = True,  is_training = False)
 
 # Define the loss operation
 train_loss_op = tf.constant(0.0, dtype = tf.float32)
@@ -161,10 +160,11 @@ with tf.Session() as sess:
 	pickle.dump(train_accs, open('./data/stats/' + model_name + '_ml_t_accs.p', 'wb'))
 	pickle.dump(val_accs, open('./data/stats/' + model_name + '_ml_v_accs.p', 'wb'))
 	pickle.dump(steps, open('./data/stats/' + model_name + '_ml_steps.p', 'wb'))
-	# Or just plot it
+
+	# Plot data and save model
 	co.print_ltv(train_losses, val_losses, train_accs, val_accs, steps, model_name + '_sample.png')
-	# Save your model
 	saver.save(sess, './checkpts/')
+
 	# Stop threads
 	coord.request_stop()
 	coord.join(threads)

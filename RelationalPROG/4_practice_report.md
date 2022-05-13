@@ -18,7 +18,7 @@ import tensorflow as tf
 layer_neurons = [512,256]
 
 # Defining the neural network
-def neural_net(x, num_classes, num_labels, dropout, reuse, is_training):
+def neural_net(x, num_classes, num_labels, reuse, is_training):
 	with tf.variable_scope('NeuralNet', reuse = reuse):
 		layers = []
 		for i in range(0, num_layers):
