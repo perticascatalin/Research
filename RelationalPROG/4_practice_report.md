@@ -1,10 +1,10 @@
 ## Relational reasoning in deep learning: a parallel between solving visual and programming tasks
 
-### 12. Report on practice (technical details)
+### 10. Report on practice (technical details)
 
-#### 12.1 Models
+#### 10.1 Models
 
-##### 12.1.1 Multi-label Multi-class Neural Network
+##### 10.1.1 Multi-label Multi-class Neural Network
 
 The model accepts N inputs and M outputs for training and performs standard classification tasks. This architecture could be viewed as modelling a fixed seq2seq task or as an array-like input (sample with N features) mapped to an array-like output consisting of various classes of labels (M classes, eg. color, shape and size for M = 3), each with its own set of labels (red, green and blue; small and large, etc.).
 
@@ -12,21 +12,19 @@ What is particularly useful in this case is the fact that we do not have to trai
 
 *Implementation using python 2.7 and TensorFlow 1.15*
 
+#### 10.2 Tasks
 
-
-#### 12.2 Tasks
-
-#### 12.3 Frameworks
+#### 10.3 Frameworks
 
 ##### Tensorflow
 
-#### 12.4 Pre-Processing
+#### 10.4 Pre-Processing
 
 ##### AST
 
 ##### DOM
 
-#### 12.5 Open Source Repositories
+#### 10.5 Open Source Repositories
 
 ##### Relational Network
 
@@ -35,8 +33,8 @@ Sample open source [code](https://github.com/clvrai/Relation-Network-Tensorflow)
 This repository is deprecated since Tensorflow2 (attempted to migrate to TF2, but got stuck at `contrib.layers.optimize_loss`, no equivalent in TF2). Revert to TF1. This implies reverting to Python 3.6, was using Python 3.8. Got stuck with pyenv, cannot revert to 3.6. Finally tried using Python 2.7, with Tensorflow 1.15, got a working version this way. Plots visualized via Tensorflow-Plot.
 
 - `sudo python2/python3 -m pip install package` (for python 2.7/3.8)
-- `python generator.py`
-- `python trainer.py`
+- `python2 generator.py`
+- `python2 trainer.py`
 - `tensorboard --logdir ./train_dir`
 
 Tensorboard then provides us with a localhost link and we can look at training statistics in the browser:

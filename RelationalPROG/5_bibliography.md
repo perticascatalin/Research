@@ -1,6 +1,6 @@
 ## Relational reasoning in deep learning: a parallel between solving visual and programming tasks
 
-### 13. References
+### 11. References
 
 1. [Abstraction & Reasoning Challenge, Kaggle 2020](https://www.kaggle.com/c/abstraction-and-reasoning-challenge)
 2. [On the Measure of Intelligence, 2019](https://arxiv.org/pdf/1911.01547.pdf)

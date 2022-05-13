@@ -1,6 +1,6 @@
 ## Relational reasoning in deep learning: a parallel between solving visual and programming tasks
 
-### 5. Report: Studies on the initial Bibliography
+### 4. Report: Studies on the initial Bibliography
 
 This report continues the study started in the [thesis proposal](https://github.com/perticascatalin/Research/blob/master/RelationalPROG/1_exec_abstract.md) by developing an in-depth analysis of the selected bibliography. The review on related literature is carried out with regards to our previously set research goals.
 
@@ -21,7 +21,7 @@ This report continues the study started in the [thesis proposal](https://github.
 
 [5. On the Measure of Intelligence](https://arxiv.org/pdf/1911.01547.pdf)
 
-#### 5.1 A simple Neural Network Model for Relational Reasoning
+#### 4.1 A simple Neural Network Model for Relational Reasoning
 
 This study presents a general machine learning model used for solving relational tasks. The relational network (RN) model contains a built-in mechanism for capturing core common properties of relational reasoning. From this perspective, we can draw parallels to other machine learning models designed with different properties in mind, such as the well known:
 
@@ -79,7 +79,7 @@ Sample open source [code](https://github.com/clvrai/Relation-Network-Tensorflow)
 
 Code running logs: see [practice report](https://github.com/perticascatalin/Research/blob/master/RelationalPROG/4_practice_report.md)
 
-#### 5.2 Compositional Attention Networks for Machine Reasoning
+#### 4.2 Compositional Attention Networks for Machine Reasoning
 
 The study presents a recurrent neural network architecture which relies on structural constraints in order to guide the network towards compositional reasoning and to facilitate interpretability of the inferred results. The network is called MAC (memory, attention, composition) because of its specific architecture which separates control from memory and imposes structural constraints that regulate interaction. As opposed to the RN, which is a module, MAC is a network learning cell.
 
@@ -106,7 +106,7 @@ Original open source [code](https://github.com/stanfordnlp/mac-network) implemen
 
 Code running logs: see [practice report](https://github.com/perticascatalin/Research/blob/master/RelationalPROG/4_practice_report.md)
 
-#### 5.3 Deep Coder: Learning to Write Programs
+#### 4.3 Deep Coder: Learning to Write Programs
 
 ##### High-Level Summary
 
@@ -169,7 +169,7 @@ We can notice that although only a few lines long, both programs require a signi
 
 Sample open source [code1](https://github.com/dkamm/deepcoder), [code2](https://github.com/HiroakiMikami/deep-coder) implementing Deep Coder.
 
-#### 5.4 Dream Coder: Growing generalizable, interpretable knowledge with wake-sleep Bayesian program learning
+#### 4.4 Dream Coder: Growing generalizable, interpretable knowledge with wake-sleep Bayesian program learning
 
 - a system that learns to solve problems by writing programs
 - start by using primitives to learn programs based on input-output pairs
@@ -183,7 +183,7 @@ Tasks:
 - drawing pictures, building scenes
 - rediscovers basics of modern functional programming, vector algebra, classical physics
 
-#### 5.5 On the Measure of Intelligence
+#### 4.5 On the Measure of Intelligence
 
 - the need to define & evaluate intelligence (capacity for reasoning) in a way that enables comparisons between 2 systems
 - 2 broad historical conceptions:
@@ -194,7 +194,7 @@ Tasks:
 - highlight on concepts (critical pieces in intelligent systems) such as: scope, generalization difficulty, priors & experience
 - overall, the study offers a more phylosophical, but grounded in research view on intelligence and makes a case for the design of general AI benchmark datasets  
 
-### 7. Definitions and Notes
+### 5. Definitions and Notes
 
 1. **Relational Reasoning**: the capacity to reason about and find solutions to problems involving a set of objects which are related to one another through some properties that need to be discovered.
 
