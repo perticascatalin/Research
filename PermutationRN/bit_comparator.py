@@ -4,9 +4,9 @@ import tensorflow as tf
 import analysis as co
 import generator as gen
 import config as conf
+os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
 
 # Setup experiment size and parameters
-os.environ['TF_CPP_MIN_LOG_LEVEL']='2'
 learning_rate = 0.002
 num_steps = 8000
 display_step = 10

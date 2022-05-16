@@ -6,9 +6,9 @@ import analysis as co
 import generator as gen
 import config as conf
 import pdb
+os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
 
 # Setup experiment size and parameters
-os.environ['TF_CPP_MIN_LOG_LEVEL']='2'
 N_CLASSES = conf.num_inputs
 batch_size = 128
 data_type = "data"

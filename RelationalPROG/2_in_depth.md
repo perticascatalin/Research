@@ -110,6 +110,8 @@ Code running logs: see [practice report](https://github.com/perticascatalin/Rese
 
 #### 4.3 Recurrent Relational Networks
 
+TODO
+
 #### 4.4 Deep Coder: Learning to Write Programs
 
 ##### High-Level Summary
