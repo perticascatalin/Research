@@ -176,10 +176,11 @@ with tf.Session() as sess:
 	pickle.dump(train_accs, open('./data/stats/' + model_name + '_ml_t_accs.p', 'wb'))
 	pickle.dump(val_accs, open('./data/stats/' + model_name + '_ml_v_accs.p', 'wb'))
 	pickle.dump(steps, open('./data/stats/' + model_name + '_ml_steps.p', 'wb'))
-	# Or just plot it
+
+	# Plot data and save model
 	co.print_ltv(train_losses, val_losses, train_accs, val_accs, steps, model_name + '_sample.png')
-	# Save your model
 	saver.save(sess, './checkpts/')
+
 	# Stop threads
 	coord.request_stop()
 	coord.join(threads)
