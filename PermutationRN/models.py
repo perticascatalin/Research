@@ -17,3 +17,32 @@ def neural_net(x, num_classes, num_labels, layer_neurons, layer_dropout, reuse, 
 			out_i = out_i if is_training else tf.nn.softmax(out_i)
 			outputs.append(out_i)
 	return outputs
+
+def conv_relational_net(x, num_classes, num_labels, batch_size, reuse, is_training):
+	with tf.variable_scope('ConvRelationalNet', reuse = reuse):
+		units_1 = []
+		for i in range(num_classes):
+			for j in range(num_classes):
+				# Combine 2 input units into a relational unit
+				a_unit = tf.slice(x, [0,i], [batch_size,1])
+				b_unit = tf.slice(x, [0,j], [batch_size,1])
+				rel_unit = tf.concat([a_unit, b_unit], 1)
+				units_1.append(rel_unit)
+		# Stack and create last dim channel [batch_sz, 2, NxN, 1]
+		units_1a = tf.expand_dims(tf.stack(units_1, axis = 2), 3)
+		# Aggregate pairs with a convolution: results in a [batch_sz, 1, NxN, 8] Tensor
+		# num_channels: 8, filters, strides, same or valid
+		# same or valid: "SAME will output the same input length, while VALID will not add zero padding"
+		units_1b = tf.layers.conv2d(units_1a, 8, [2,1], [2,1], 'same', activation = 'relu')
+		# Aggregate rows with a convolution: results in a [batch_sz, 1, Nx1, 4] Tensor
+		# num_channels: 4, filters, strides, same or valid
+		units_2 = tf.layers.conv2d(units_1b, 4, [1,num_classes], [1,num_classes], 'same', activation = 'relu')
+		# Flatten: results in a [batch_sz, 4*N] Tensor
+		units_3 = tf.contrib.layers.flatten(units_2)
+		# Define outputs: N softmaxes with N classes
+		outputs = []
+		for i in range(num_classes):
+			out_i = tf.layers.dense(units_3, num_labels)
+			out_i = out_i if is_training else tf.nn.softmax(out_i)
+			outputs.append(out_i)
+	return outputs

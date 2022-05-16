@@ -1,18 +1,17 @@
 # INPUT NUMBER OF CLASSES
-#num_inputs = 32 # (fully relational experiment)
+#num_inputs = 30 # (relational experiment)
 #num_inputs = 20 # (baseline experiment)
 #num_inputs = 3  # (counter experiment)
 #num_inputs = 2  # (comparator experiment)
-num_inputs = 10
+num_inputs = 30
 
 # OUTPUT NUMBER OF CLASSES
 num_outputs = num_inputs
 
 # Number of arrays to generate
-#num_samples = 100000 # (baseline experiment)
+num_samples = 60000 # (baseline experiment)
 #num_samples = 8000  # (counter experiment)
 #num_samples = 2000  # (comparator experiment)
-num_samples = 10000
 
 maxint = 50  # Maximum number in array
 n_estim = 96 # Number of estimators for decision tree forests
@@ -24,8 +23,10 @@ n_estim = 96 # Number of estimators for decision tree forests
 #layer_dropout = [0.6, 0.6]
 
 # Design NN
-#layer_neurons = [1000, 200] 
-layer_neurons = [400, 200] #(typical for N = 20)
+#layer_neurons = [400, 200] #(typical for N = 20)
+#layer_neurons = [256, 160]
+#layer_neurons = [100, 100]
+layer_neurons = [900, 300]
 layer_dropout = [0.0]
 
 # Uncomment to set single layer NN

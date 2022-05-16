@@ -38,6 +38,40 @@ def neural_net(x, num_classes, num_labels, layer_neurons, layer_dropout, reuse, 
 	return outputs
 ```
 
+##### 10.1.2 Convolutionally Relational Neural Network
+
+*Implementation using python 2.7 and TensorFlow 1.15*
+
+```python
+import tensorflow as tf
+
+def conv_relational_net(x, num_classes, num_labels, reuse, is_training):
+	with tf.variable_scope('ConvRelationalNet', reuse = reuse):
+		units_1 = []
+		for i in range(num_classes):
+			for j in range(num_classes):
+				# Combine 2 input units into a relational unit
+				a_unit = tf.slice(x, [0,i], [batch_size,1])
+				b_unit = tf.slice(x, [0,j], [batch_size,1])
+				rel_unit = tf.concat([a_unit, b_unit], 1)
+				units_1.append(rel_unit)
+		# Stack and create last dim channel [batch_sz, 2, NxN, 1]
+		units_1a = tf.expand_dims(tf.stack(units_1, axis = 2), 3)
+		# Aggregate pairs with a convolution: results in a [batch_sz, 1, NxN, 8] Tensor
+		units_1b = tf.layers.conv2d(units_1a, 8, [2,1], [2,1], 'same', activation = 'relu')
+		# Aggregate rows with a convolution: results in a [batch_sz, 1, Nx1, 4] Tensor
+		units_2 = tf.layers.conv2d(units_1b, 4, [1,num_classes], [1,num_classes], 'same', activation = 'relu')
+		# Flatten: results in a [batch_sz, 4*N] Tensor
+		units_3 = tf.contrib.layers.flatten(units_2)
+		# Define outputs: N softmaxes with N classes
+		outputs = []
+		for i in range(num_classes):
+			out_i = tf.layers.dense(units_3, num_labels)
+			out_i = tf.nn.softmax(out_i) if not is_training else out_i
+			outputs.append(out_i)
+	return outputs
+```
+
 #### 10.2 Tasks
 
 #### 10.3 Frameworks
@@ -52,7 +86,13 @@ def neural_net(x, num_classes, num_labels, layer_neurons, layer_dropout, reuse, 
 tf.variable_scope
 tf.layers.dense
 tf.layers.dropout
+tf.layers.conv2d
 tf.nn.softmax
+tf.contrib.layers.flatten
+
+tf.slice
+tf.concat
+
 ```
 
 ###### V2

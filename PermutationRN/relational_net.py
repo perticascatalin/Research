@@ -18,19 +18,16 @@ layer_neurons = conf.layer_neurons
 layer_dropout = conf.layer_dropout
 num_layers = len(layer_neurons)
 data_type = conf.data_type
-model_name = "Q_test"
+model_name = "Q"
 
-def relational_net(x, inputs, n_classes, num_labels, reuse, is_training):
+def relational_net(x, num_classes, num_labels, reuse, is_training):
 	with tf.variable_scope('RelationalNet', reuse = reuse):
-
-		inputs = tf.cast(inputs, dtype = tf.float32)
-
 		units_1 = []
-		for i in range(n_classes):
-			for j in range(n_classes):
+		for i in range(num_classes):
+			for j in range(num_classes):
 				# Combine 2 input units into a relational unit
-				a_unit = tf.slice(inputs, [0,i], [batch_size,1])
-				b_unit = tf.slice(inputs, [0,j], [batch_size,1])
+				a_unit = tf.slice(x, [0,i], [batch_size,1])
+				b_unit = tf.slice(x, [0,j], [batch_size,1])
 				rel_unit = tf.layers.dense(tf.concat([a_unit, b_unit], 1), 1, activation = tf.nn.sigmoid)
 				units_1.append(rel_unit)
 
@@ -38,8 +35,8 @@ def relational_net(x, inputs, n_classes, num_labels, reuse, is_training):
 
 		# Combine a sequence of units into an aggregator unit
 		units_2 = []
-		for i in range(n_classes):
-			agg_unit = tf.concat(units_1[i*n_classes:(i+1)*n_classes], 1)
+		for i in range(num_classes):
+			agg_unit = tf.concat(units_1[i*num_classes:(i+1)*num_classes], 1)
 			units_2.append(agg_unit)
 
 		# Stack and create last dim channel 
@@ -48,35 +45,31 @@ def relational_net(x, inputs, n_classes, num_labels, reuse, is_training):
 		units_3 = tf.expand_dims(tf.stack(units_2, axis = 2), 3)
 		
 		# Aggregate with a convolution
-		# num_channels: 4 (random even small number)
+		# num_channels: 4
 		# filter, strides
 		# same or valid "SAME will output the same input length, while VALID will not add zero padding"
-		units_4 = tf.layers.conv2d(units_3, 4, [1,n_classes], [1,n_classes], 'same')
+		units_4 = tf.layers.conv2d(units_3, 4, [1,num_classes], [1,num_classes], 'same', activation = 'relu')
 
 		# Flatten: will result in [batch_sz,4*N] Tensor
 		units_5 = tf.contrib.layers.flatten(units_4)
 
 		# Define outputs: N softmaxes with N classes
-		outputs = list()
-		for i in range(n_classes):
+		outputs = []
+		for i in range(num_classes):
 			out_i = tf.layers.dense(units_5, num_labels)
 			out_i = tf.nn.softmax(out_i) if not is_training else out_i
 			outputs.append(out_i)
-		# These are the output units
-		# No dropout for now
 
 	return outputs
 
+print "GENERATE TRAINING DATA"
 lsts_train, orders_train = gen.data_by_type(data_type, is_training = True)
-print "GENERATED TRAINING DATA"
-
 lsts_train = tf.convert_to_tensor(lsts_train, dtype = tf.float32)
 orders_train = tf.convert_to_tensor(orders_train, dtype = tf.int32)
 lsts_train, orders_train = tf.train.slice_input_producer([lsts_train, orders_train], shuffle = True)
 
+print "GENERATE VALIDATION DATA"
 lsts_val, orders_val = gen.data_by_type(data_type, is_training = False)
-print "GENERATED VALIDATION DATA"
-
 lsts_val = tf.convert_to_tensor(lsts_val, dtype = tf.float32)
 orders_val = tf.convert_to_tensor(orders_val, dtype = tf.int32)
 lsts_val, orders_val = tf.train.slice_input_producer([lsts_val, orders_val], shuffle = True)
@@ -84,18 +77,16 @@ lsts_val, orders_val = tf.train.slice_input_producer([lsts_val, orders_val], shu
 X, Y = tf.train.batch([lsts_train, orders_train], batch_size = batch_size, capacity = batch_size * 8, num_threads = 4)
 X_val, Y_val = tf.train.batch([lsts_val, orders_val], batch_size = batch_size, capacity = batch_size * 8, num_threads = 4)
 
-logits_train = relational_net(X,     Y,     N_OUT_CLASSES, N_CLASSES, reuse = False, is_training = True)
-logits_test  = relational_net(X,     Y,     N_OUT_CLASSES, N_CLASSES, reuse = True, is_training = False)
-logits_valt  = relational_net(X_val, Y_val, N_OUT_CLASSES, N_CLASSES, reuse = True, is_training = True)
-logits_val   = relational_net(X_val, Y_val, N_OUT_CLASSES, N_CLASSES, reuse = True, is_training = False)
+logits_train = relational_net(X,     N_OUT_CLASSES, N_CLASSES, reuse = False, is_training = True)
+logits_test  = relational_net(X,     N_OUT_CLASSES, N_CLASSES, reuse = True, is_training = False)
+logits_valt  = relational_net(X_val, N_OUT_CLASSES, N_CLASSES, reuse = True, is_training = True)
+logits_val   = relational_net(X_val, N_OUT_CLASSES, N_CLASSES, reuse = True, is_training = False)
 
 train_loss_op = tf.constant(0.0, dtype = tf.float32)
+val_loss_op = tf.constant(0.0, dtype = tf.float32)
 for i in range(N_OUT_CLASSES):
 	train_loss_op = train_loss_op + tf.reduce_mean(tf.nn.sparse_softmax_cross_entropy_with_logits(\
 	logits = logits_train[i], labels = Y[:,i]))
-
-val_loss_op = tf.constant(0.0, dtype = tf.float32)
-for i in range(N_OUT_CLASSES):
 	val_loss_op = val_loss_op + tf.reduce_mean(tf.nn.sparse_softmax_cross_entropy_with_logits(\
 	logits = logits_valt[i], labels = Y_val[:,i]))
 
@@ -104,13 +95,11 @@ optimizer = tf.train.AdamOptimizer(learning_rate = learning_rate)
 train_op = optimizer.minimize(train_loss_op)
 
 correct_pred_train = tf.constant(0.0, dtype = tf.float32)
-for i in range(N_OUT_CLASSES):
-	correct_pred_train = correct_pred_train + tf.cast(tf.equal(tf.argmax(logits_test[i], 1), tf.cast(Y[:,i], tf.int64)), tf.float32)
-accuracy_train = tf.reduce_mean(correct_pred_train)
-
 correct_pred_val = tf.constant(0.0, dtype = tf.float32)
 for i in range(N_OUT_CLASSES):
+	correct_pred_train = correct_pred_train + tf.cast(tf.equal(tf.argmax(logits_test[i], 1), tf.cast(Y[:,i], tf.int64)), tf.float32)
 	correct_pred_val = correct_pred_val + tf.cast(tf.equal(tf.argmax(logits_val[i], 1), tf.cast(Y_val[:,i], tf.int64)), tf.float32)
+accuracy_train = tf.reduce_mean(correct_pred_train)
 accuracy_val = tf.reduce_mean(correct_pred_val)
 
 # Initialize the variables (i.e. assign their default value)
@@ -180,10 +169,11 @@ with tf.Session() as sess:
 	pickle.dump(train_accs, open('./data/stats/' + model_name + '_ml_t_accs.p', 'wb'))
 	pickle.dump(val_accs, open('./data/stats/' + model_name + '_ml_v_accs.p', 'wb'))
 	pickle.dump(steps, open('./data/stats/' + model_name + '_ml_steps.p', 'wb'))
-	# Or just plot it
+
+	# Plot data and save model
 	co.print_ltv(train_losses, val_losses, train_accs, val_accs, steps, model_name + '_sample.png')
-	# Save your model
 	saver.save(sess, './checkpts/')
+
 	# Stop threads
 	coord.request_stop()
 	coord.join(threads)
