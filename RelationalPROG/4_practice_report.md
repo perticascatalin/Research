@@ -113,6 +113,10 @@ def conv_relational_net(x, num_classes, num_labels, batch_size, reuse, is_traini
 
 ##### 10.2.1 Sorting an array of elements
 
+![Accuracy for N = 30](https://raw.githubusercontent.com/perticascatalin/Research/master/PermutationRN/results/all_30_acc.png)
+
+![Loss for N = 30](https://raw.githubusercontent.com/perticascatalin/Research/master/PermutationRN/results/all_30_loss.png)
+
 #### 10.3 Frameworks
 
 ##### Tensorflow
