@@ -4,6 +4,7 @@ import tensorflow as tf
 import analysis as co
 import generator as gen
 import config as conf
+import models as mod
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
 
 # Setup experiment size and parameters
@@ -20,48 +21,6 @@ num_layers = len(layer_neurons)
 data_type = conf.data_type
 model_name = "Q"
 
-def relational_net(x, num_classes, num_labels, reuse, is_training):
-	with tf.variable_scope('RelationalNet', reuse = reuse):
-		units_1 = []
-		for i in range(num_classes):
-			for j in range(num_classes):
-				# Combine 2 input units into a relational unit
-				a_unit = tf.slice(x, [0,i], [batch_size,1])
-				b_unit = tf.slice(x, [0,j], [batch_size,1])
-				rel_unit = tf.layers.dense(tf.concat([a_unit, b_unit], 1), 1, activation = tf.nn.sigmoid)
-				units_1.append(rel_unit)
-
-		# This part can also be treated in a convolutional manner
-
-		# Combine a sequence of units into an aggregator unit
-		units_2 = []
-		for i in range(num_classes):
-			agg_unit = tf.concat(units_1[i*num_classes:(i+1)*num_classes], 1)
-			units_2.append(agg_unit)
-
-		# Stack and create last dim channel 
-		# (for conv layer you need [batch_sz, height, width, channels] format)
-		# ([batch_sz, N, N, 1])
-		units_3 = tf.expand_dims(tf.stack(units_2, axis = 2), 3)
-		
-		# Aggregate with a convolution
-		# num_channels: 4
-		# filter, strides
-		# same or valid "SAME will output the same input length, while VALID will not add zero padding"
-		units_4 = tf.layers.conv2d(units_3, 4, [1,num_classes], [1,num_classes], 'same', activation = 'relu')
-
-		# Flatten: will result in [batch_sz,4*N] Tensor
-		units_5 = tf.contrib.layers.flatten(units_4)
-
-		# Define outputs: N softmaxes with N classes
-		outputs = []
-		for i in range(num_classes):
-			out_i = tf.layers.dense(units_5, num_labels)
-			out_i = tf.nn.softmax(out_i) if not is_training else out_i
-			outputs.append(out_i)
-
-	return outputs
-
 print "GENERATE TRAINING DATA"
 lsts_train, orders_train = gen.data_by_type(data_type, is_training = True)
 lsts_train = tf.convert_to_tensor(lsts_train, dtype = tf.float32)
@@ -77,10 +36,10 @@ lsts_val, orders_val = tf.train.slice_input_producer([lsts_val, orders_val], shu
 X, Y = tf.train.batch([lsts_train, orders_train], batch_size = batch_size, capacity = batch_size * 8, num_threads = 4)
 X_val, Y_val = tf.train.batch([lsts_val, orders_val], batch_size = batch_size, capacity = batch_size * 8, num_threads = 4)
 
-logits_train = relational_net(X,     N_OUT_CLASSES, N_CLASSES, reuse = False, is_training = True)
-logits_test  = relational_net(X,     N_OUT_CLASSES, N_CLASSES, reuse = True, is_training = False)
-logits_valt  = relational_net(X_val, N_OUT_CLASSES, N_CLASSES, reuse = True, is_training = True)
-logits_val   = relational_net(X_val, N_OUT_CLASSES, N_CLASSES, reuse = True, is_training = False)
+logits_train = mod.relational_net(X,     N_OUT_CLASSES, N_CLASSES, batch_size, reuse = False, is_training = True)
+logits_test  = mod.relational_net(X,     N_OUT_CLASSES, N_CLASSES, batch_size, reuse = True, is_training = False)
+logits_valt  = mod.relational_net(X_val, N_OUT_CLASSES, N_CLASSES, batch_size, reuse = True, is_training = True)
+logits_val   = mod.relational_net(X_val, N_OUT_CLASSES, N_CLASSES, batch_size, reuse = True, is_training = False)
 
 train_loss_op = tf.constant(0.0, dtype = tf.float32)
 val_loss_op = tf.constant(0.0, dtype = tf.float32)
