@@ -45,7 +45,7 @@ def neural_net(x, num_classes, num_labels, layer_neurons, layer_dropout, reuse, 
 ```python
 import tensorflow as tf
 
-def conv_relational_net(x, num_classes, num_labels, reuse, is_training):
+def conv_relational_net(x, num_classes, num_labels, batch_size, reuse, is_training):
 	with tf.variable_scope('ConvRelationalNet', reuse = reuse):
 		units_1 = []
 		for i in range(num_classes):
@@ -67,7 +67,7 @@ def conv_relational_net(x, num_classes, num_labels, reuse, is_training):
 		outputs = []
 		for i in range(num_classes):
 			out_i = tf.layers.dense(units_3, num_labels)
-			out_i = tf.nn.softmax(out_i) if not is_training else out_i
+			out_i = out_i if is_training else tf.nn.softmax(out_i)
 			outputs.append(out_i)
 	return outputs
 ```
