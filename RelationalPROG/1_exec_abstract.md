@@ -49,24 +49,24 @@ Thus, we arrive at another goal of this research, which is to explore the role o
 
 *High level summary*
 
-- Content from the executive abstract
+- Content from the executive abstract (Sections 1 - 3)
 - General background
 
 #### 3. Related work
 
-- Content from the in depth analysis of the selected bibliography
+- Content from the in depth analysis of the selected bibliography (Sections 4 - 5)
 - Specific background and concepts
 
 #### 4. Experimental results
 
 *Functional description*
 
-- Content from the experimental ideas
+- Content from the experimental ideas (Sections 6 - 9)
 - Problem formulation, models, analysis of results and comparison with other studies
 
 #### 5. Technical details
 
-- Content from the practice report
+- Content from the practice report (Section 10)
 - Models, parameters, limitations, scalability
 - Libraries, modules
 
