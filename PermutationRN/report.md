@@ -10,7 +10,7 @@ Objective: This document contains a brief introduction, the results from the fir
 
 **Table of Contents**:
 
-**Section 1** offers background and formulates the problem. **Section 2** offers an overview of the models tested in the experiments. **Sections 3-7** discusses results with baseline models (neural nets and decision trees), data re-representation (different datasets), the problem of scalability and how this relates to the problem complexity. **Sections 8-10** propose different solutions for improving the scalability and learning efficiency and provides supporting results. **Section 11** extracts the conclusions from the experiments. **Section 12** situates the importance of the experimental results in the larger goal. The bibilography offers a concise view of the readings involved in conducting this project.
+**Section 1** offers background and formulates the problem. **Section 2** offers an overview of the models tested in the experiments. **Sections 3-7** analyze results for baseline models (neural nets and decision trees), data re-representation (different datasets), the problem of scalability and how it relates to the problem complexity. **Sections 8-10** propose different solutions for improving the scalability and learning efficiency and provide supporting results. **Section 11** extracts the conclusions from the experiments. **Section 12** situates the importance of the experimental results in the larger goal. The bibilography offers a concise view of the readings involved in conducting this project.
 
 - **1. Introduction**
 - **2. Models**
@@ -181,8 +181,8 @@ Error range: +/- 1%
 |10  |NN  8.8    | 88% vs  95%          |+ 7% DC  |
 |11  |NN  6.3    | 57% vs  66%          |+ 9% DC  |
 |12  |NN  4.9    | 41% vs  44%          |+ 3% DC  |
-|16  |NN  3.4    | 21% vs  23%          |+ 2% DC,   start poor convergence|
-|20  |NN  1.0    |  5% vs   7%          |+ 2% DC, +18% with HP, stays same|
+|16  |NN  3.4    | 21% vs  23%          |+ 2% DC  |
+|20  |NN  1.0    |  5% vs   7%          |+ 2% DC  |
 
 - Basic Set
 - Hyperparams tuning necessary when too much diffusion
@@ -212,7 +212,7 @@ Error range: +/- 1%
 |11  |NN 8.1     | 74% vs  66%      |- 8% DC          |
 |12  |NN 7.3     | 61% vs  44%      |-17% DC          |
 |16  |NN 5.1     | 32% vs  23%      |- 9% DC          |
-|20  |NN 3.2     | 16% vs   7%      |- 9% DC fails converge|
+|20  |NN 3.2     | 16% vs   7%      |- 9% DC no convergence|
 
 - Set with total value abstraction
 - So far seems the most scalable (accuracy drops slower)
@@ -300,10 +300,10 @@ Then we look for changes in the models or the problem formulation that could hel
 
 - Q: relational net
 - R: fully relational net
-- net Q, D (Data), N28 (batch 64 = half) s4.4, 6.4, 7.6, 8.7, 9.8, 10.6 after finish 27.2 (0.97)
+- net Q, D (Data), N28 (batch 64 = half) at finish 27.2 (0.97)
 - net R, D (Data), N30 (batch 64 = half) at finish 20.1 (0.67)
 - net R, D (Data), N32 (batch 64 = half) at finish 19.6 (0.61)
-- net R plus (double data 120000, double iterations 200000), N30, after finish 23.5 (0.78)
+- net R plus (double data 120000, double iterations 200000), N30, at finish 23.5 (0.78)
 
 The SortNet model can be modified such that it has learnable weights an in principle could learn any total order relation between the array elements. For this reason we re-name it to RelationalNet.
 
