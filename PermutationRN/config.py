@@ -3,7 +3,7 @@
 #num_inputs = 20 # (baseline experiment)
 #num_inputs = 3  # (counter experiment)
 #num_inputs = 2  # (comparator experiment)
-num_inputs = 25
+num_inputs = 20
 
 # OUTPUT NUMBER OF CLASSES
 num_outputs = num_inputs
