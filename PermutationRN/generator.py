@@ -1,11 +1,11 @@
 import random
 import pickle
-import setup as stp
+import config as conf
 
 # Setup experiment size and parameters
-N_CLASSES = stp.num_labels
-N_SAMPLES = stp.num_samples
-MAXINT = stp.maxint
+N_CLASSES = conf.num_inputs
+N_SAMPLES = conf.num_samples
+MAXINT = conf.maxint
 
 # Additional number of features to generate alongside the data
 # Order relation pairs

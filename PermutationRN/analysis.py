@@ -2,11 +2,11 @@ import numpy as np
 import matplotlib.pyplot as plt
 import matplotlib.patches as mpatches
 from mpl_toolkits.mplot3d import Axes3D
-import setup as stp
+import config as conf
 import pickle
 
-N_CLASSES = stp.num_labels
-N_OUT_CLASSES = stp.num_out_classes
+N_CLASSES = conf.num_inputs
+N_OUT_CLASSES = conf.num_outputs
 
 def debugger(correct_pred, logits, y_exp, x, second_choice = False):
 	print (str(int(correct_pred[0])) + " out of " + str(N_OUT_CLASSES))

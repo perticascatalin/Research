@@ -212,7 +212,7 @@ Date Issued: 29.05
 
 Status: SOLVED
 
-Task: Cleanup setup
+Task: Cleanup config
 
 **TICKET 28**
 

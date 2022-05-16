@@ -3,44 +3,21 @@ import pickle
 import tensorflow as tf
 import analysis as co
 import generator as gen
-import setup as stp
+import config as conf
+import models as mod
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
 
 # Setup experiment size and parameters
-model_name    = "test"              # Model name for saving results
-N_LABELS      = stp.num_labels      # Array of N inputs (N_FEAT = (N_LABELS*(N_LABELS - 1))/2) if order relations
-N_CLASSES     = stp.num_out_classes # Array of N or other number of outputs
-data_type     = stp.data_type       # Data re-representation
-layer_neurons = stp.layer_neurons   # Array with number of neurons per layer
-layer_dropout = stp.layer_dropout   # Array with dropout proportions from first layer to before last layer
-num_layers    = len(layer_neurons)  # Number of layers
-dropout       = 0.0                 # General dropout, initially applied to all layers
-learning_rate = 0.001               # Learning rate, inflences convergence of model (larger or smaller jumps in gradient descent)
-num_steps     = 100000              # The number of training steps
-display_step  = 5000                # Displays loss, accuracy and sample classification every display_step iterations
-batch_size    = 128                 # Number of samples per training step
-
-def neural_net(x, num_classes, num_labels, dropout, reuse, is_training):
-	with tf.variable_scope('NeuralNet', reuse = reuse):
-		# Comparative results by activation under baseline model (on simple data)
-		# Sigmoid: 6.6, Tanh: 8.8, Relu: X (no convergence)
-		# Layers: first is input-dense with dropout, last is dense-classes no dropout
-
-		layers = []
-		for i in range(0, num_layers):
-			last_layer = x if i == 0 else layers[-1]
-			this_layer = tf.layers.dense(last_layer, layer_neurons[i], activation = tf.nn.tanh)
-			this_layer = this_layer if i == num_layers - 1 else tf.layers.dropout(this_layer, rate = layer_dropout[i], training = is_training)
-			layers.append(this_layer)
-
-		# Define outputs (note: num_labels can differ by i)
-		outputs = []
-		for i in range(num_classes):
-			out_i = tf.layers.dense(this_layer, num_labels)
-			out_i = out_i if is_training else tf.nn.softmax(out_i)
-			outputs.append(out_i)
-
-	return outputs
+model_name    = "test"               # Model name for saving results
+N_INPUTS      = conf.num_inputs      # Array of N inputs  (N_FEAT = (N_INPUTS*(N_INPUTS - 1))/2) if order relations
+N_OUTPUTS     = conf.num_outputs     # Array of N outputs (or some other number)
+data_type     = conf.data_type       # Data re-representation
+layer_neurons = conf.layer_neurons   # Array with number of neurons per layer
+layer_dropout = conf.layer_dropout   # Array with dropout proportions from first layer to before last layer
+num_steps     = 100000               # The number of training steps
+display_step  = 5000                 # Displays loss, accuracy and sample classification every display_step iterations
+batch_size    = 128                  # Number of samples per training step
+learning_rate = 0.001                # Learning rate, inflences convergence of model (larger or smaller jumps in gradient descent)
 
 print "GENERATE TRAINING DATA"
 lsts_train, orders_train = gen.data_by_type(data_type, is_training = True)
@@ -59,19 +36,17 @@ X, Y = tf.train.batch([lsts_train, orders_train], batch_size = batch_size, capac
 X_val, Y_val = tf.train.batch([lsts_val, orders_val], batch_size = batch_size, capacity = batch_size * 8, num_threads = 4)
 
 # Define the logits for all datasets
-logits_train = neural_net(X,     N_CLASSES, N_LABELS, dropout, reuse = False, is_training = True)
-logits_test  = neural_net(X,     N_CLASSES, N_LABELS, dropout, reuse = True,  is_training = False)
-logits_valt  = neural_net(X_val, N_CLASSES, N_LABELS, dropout, reuse = True,  is_training = True)
-logits_val   = neural_net(X_val, N_CLASSES, N_LABELS, dropout, reuse = True,  is_training = False)
+logits_train = mod.neural_net(X,     N_OUTPUTS, N_INPUTS, layer_neurons, layer_dropout, reuse = False, is_training = True)
+logits_test  = mod.neural_net(X,     N_OUTPUTS, N_INPUTS, layer_neurons, layer_dropout, reuse = True,  is_training = False)
+logits_valt  = mod.neural_net(X_val, N_OUTPUTS, N_INPUTS, layer_neurons, layer_dropout, reuse = True,  is_training = True)
+logits_val   = mod.neural_net(X_val, N_OUTPUTS, N_INPUTS, layer_neurons, layer_dropout, reuse = True,  is_training = False)
 
 # Define the loss operation
 train_loss_op = tf.constant(0.0, dtype = tf.float32)
-for i in range(N_CLASSES):
+val_loss_op = tf.constant(0.0, dtype = tf.float32)
+for i in range(N_OUTPUTS):
 	train_loss_op = train_loss_op + tf.reduce_mean(tf.nn.sparse_softmax_cross_entropy_with_logits(\
 	logits = logits_train[i], labels = Y[:,i]))
-
-val_loss_op = tf.constant(0.0, dtype = tf.float32)
-for i in range(N_CLASSES):
 	val_loss_op = val_loss_op + tf.reduce_mean(tf.nn.sparse_softmax_cross_entropy_with_logits(\
 	logits = logits_valt[i], labels = Y_val[:,i]))
 
@@ -79,17 +54,14 @@ for i in range(N_CLASSES):
 optimizer = tf.train.AdamOptimizer(learning_rate = learning_rate)
 train_op = optimizer.minimize(train_loss_op)
 
-# Define loss for prediction on training dataset
+# Define loss for prediction
 correct_pred_train = tf.constant(0.0, dtype = tf.float32)
-for i in range(N_CLASSES):
-	correct_pred_train = correct_pred_train + tf.cast(tf.equal(tf.argmax(logits_test[i], 1), tf.cast(Y[:,i], tf.int64)), tf.float32)
-accuracy_train = tf.reduce_mean(correct_pred_train)
-
-# Define loss for prediction on validation dataset
 correct_pred_val = tf.constant(0.0, dtype = tf.float32)
-for i in range(N_CLASSES):
+for i in range(N_OUTPUTS):
+	correct_pred_train = correct_pred_train + tf.cast(tf.equal(tf.argmax(logits_test[i], 1), tf.cast(Y[:,i], tf.int64)), tf.float32)
 	correct_pred_val = correct_pred_val + tf.cast(tf.equal(tf.argmax(logits_val[i], 1), tf.cast(Y_val[:,i], tf.int64)), tf.float32)
-accuracy_val = tf.reduce_mean(correct_pred_val)
+accuracy_train = tf.reduce_mean(correct_pred_train)
+accuracy_val = tf.reduce_mean(correct_pred_val)	
 
 # Initialize the variables (i.e. assign their default value)
 init = tf.global_variables_initializer()
@@ -119,15 +91,15 @@ with tf.Session() as sess:
 			validation_accuracy = 0.0
 
 			# Each step walks through 100 x batch_size number of samples
-			# Covers 12800/60000 = ~20% of dataset in an interation
+			# Covers 12800/60000 = ~20% of dataset per interation
 			for i in range(100):
 				loss_train, loss_val, acc_train, acc_val = sess.run([train_loss_op, val_loss_op, accuracy_train, accuracy_val])
 				if i == 0:
 					correct_pred, logits, y_exp, x = sess.run([correct_pred_val, logits_val, Y_val, X_val])
 					co.debugger(correct_pred, logits, y_exp, x)
 					co.print_pretty(correct_pred, logits, y_exp, x, step)
-					# also count strictly correctly sorted (uncomment next line)
-					#co.print_pretty(correct_pred, logits, y_exp, x, step, True)
+					# Also count strictly correctly sorted (uncomment next line)
+					# co.print_pretty(correct_pred, logits, y_exp, x, step, True)
 				
 				training_loss += loss_train
 				validation_loss += loss_val
@@ -147,8 +119,8 @@ with tf.Session() as sess:
 
 			train_losses.append(training_loss)
 			val_losses.append(validation_loss)
-			train_accs.append(100.0*training_accuracy/N_LABELS)
-			val_accs.append(100.0*validation_accuracy/N_LABELS)
+			train_accs.append(100.0*training_accuracy/N_INPUTS)
+			val_accs.append(100.0*validation_accuracy/N_INPUTS)
 			steps.append(step/1000)
 		else:
 			# Only run the optimization op (backprop)

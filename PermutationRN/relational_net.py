@@ -3,27 +3,24 @@ import pickle
 import tensorflow as tf
 import analysis as co
 import generator as gen
-import setup as stp
+import config as conf
+os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
 
 # Setup experiment size and parameters
-os.environ['TF_CPP_MIN_LOG_LEVEL']='2'
-N_CLASSES = stp.num_labels
-N_OUT_CLASSES = stp.num_out_classes
+N_CLASSES = conf.num_inputs
+N_OUT_CLASSES = conf.num_outputs
 N_FEAT = (N_CLASSES*(N_CLASSES - 1))/2
-dropout = 0.0
 learning_rate = 0.001
 num_steps = 100000
-#display_step = 1000
 display_step = 5000
 batch_size = 64
-layer_neurons = stp.layer_neurons
-layer_dropout = stp.layer_dropout
+layer_neurons = conf.layer_neurons
+layer_dropout = conf.layer_dropout
 num_layers = len(layer_neurons)
-data_type = stp.data_type
-#model_name = "Q"
+data_type = conf.data_type
 model_name = "Q_test"
 
-def relational_net(x, inputs, n_classes, num_labels, dropout, reuse, is_training):
+def relational_net(x, inputs, n_classes, num_labels, reuse, is_training):
 	with tf.variable_scope('RelationalNet', reuse = reuse):
 
 		inputs = tf.cast(inputs, dtype = tf.float32)
@@ -68,7 +65,7 @@ def relational_net(x, inputs, n_classes, num_labels, dropout, reuse, is_training
 		# These are the output units
 		# No dropout for now
 
-	return outputs, inputs
+	return outputs
 
 lsts_train, orders_train = gen.data_by_type(data_type, is_training = True)
 print "GENERATED TRAINING DATA"
@@ -87,10 +84,10 @@ lsts_val, orders_val = tf.train.slice_input_producer([lsts_val, orders_val], shu
 X, Y = tf.train.batch([lsts_train, orders_train], batch_size = batch_size, capacity = batch_size * 8, num_threads = 4)
 X_val, Y_val = tf.train.batch([lsts_val, orders_val], batch_size = batch_size, capacity = batch_size * 8, num_threads = 4)
 
-logits_train, y_train = relational_net(X, Y, N_OUT_CLASSES, N_CLASSES, dropout, reuse = False, is_training = True)
-logits_test, y_test = relational_net(X, Y, N_OUT_CLASSES, N_CLASSES, dropout, reuse = True, is_training = False)
-logits_valt, y_valt = relational_net(X_val, Y_val, N_OUT_CLASSES, N_CLASSES, dropout, reuse = True, is_training = True)
-logits_val, y_val = relational_net(X_val, Y_val, N_OUT_CLASSES, N_CLASSES, dropout, reuse = True, is_training = False)
+logits_train = relational_net(X,     Y,     N_OUT_CLASSES, N_CLASSES, reuse = False, is_training = True)
+logits_test  = relational_net(X,     Y,     N_OUT_CLASSES, N_CLASSES, reuse = True, is_training = False)
+logits_valt  = relational_net(X_val, Y_val, N_OUT_CLASSES, N_CLASSES, reuse = True, is_training = True)
+logits_val   = relational_net(X_val, Y_val, N_OUT_CLASSES, N_CLASSES, reuse = True, is_training = False)
 
 train_loss_op = tf.constant(0.0, dtype = tf.float32)
 for i in range(N_OUT_CLASSES):

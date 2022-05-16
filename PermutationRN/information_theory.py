@@ -2,10 +2,10 @@ import math
 
 import analysis as co
 import generator as gen
-import setup as stp
+import config as conf
 
-n = stp.num_labels
-data_type = stp.data_type
+n = conf.num_inputs
+data_type = conf.data_type
 
 print 'num classes:', n
 print 'data type:', data_type

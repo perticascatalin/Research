@@ -4,12 +4,12 @@ import tensorflow as tf
 import numpy as np
 import analysis as co
 import generator as gen
-import setup as stp
+import config as conf
 import pdb
 
 # Setup experiment size and parameters
 os.environ['TF_CPP_MIN_LOG_LEVEL']='2'
-N_CLASSES = stp.num_labels
+N_CLASSES = conf.num_inputs
 batch_size = 128
 data_type = "data"
 lsts_train, orders_train = gen.data()

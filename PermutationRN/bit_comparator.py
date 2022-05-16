@@ -3,7 +3,7 @@ import pickle
 import tensorflow as tf
 import analysis as co
 import generator as gen
-import setup as stp
+import config as conf
 
 # Setup experiment size and parameters
 os.environ['TF_CPP_MIN_LOG_LEVEL']='2'
