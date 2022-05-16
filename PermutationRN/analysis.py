@@ -272,8 +272,7 @@ def print_pretty(correct_pred, logits, y_exp, x, epoch, count_correct = False):
 			check_perm_validity(x[i], list(y_exp[i]), y_pred)
 		print 'Number of correctly sorted:', num_correct
 
-
-def combine_plots(model_names, colors, target_metric, label_names, fig_name, title_name):
+def combine_plots(model_names, label_names, colors, target_metric, fig_name, title_name, loc):
 	dir_name = './data/stats/'
 	plt.title(title_name, fontsize = 18)
 	plt.xlabel('# Steps', fontsize = 16)
@@ -286,9 +285,11 @@ def combine_plots(model_names, colors, target_metric, label_names, fig_name, tit
 				print 'Retrieve values from ' + val_filename
 				seq = pickle.load(open(val_filename, 'r'))
 				print seq
-				steps = np.linspace(1, 100000, 100)
+				# steps = np.linspace(1, 100000, 100)
+				steps = np.linspace(1, 100000, 20)
 				plt.plot(steps, seq, color, linewidth = 1.8, label = label_name)
-	plt.legend(loc = 'lower right')
+	# plt.legend(loc = 'lower right')
+	plt.legend(loc = loc)
 	plt.ylim([0, 105])
 	plt.savefig('./results/' + fig_name + '.png')
 	plt.clf()
@@ -311,3 +312,21 @@ def print_pickle(filename):
 #print_acc_scale_models()
 #print_acc_scale_data()
 #print_acc_design()
+
+def combine_plots_n(N):
+	model_names = ['base_data', 'base_or', 'test', 'Q', 'R']
+	model_names = model_names if N == 30 else map(lambda x: x + str(N), model_names)
+	displ_names = ['Baseline', 'Order Rel', 'Design', 'RelNet', 'ConvRelNet']
+	colors = ['r', 'g', 'c', 'b', 'm']
+
+	fig_name = 'all_' + str(N) + '_acc'
+	title_name = 'Accuracy N = ' + str(N)
+	loc = 'upper left'
+	combine_plots(model_names, displ_names, colors, 'v_accs', fig_name, title_name, loc)
+
+	fig_name = 'all_' + str(N) + '_loss'
+	title_name = 'Loss N = ' + str(N)
+	loc = 'upper right'
+	combine_plots(model_names, displ_names, colors, 'v_losses', fig_name, title_name, loc)
+
+combine_plots_n(30)
