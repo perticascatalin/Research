@@ -298,14 +298,14 @@ def print_pickle(filename):
 	seq = pickle.load(open(filename, 'r'))
 	print seq
 
-# combine_plots(['a_10', 'ac_10', 'b_10', 'bc_10'], ['r', 'b', 'g', 'm'], 'v_accs', \
-# 	['C-Baseline', 'C-Baseline (order rel)', 'C-Design', 'C-Design (order rel)'], 'asbs_10', 'Accuracy N = 10')
+# combine_plots(['a_10', 'ac_10', 'b_10', 'bc_10'], ['C-Baseline', 'C-Baseline (order rel)', 'C-Design', 'C-Design (order rel)'], \
+#	['r', 'b', 'g', 'm'], 'v_accs', 'asbs_10', 'Accuracy N = 10')
 
-# combine_plots(['b_10', 'bc_10', 'c_10', 'b_20', 'bc_20', 'c_20'], ['lightgreen', 'magenta', 'orange', 'green', 'blue', 'red'], 'v_accs', \
-# 	['C-Design 10', 'C-Design (order rel) 10', 'C-FRN 10', 'C-Design 20', 'C-Design (order rel) 20', 'C-FRN 20'], 'bscs_10_20', 'Accuracy N = 10, 20')
+# combine_plots(['b_10', 'bc_10', 'c_10', 'b_20', 'bc_20', 'c_20'], ['C-Design 10', 'C-Design (order rel) 10', 'C-FRN 10', 'C-Design 20', 'C-Design (order rel) 20', 'C-FRN 20'], \
+#	['lightgreen', 'magenta', 'orange', 'green', 'blue', 'red'], 'v_accs', 'bscs_10_20', 'Accuracy N = 10, 20')
 
-# combine_plots(['b_30', 'bc_30', 'c_30'], ['lightgreen', 'green', 'blue'], 'v_accs', \
-# 	['C-Design 30', 'C-Design (order rel) 30', 'C-FRN 30'], 'bscs_30', 'Accuracy N = 30')
+# combine_plots(['b_30', 'bc_30', 'c_30'], ['C-Design 30', 'C-Design (order rel) 30', 'C-FRN 30'], \
+#	['lightgreen', 'green', 'blue'], 'v_accs', 'bscs_30', 'Accuracy N = 30')
 
 #print_pickle('./data/stats/c_30_ml_v_accs.p')
 #print_barchart(list([10, 30, 20, 40, 50]), list([1, 3, 2, 4, 5]), list([1, 2, 3, 4, 5]), 'labels_0.png')
@@ -329,4 +329,4 @@ def combine_plots_n(N):
 	loc = 'upper right'
 	combine_plots(model_names, displ_names, colors, 'v_losses', fig_name, title_name, loc)
 
-combine_plots_n(30)
+# combine_plots_n(30)
