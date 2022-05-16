@@ -3,7 +3,7 @@
 #num_inputs = 20 # (baseline experiment)
 #num_inputs = 3  # (counter experiment)
 #num_inputs = 2  # (comparator experiment)
-num_inputs = 30
+num_inputs = 25
 
 # OUTPUT NUMBER OF CLASSES
 num_outputs = num_inputs
@@ -19,20 +19,21 @@ n_estim = 96 # Number of estimators for decision tree forests
 # Layer neurons and their dropout for neural network
 
 # Baseline NN
-#layer_neurons = [512, 256, 128]
-#layer_dropout = [0.6, 0.6]
+layer_neurons = [512, 256, 128]
+layer_dropout = [0.0, 0.0]
 
 # Design NN
-#layer_neurons = [400, 200] #(typical for N = 20)
-#layer_neurons = [256, 160]
-#layer_neurons = [100, 100]
-layer_neurons = [900, 300]
-layer_dropout = [0.0]
+# layer_neurons = [900, 300] # N = 30
+# layer_neurons = [625, 250] # N = 25
+# layer_neurons = [400, 200] # N = 20
+# layer_neurons = [225, 150] # N = 15
+# layer_neurons = [100, 100] # N = 10
+# layer_dropout = [0.0]
 
-# Uncomment to set single layer NN
-#layer_neurons = [400] #(typical for N = 20)
-#layer_neurons = [20]
-#layer_dropout = []
+# Single layer NN
+# layer_neurons = [400] # N = 20, N x N
+# layer_neurons = [20]  # N = 20, N
+# layer_dropout = []
 
 # The type of data
 # 1. "data"

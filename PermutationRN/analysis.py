@@ -314,10 +314,10 @@ def print_pickle(filename):
 #print_acc_design()
 
 def combine_plots_n(N):
-	model_names = ['base_data', 'base_or', 'test', 'Q', 'R']
-	model_names = model_names if N == 30 else map(lambda x: x + str(N), model_names)
-	displ_names = ['Baseline', 'Order Rel', 'Design', 'RelNet', 'ConvRelNet']
-	colors = ['r', 'g', 'c', 'b', 'm']
+	model_names = ['base_data', 'base_or', 'Q', 'R']
+	model_names = model_names if N == 30 else map(lambda x: x + '_' + str(N), model_names)
+	displ_names = ['Baseline', 'Order Rel', 'Rel Net', 'Conv Rel Net']
+	colors = ['r', 'g', 'b', 'm']
 
 	fig_name = 'all_' + str(N) + '_acc'
 	title_name = 'Accuracy N = ' + str(N)
@@ -330,3 +330,41 @@ def combine_plots_n(N):
 	combine_plots(model_names, displ_names, colors, 'v_losses', fig_name, title_name, loc)
 
 # combine_plots_n(30)
+
+def combine_plots_n_temp(N):
+	model_names = ['base_data', 'base_or', 'test']
+	model_names = model_names if N == 30 else map(lambda x: x + '_' + str(N), model_names)
+	displ_names = ['Baseline', 'Order Rel', 'Design']
+	colors = ['r', 'g', 'c']
+
+	fig_name = 'all_' + str(N) + '_acc'
+	title_name = 'Accuracy N = ' + str(N)
+	loc = 'upper left'
+	combine_plots(model_names, displ_names, colors, 'v_accs', fig_name, title_name, loc)
+
+	fig_name = 'all_' + str(N) + '_loss'
+	title_name = 'Loss N = ' + str(N)
+	loc = 'upper right'
+	combine_plots(model_names, displ_names, colors, 'v_losses', fig_name, title_name, loc)
+
+# combine_plots_n_temp(25)
+
+# Bla bla plot
+def print_acc_all():
+	ns = [10, 15, 20, 25, 30]
+	set_1 = [1.00, 1.00, 0.77, 0.57, 0.40]
+	set_2 = [1.00, 1.00, 1.00, 0.99, 0.80]
+	set_3 = [1.00, 1.00, 1.00, 0.99, 0.80]
+	set_4 = [1.00, 1.00, 1.00, 0.99, 0.80]
+	plt.title('Accuracy by Model', fontsize = 18)
+	plt.xlabel('# Elements', fontsize = 16)
+	plt.ylabel('% Correctly Guessed', fontsize = 16)
+	plt.plot(ns, set_1, 'red', linewidth = 2.8, label = 'Baseline')
+	plt.plot(ns, set_2, 'green', linewidth = 2.8, label = 'Order Rel')
+	plt.plot(ns, set_3, 'blue', linewidth = 2.8, label = 'Rel Net')
+	plt.plot(ns, set_4, 'magenta', linewidth = 2.8, label = 'Conv Rel Net')
+	plt.legend()
+	plt.savefig('./results/' + 'acc_all.png')
+	plt.clf()
+
+# print_acc_all()

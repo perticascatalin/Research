@@ -19,7 +19,7 @@ layer_neurons = conf.layer_neurons
 layer_dropout = conf.layer_dropout
 num_layers = len(layer_neurons)
 data_type = conf.data_type
-model_name = "Q"
+model_name = "Q_25"
 
 print "GENERATE TRAINING DATA"
 lsts_train, orders_train = gen.data_by_type(data_type, is_training = True)

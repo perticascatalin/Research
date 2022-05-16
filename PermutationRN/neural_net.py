@@ -99,7 +99,7 @@ with tf.Session() as sess:
 					co.debugger(correct_pred, logits, y_exp, x)
 					co.print_pretty(correct_pred, logits, y_exp, x, step)
 					# Also count strictly correctly sorted (uncomment next line)
-					#co.print_pretty(correct_pred, logits, y_exp, x, step, True)
+					# co.print_pretty(correct_pred, logits, y_exp, x, step, True)
 				
 				training_loss += loss_train
 				validation_loss += loss_val
