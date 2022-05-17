@@ -117,9 +117,19 @@ def conv_relational_net(x, num_classes, num_labels, batch_size, reuse, is_traini
 
 ##### 10.2.1 Sorting an array of elements
 
+**Input**: Array of N unique elements (integers) with values in the range [1,50].
+
+**Output**: Array of N values specifying the position of each element in the sorted array.
+
+**Description**: This task is relational because the outputs depend on how large an element is in comparison to the rest of the elements in the input array.
+
 ![Accuracy for N = 30](https://raw.githubusercontent.com/perticascatalin/Research/master/PermutationRN/results/all_30_acc.png)
 
 ![Loss for N = 30](https://raw.githubusercontent.com/perticascatalin/Research/master/PermutationRN/results/all_30_loss.png)
+
+![Accuracy all models, various N](https://raw.githubusercontent.com/perticascatalin/Research/master/PermutationRN/results/acc_all.png)
+
+**Legend**: TODO
 
 #### 10.3 Frameworks
 
@@ -146,6 +156,8 @@ tf.expand_dims
 ```
 
 ###### V2
+
+##### Keras
 
 #### 10.4 Pre-Processing
 
@@ -194,7 +206,19 @@ Needed to install torch and torchvision. The code cannot run with tourch install
 
 Checking a package version: eg. `import tensorflow as tf`, `tf.__version__`.
 
-Finally, managed to run the code for extracting features (using python2 because python 3 has tf version too much ahead), but since it's not running on GPUs, this process can be quite lenghty, estimated at around 4 hours for the whole dataset. So I limit the number of images from 70000 to 3000 just to see what happens.
+Finally, managed to run the code for extracting features (using python2 because python 3 has tf version too much ahead), but since it's not running on GPUs, this process can be quite lenghty, estimated at around 4 hours for the whole dataset.
+
+Dataset samples:
+
+|Sample 1|Sample 2|
+|:------:|:------:|
+|![Img 1](https://raw.githubusercontent.com/perticascatalin/Research/master/RelationalPROG/images/clevr_1.png)|![Img 2](https://raw.githubusercontent.com/perticascatalin/Research/master/RelationalPROG/images/clevr_2.png)
+
+Question words mapped to integers which can be one-hot encoded later on.
+
+![Word vector](https://raw.githubusercontent.com/perticascatalin/Research/master/RelationalPROG/images/word_vector.png)
+
+So I limit the number of images from 70000 to 3000 just to see what happens.
 
 `python2 main.py --expName "clevrExperiment" --train --trainedNum 3000 --testedNum 3000 --epochs 25 --netLength 4 @configs/args.txt`
 
