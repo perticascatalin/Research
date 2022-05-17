@@ -33,54 +33,54 @@ Thus, we arrive at another goal of this research, which is to explore the role o
 |Mid March|6 weeks|32 + 18 + 6|Experiments & Evaluation of Results|Visual Rel., Abstr. & Reason., Deep Coder, Comparison on CLEVR, Neural Problem Solving|
 |May|6 weeks|2|Thesis Elaboration|Designated for writing about findings, results, comparisons etc.|
 
-## Thesis Structure and Layout
+### 2.1 Thesis Structure and Layout
 
 **Note**: Need to get the required template
 
-### Abstract
+#### Abstract
 
 - Todo at the end
 
-### 1. Outline
+#### 1. Outline
 
 - Brief chapters description
 
-### 2. Introduction
+#### 2. Introduction
 
 *High level summary*
 
 - Content from the executive abstract (**Sections 1 - 3**)
 - General background
 
-### 3. Related work
+#### 3. Related work
 
 - Content from the in depth analysis of the selected bibliography (**Sections 4 - 5**)
 - Specific background and concepts
 
-### 4. Experimental results
+#### 4. Experimental results
 
 *Functional description*
 
 - Content from the experimental ideas (**Sections 6 - 9**)
 - Problem formulation, models, analysis of results and comparison with other studies
 
-### 5. Technical details
+#### 5. Technical details
 
 - Content from the practice report (**Section 10**)
 - Models, parameters, limitations, scalability
 - Libraries, modules
 
-### 6. Applications
+#### 6. Applications
 
 - Tbd if possible
 
-### 7. Conclusions
+#### 7. Conclusions
 
 - Todo at the end
 
-### Bibliography
+#### Bibliography
 
-### Current Report Sections
+### 2.2 Current Report Sections
 
 #### Section  1: Abstract
 #### Section  2: Plan
