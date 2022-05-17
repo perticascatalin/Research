@@ -113,6 +113,14 @@ def conv_relational_net(x, num_classes, num_labels, batch_size, reuse, is_traini
 	return outputs
 ```
 
+##### 10.1.3 Training, Loss, Dataset
+
+**Training**: 60.000 samples
+
+**Validation**: 12.000 samples
+
+**Num Epochs**: 100.000
+
 #### 10.2 Tasks
 
 ##### 10.2.1 Sorting an array of elements
@@ -123,13 +131,29 @@ def conv_relational_net(x, num_classes, num_labels, batch_size, reuse, is_traini
 
 **Description**: This task is relational because the outputs depend on how large an element is in comparison to the rest of the elements in the input array.
 
+**Example**:
+
+- 8 out of 10
+- input: 25 19 26 30 16 40 21 23 39 41
+- expect: 4 1 5 6 0 8 2 3 7 9
+- pred:   5 1 4 6 0 8 2 3 7 9
+
+![Sort Lables](https://raw.githubusercontent.com/perticascatalin/Research/master/RelationalPROG/images/sort_labels.png)
+
 ![Accuracy for N = 30](https://raw.githubusercontent.com/perticascatalin/Research/master/PermutationRN/results/all_30_acc.png)
 
 ![Loss for N = 30](https://raw.githubusercontent.com/perticascatalin/Research/master/PermutationRN/results/all_30_loss.png)
 
 ![Accuracy all models, various N](https://raw.githubusercontent.com/perticascatalin/Research/master/PermutationRN/results/acc_all.png)
 
-**Legend**: TODO
+**Legend**:
+
+|Model|Description|N=10|N=15|N=20|N=25|N=20|
+|:---:|:---------:|:--:|:--:|:--:|:--:|:--:|
+|Baseline    |Neural Net with 3 layers: 512, 256, 128, using array as input  (10.1.1)||||||
+|Order Rel   |Same Neural Net as the Baseline, using order relations instead         ||||||
+|Rel Net     |(10.1.2A)||||||
+|Conv Rel Net|(10.1.2B)||||||
 
 #### 10.3 Frameworks
 
@@ -159,15 +183,21 @@ tf.expand_dims
 
 ##### Keras
 
+TODO
+
 #### 10.4 Pre-Processing
 
 ##### AST
 
+TODO
+
 ##### DOM
+
+TODO
 
 #### 10.5 Open Source Repositories
 
-##### Relational Network
+##### Relational Network (Santoro et al. [5])
 
 Sample open source [code](https://github.com/clvrai/Relation-Network-Tensorflow) applying RN to the Sort-of-CLEVR dataset.
 
@@ -196,7 +226,7 @@ The sizes of the images and the number of objects can be customized. The model's
 
 **Note**: the evaluated implementation of the RN model does not process question embeddings.
 
-##### MAC Network
+##### MAC Network (Hudson & Manning [4])
 
 Original open source [code](https://github.com/stanfordnlp/mac-network) implementation of MAC network.
 
