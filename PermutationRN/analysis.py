@@ -329,7 +329,7 @@ def combine_plots_n(N):
 	loc = 'upper right'
 	combine_plots(model_names, displ_names, colors, 'v_losses', fig_name, title_name, loc)
 
-# combine_plots_n(20)
+# combine_plots_n(15)
 
 # def combine_plots_n_temp(N):
 # 	model_names = ['base_data', 'base_or', 'test']
@@ -354,8 +354,8 @@ def print_acc_all():
 	ns = [10, 15, 20, 25, 30] # 30, 25, 20 evaluated on all
 	set_1 = [1.00, 1.00, 0.69, 0.56, 0.29]
 	set_2 = [1.00, 1.00, 0.99, 0.87, 0.38]
-	set_3 = [1.00, 1.00, 0.49, 0.45, 0.44]
-	set_4 = [1.00, 1.00, 0.39, 0.69, 0.80]
+	set_3 = [1.00, 0.58, 0.49, 0.45, 0.44]
+	set_4 = [1.00, 0.94, 0.39, 0.69, 0.80]
 	plt.title('Accuracy by Model', fontsize = 18)
 	plt.xlabel('# Elements', fontsize = 16)
 	plt.ylabel('% Correctly Guessed', fontsize = 16)
