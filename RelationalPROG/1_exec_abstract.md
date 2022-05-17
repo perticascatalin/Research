@@ -1,6 +1,6 @@
-## Relational reasoning in deep learning: a parallel between solving visual and programming tasks
+# Relational reasoning in deep learning: a parallel between solving visual and programming tasks
 
-### 1. Abstract
+## 1. Abstract
 
 Deep learning has seen great success in the automated extraction of facts from large and diverse sensory inputs. More recently there has been an increased interest in the development of models that also have the ability to reason at some level about these facts.
 
@@ -22,7 +22,7 @@ More complex models of program synthesis have emerged recently, such as the work
 
 Thus, we arrive at another goal of this research, which is to explore the role of relational reasoning in programming tasks. My view is that general program synthesis would require an AI model capable of deriving the relations between the objects it acts upon (eg. object oriented programming). Furthermore, based on cognitive studies, it would seem that a broad category of humans are visual problem solvers, so they could be deriving relations between key actors in the problem that they are solving by using visualization. This would suggest a strong link between visualization, relational reasoning and problem solving.
 
-### 2. Plan
+## 2. Plan
 
 **Note**: This plan was designed for 2nd semester of the 2021 academic year and only the first 2 phases were carried out successfully. Resuming at phase 3.
 
@@ -33,63 +33,63 @@ Thus, we arrive at another goal of this research, which is to explore the role o
 |Mid March|6 weeks|32 + 18 + 6|Experiments & Evaluation of Results|Visual Rel., Abstr. & Reason., Deep Coder, Comparison on CLEVR, Neural Problem Solving|
 |May|6 weeks|2|Thesis Elaboration|Designated for writing about findings, results, comparisons etc.|
 
-### Thesis Structure and Layout
+## Thesis Structure and Layout
 
 **Note**: Need to get the required template
 
-#### Abstract
+### Abstract
 
 - Todo at the end
 
-#### 1. Outline
+### 1. Outline
 
 - Brief chapters description
 
-#### 2. Introduction
+### 2. Introduction
 
 *High level summary*
 
 - Content from the executive abstract (Sections 1 - 3)
 - General background
 
-#### 3. Related work
+### 3. Related work
 
 - Content from the in depth analysis of the selected bibliography (Sections 4 - 5)
 - Specific background and concepts
 
-#### 4. Experimental results
+### 4. Experimental results
 
 *Functional description*
 
 - Content from the experimental ideas (Sections 6 - 9)
 - Problem formulation, models, analysis of results and comparison with other studies
 
-#### 5. Technical details
+### 5. Technical details
 
 - Content from the practice report (Section 10)
 - Models, parameters, limitations, scalability
 - Libraries, modules
 
-#### 6. Applications
+### 6. Applications
 
 - Tbd if possible
 
-#### 7. Conclusions
+### 7. Conclusions
 
 - Todo at the end
 
-#### Bibliography
+### Bibliography
 
-### 3. Datasets
+## 3. Datasets
 
-#### Base
+### Base
 
 1. ARC - input & output grids ([1], [2])
 2. Synthetic/collected datasets - programs, inputs & outputs, primitives, DSLs ([6], [7])
 3. CLEVR - images ([4], [5])
 4. Open Images ([3])
 
-#### Extended
+### Extended
 
 |Dataset Name |Reference |Domain      |Input                   |Output                   |Description / Task (details) |Nat/Sync |
 |:-----------:|:--------:|:----------:|:----------------------:|:-----------------------:|:---------------------------:|:-------:|

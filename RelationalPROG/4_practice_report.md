@@ -1,10 +1,10 @@
-## Relational reasoning in deep learning: a parallel between solving visual and programming tasks
+# Relational reasoning in deep learning: a parallel between solving visual and programming tasks
 
-### 10. Report on practice (technical details)
+## 10. Report on practice (technical details)
 
-#### 10.1 Models
+### 10.1 Models
 
-##### 10.1.1 Multi-label Multi-class Neural Network
+#### 10.1.1 Multi-label Multi-class Neural Network
 
 The model accepts N inputs and M outputs for training and performs standard classification tasks. This architecture could be viewed as modelling a fixed seq2seq task or as an array-like input (sample with N features) mapped to an array-like output consisting of various classes of labels (M classes, eg. color, shape and size for M = 3), each with its own set of labels (red, green and blue; small and large, etc.).
 
@@ -38,7 +38,7 @@ def neural_net(x, num_classes, num_labels, layer_neurons, layer_dropout, reuse, 
 	return outputs
 ```
 
-##### 10.1.2A Relational Neural Network
+#### 10.1.2A Relational Neural Network
 
 One way of creating a relational network is to pair up elements from an input sample, concatenate them into a single vector and then link the vector to one or more neurons on the following layer in the neural network. The example below links the pairing vector to one neuron, thus creating N x N neurons in the second layer. After this, it applies the same convolutional filters to all rows in an attempt to represent each sample as an aggregation of its relations to other samples from the same input. Layers of neurons can be further applied, but in the example below we directly apply the softmax layer.
 
@@ -77,7 +77,7 @@ def relational_net(x, num_classes, num_labels, batch_size, reuse, is_training):
 	return outputs
 ```
 
-##### 10.1.2B Convolutionally Relational Neural Network
+#### 10.1.2B Convolutionally Relational Neural Network
 
 A variation of the previous neural network is to apply the same learning function (learn the same weights) to the pairs of elements, thus learning the same relations between all the elements. We can implement this as a convolutional filter, which drastically reduces the training time of the previous neural network and at the same time also improves the results in our experimental setup.
 
@@ -113,7 +113,7 @@ def conv_relational_net(x, num_classes, num_labels, batch_size, reuse, is_traini
 	return outputs
 ```
 
-##### 10.1.3 Training, Loss, Dataset
+#### 10.1.3 Training, Loss, Dataset
 
 **Training**: 60.000 samples
 
@@ -121,9 +121,9 @@ def conv_relational_net(x, num_classes, num_labels, batch_size, reuse, is_traini
 
 **Num Epochs**: 100.000
 
-#### 10.2 Tasks
+### 10.2 Tasks
 
-##### 10.2.1 Sorting an array of elements
+#### 10.2.1 Sorting an array of elements
 
 **Input**: Array of N unique elements (integers) with values in the range [1,50].
 
@@ -140,9 +140,9 @@ def conv_relational_net(x, num_classes, num_labels, batch_size, reuse, is_traini
 
 ![Sort Lables](https://raw.githubusercontent.com/perticascatalin/Research/master/RelationalPROG/images/sort_labels.png)
 
-![Accuracy for N = 30](https://raw.githubusercontent.com/perticascatalin/Research/master/PermutationRN/results/all_30_acc.png)
-
-![Loss for N = 30](https://raw.githubusercontent.com/perticascatalin/Research/master/PermutationRN/results/all_30_loss.png)
+|Accuracy|Loss|
+|:------:|:--:|
+|![Accuracy for N = 30](https://raw.githubusercontent.com/perticascatalin/Research/master/PermutationRN/results/all_30_acc.png)|![Loss for N = 30](https://raw.githubusercontent.com/perticascatalin/Research/master/PermutationRN/results/all_30_loss.png)|
 
 ![Accuracy all models, various N](https://raw.githubusercontent.com/perticascatalin/Research/master/PermutationRN/results/acc_all.png)
 
@@ -155,11 +155,11 @@ def conv_relational_net(x, num_classes, num_labels, batch_size, reuse, is_traini
 |Rel Net     |(10.1.2A)||||||
 |Conv Rel Net|(10.1.2B)||||||
 
-#### 10.3 Frameworks
+### 10.3 Frameworks
 
-##### Tensorflow
+#### Tensorflow
 
-###### V1
+##### V1
 
 **Functions:**
 
@@ -179,25 +179,25 @@ tf.expand_dims
 
 ```
 
-###### V2
+##### V2
 
-##### Keras
-
-TODO
-
-#### 10.4 Pre-Processing
-
-##### AST
+#### Keras
 
 TODO
 
-##### DOM
+### 10.4 Pre-Processing
+
+#### AST
 
 TODO
 
-#### 10.5 Open Source Repositories
+#### DOM
 
-##### Relational Network (Santoro et al. [5])
+TODO
+
+### 10.5 Open Source Repositories
+
+#### Relational Network (Santoro et al. [5])
 
 Sample open source [code](https://github.com/clvrai/Relation-Network-Tensorflow) applying RN to the Sort-of-CLEVR dataset.
 
@@ -226,7 +226,7 @@ The sizes of the images and the number of objects can be customized. The model's
 
 **Note**: the evaluated implementation of the RN model does not process question embeddings.
 
-##### MAC Network (Hudson & Manning [4])
+#### MAC Network (Hudson & Manning [4])
 
 Original open source [code](https://github.com/stanfordnlp/mac-network) implementation of MAC network.
 
