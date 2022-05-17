@@ -49,24 +49,24 @@ Thus, we arrive at another goal of this research, which is to explore the role o
 
 *High level summary*
 
-- Content from the executive abstract (Sections 1 - 3)
+- Content from the executive abstract (**Sections 1 - 3**)
 - General background
 
 ### 3. Related work
 
-- Content from the in depth analysis of the selected bibliography (Sections 4 - 5)
+- Content from the in depth analysis of the selected bibliography (**Sections 4 - 5**)
 - Specific background and concepts
 
 ### 4. Experimental results
 
 *Functional description*
 
-- Content from the experimental ideas (Sections 6 - 9)
+- Content from the experimental ideas (**Sections 6 - 9**)
 - Problem formulation, models, analysis of results and comparison with other studies
 
 ### 5. Technical details
 
-- Content from the practice report (Section 10)
+- Content from the practice report (**Section 10**)
 - Models, parameters, limitations, scalability
 - Libraries, modules
 
@@ -79,6 +79,20 @@ Thus, we arrive at another goal of this research, which is to explore the role o
 - Todo at the end
 
 ### Bibliography
+
+### Current Report Sections
+
+#### Section  1: Abstract
+#### Section  2: Plan
+#### Section  3: Datasets
+#### Section  4: Report: Studies on the initial Bibliography
+#### Section  5: Definitions and Notes
+#### Section  6: A Comparison of relational and compositional machine learning models (part 1)
+#### Section  7: A Comparison of relational and compositional machine learning models (part 2)
+#### Section  8: Directions in Program Induction
+#### Section  9: Relational reasoning and question answering in programming
+#### Section 10: Report on practice (technical details)
+#### Section 11: References
 
 ## 3. Datasets
 

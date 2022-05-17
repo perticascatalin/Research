@@ -148,7 +148,7 @@ def conv_relational_net(x, num_classes, num_labels, batch_size, reuse, is_traini
 
 **Legend**:
 
-|Model|Description|N=10|N=15|N=20|N=25|N=20|
+|Model|Description|N=10|N=15|N=20|N=25|N=30|
 |:---:|:---------:|:--:|:--:|:--:|:--:|:--:|
 |Baseline    |Neural Net with 3 layers: 512, 256, 128, using array as input  (10.1.1)||||||
 |Order Rel   |Same Neural Net as the Baseline, using order relations instead         ||||||
