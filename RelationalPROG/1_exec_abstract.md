@@ -57,24 +57,29 @@ Thus, we arrive at another goal of this research, which is to explore the role o
 - Content from the in depth analysis of the selected bibliography (**Sections 4 - 5**, see 2.2)
 - Specific background and concepts
 
-#### 4. Experimental results
+#### 4. Method
 
 *Functional description*
 
-- Content from the experimental ideas (**Sections 6 - 9**, see 2.2)
-- Problem formulation, models, analysis of results and comparison with other studies
+- Content from new *problem formulation* (*TBD sections*, see 2.2)
+- Problem formulation, theory, models
 
-#### 5. Technical details
+#### 5. Experimental results
+
+- Content from the experimental ideas (**Sections 6 - 9**, see 2.2)
+- Analysis of results and comparison with other studies
+
+#### 6. Technical details
 
 - Content from the practice report (**Section 10**, see 2.2)
 - Models, parameters, limitations, scalability
 - Libraries, modules
 
-#### 6. Applications
+#### 7. Applications
 
 - Tbd if possible
 
-#### 7. Conclusions
+#### 8. Conclusions
 
 - Todo at the end
 
