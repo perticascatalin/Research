@@ -121,6 +121,10 @@ def conv_relational_net(x, num_classes, num_labels, batch_size, reuse, is_traini
 
 **Num Epochs**: 100.000
 
+#### 10.1.4A Graph Convolutional Neural Network
+
+#### 10.1.4B Relational Graph Convolutional Neural Network
+
 ### 10.2 Tasks
 
 #### 10.2.1 Sorting an array of elements

@@ -6,7 +6,7 @@ Deep learning has seen great success in the automated extraction of facts from l
 
 One such area of research is visual relational reasoning, which doesn't only aim to detect objects and their classes in a visual scene, but also aims to answer questions about these objects. Examples of this kind of modelling include the works of (Santoro et al. [5]) and (Hudson & Manning [4]). Their setups consist of 3D scenes of objects (CLEVR dataset, also see [3]), which are presented to a machine learning model that needs to answer questions involving relationships between the objects. Such a question could be: "What is the shape of the object behind the blue sphere?".
 
-These kind of tasks pose challenges to traditional deep learning models because they need to abstract what consitutes an object and then they have to perform reasoning based on the object's position, features and relationships with the other objects. Therefore, all sorts of novel techniques (eg. paired processing, composition, attention, memory) need to be incorporated if such systems are to perform more complex reasoning. These are mainly used for exploiting relationships between objects as prior knowledge and thus, one of the goals of this research is to explore the possible ways in which relational reasoning can be integrated into deep learning models.
+These kind of tasks pose challenges to traditional deep learning models because they need to abstract what constitutes an object and then they have to perform reasoning based on the object's position, features and relationships with the other objects. Therefore, all sorts of novel techniques (eg. paired processing, composition, attention, memory) need to be incorporated if such systems are to perform more complex reasoning. These are mainly used for exploiting relationships between objects as prior knowledge or to reduce information bottlenecks, and thus, one of the goals of this research is to explore the possible ways in which relational reasoning can be integrated into deep learning models.
 
 If we come to think of it, it would seem that relational reasoning in neural models touches some key points from the old connectionism vs symbolic manipulation AI debate, which is briefly explained in [8]. On one hand we need the adaptive power and fault tolerance properties of connectionist models to be able to process a wide range of sensory inputs, while on the other hand we require symbolic and computational abilities to make sense of the extracted facts and the relations between them in order to draw conclusions, which is what reasoning would seem to do at a very simplistic level.
 
@@ -30,8 +30,8 @@ Thus, we arrive at another goal of this research, which is to explore the role o
 |:---:|:------:|:--:|:---:|:---------:|
 |Mid Feb|2 weeks|10|Broad Research|Collect materials for thesis, discuss & decide theme|
 |March|2 weeks|30|In-Depth Understanding & Practice|Study material in detail, check techniques involved, practice on sample code, comparison of past results|
-|Mid March|6 weeks|32 + 18 + 6|Experiments & Evaluation of Results|Visual Rel., Abstr. & Reason., Deep Coder, Comparison on CLEVR, Neural Problem Solving|
-|May|6 weeks|2|Thesis Elaboration|Designated for writing about findings, results, comparisons etc.|
+|Mid March|6 weeks|32 + 18 + 8|Experiments & Evaluation of Results|Visual Rel., Abstr. & Reason., Deep Coder, Comparison on CLEVR, Neural Problem Solving|
+|May|6 weeks|8|Thesis Elaboration|Designated for writing about findings, results, comparisons etc.|
 
 ### 2.1 Thesis Structure and Layout
 
@@ -61,12 +61,12 @@ Thus, we arrive at another goal of this research, which is to explore the role o
 
 *Functional description*
 
-- Content from new *problem formulation* (*TBD sections*, see 2.2)
+- Content from new *problem formulation* (*Section 6*, see 2.2)
 - Problem formulation, theory, models
 
 #### 5. Experimental results
 
-- Content from the experimental ideas (**Sections 6 - 9**, see 2.2)
+- Content from the experimental ideas (**Sections 7 - 9**, see 2.2)
 - Analysis of results and comparison with other studies
 
 #### 6. Technical details
@@ -92,8 +92,8 @@ Thus, we arrive at another goal of this research, which is to explore the role o
 #### Section  3: Datasets
 #### Section  4: Report: Studies on the initial Bibliography
 #### Section  5: Definitions and Notes
-#### Section  6: A Comparison of relational and compositional machine learning models (part 1)
-#### Section  7: A Comparison of relational and compositional machine learning models (part 2)
+#### Section  6: Relational and compositional machine learning models
+#### Section  7: A Comparison of relational and compositional machine learning models
 #### Section  8: Directions in Program Induction
 #### Section  9: Relational reasoning and question answering in programming
 #### Section 10: Report on practice (technical details)
