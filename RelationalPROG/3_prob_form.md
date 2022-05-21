@@ -10,7 +10,7 @@ In visual recognition tasks, CNNs (Convolutional Neural Networks) outperform MLP
 
 Another advantage of learning fewer weights is the computational efficiency. For these reasons, we can conclude that CNNs have the proper design to learn (fit) relations between pixels and regions in images which are generally (and not only locally) useful for inferring a solution in a visual task. Moreover, the feature maps computed in CNNs can be used as vector embeddings for images, which can be reused for various tasks.
 
-*Strengths*:
+**Strengths**:
 
 - learning common weights
 - generating image embeddings
@@ -21,7 +21,7 @@ The next example is a machine translation model, namely the sequence to sequence
 
 One problem with this model was that it was not capable to properly encode longer sentences into a finite hidden state (fixed length vector) at the end of processing the input. And so essential information would be lost this way. The attention function alters this behaviour by constraining the decoder to attend to the hidden states of the encoder in a finite subsequence around the target word (interval), thus providing a context at each step in the output sequence by utilizing potential relations between consecutive words. The practical consequence of this modification is an enhanced ability to correctly learn to generate larger sequences (improved generalization capabilities).
 
-*Strengths*:
+**Strengths**:
 
 - reducing information bottleneck in the encoder-decoder
 - exploiting information relevance within a context 

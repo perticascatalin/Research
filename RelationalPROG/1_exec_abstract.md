@@ -61,7 +61,7 @@ Thus, we arrive at another goal of this research, which is to explore the role o
 
 *Functional description*
 
-- Content from new *problem formulation* (*Section 6*, see 2.2)
+- Content from new *problem formulation* (**Section 6**, see 2.2)
 - Problem formulation, theory, models
 
 #### 5. Experimental results
