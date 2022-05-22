@@ -41,7 +41,9 @@ One problem with this model was that it was not capable to properly encode longe
 
 #### Tutorials and supporting documentation
 
-[A. LSTM, Encoder-Decoder and Attention](https://medium.com/swlh/a-simple-overview-of-rnn-lstm-and-attention-mechanism-9e844763d07b)[+](https://machinelearningmastery.com/how-does-attention-work-in-encoder-decoder-recurrent-neural-networks/)[+](https://machinelearningmastery.com/the-attention-mechanism-from-scratch/)
+[A. LSTM, Encoder-Decoder and Attention](https://medium.com/swlh/a-simple-overview-of-rnn-lstm-and-attention-mechanism-9e844763d07b)[+](https://levelup.gitconnected.com/building-seq2seq-lstm-with-luong-attention-in-keras-for-time-series-forecasting-1ee00958decb)
+
+[B. More on Attention](https://machinelearningmastery.com/how-does-attention-work-in-encoder-decoder-recurrent-neural-networks/)[+](https://machinelearningmastery.com/the-attention-mechanism-from-scratch/)[+](https://machinelearningmastery.com/adding-a-custom-attention-layer-to-recurrent-neural-network-in-keras/)
 
 [B. Andrew Ng Tutorials](https://www.youtube.com/watch?v=RLWuzLLSIgw)
 
