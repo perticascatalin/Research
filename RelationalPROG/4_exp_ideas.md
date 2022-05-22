@@ -1,8 +1,8 @@
 # Relational reasoning in deep learning: a parallel between solving visual and programming tasks
 
-## 7. A Comparison of relational and compositional machine learning models
+## 8. Comparison of relational and compositional machine learning models
 
-### 7.1 SortNet vs. RN (Santoro et al. [5])
+### 8.1 SortNet vs. RN (Santoro et al. [5])
 
 **SortNet steps** (2019 experiments)
 
@@ -23,37 +23,9 @@ Both the SortNet and the RN learn relations between objects in the input, but th
 
 Debate on how MLP would implement logic in RN.
 
-### 7.2 RN (Santoro et al. [5]) vs MAC (Hudson & Manning [4])
+### 8.2 RN (Santoro et al. [5]) vs MAC (Hudson & Manning [4])
 
 The relational function learned at the level of paired objects (CNN feature maps) in the RN model is very similar at the conceptual level with the attention function learned in the seq2seq model for pairs of words in different languages.
-
-## 8. Directions in Program Induction
-
-### 8.1 Latent Induction vs Code Synthesis
-
-The first important bifurcation in the approaches for generating programs is the choice of program representation. When a neural network learns to map input to output, thus solving a programming task, the program is stored in the network and executed by the network through neural activations. This is called latent program induction, because the representation of the generated program is not human-readable.
-
-The second choice is to formulate the problem such that the neural network outputs a program in a language, which is then executed to get the desired output. This is generally referred to as program synthesis.
-
-A comparison of the two approaches applied on string transformation problems is carried in Devlin et al. [21].
-
-Latent programs are written in the language of neural networks, whereas synthesized programs are written in a language of choice. Both approaches have shown success, however it is not possible to pick one that works best because they have different strengths. For instance, induction is more likely to provide a good approximation of the output function for the type of inputs provided, but might not generalize so well for new inputs. On the other hand, synthesis will either find the correct program and generalize the solution well for all inputs, or find the wrong solution which over-fits the presented input. Synthesis is thus more capable, but also the riskier approach.
-
-### 8.2 Specifications vs Input-Output Pairs
-
-The second important ramification in formulating a program learning task is based on how the problem is conveyed to the network. Two directions are currently being extensively researched, one is to have specifications for solving the problem in natural language, the other is based on feeding the model with many input-output pairs.
-
-There are also hybrid methods, where both types of information are presented to the learning model. While Yin and Neubig [10] present a method for inferring code from specifications, Balog et al. [7] and Parisotto et al., [23] perform program synthesis based on input-output pairs. The methods in Ling et al. [25] and Ling et al. [26] are examples of hybrid approaches.
-
-### 8.3 End-to-End Learning vs Intermediate Steps Prediction
-
-Yet a third difference in approaches to model program induction can be noticed in specialized literature on this topic: learning to predict the end result versus learning to generate a rationale for solving the task at hand.
-
-For instance, Ling et al. [26] present a method for solving simple math problems described in natural language with multiple-choice answers. Besides predicting the correct result, the model also learns to generate a derivation of the answer through a series of small steps.
-
-Both program synthesis and intermediate steps prediction can be modeled as sequence-to-sequence learning problems. They also describe a process to derive the end result. However, they seem to be conceptually different. Although code synthesis finds the process to arrive at a certain result, it does not give us any hint on how it arrived to that solution or program.
-
-On the other hand, intermediate steps prediction forces the model to derive logical steps similar to the ones humans use in problem solving. This can have a great impact in understanding the choices that artificial learning models make.
 
 ## 9. Relational reasoning and question answering in programming
 

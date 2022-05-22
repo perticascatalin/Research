@@ -200,24 +200,30 @@ Tasks:
 - highlight on concepts (critical pieces in intelligent systems) such as: scope, generalization difficulty, priors & experience
 - overall, the study offers a more phylosophical, but grounded in research view on intelligence and makes a case for the design of general AI benchmark datasets  
 
-## 5. Definitions and Notes
+## 5. Directions in Program Induction
 
-1. **Relational Reasoning**: the capacity to reason about and find solutions to problems involving a set of objects which are related to one another through some properties that need to be discovered.
+### 5.1 Latent Induction vs Code Synthesis
 
-2. **Program Induction**: the inference of computer programs designed to solve problems given in the form of partial data, either input-output pairs, or other types of constraints.
+The first important bifurcation in the approaches for generating programs is the choice of program representation. When a neural network learns to map input to output, thus solving a programming task, the program is stored in the network and executed by the network through neural activations. This is called latent program induction, because the representation of the generated program is not human-readable.
 
-3. **Inductive Program Synthesis**: IPS problem, given input-output examples, produce a program that has behavior consistent with the examples. This requires solving 2 problems: defining the program space & the search procedure and solving the ranking problem - deciding which program is to be preferred when several solutions are available.
+The second choice is to formulate the problem such that the neural network outputs a program in a language, which is then executed to get the desired output. This is generally referred to as program synthesis.
 
-4. **Abstract Syntax Tree**: AST, a tree representation of the abstract syntactic structure of source code written in a programming language.
+A comparison of the two approaches applied on string transformation problems is carried in Devlin et al. [21].
 
-5. **Kernel**: Convolution matrix or mask, used for applying a filter to an image.
+Latent programs are written in the language of neural networks, whereas synthesized programs are written in a language of choice. Both approaches have shown success, however it is not possible to pick one that works best because they have different strengths. For instance, induction is more likely to provide a good approximation of the output function for the type of inputs provided, but might not generalize so well for new inputs. On the other hand, synthesis will either find the correct program and generalize the solution well for all inputs, or find the wrong solution which over-fits the presented input. Synthesis is thus more capable, but also the riskier approach.
 
-6. **Feature Map**: a collection of kernel activations which are the result of applying filters from one convolutional network layer to the next layer. The filters / kernels are represented by learnable weights, while the feature map is the activation of a CNN at an intermediary layer.
+### 5.2 Specifications vs Input-Output Pairs
 
-7. **Embedding**: a relatively low-dimensional space into which high-dimensional vectors can be translated.
+The second important ramification in formulating a program learning task is based on how the problem is conveyed to the network. Two directions are currently being extensively researched, one is to have specifications for solving the problem in natural language, the other is based on feeding the model with many input-output pairs.
 
-8. **Latent Representation**: a representation of data which is available in a neural network's hidden layers. These representations fill a latent space, which can be viewed as an embedding when the network acts as an encoder (when it compresses data). To note the type of embeddings which retain semantic properties, such as Word2Vec (Mikolov et al. [9]).
+There are also hybrid methods, where both types of information are presented to the learning model. While Yin and Neubig [10] present a method for inferring code from specifications, Balog et al. [7] and Parisotto et al., [23] perform program synthesis based on input-output pairs. The methods in Ling et al. [25] and Ling et al. [26] are examples of hybrid approaches.
 
-9. **Beam Search**: a version of BFS, which uses a heuristic to only keep a subset of (best) partial solutions explored at any given point during the search process.
+### 5.3 End-to-End Learning vs Intermediate Steps Prediction
 
-10. **BLEU Score**: bilingual evaluation understudy is a metric for evaluating machine translated text.
+Yet a third difference in approaches to model program induction can be noticed in specialized literature on this topic: learning to predict the end result versus learning to generate a rationale for solving the task at hand.
+
+For instance, Ling et al. [26] present a method for solving simple math problems described in natural language with multiple-choice answers. Besides predicting the correct result, the model also learns to generate a derivation of the answer through a series of small steps.
+
+Both program synthesis and intermediate steps prediction can be modeled as sequence-to-sequence learning problems. They also describe a process to derive the end result. However, they seem to be conceptually different. Although code synthesis finds the process to arrive at a certain result, it does not give us any hint on how it arrived to that solution or program.
+
+On the other hand, intermediate steps prediction forces the model to derive logical steps similar to the ones humans use in problem solving. This can have a great impact in understanding the choices that artificial learning models make.

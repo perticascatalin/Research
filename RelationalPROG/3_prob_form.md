@@ -1,6 +1,6 @@
 # Relational reasoning in deep learning: a parallel between solving visual and programming tasks
 
-## 6. Relational and compositional machine learning models
+## 6. Design of models and connections
 
 Based on the literature studied so far (and the experiments performed in 2019) we can start highlighting some similarities between the deep learning models which aim to perform relational reasoning / inference. Generally, the shortcomings in capturing relational properties from a dataset by a machine learning model are due to the lack of proper design and/or prior knowledge. However, this problem manifests itself differently depending on the case. Let us take a look at 2 well known examples.
 
@@ -39,8 +39,59 @@ One problem with this model was that it was not capable to properly encode longe
 |:-:|:---------:|
 |![MAC Attention map](https://raw.githubusercontent.com/perticascatalin/Research/master/RelationalPROG/images/mac_attention.png)|Source: Hudson & Manning [4]. 3-steps reasoning (MAC network of length 3) based on the interaction of the memory, attention and control units.|
 
-### 6.3 Tutorials and supporting documentation
+#### Tutorials and supporting documentation
 
 [A. LSTM, Encoder-Decoder and Attention](https://medium.com/swlh/a-simple-overview-of-rnn-lstm-and-attention-mechanism-9e844763d07b)[+](https://machinelearningmastery.com/how-does-attention-work-in-encoder-decoder-recurrent-neural-networks/)[+](https://machinelearningmastery.com/the-attention-mechanism-from-scratch/)
 
 [B. Andrew Ng Tutorials](https://www.youtube.com/watch?v=RLWuzLLSIgw)
+
+### 6.3 Relational Neural Networks
+
+### 6.4 Graph Neural Networks
+
+**What the graph can represent**:
+
+- program
+- molecule
+- social network
+
+**Nodes**: information encoded into an embedding (vector state). Eg. image, word, etc.
+
+**Edges**: relations between edges. Can be of multiple types.
+
+**Output**: for each node it computes a state representing how it belongs to the overall graph.
+
+**Pseudocode**:
+
+- look at current neighbouring stated
+- prepare messages
+- summarize messages
+- compute the next state of the node based on the current state and the neighbourhood summary
+
+#### Tutorials and supporting documentation
+
+[A. GNN implementation & intro](https://keras.io/examples/graph/gnn_citations/)[+](https://www.youtube.com/watch?v=2KRAOZIULzw)[+](https://www.youtube.com/watch?v=wJQQFUcHO5U)
+
+[B. Lecture on GNNs](https://www.youtube.com/watch?v=zCEYiCxrL_0)
+
+## 7. Definitions and Notes
+
+1. **Relational Reasoning**: the capacity to reason about and find solutions to problems involving a set of objects which are related to one another through some properties that need to be discovered.
+
+2. **Program Induction**: the inference of computer programs designed to solve problems given in the form of partial data, either input-output pairs, or other types of constraints.
+
+3. **Inductive Program Synthesis**: IPS problem, given input-output examples, produce a program that has behavior consistent with the examples. This requires solving 2 problems: defining the program space & the search procedure and solving the ranking problem - deciding which program is to be preferred when several solutions are available.
+
+4. **Abstract Syntax Tree**: AST, a tree representation of the abstract syntactic structure of source code written in a programming language.
+
+5. **Kernel**: Convolution matrix or mask, used for applying a filter to an image.
+
+6. **Feature Map**: a collection of kernel activations which are the result of applying filters from one convolutional network layer to the next layer. The filters / kernels are represented by learnable weights, while the feature map is the activation of a CNN at an intermediary layer.
+
+7. **Embedding**: a relatively low-dimensional space into which high-dimensional vectors can be translated.
+
+8. **Latent Representation**: a representation of data which is available in a neural network's hidden layers. These representations fill a latent space, which can be viewed as an embedding when the network acts as an encoder (when it compresses data). To note the type of embeddings which retain semantic properties, such as Word2Vec (Mikolov et al. [9]).
+
+9. **Beam Search**: a version of BFS, which uses a heuristic to only keep a subset of (best) partial solutions explored at any given point during the search process.
+
+10. **BLEU Score**: bilingual evaluation understudy is a metric for evaluating machine translated text.

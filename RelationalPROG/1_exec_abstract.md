@@ -61,7 +61,7 @@ Thus, we arrive at another goal of this research, which is to explore the role o
 
 *Functional description*
 
-- Content from new *problem formulation* (**Section 6**, see 2.2)
+- Content from problem formulation (**Section 6**, see 2.2)
 - Problem formulation, theory, models
 
 #### 5. Experimental results
@@ -92,8 +92,8 @@ Thus, we arrive at another goal of this research, which is to explore the role o
 #### Section  3: Datasets
 #### Section  4: Report: Studies on the initial Bibliography
 #### Section  5: Definitions and Notes
-#### Section  6: Relational and compositional machine learning models
-#### Section  7: A Comparison of relational and compositional machine learning models
+#### Section  6: Design of models and connections
+#### Section  7: Comparison of relational and compositional machine learning models
 #### Section  8: Directions in Program Induction
 #### Section  9: Relational reasoning and question answering in programming
 #### Section 10: Report on practice (technical details)
