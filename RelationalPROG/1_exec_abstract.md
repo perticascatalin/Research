@@ -31,7 +31,7 @@ Thus, we arrive at another goal of this research, which is to explore the role o
 |Mid Feb|2 weeks|10|Broad Research|Collect materials for thesis, discuss & decide theme|
 |March|2 weeks|30|In-Depth Understanding & Practice|Study material in detail, check techniques involved, practice on sample code, comparison of past results|
 |Mid March|6 weeks|32 + 18 + 8|Experiments & Evaluation of Results|Visual Rel., Abstr. & Reason., Deep Coder, Comparison on CLEVR, Neural Problem Solving|
-|May|6 weeks|8|Thesis Elaboration|Designated for writing about findings, results, comparisons etc.|
+|May|6 weeks|10|Thesis Elaboration|Designated for writing about findings, results, comparisons etc.|
 
 ### 2.1 Thesis Structure and Layout
 
@@ -112,13 +112,14 @@ Thus, we arrive at another goal of this research, which is to explore the role o
 
 |Dataset Name |Reference |Domain      |Input                   |Output                   |Description / Task (details) |Nat/Sync |
 |:-----------:|:--------:|:----------:|:----------------------:|:-----------------------:|:---------------------------:|:-------:|
-|Open Images  |[3]       |img         |img                     |bbox (pos) + rel (class) |rel between obj in img       |Yes      |
-|CLEVR        |[4],[5]   |img, lang   |img + txt (question)    |word (class)             |rel vs non-rel questions     |Yes      |
-|Sort of CLEVR|-         |img         |img + multi-class       |word (class)             |...                          |No       |
-|bAbi         |[5]       |QA          |?                       |?                        |question - answer            |Yes.     |
-|ARC          |[1],[2]   |?           |grid (multi-class)      |grid (multi-class)       |...                          |No       |
-|Dream Coder  |[6]       |DSL & other |?                       |?                        |program generation           |No       |
-|Deep Coder   |[7]       |DSL         |input-output pairs      |program from DSL         |program search               |No       |
-|Alpha Code   |[15]      |source code |problem statement (txt) |code                     |program induction seq2seq    |Yes      |
-|Eng - Fr tbd |[14],[16] |lang        |txt                     |txt                      |machine translation seq2seq  |Yes      |
-|Img descript?|[18]      |img, lang   |img                     |txt                      |image description            |Yes      |
+|Open Images   |[3]       |img         |img                     |bbox (pos) + rel (class) |rel between obj in img       |Yes      |
+|CLEVR         |[4],[5]   |img, lang   |img + txt (question)    |word (class)             |rel vs non-rel questions     |Yes      |
+|Sort of CLEVR |-         |img         |img + multi-class       |word (class)             |...                          |No       |
+|bAbi          |[5]       |QA          |?                       |?                        |question - answer            |Yes.     |
+|ARC           |[1],[2]   |?           |grid (multi-class)      |grid (multi-class)       |...                          |No       |
+|Dream Coder   |[6]       |DSL & other |?                       |?                        |program generation           |No       |
+|Deep Coder    |[7]       |DSL         |input-output pairs      |program from DSL         |program search               |No       |
+|Alpha Code    |[15]      |source code |problem statement (txt) |code                     |program induction seq2seq    |Yes      |
+|WWT'14(Eng-Fr)|[14],[16] |lang        |txt                     |txt                      |machine translation seq2seq  |Yes      |
+|Flickr        |[18]      |img, lang   |img                     |txt                      |image caption            |Yes      |
+|MS-COCO       |[18]      |img, lang   |img                     |txt                      |image caption            |Yes      |

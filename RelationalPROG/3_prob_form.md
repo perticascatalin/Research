@@ -8,7 +8,7 @@ Based on the literature studied so far (and the experiments performed in 2019) w
 
 In visual recognition tasks, CNNs (Convolutional Neural Networks) outperform MLPs (Dense Neural Networks) simply because they exploit spatial relationships. Instead of having fully connected layers with different learnable weights, CNNs have shared weights (kernels / convolutions) and thus learn locally invariant features, meaning that the same properties (edges, textures, etc.) are learnt across every region of the image, whereas a MLP would not have this constraint and thus would have the potential to overfit specific properties of a given region. 
 
-Another advantage of learning fewer weights is the computational efficiency. For these reasons, we can conclude that CNNs have the proper design to learn (fit) relations between pixels and regions in images which are generally (and not only locally) useful for inferring a solution in a visual task. Moreover, the feature maps computed in CNNs can be used as vector embeddings for images, which can be reused for various tasks.
+Another advantage of learning fewer weights is the computational efficiency. For these reasons, we can gather that CNNs have the proper design to learn (fit) relations between pixels and regions in images which are generally (and not only locally) useful for inferring a solution in a visual task. Moreover, the feature maps computed in CNNs can be used as vector embeddings for images, which can be reused for various tasks.
 
 **Strengths**:
 
@@ -41,6 +41,6 @@ One problem with this model was that it was not capable to properly encode longe
 
 ### 6.3 Tutorials and supporting documentation
 
-[A. LSTM, Encoder-Decoder and Attention](https://medium.com/swlh/a-simple-overview-of-rnn-lstm-and-attention-mechanism-9e844763d07b)[+](https://machinelearningmastery.com/how-does-attention-work-in-encoder-decoder-recurrent-neural-networks/)
+[A. LSTM, Encoder-Decoder and Attention](https://medium.com/swlh/a-simple-overview-of-rnn-lstm-and-attention-mechanism-9e844763d07b)[+](https://machinelearningmastery.com/how-does-attention-work-in-encoder-decoder-recurrent-neural-networks/)[+](https://machinelearningmastery.com/the-attention-mechanism-from-scratch/)
 
 [B. Andrew Ng Tutorials](https://www.youtube.com/watch?v=RLWuzLLSIgw)
