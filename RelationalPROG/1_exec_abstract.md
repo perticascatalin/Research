@@ -49,7 +49,7 @@ Thus, we arrive at another goal of this research, which is to explore the role o
 
 *High level summary*
 
-- Content from the executive abstract (**Sections 1 - 3**, see 2.2)
+- Content from the executive abstract (**Section 1**, see 2.2)
 - General background
 
 #### 3. Related work
@@ -66,7 +66,7 @@ Thus, we arrive at another goal of this research, which is to explore the role o
 
 #### 5. Experimental results
 
-- Content from the experimental ideas (**Sections 7 - 9**, see 2.2)
+- Content from the experimental ideas (**Sections 8 - 9**, see 2.2)
 - Analysis of results and comparison with other studies
 
 #### 6. Technical details
@@ -91,10 +91,10 @@ Thus, we arrive at another goal of this research, which is to explore the role o
 #### Section  2: Plan
 #### Section  3: Datasets
 #### Section  4: Report: Studies on the initial Bibliography
-#### Section  5: Definitions and Notes
+#### Section  5: Directions in Program Induction
 #### Section  6: Design of models and connections
-#### Section  7: Comparison of relational and compositional machine learning models
-#### Section  8: Directions in Program Induction
+#### Section  7: Definitions and Notes
+#### Section  8: Comparison of relational and compositional machine learning models
 #### Section  9: Relational reasoning and question answering in programming
 #### Section 10: Report on practice (technical details)
 #### Section 11: References
