@@ -129,7 +129,7 @@ Dataset: Cora with paper subjects, words and citation links
 
 |Dataset samples|Dataset visualization|
 |:-------------:|:-------------------:|
-|![Cora samples](https://raw.githubusercontent.com/perticascatalin/Research/master/PermutationRN/results/gnn_cora_cols.png)|![Cora visualization](https://raw.githubusercontent.com/perticascatalin/Research/master/PermutationRN/results/gnn_cora_vis.png)|
+|![Cora samples](https://raw.githubusercontent.com/perticascatalin/Research/master/RelationalPROG/images/gnn_cora_cols.png)|![Cora visualization](https://raw.githubusercontent.com/perticascatalin/Research/master/RelationalPROG/images/gnn_cora_vis.png)|
 
 Baseline: 73,5%
 
