@@ -45,7 +45,7 @@ One problem with this model was that it was not capable to properly encode longe
 
 [B. More on Attention](https://machinelearningmastery.com/how-does-attention-work-in-encoder-decoder-recurrent-neural-networks/)[+](https://machinelearningmastery.com/the-attention-mechanism-from-scratch/)[+](https://machinelearningmastery.com/adding-a-custom-attention-layer-to-recurrent-neural-network-in-keras/)
 
-[B. Andrew Ng Tutorials](https://www.youtube.com/watch?v=RLWuzLLSIgw)
+[C. Andrew Ng Tutorials](https://www.youtube.com/watch?v=RLWuzLLSIgw)
 
 ### 6.3 Relational Neural Networks
 
@@ -65,7 +65,7 @@ One problem with this model was that it was not capable to properly encode longe
 
 **Pseudocode**:
 
-- look at current neighbouring stated
+- look at current neighbouring states
 - prepare messages
 - summarize messages
 - compute the next state of the node based on the current state and the neighbourhood summary

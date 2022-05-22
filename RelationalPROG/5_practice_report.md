@@ -38,7 +38,7 @@ def neural_net(x, num_classes, num_labels, layer_neurons, layer_dropout, reuse, 
 	return outputs
 ```
 
-#### 10.1.2A Relational Neural Network
+#### 10.1.2.A Relational Neural Network
 
 One way of creating a relational network is to pair up elements from an input sample, concatenate them into a single vector and then link the vector to one or more neurons on the following layer in the neural network. The example below links the pairing vector to one neuron, thus creating N x N neurons in the second layer. After this, it applies the same convolutional filters to all rows in an attempt to represent each sample as an aggregation of its relations to other samples from the same input. Layers of neurons can be further applied, but in the example below we directly apply the softmax layer.
 
@@ -77,7 +77,7 @@ def relational_net(x, num_classes, num_labels, batch_size, reuse, is_training):
 	return outputs
 ```
 
-#### 10.1.2B Convolutionally Relational Neural Network
+#### 10.1.2.B Convolutionally Relational Neural Network
 
 A variation of the previous neural network is to apply the same learning function (learn the same weights) to the pairs of elements, thus learning the same relations between all the elements. We can implement this as a convolutional filter, which drastically reduces the training time of the previous neural network and at the same time also improves the results in our experimental setup.
 
@@ -113,7 +113,7 @@ def conv_relational_net(x, num_classes, num_labels, batch_size, reuse, is_traini
 	return outputs
 ```
 
-#### 10.1.3 Training, Loss, Dataset
+#### 10.1.3 Dataset, Loss Function and Training
 
 **Training**: 60.000 samples
 
@@ -121,9 +121,21 @@ def conv_relational_net(x, num_classes, num_labels, batch_size, reuse, is_traini
 
 **Num Epochs**: 100.000
 
-#### 10.1.4A Graph Convolutional Neural Network
+#### 10.1.4.A Graph Convolutional Neural Network
 
-#### 10.1.4B Relational Graph Convolutional Neural Network
+[Node Classification with Graph Neural Networks](https://keras.io/examples/graph/gnn_citations/)
+
+Dataset: Cora with paper subjects, words and citation links
+
+|Dataset samples|Dataset visualization|
+|:-------------:|:-------------------:|
+|![Cora samples](https://raw.githubusercontent.com/perticascatalin/Research/master/PermutationRN/results/gnn_cora_cols.png)|![Cora visualization](https://raw.githubusercontent.com/perticascatalin/Research/master/PermutationRN/results/gnn_cora_vis.png)|
+
+Baseline: 73,5%
+
+GNN: 80,2%
+
+#### 10.1.4.B Relational Graph Convolutional Neural Network
 
 ### 10.2 Tasks
 
