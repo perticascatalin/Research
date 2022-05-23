@@ -145,6 +145,8 @@ Introduces a new dataset Pretty-CLEVR, where the number of relational reasoning 
 
 Comparison against RN on the Pretty-CLEVR dataset and on Sudoku puzzle solving.
 
+![Pretty-CLEVR comparison](https://raw.githubusercontent.com/perticascatalin/Research/master/RelationalPROG/images/pretty_clevr.png)
+
 ## 5. Neural Problem Solving, Program Synthesis, Source Code
 
 ### 5.1 On the Measure of Intelligence
