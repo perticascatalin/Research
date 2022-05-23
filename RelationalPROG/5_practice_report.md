@@ -77,7 +77,7 @@ def relational_net(x, num_classes, num_labels, batch_size, reuse, is_training):
 	return outputs
 ```
 
-#### 10.1.2.B Convolutionally Relational Neural Network
+#### 10.1.2.B Convolutional Relational Neural Network
 
 A variation of the previous neural network is to apply the same learning function (learn the same weights) to the pairs of elements, thus learning the same relations between all the elements. We can implement this as a convolutional filter, which drastically reduces the training time of the previous neural network and at the same time also improves the results in our experimental setup.
 
@@ -115,6 +115,8 @@ def conv_relational_net(x, num_classes, num_labels, batch_size, reuse, is_traini
 
 #### 10.1.2.C Loss Function and Training
 
+TODO
+
 #### 10.1.3.A Graph Convolutional Neural Network
 
 [Node Classification with Graph Neural Networks](https://keras.io/examples/graph/gnn_citations/)
@@ -133,7 +135,11 @@ Dataset: Cora with paper subjects, words and citation links
 
 ![GNN](https://raw.githubusercontent.com/perticascatalin/Research/master/RelationalPROG/images/cora_gnn.png)
 
+*Implementation using python 3.9 and TensorFlow 2.8*
+
 #### 10.1.3.B Relational Graph Convolutional Neural Network
+
+TODO
 
 ### 10.2 Tasks
 
@@ -177,9 +183,9 @@ Dataset: Cora with paper subjects, words and citation links
 
 ### 10.3 Frameworks
 
-#### Tensorflow
+#### Tensorflow / Keras
 
-##### V1
+##### Tensorflow V1
 
 **Functions:**
 
@@ -199,9 +205,7 @@ tf.expand_dims
 
 ```
 
-##### V2
-
-#### Keras
+##### Tensorflow V2 / Keras
 
 TODO
 
