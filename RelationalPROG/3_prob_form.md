@@ -64,6 +64,12 @@ One problem with this model was that it was not capable to properly encode longe
 
 **Output**: for each node it computes a state representing how it belongs to the overall graph.
 
+|Example|Description|
+|:-----:|:---------:|
+|![Program](https://raw.githubusercontent.com/perticascatalin/Research/master/RelationalPROG/images/prog_graph.png)|TODO|
+|![Convolution](https://raw.githubusercontent.com/perticascatalin/Research/master/RelationalPROG/images/conv_graph.png)|TODO|
+|![Deep Sets](https://raw.githubusercontent.com/perticascatalin/Research/master/RelationalPROG/images/deep_sets.png)|TODO|
+
 **Pseudocode**:
 
 - look at current neighbouring states

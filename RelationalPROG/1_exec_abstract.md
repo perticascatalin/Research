@@ -91,7 +91,7 @@ Thus, we arrive at another goal of this research, which is to explore the role o
 #### Section  2: Plan
 #### Section  3: Datasets
 #### Section  4: Extraction of visual relationships
-#### Section  5: Neural problem solving program synthesis, source code detection & classification, directions in program induction
+#### Section  5: Neural problem solving, program synthesis, source code detection & classification, directions in program induction
 #### Section  6: Design of models and connections
 #### Section  7: 
 #### Section  8: Comparison of relational and compositional machine learning models
