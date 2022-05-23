@@ -25,6 +25,6 @@
 21. [RobustFill: Neural Program Learning under Noisy I/O, 2017](https://arxiv.org/pdf/1703.07469.pdf)
 22. [Neural Program Meta-Induction, 2017, (Devlin et al.)](https://arxiv.org/pdf/1710.04157.pdf)
 23. [Neuro-Symbolic Program Synthesis, 2016](https://arxiv.org/pdf/1611.01855.pdf)
-24. [Recurrent Relational Networks, 2018, (Palm et al.)](https://paperswithcode.com/paper/recurrent-relational-networks)[+](https://arxiv.org/pdf/1711.08028v4.pdf)
+24. [Recurrent Relational Networks, 2018](https://paperswithcode.com/paper/recurrent-relational-networks)[+](https://arxiv.org/pdf/1711.08028v4.pdf)
 25. [Latent Predictor Networks for Code Generation, 2016](https://aclanthology.org/P16-1057.pdf)
 26. [Program Induction by Rationale Generation: Learning to Solve and Explain Algebraic Word Problems, 2017](https://aclanthology.org/P17-1015.pdf)
