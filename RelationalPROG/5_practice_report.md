@@ -113,15 +113,9 @@ def conv_relational_net(x, num_classes, num_labels, batch_size, reuse, is_traini
 	return outputs
 ```
 
-#### 10.1.3 Dataset, Loss Function and Training
+#### 10.1.2.C Loss Function and Training
 
-**Training**: 60.000 samples
-
-**Validation**: 12.000 samples
-
-**Num Epochs**: 100.000
-
-#### 10.1.4.A Graph Convolutional Neural Network
+#### 10.1.3.A Graph Convolutional Neural Network
 
 [Node Classification with Graph Neural Networks](https://keras.io/examples/graph/gnn_citations/)
 
@@ -131,11 +125,15 @@ Dataset: Cora with paper subjects, words and citation links
 |:-------------:|:-------------------:|
 |![Cora samples](https://raw.githubusercontent.com/perticascatalin/Research/master/RelationalPROG/images/gnn_cora_cols.png)|![Cora visualization](https://raw.githubusercontent.com/perticascatalin/Research/master/RelationalPROG/images/gnn_cora_vis.png)|
 
-Baseline: 73,5%
+**Baseline**: 73,5%
 
-GNN: 80,2%
+![Baseline](https://raw.githubusercontent.com/perticascatalin/Research/master/RelationalPROG/images/cora_baseline.png)
 
-#### 10.1.4.B Relational Graph Convolutional Neural Network
+**GNN**: 83,3%
+
+![GNN](https://raw.githubusercontent.com/perticascatalin/Research/master/RelationalPROG/images/cora_gnn.png)
+
+#### 10.1.3.B Relational Graph Convolutional Neural Network
 
 ### 10.2 Tasks
 
@@ -155,6 +153,12 @@ GNN: 80,2%
 - pred:   5 1 4 6 0 8 2 3 7 9
 
 ![Sort Lables](https://raw.githubusercontent.com/perticascatalin/Research/master/RelationalPROG/images/sort_labels.png)
+
+**DATASET INFO**:
+
+- **Training**: 60.000 samples
+- **Validation**: 12.000 samples
+- **Num Epochs**: 100.000
 
 |Accuracy|Loss|
 |:------:|:--:|

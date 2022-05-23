@@ -1,3 +1,4 @@
+import numpy as np
 import networkx as nx
 import matplotlib.pyplot as plt
 
@@ -24,3 +25,18 @@ def plot_cora_graph(papers, citations):
     subjects = list(papers[papers["paper_id"].isin(list(cora_graph.nodes))]["subject"])
     nx.draw_spring(cora_graph, node_size = 15, node_color = subjects)
     plt.show()
+
+def generate_random_instances(x_train, num_instances):
+    token_probability = x_train.mean(axis = 0)
+    instances = []
+    for _ in range(num_instances):
+        probabilities = np.random.uniform(size = len(token_probability))
+        instance = (probabilities <= token_probability).astype(int)
+        instances.append(instance)
+    return np.array(instances)
+
+def display_class_probabilities(probabilities, class_values):
+    for instance_idx, probs in enumerate(probabilities):
+        print(f"Instance {instance_idx + 1}:")
+        for class_idx, prob in enumerate(probs):
+            print(f"- {class_values[class_idx]}: {round(prob * 100, 2)}%")

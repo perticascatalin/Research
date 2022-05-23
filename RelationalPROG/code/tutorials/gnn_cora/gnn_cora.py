@@ -85,7 +85,7 @@ baseline_model = models.create_baseline_model(hidden_units, num_features, num_cl
 baseline_model.summary()
 
 history = models.run_experiment(baseline_model, x_train, y_train, num_epochs, batch_size, learning_rate)
-# utils.display_learning_curves(history)
+utils.display_learning_curves(history)
 _, test_accuracy = baseline_model.evaluate(x=x_test, y=y_test, verbose=0)
 print(f"Test accuracy: {round(test_accuracy * 100, 2)}%")
 
@@ -107,5 +107,59 @@ graph_info = (node_features, edges, edge_weights)
 print("Edges shape:", edges.shape)
 print("Nodes shape:", node_features.shape)
 
-# Need to split functionality into several files before proceeding:
-# from filename import model (class)
+from gnn import GNNNodeClassifier
+
+gnn_model = GNNNodeClassifier(
+    graph_info   = graph_info,
+    num_classes  = num_classes,
+    hidden_units = hidden_units,
+    dropout_rate = dropout_rate,
+    name = "gnn_model")
+print("GNN output shape:", gnn_model([1, 10, 100]))
+gnn_model.summary()
+
+x_train = train_data.paper_id.to_numpy()
+history = models.run_experiment(gnn_model, x_train, y_train, num_epochs, batch_size, learning_rate)
+
+utils.display_learning_curves(history)
+
+x_test = test_data.paper_id.to_numpy()
+_, test_accuracy = gnn_model.evaluate(x = x_test, y = y_test, verbose = 0)
+print(f"Test accuracy: {round(test_accuracy * 100, 2)}%")
+
+# First we add the N new_instances as nodes to the graph
+# by appending the new_instance to node_features.
+num_nodes = node_features.shape[0]
+new_node_features = np.concatenate([node_features, new_instances])
+# Second we add the M edges (citations) from each new node to a set
+# of existing nodes in a particular subject
+new_node_indices = [i + num_nodes for i in range(num_classes)]
+new_citations = []
+for subject_idx, group in papers.groupby("subject"):
+    subject_papers = list(group.paper_id)
+    # Select random x papers specific subject.
+    selected_paper_indices1 = np.random.choice(subject_papers, 5)
+    # Select random y papers from any subject (where y < x).
+    selected_paper_indices2 = np.random.choice(list(papers.paper_id), 2)
+    # Merge the selected paper indices.
+    selected_paper_indices = np.concatenate(
+        [selected_paper_indices1, selected_paper_indices2], axis = 0)
+    # Create edges between a citing paper idx and the selected cited papers.
+    citing_paper_indx = new_node_indices[subject_idx]
+    for cited_paper_idx in selected_paper_indices:
+        new_citations.append([citing_paper_indx, cited_paper_idx])
+
+new_citations = np.array(new_citations).T
+new_edges = np.concatenate([edges, new_citations], axis = 1)
+
+print("Original node_features shape:", gnn_model.node_features.shape)
+print("Original edges shape:", gnn_model.edges.shape)
+gnn_model.node_features = new_node_features
+gnn_model.edges = new_edges
+gnn_model.edge_weights = tf.ones(shape = new_edges.shape[1])
+print("New node_features shape:", gnn_model.node_features.shape)
+print("New edges shape:", gnn_model.edges.shape)
+
+logits = gnn_model.predict(tf.convert_to_tensor(new_node_indices))
+probabilities = keras.activations.softmax(tf.convert_to_tensor(logits)).numpy()
+utils.display_class_probabilities(probabilities, class_values)
