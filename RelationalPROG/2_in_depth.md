@@ -11,7 +11,7 @@ This report continues the study started in the [thesis proposal](https://github.
 
 **Content**
 
-** 4. Extraction of Visual Relationships**:
+**4. Extraction of Visual Relationships**:
 
 [4.1. A Simple Neural Network Model for Relational Reasoning](https://arxiv.org/pdf/1706.01427.pdf)
 
@@ -21,13 +21,13 @@ This report continues the study started in the [thesis proposal](https://github.
 
 **5. Neural Problem Solving, Program Synthesis, Source Code**
 
-**Multiple tasks: input-output pairs**
+Multiple tasks: input-output pairs
 
-**Neural Problem Solving (Latent Program Induction)**:
+Neural Problem Solving: Latent Program Induction
 
 [5.1 On the Measure of Intelligence](https://arxiv.org/pdf/1911.01547.pdf)
 
-**DSL based, Program Synthesis**:
+DSL based, Program Synthesis
 
 [5.2 Deep Coder: Learning to Write Programs](https://arxiv.org/pdf/1611.01989.pdf)
 
