@@ -15,6 +15,10 @@ Another advantage of learning fewer weights is the computational efficiency. For
 - learning common weights
 - generating image embeddings
 
+[Conv Net 1](https://stanford.edu/~shervine/teaching/cs-230/cheatsheet-convolutional-neural-networks)
+
+[Conv Net 2](https://blog.mlreview.com/a-guide-to-receptive-field-arithmetic-for-convolutional-neural-networks-e0f514068807)
+
 ### 6.2 Attention Maps (for Sequence to Sequence Models)
 
 The next example is a machine translation model, namely the sequence to sequence modelling, where a recurrent neural network is fed an input sequence and has to produce an output sequence, such as translating a sentence from english to french (Sutskever et al. [14]) or synthesizing a program from a problem description (Li et al. [15]). One major breakthrough in this area was the use of an attention function (Bahdanau et al. [16]). Since then, more variants and implementations have been developed, such as the attention models from (Shazeer [17]) and visual attention from (Xu et al. [18]). The seq2seq model was initially designed as an encoder-decoder architecture, where an RNN would process the input and provide a vector / state for the decoder to decode into the output.
