@@ -121,7 +121,9 @@ TODO
 
 [Node Classification with Graph Neural Networks](https://keras.io/examples/graph/gnn_citations/)
 
-Dataset: Cora with paper subjects, words and citation links
+**Dataset**: Cora with paper subjects, words and citation links
+
+**Problem**: Determine the subject (7 categories) of each paper based on the its word vector and citations (represented as a graph)
 
 |Dataset samples|Dataset visualization|
 |:-------------:|:-------------------:|
