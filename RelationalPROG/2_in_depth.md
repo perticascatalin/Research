@@ -1,6 +1,6 @@
 # Relational reasoning in deep learning: a parallel between solving visual and programming tasks
 
-## 4. Report: Studies on the initial Bibliography
+## 4. Report: Studies on the initial Bibliography (1-6)
 
 This report continues the study started in the [thesis proposal](https://github.com/perticascatalin/Research/blob/master/RelationalPROG/1_exec_abstract.md) by developing an in-depth analysis of the selected bibliography. The review on related literature is carried out with regards to our previously set research goals.
 
@@ -30,6 +30,14 @@ This report continues the study started in the [thesis proposal](https://github.
 **Neural Problem Solving**:
 
 [6. On the Measure of Intelligence](https://arxiv.org/pdf/1911.01547.pdf)
+
+**Classification and detection**
+
+**Abstract Syntax Tree based Neural Networks**:
+
+[7. A Novel Neural Source Code Representation based on Abstract Syntax Tree](http://xuwang.tech/paper/astnn_icse2019.pdf)
+
+[8. Detecting Code Clones with Graph Neural Network and Flow-Augmented Abstract Syntax Tree](https://arxiv.org/pdf/2002.08653.pdf)
 
 ### 4.1 A simple Neural Network Model for Relational Reasoning
 
@@ -220,6 +228,19 @@ Tasks:
 - proposed definition of intelligence: skill-acquisition efficiency
 - highlight on concepts (critical pieces in intelligent systems) such as: scope, generalization difficulty, priors & experience
 - overall, the study offers a more phylosophical, but grounded in research view on intelligence and makes a case for the design of general AI benchmark datasets  
+
+### 4.7  A Novel Neural Source Code Representation based on Abstract Syntax Tree
+
+- treating code as natural language texts fails to capture syntactical and semantic information
+- more long term dependencies are required in modelling source code
+- tasks: code clone detection and source code classification
+
+### 4.8 Detecting Code Clones with Graph Neural Network and Flow-Augmented Abstract Syntax Tree
+
+- difference between syntactic and semantic clones
+- flow augmented abstract syntax trees, data flow
+- datasets: google code jam and big clone bench
+- graph neural networks
 
 ## 5. Directions in Program Induction
 
