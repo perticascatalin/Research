@@ -56,10 +56,11 @@ One problem with this model was that it was not capable to properly encode longe
 - program
 - molecule
 - social network
+- papers with citations
 
 **Nodes**: information encoded into an embedding (vector state). Eg. image, word, etc.
 
-**Edges**: relations between edges. Can be of multiple types.
+**Edges**: relations between nodes. Can be of multiple types.
 
 **Output**: for each node it computes a state representing how it belongs to the overall graph.
 
