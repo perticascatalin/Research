@@ -19,9 +19,10 @@ This report continues the study started in the [thesis proposal](https://github.
 
 [4.3. Recurrent Relational Networks](https://arxiv.org/pdf/1711.08028v4.pdf)
 
-** 5. Neural Problem Solving, Program Synthesis, Source Code**
+**5. Neural Problem Solving, Program Synthesis, Source Code**
 
 **Multiple tasks: input-output pairs**
+
 **Neural Problem Solving (Latent Program Induction)**:
 
 [5.1 On the Measure of Intelligence](https://arxiv.org/pdf/1911.01547.pdf)
