@@ -181,7 +181,7 @@ TODO
 |Baseline    |Neural Net with 3 layers: 512, 256, 128, using array as input  (10.1.1)|100%|100%| 69%| 56%| 29%|
 |Order Rel   |Same Neural Net as the Baseline, using order relations instead         |100%|100%| 99%| 87%| 38%|
 |Rel Net     |(10.1.2A)| 97%| 58%| 49%| 45%| 44%|
-|Conv Rel Net|(10.1.2B)|100%| 94%| 77%| 75%| 80%|
+|Conv Rel Net|(10.1.2B)|100%| 94%| 81%| 75%| 80%|
 
 ### 10.3 Frameworks
 
