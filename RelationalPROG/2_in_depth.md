@@ -1,6 +1,6 @@
 # Relational reasoning in deep learning: a parallel between solving visual and programming tasks
 
-## 4. Report: Studies on the initial Bibliography
+## Report: Studies on the initial Bibliography (1-6)
 
 This report continues the study started in the [thesis proposal](https://github.com/perticascatalin/Research/blob/master/RelationalPROG/1_exec_abstract.md) by developing an in-depth analysis of the selected bibliography. The review on related literature is carried out with regards to our previously set research goals.
 
@@ -11,19 +11,39 @@ This report continues the study started in the [thesis proposal](https://github.
 
 **Content**
 
-[1. A Simple Neural Network Model for Relational Reasoning](https://arxiv.org/pdf/1706.01427.pdf)
+**4. Extraction of Visual Relationships**:
 
-[2. Compositional Attention Networks for Machine Reasoning](https://arxiv.org/pdf/1803.03067.pdf)
+[4.1. A Simple Neural Network Model for Relational Reasoning](https://arxiv.org/pdf/1706.01427.pdf)
 
-[3. Recurrent Relational Networks](https://arxiv.org/pdf/1711.08028v4.pdf)
+[4.2. Compositional Attention Networks for Machine Reasoning](https://arxiv.org/pdf/1803.03067.pdf)
 
-[4. Deep Coder: Learning to Write Programs](https://arxiv.org/pdf/1611.01989.pdf)
+[4.3. Recurrent Relational Networks](https://arxiv.org/pdf/1711.08028v4.pdf)
 
-[5. Dream Coder: Growing generalizable, interpretable knowledge with wake-sleep Bayesian program learning](https://arxiv.org/pdf/2006.08381.pdf)
+**5. Neural Problem Solving, Program Synthesis, Source Code**
 
-[6. On the Measure of Intelligence](https://arxiv.org/pdf/1911.01547.pdf)
+Multiple tasks: input-output pairs
 
-### 4.1 A simple Neural Network Model for Relational Reasoning
+Neural Problem Solving: Latent Program Induction
+
+[5.1 On the Measure of Intelligence](https://arxiv.org/pdf/1911.01547.pdf)
+
+DSL based, Program Synthesis
+
+[5.2 Deep Coder: Learning to Write Programs](https://arxiv.org/pdf/1611.01989.pdf)
+
+[5.3 Dream Coder: Growing generalizable, interpretable knowledge with wake-sleep Bayesian program learning](https://arxiv.org/pdf/2006.08381.pdf)
+
+**5.4 Source Code Classification and detection**: Abstract Syntax Tree based Neural Networks
+
+[5.4.1 A Novel Neural Source Code Representation based on Abstract Syntax Tree](http://xuwang.tech/paper/astnn_icse2019.pdf)
+
+[5.4.2 Detecting Code Clones with Graph Neural Network and Flow-Augmented Abstract Syntax Tree](https://arxiv.org/pdf/2002.08653.pdf)
+
+**5.5 Directions in Program Induction**
+
+## 4. Extraction of Visual Relationships
+
+### 1. A simple Neural Network Model for Relational Reasoning
 
 This study presents a general machine learning model used for solving relational tasks. The relational network (RN) model contains a built-in mechanism for capturing core common properties of relational reasoning. From this perspective, we can draw parallels to other machine learning models designed with different properties in mind, such as the well known:
 
@@ -33,7 +53,7 @@ This study presents a general machine learning model used for solving relational
 The RN is used on 3 different tasks, all of which require some kind of relational inference on a set of objects:
 
 - Visual question answering (datasets: CLEVR - 3d, Sort-of-CLEVR - 2d)
-- Text-based question answering
+- Text-based question answering (dataset: bAbi)
 - Complex reasoning about dynamic physical systems
 
 Other similar approaches (relation-centric) include:
@@ -79,9 +99,9 @@ Finally, the information about what constitues objects and how to parse the ques
 
 Sample open source [code](https://github.com/clvrai/Relation-Network-Tensorflow) applying RN to the Sort-of-CLEVR dataset.
 
-Code running logs: see [practice report](https://github.com/perticascatalin/Research/blob/master/RelationalPROG/4_practice_report.md)
+Code running logs: see [practice report](https://github.com/perticascatalin/Research/blob/master/RelationalPROG/5_practice_report.md)
 
-### 4.2 Compositional Attention Networks for Machine Reasoning
+### 2. Compositional Attention Networks for Machine Reasoning
 
 The study presents a recurrent neural network architecture which relies on structural constraints in order to guide the network towards compositional reasoning and to facilitate interpretability of the inferred results. The network is called MAC (memory, attention, composition) because of its specific architecture which separates control from memory and imposes structural constraints that regulate interaction. As opposed to the RN, which is a module, MAC is a network learning cell.
 
@@ -106,13 +126,41 @@ Other memory based approaches: (A. Graves et al. [12]). Example applications: gr
 
 Original open source [code](https://github.com/stanfordnlp/mac-network) implementation of MAC network.
 
-Code running logs: see [practice report](https://github.com/perticascatalin/Research/blob/master/RelationalPROG/4_practice_report.md)
+Code running logs: see [practice report](https://github.com/perticascatalin/Research/blob/master/RelationalPROG/5_practice_report.md)
 
-### 4.3 Recurrent Relational Networks
+### 3. Recurrent Relational Networks
 
-TODO
+Learning to solve tasks that require a chain of interdependent steps of relational inference, such as:
 
-### 4.4 Deep Coder: Learning to Write Programs
+- answering complex questions about the relationships between objects
+- solving puzzles where the smaller elements of a solution mutually constrain each other
+
+Introduces the recurrent relational network (RRN), which:
+
+- operates on a graph representation of objects
+- is a generalization of the relational network RN
+- solves 20/20 bAbi tasks, compared to 18/20 for RN
+
+Introduces a new dataset Pretty-CLEVR, where the number of relational reasoning steps that are required to obtain the answer can be controlled.
+
+Comparison against RN on the Pretty-CLEVR dataset and on Sudoku puzzle solving.
+
+![Pretty-CLEVR comparison](https://raw.githubusercontent.com/perticascatalin/Research/master/RelationalPROG/images/pretty_clevr.png)
+
+## 5. Neural Problem Solving, Program Synthesis, Source Code
+
+### 5.1 On the Measure of Intelligence
+
+- the need to define & evaluate intelligence (capacity for reasoning) in a way that enables comparisons between 2 systems
+- 2 broad historical conceptions:
+	- AI: comprison of skills exhibited by AIs & humans at specific tasks
+	- Psychology: levaraging modern insight into developmental cognitive psychology
+- since skills are highly modulated by prior knowledge & experience, then unlimited priors & training data allow experiments to buy aribitrary levels of skills for a system
+- proposed definition of intelligence: skill-acquisition efficiency
+- highlight on concepts (critical pieces in intelligent systems) such as: scope, generalization difficulty, priors & experience
+- overall, the study offers a more phylosophical, but grounded in research view on intelligence and makes a case for the design of general AI benchmark datasets  
+
+### 5.2 Deep Coder: Learning to Write Programs
 
 #### High-Level Summary
 
@@ -175,7 +223,7 @@ We can notice that although only a few lines long, both programs require a signi
 
 Sample open source [code1](https://github.com/dkamm/deepcoder), [code2](https://github.com/HiroakiMikami/deep-coder) implementing Deep Coder.
 
-### 4.5 Dream Coder: Growing generalizable, interpretable knowledge with wake-sleep Bayesian program learning
+### 5.3 Dream Coder: Growing generalizable, interpretable knowledge with wake-sleep Bayesian program learning
 
 - a system that learns to solve problems by writing programs
 - start by using primitives to learn programs based on input-output pairs
@@ -189,20 +237,24 @@ Tasks:
 - drawing pictures, building scenes
 - rediscovers basics of modern functional programming, vector algebra, classical physics
 
-### 4.6 On the Measure of Intelligence
+## 5.4 Source Code Classification and Detection (AST based)
 
-- the need to define & evaluate intelligence (capacity for reasoning) in a way that enables comparisons between 2 systems
-- 2 broad historical conceptions:
-	- AI: comprison of skills exhibited by AIs & humans at specific tasks
-	- Psychology: levaraging modern insight into developmental cognitive psychology
-- since skills are highly modulated by prior knowledge & experience, then unlimited priors & training data allow experiments to buy aribitrary levels of skills for a system
-- proposed definition of intelligence: skill-acquisition efficiency
-- highlight on concepts (critical pieces in intelligent systems) such as: scope, generalization difficulty, priors & experience
-- overall, the study offers a more phylosophical, but grounded in research view on intelligence and makes a case for the design of general AI benchmark datasets  
+### 5.4.1  A Novel Neural Source Code Representation based on Abstract Syntax Tree
 
-## 5. Directions in Program Induction
+- treating code as natural language texts fails to capture syntactical and semantic information
+- more long term dependencies are required in modelling source code
+- tasks: code clone detection and source code classification
 
-### 5.1 Latent Induction vs Code Synthesis
+### 5.4.2 Detecting Code Clones with Graph Neural Network and Flow-Augmented Abstract Syntax Tree
+
+- difference between syntactic and semantic clones
+- flow augmented abstract syntax trees, data flow
+- datasets: google code jam and big clone bench
+- graph neural networks
+
+## 5.5 Directions in Program Induction
+
+### 5.5.1 Latent Induction vs Code Synthesis
 
 The first important bifurcation in the approaches for generating programs is the choice of program representation. When a neural network learns to map input to output, thus solving a programming task, the program is stored in the network and executed by the network through neural activations. This is called latent program induction, because the representation of the generated program is not human-readable.
 
@@ -212,13 +264,13 @@ A comparison of the two approaches applied on string transformation problems is 
 
 Latent programs are written in the language of neural networks, whereas synthesized programs are written in a language of choice. Both approaches have shown success, however it is not possible to pick one that works best because they have different strengths. For instance, induction is more likely to provide a good approximation of the output function for the type of inputs provided, but might not generalize so well for new inputs. On the other hand, synthesis will either find the correct program and generalize the solution well for all inputs, or find the wrong solution which over-fits the presented input. Synthesis is thus more capable, but also the riskier approach.
 
-### 5.2 Specifications vs Input-Output Pairs
+### 5.5.2 Specifications vs Input-Output Pairs
 
 The second important ramification in formulating a program learning task is based on how the problem is conveyed to the network. Two directions are currently being extensively researched, one is to have specifications for solving the problem in natural language, the other is based on feeding the model with many input-output pairs.
 
 There are also hybrid methods, where both types of information are presented to the learning model. While Yin and Neubig [10] present a method for inferring code from specifications, Balog et al. [7] and Parisotto et al., [23] perform program synthesis based on input-output pairs. The methods in Ling et al. [25] and Ling et al. [26] are examples of hybrid approaches.
 
-### 5.3 End-to-End Learning vs Intermediate Steps Prediction
+### 5.5.3 End-to-End Learning vs Intermediate Steps Prediction
 
 Yet a third difference in approaches to model program induction can be noticed in specialized literature on this topic: learning to predict the end result versus learning to generate a rationale for solving the task at hand.
 

@@ -15,6 +15,10 @@ Another advantage of learning fewer weights is the computational efficiency. For
 - learning common weights
 - generating image embeddings
 
+[Conv Net 1](https://stanford.edu/~shervine/teaching/cs-230/cheatsheet-convolutional-neural-networks)
+
+[Conv Net 2](https://blog.mlreview.com/a-guide-to-receptive-field-arithmetic-for-convolutional-neural-networks-e0f514068807)
+
 ### 6.2 Attention Maps (for Sequence to Sequence Models)
 
 The next example is a machine translation model, namely the sequence to sequence modelling, where a recurrent neural network is fed an input sequence and has to produce an output sequence, such as translating a sentence from english to french (Sutskever et al. [14]) or synthesizing a program from a problem description (Li et al. [15]). One major breakthrough in this area was the use of an attention function (Bahdanau et al. [16]). Since then, more variants and implementations have been developed, such as the attention models from (Shazeer [17]) and visual attention from (Xu et al. [18]). The seq2seq model was initially designed as an encoder-decoder architecture, where an RNN would process the input and provide a vector / state for the decoder to decode into the output.
@@ -56,12 +60,19 @@ One problem with this model was that it was not capable to properly encode longe
 - program
 - molecule
 - social network
+- papers with citations
 
 **Nodes**: information encoded into an embedding (vector state). Eg. image, word, etc.
 
-**Edges**: relations between edges. Can be of multiple types.
+**Edges**: relations between nodes. Can be of multiple types.
 
 **Output**: for each node it computes a state representing how it belongs to the overall graph.
+
+|Example|Description|
+|:-----:|:---------:|
+|![Program](https://raw.githubusercontent.com/perticascatalin/Research/master/RelationalPROG/images/prog_graph.png)|TODO|
+|![Convolution](https://raw.githubusercontent.com/perticascatalin/Research/master/RelationalPROG/images/conv_graph.png)|TODO|
+|![Deep Sets](https://raw.githubusercontent.com/perticascatalin/Research/master/RelationalPROG/images/deep_sets.png)|TODO|
 
 **Pseudocode**:
 
@@ -75,25 +86,3 @@ One problem with this model was that it was not capable to properly encode longe
 [A. GNN implementation & intro](https://keras.io/examples/graph/gnn_citations/)[+](https://www.youtube.com/watch?v=2KRAOZIULzw)[+](https://www.youtube.com/watch?v=wJQQFUcHO5U)
 
 [B. Lecture on GNNs](https://www.youtube.com/watch?v=zCEYiCxrL_0)
-
-## 7. Definitions and Notes
-
-1. **Relational Reasoning**: the capacity to reason about and find solutions to problems involving a set of objects which are related to one another through some properties that need to be discovered.
-
-2. **Program Induction**: the inference of computer programs designed to solve problems given in the form of partial data, either input-output pairs, or other types of constraints.
-
-3. **Inductive Program Synthesis**: IPS problem, given input-output examples, produce a program that has behavior consistent with the examples. This requires solving 2 problems: defining the program space & the search procedure and solving the ranking problem - deciding which program is to be preferred when several solutions are available.
-
-4. **Abstract Syntax Tree**: AST, a tree representation of the abstract syntactic structure of source code written in a programming language.
-
-5. **Kernel**: Convolution matrix or mask, used for applying a filter to an image.
-
-6. **Feature Map**: a collection of kernel activations which are the result of applying filters from one convolutional network layer to the next layer. The filters / kernels are represented by learnable weights, while the feature map is the activation of a CNN at an intermediary layer.
-
-7. **Embedding**: a relatively low-dimensional space into which high-dimensional vectors can be translated.
-
-8. **Latent Representation**: a representation of data which is available in a neural network's hidden layers. These representations fill a latent space, which can be viewed as an embedding when the network acts as an encoder (when it compresses data). To note the type of embeddings which retain semantic properties, such as Word2Vec (Mikolov et al. [9]).
-
-9. **Beam Search**: a version of BFS, which uses a heuristic to only keep a subset of (best) partial solutions explored at any given point during the search process.
-
-10. **BLEU Score**: bilingual evaluation understudy is a metric for evaluating machine translated text.

@@ -25,6 +25,28 @@
 21. [RobustFill: Neural Program Learning under Noisy I/O, 2017](https://arxiv.org/pdf/1703.07469.pdf)
 22. [Neural Program Meta-Induction, 2017, (Devlin et al.)](https://arxiv.org/pdf/1710.04157.pdf)
 23. [Neuro-Symbolic Program Synthesis, 2016](https://arxiv.org/pdf/1611.01855.pdf)
-24. [Recurrent Relational Networks, 2018, (Palm et al.)](https://paperswithcode.com/paper/recurrent-relational-networks)[+](https://arxiv.org/pdf/1711.08028v4.pdf)
+24. [Recurrent Relational Networks, 2018](https://paperswithcode.com/paper/recurrent-relational-networks)[+](https://arxiv.org/pdf/1711.08028v4.pdf)
 25. [Latent Predictor Networks for Code Generation, 2016](https://aclanthology.org/P16-1057.pdf)
 26. [Program Induction by Rationale Generation: Learning to Solve and Explain Algebraic Word Problems, 2017](https://aclanthology.org/P17-1015.pdf)
+
+### Definitions and Notes
+
+1. **Relational Reasoning**: the capacity to reason about and find solutions to problems involving a set of objects which are related to one another through some properties that need to be discovered.
+
+2. **Program Induction**: the inference of computer programs designed to solve problems given in the form of partial data, either input-output pairs, or other types of constraints.
+
+3. **Inductive Program Synthesis**: IPS problem, given input-output examples, produce a program that has behavior consistent with the examples. This requires solving 2 problems: defining the program space & the search procedure and solving the ranking problem - deciding which program is to be preferred when several solutions are available.
+
+4. **Abstract Syntax Tree**: AST, a tree representation of the abstract syntactic structure of source code written in a programming language.
+
+5. **Kernel**: Convolution matrix or mask, used for applying a filter to an image.
+
+6. **Feature Map**: a collection of kernel activations which are the result of applying filters from one convolutional network layer to the next layer. The filters / kernels are represented by learnable weights, while the feature map is the activation of a CNN at an intermediary layer.
+
+7. **Embedding**: a relatively low-dimensional space into which high-dimensional vectors can be translated.
+
+8. **Latent Representation**: a representation of data which is available in a neural network's hidden layers. These representations fill a latent space, which can be viewed as an embedding when the network acts as an encoder (when it compresses data). To note the type of embeddings which retain semantic properties, such as Word2Vec (Mikolov et al. [9]).
+
+9. **Beam Search**: a version of BFS, which uses a heuristic to only keep a subset of (best) partial solutions explored at any given point during the search process.
+
+10. **BLEU Score**: bilingual evaluation understudy is a metric for evaluating machine translated text.

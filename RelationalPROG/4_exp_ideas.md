@@ -36,18 +36,3 @@ Consider input-output pairs in IPS to be program states, which we can generate e
 ### 9.2 Program attributes as questions
 
 The cognitive process of designing a program to solve a problem is a highly complex task. Often times, it is a longer interactive process during which the solver has to ask a series of questions in order to arrive at the right programming technique and abstractions through meaningful decisions. Thus, the ability to ask meaningful questions seems to be a necessary component when trying to design a more general reasoning system. To research how questions could be generated in a programming setup?
-
-### 9.3 Abstract Syntax Tree base Neural Networks
-
-A. [A Novel Neural Source Code Representation based on Abstract Syntax Tree, 2019](http://xuwang.tech/paper/astnn_icse2019.pdf), Zhang et al. [19]
-
-- treating code as natural language texts fails to capture syntactical and semantic information
-- more long term dependencies are required in modelling source code
-- tasks: code clone detection and source code classification
-
-B. [Detecting Code Clones with Graph Neural Network and Flow-Augmented Abstract Syntax Tree, 2020](https://arxiv.org/pdf/2002.08653.pdf), Wang et al. [20]
-
-- difference between syntactic and semantic clones
-- flow augmented abstract syntax trees, data flow
-- datasets: google code jam and big clone bench
-- graph neural networks

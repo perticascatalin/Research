@@ -4,7 +4,7 @@
 
 Deep learning has seen great success in the automated extraction of facts from large and diverse sensory inputs. More recently there has been an increased interest in the development of models that also have the ability to reason at some level about these facts.
 
-One such area of research is visual relational reasoning, which doesn't only aim to detect objects and their classes in a visual scene, but also aims to answer questions about these objects. Examples of this kind of modelling include the works of (Santoro et al. [5]) and (Hudson & Manning [4]). Their setups consist of 3D scenes of objects (CLEVR dataset, also see [3]), which are presented to a machine learning model that needs to answer questions involving relationships between the objects. Such a question could be: "What is the shape of the object behind the blue sphere?".
+One such area of research is visual relational reasoning, which doesn't only aim to detect objects and their classes in a visual scene, but also aims to answer questions about these objects. Examples of this kind of modelling include the works of (Santoro et al. [5]), (Hudson & Manning [4]) and (Palm et al. [24]). Their setups consist of 2D or 3D scenes of objects (CLEVR dataset, also see [3]), which are presented to a machine learning model that needs to answer questions involving relationships between the objects. Such a question could be: "What is the shape of the object behind the blue sphere?".
 
 These kind of tasks pose challenges to traditional deep learning models because they need to abstract what constitutes an object and then they have to perform reasoning based on the object's position, features and relationships with the other objects. Therefore, all sorts of novel techniques (eg. paired processing, composition, attention, memory) need to be incorporated if such systems are to perform more complex reasoning. These are mainly used for exploiting relationships between objects as prior knowledge or to reduce information bottlenecks, and thus, one of the goals of this research is to explore the possible ways in which relational reasoning can be integrated into deep learning models.
 
@@ -90,14 +90,14 @@ Thus, we arrive at another goal of this research, which is to explore the role o
 #### Section  1: Abstract
 #### Section  2: Plan
 #### Section  3: Datasets
-#### Section  4: Report: Studies on the initial Bibliography
-#### Section  5: Directions in Program Induction
+#### Section  4: Extraction of visual relationships
+#### Section  5: Neural problem solving, program synthesis, source code detection & classification, directions in program induction
 #### Section  6: Design of models and connections
-#### Section  7: Definitions and Notes
+#### Section  7: 
 #### Section  8: Comparison of relational and compositional machine learning models
 #### Section  9: Relational reasoning and question answering in programming
 #### Section 10: Report on practice (technical details)
-#### Section 11: References
+#### Section 11: References, definitions and notes
 
 ## 3. Datasets
 
