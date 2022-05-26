@@ -80,3 +80,47 @@ def conv_relational_net(x, num_classes, num_labels, batch_size, reuse, is_traini
 			out_i = out_i if is_training else tf.nn.softmax(out_i)
 			outputs.append(out_i)
 	return outputs
+
+def conv_dense_relational_net(x, num_classes, num_labels, batch_size, reuse, is_training):
+	with tf.variable_scope('ConvDenseRelationalNet', reuse = reuse):
+		units_1 = []
+		for i in range(num_classes):
+			for j in range(num_classes):
+				a_unit = tf.slice(x, [0,i], [batch_size,1])
+				b_unit = tf.slice(x, [0,j], [batch_size,1])
+				rel_unit = tf.concat([a_unit, b_unit], 1)
+				units_1.append(rel_unit)
+		units_1a = tf.expand_dims(tf.stack(units_1, axis = 2), 3)
+		units_1b = tf.layers.conv2d(units_1a, 32, [2,1], [2,1], 'same', activation = 'relu')
+		units_2 = tf.layers.conv2d(units_1b, 16, [1,num_classes], [1,num_classes], 'same', activation = 'relu')
+		units_3 = tf.contrib.layers.flatten(units_2)
+		units_4 = tf.layers.dense(units_3, 64, activation = tf.nn.tanh)
+		outputs = []
+		for i in range(num_classes):
+			out_i = tf.layers.dense(units_4, num_labels)
+			out_i = out_i if is_training else tf.nn.softmax(out_i)
+			outputs.append(out_i)
+	return outputs
+
+def net_inspect(x, num_classes, num_labels, batch_size, reuse, is_training):
+	with tf.variable_scope('NetInspect', reuse = reuse):
+		units_1 = []
+		for i in range(num_classes):
+			for j in range(num_classes):
+				a_unit = tf.slice(x, [0,i], [batch_size,1])
+				b_unit = tf.slice(x, [0,j], [batch_size,1])
+				rel_unit = tf.concat([a_unit, b_unit], 1)
+				units_1.append(rel_unit)
+		units_1a = tf.expand_dims(tf.stack(units_1, axis = 2), 3)
+		units_1a = tf.transpose(units_1a, (0, 2, 1, 3))
+		units_1b = tf.layers.conv2d(units_1a, 32, [1,2], [1,2], 'same', activation = 'relu')
+		units_2 = tf.layers.conv2d(units_1b, 16, [num_classes,1], [num_classes,1], 'same', activation = 'relu')
+		units_3 = tf.contrib.layers.flatten(units_2)
+		units_4 = tf.layers.dense(units_3, 64, activation = tf.nn.tanh)
+		outputs = []
+		for i in range(num_classes):
+			out_i = tf.layers.dense(units_4, num_labels)
+			out_i = out_i if is_training else tf.nn.softmax(out_i)
+			outputs.append(out_i)
+	return units_1, units_1a, units_1b, units_2, units_3
+	# return outputs
