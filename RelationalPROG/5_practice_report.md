@@ -157,14 +157,34 @@ with tf.Session() as sess:
 
 **Description**: This task is relational because the outputs depend on how large an element is in comparison to the rest of the elements in the input array.
 
-**Example**:
+**EXAMPLE**:
 
 - 8 out of 10
 - input: 25 19 26 30 16 40 21 23 39 41
 - expect: 4 1 5 6 0 8 2 3 7 9
 - pred:   5 1 4 6 0 8 2 3 7 9
 
-![Sort Lables](https://raw.githubusercontent.com/perticascatalin/Research/master/RelationalPROG/images/sort_labels.png)
+|Sample|Accuracy by N|
+|:----:|:-----------:|
+|![Sort Lables](https://raw.githubusercontent.com/perticascatalin/Research/master/RelationalPROG/images/sort_labels.png)|![Accuracy all models, various N](https://raw.githubusercontent.com/perticascatalin/Research/master/PermutationRN/results/acc_all.png)|
+
+|Accuracy|Loss|
+|:------:|:--:|
+|![Accuracy for N = 30](https://raw.githubusercontent.com/perticascatalin/Research/master/PermutationRN/results/all_30_acc.png)|![Loss for N = 30](https://raw.githubusercontent.com/perticascatalin/Research/master/PermutationRN/results/all_30_loss.png)|
+
+The accuracy is computed by averaging the number of correctly guessed labels per sample from the validation dataset. Eg. for 3 samples: 6 out of 10, 7 out of 10, 8 out of 10, then the model accuracy would report an accuracy of 70%.
+
+**LEGEND**:
+
+|Model|Description|N=10|N=15|N=20|N=25|N=30|
+|:---:|:---------:|:--:|:--:|:--:|:--:|:--:|
+|Baseline    |Neural Net with 3 layers: 512, 256, 128, using array as input (10.1.A)|100%|100%| 69%| 56%| 29%|
+|Order Rel   |Same Neural Net as the Baseline, using order relations as input       |100%|100%| 99%| 87%| 38%|
+|Rel Net     |Relational Net with paired inputs, fully connected (10.1.B)           | 97%| 58%| 49%| 45%| 44%|
+|Conv Rel Net|Relational Net with paired inputs, convolute same relations (10.1.C)  |100%| 94%| 81%| 75%| 80%|
+|DT Baseline |Decision Trees using array as input                                   |55%|34%|25%|20%||
+|DT Order Rel|Decision Trees using order relations as input                         |81%|42%|25%|16%||
+|DT All Feats|Decision Trees using array and order relations as input               ||||||
 
 **DATASET INFO**:
 
@@ -172,29 +192,27 @@ with tf.Session() as sess:
 - **Validation**: 12.000 samples
 - **Num Epochs**: 100.000
 
-|Accuracy|Loss|
-|:------:|:--:|
-|![Accuracy for N = 30](https://raw.githubusercontent.com/perticascatalin/Research/master/PermutationRN/results/all_30_acc.png)|![Loss for N = 30](https://raw.githubusercontent.com/perticascatalin/Research/master/PermutationRN/results/all_30_loss.png)|
-
-![Accuracy all models, various N](https://raw.githubusercontent.com/perticascatalin/Research/master/PermutationRN/results/acc_all.png)
-
-The accuracy is computed by averaging the number of correctly guessed labels per sample from the validation dataset. Eg. for 3 samples: 6 out of 10, 7 out of 10, 8 out of 10, then the model accuracy would report an accuracy of 70%.
-
-**Legend**:
-
-|Model|Description|N=10|N=15|N=20|N=25|N=30|
-|:---:|:---------:|:--:|:--:|:--:|:--:|:--:|
-|Baseline    |Neural Net with 3 layers: 512, 256, 128, using array as input (10.1.1)|100%|100%| 69%| 56%| 29%|
-|Order Rel   |Same Neural Net as the Baseline, using order relations as input       |100%|100%| 99%| 87%| 38%|
-|Rel Net     |Relational Net with paired inputs, fully connected (10.1.2A)          | 97%| 58%| 49%| 45%| 44%|
-|Conv Rel Net|Relational Net with paired inputs, convolute same relations (10.1.2B) |100%| 94%| 81%| 75%| 80%|
-
 #### 10.2.B Longest Increasing Sequence
 
+**Input**: Array of N unique elements (integers) with values in the range [1,50].
+
+**Output**: Array of N values specifying the size of the longest increasing sequence ending with the current element.
+
+**Description**: This task is one of the most simple dynamic programming examples, where the solution to a subproblem - longest sequence up to the ith element (best[i]) is computed based on the previously solved subproblems - longest sequences for 1st, 2nd,... (i-1)th elements (best[1..(i-1)]) provided their values are smaller. For this reason, this problem could also be viewed as relational.
+
+**EXAMPLE**:
+
+- 9 out of 10
+- input: 25 19 26 30 16 40 21 23 39 41
+- expect: 1 1 2 3 1 4 2 3 4 5
+- pred:   1 1 2 2 1 4 2 3 4 5
+
+**LEGEND**:
+
 |Model|Description|N=10|N=15|N=20|N=25|N=30|
 |:---:|:---------:|:--:|:--:|:--:|:--:|:--:|
-|Baseline    ||98%|85%|74%|64%|57%|
-|Conv Rel Net||89%|71%|64%|65%|64%|
+|Baseline    |(10.1.A)|98%|85%|74%|64%|57%|
+|Conv Rel Net|(10.1.C)|89%|71%|64%|65%|64%|
 
 ## 11. Graph Neural Networks
 
