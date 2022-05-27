@@ -161,7 +161,7 @@ This paper discusses approaches to define intelligence and makes a case for bett
 - proposed definition of intelligence: skill-acquisition efficiency
 - difference between measuring skill vs. broad abilities
 - leverage multi-task benchmarks as a way to assess robustness and flexibility
-- system developer embedding the right abstraction into the system, thus partially solving the problem for the "intelligent agent
+- system developer embedding the right abstraction into the system, thus partially solving the problem for the "intelligent agent"
 - highlight on concepts (critical pieces in intelligent systems) such as: scope, generalization difficulty, priors & experience
 
 Overall, the study offers a more phylosophical, but grounded in research view on intelligence. It also makes a very good case for the design of general AI benchmark datasets and proposes the ARC dataset. 
@@ -172,6 +172,8 @@ Overall, the study offers a more phylosophical, but grounded in research view on
 |![Sample 3](https://raw.githubusercontent.com/perticascatalin/Research/master/RelationalPROG/images/arc_3.png)|![Sample 4](https://raw.githubusercontent.com/perticascatalin/Research/master/RelationalPROG/images/arc_4.png)|
 
 ![General Intelligence to Specific Tasks](https://raw.githubusercontent.com/perticascatalin/Research/master/RelationalPROG/images/moi.png)
+
+Probably contrary to the author's expectations, the solutions to fitting the ARC dataset hosted as a contest on Kaggle seemd to be very task specific. Many participants divided the tasks into subsets using the same abstractions and created DSLs for solving those, or used different specific methods on subsets of similar tasks. So it would seem that in practice, the most available method is still to human engineer a proper model based on the dataset or to  "manually extract" relevant features. Although this certainly takes much more time for a multi task dataset, the dataset can still be "hacked". However, what is really nice about this dataset is how many different problem solving concepts can be integrated into a simple grid-based input-output set of tasks.
 
 ### 5.2 Deep Coder: Learning to Write Programs
 
