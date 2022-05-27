@@ -2,9 +2,11 @@
 
 ## 10. Report on practice (technical details)
 
-### 10.1 Models
+### 10.1 Neural Problem Solving
 
-#### 10.1.1 Multi-label Multi-class Neural Network
+#### 10.1.1 Models
+
+##### 10.1.1.A Multi-label Multi-class Neural Network
 
 The model accepts N inputs and M outputs for training and performs standard classification tasks. This architecture could be viewed as modelling a fixed seq2seq task or as an array-like input (sample with N features) mapped to an array-like output consisting of various classes of labels (M classes, eg. color, shape and size for M = 3), each with its own set of labels (red, green and blue; small and large, etc.).
 
@@ -38,7 +40,7 @@ def neural_net(x, num_classes, num_labels, layer_neurons, layer_dropout, reuse, 
 	return outputs
 ```
 
-#### 10.1.2.A Relational Neural Network
+##### 10.1.1.B Relational Neural Network
 
 One way of creating a relational network is to pair up elements from an input sample, concatenate them into a single vector and then link the vector to one or more neurons on the following layer in the neural network. The example below links the pairing vector to one neuron, thus creating N x N neurons in the second layer. After this, it applies the same convolutional filters to all rows in an attempt to represent each sample as an aggregation of its relations to other samples from the same input. Layers of neurons can be further applied, but in the example below we directly apply the softmax layer.
 
@@ -77,7 +79,7 @@ def relational_net(x, num_classes, num_labels, batch_size, reuse, is_training):
 	return outputs
 ```
 
-#### 10.1.2.B Convolutional Relational Neural Network
+##### 10.1.1.C Convolutional Relational Neural Network
 
 A variation of the previous neural network is to apply the same learning function (learn the same weights) to the pairs of elements, thus learning the same relations between all the elements. We can implement this as a convolutional filter, which drastically reduces the training time of the previous neural network and at the same time also improves the results in our experimental setup.
 
@@ -113,7 +115,7 @@ def conv_relational_net(x, num_classes, num_labels, batch_size, reuse, is_traini
 	return outputs
 ```
 
-#### 10.1.2.C Data Generation, Loss Function and Training
+##### 10.1.1.D Data Generation, Loss Function and Training
 
 ```python
 lsts_train, orders_train = gen.data_by_type(data_type, is_training = True)
@@ -145,35 +147,9 @@ with tf.Session() as sess:
 		sess.run(train_op)
 ```
 
-#### 10.1.3.A Graph Convolutional Neural Network
+#### 10.1.2 Tasks
 
-[Node Classification with Graph Neural Networks](https://keras.io/examples/graph/gnn_citations/)
-
-**Dataset**: Cora with paper subjects, words and citation links
-
-**Problem**: Determine the subject (7 categories) of each paper based on the its word vector and citations (represented as a graph)
-
-|Dataset samples|Dataset visualization|
-|:-------------:|:-------------------:|
-|![Cora samples](https://raw.githubusercontent.com/perticascatalin/Research/master/RelationalPROG/images/gnn_cora_cols.png)|![Cora visualization](https://raw.githubusercontent.com/perticascatalin/Research/master/RelationalPROG/images/gnn_cora_vis.png)|
-
-**Baseline**: 73,5%
-
-![Baseline](https://raw.githubusercontent.com/perticascatalin/Research/master/RelationalPROG/images/cora_baseline.png)
-
-**GNN**: 83,3%
-
-![GNN](https://raw.githubusercontent.com/perticascatalin/Research/master/RelationalPROG/images/cora_gnn.png)
-
-*Implementation using python 3.9 and TensorFlow 2.8*
-
-#### 10.1.3.B Relational Graph Convolutional Neural Network
-
-TODO
-
-### 10.2 Tasks
-
-#### 10.2.1 Sorting an array of elements
+##### 10.1.2.A Sorting a list
 
 **Input**: Array of N unique elements (integers) with values in the range [1,50].
 
@@ -202,6 +178,8 @@ TODO
 
 ![Accuracy all models, various N](https://raw.githubusercontent.com/perticascatalin/Research/master/PermutationRN/results/acc_all.png)
 
+The accuracy is computed by averaging the number of correctly guessed labels per sample from the validation dataset. Eg. for 3 samples: 6 out of 10, 7 out of 10, 8 out of 10, then the model accuracy would report an accuracy of 70%.
+
 **Legend**:
 
 |Model|Description|N=10|N=15|N=20|N=25|N=30|
@@ -210,6 +188,41 @@ TODO
 |Order Rel   |Same Neural Net as the Baseline, using order relations as input       |100%|100%| 99%| 87%| 38%|
 |Rel Net     |Relational Net with paired inputs, fully connected (10.1.2A)          | 97%| 58%| 49%| 45%| 44%|
 |Conv Rel Net|Relational Net with paired inputs, convolute same relations (10.1.2B) |100%| 94%| 81%| 75%| 80%|
+
+##### 10.1.2.B Longest increasing sequence
+
+|Model|Description|N=10|N=15|N=20|N=25|N=30|
+|:---:|:---------:|:--:|:--:|:--:|:--:|:--:|
+|Baseline    ||98%|85%|74%|64%|57%|
+|Conv Rel Net|||||||
+
+### 10.2 Graph Neural Networks
+
+#### 10.2.1 Graph Convolutional Neural Network
+
+[Node Classification with Graph Neural Networks](https://keras.io/examples/graph/gnn_citations/)
+
+**Dataset**: Cora with paper subjects, words and citation links
+
+**Problem**: Determine the subject (7 categories) of each paper based on the its word vector and citations (represented as a graph)
+
+|Dataset samples|Dataset visualization|
+|:-------------:|:-------------------:|
+|![Cora samples](https://raw.githubusercontent.com/perticascatalin/Research/master/RelationalPROG/images/gnn_cora_cols.png)|![Cora visualization](https://raw.githubusercontent.com/perticascatalin/Research/master/RelationalPROG/images/gnn_cora_vis.png)|
+
+**Baseline**: 73,5%
+
+![Baseline](https://raw.githubusercontent.com/perticascatalin/Research/master/RelationalPROG/images/cora_baseline.png)
+
+**GNN**: 83,3%
+
+![GNN](https://raw.githubusercontent.com/perticascatalin/Research/master/RelationalPROG/images/cora_gnn.png)
+
+*Implementation using python 3.9 and TensorFlow 2.8*
+
+#### 10.2.2 Relational Graph Convolutional Neural Network
+
+TODO
 
 ### 10.3 Frameworks
 
