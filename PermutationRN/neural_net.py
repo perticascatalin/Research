@@ -8,7 +8,7 @@ import models as mod
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
 
 # Setup experiment size and parameters
-model_name    = "lis_30"             # Model name for saving results
+model_name    = "test"             # Model name for saving results
 N_INPUTS      = conf.num_inputs      # Array of N inputs  (N_FEAT = (N_INPUTS*(N_INPUTS - 1))/2) if order relations
 N_OUTPUTS     = conf.num_outputs     # Array of N outputs (or some other number)
 data_type     = conf.data_type       # Data re-representation
@@ -59,7 +59,7 @@ correct_pred_train = tf.constant(0.0, dtype = tf.float32)
 correct_pred_val = tf.constant(0.0, dtype = tf.float32)
 for i in range(N_OUTPUTS):
 	correct_pred_train = correct_pred_train + tf.cast(tf.equal(tf.argmax(logits_test[i], 1), tf.cast(Y[:,i], tf.int64)), tf.float32)
-	correct_pred_val = correct_pred_val + tf.cast(tf.equal(tf.argmax(logits_val[i], 1), tf.cast(Y_val[:,i], tf.int64)), tf.float32)
+	correct_pred_val   = correct_pred_val   + tf.cast(tf.equal(tf.argmax(logits_val[i], 1), tf.cast(Y_val[:,i], tf.int64)), tf.float32)
 accuracy_train = tf.reduce_mean(correct_pred_train)
 accuracy_val = tf.reduce_mean(correct_pred_val)	
 
@@ -72,14 +72,12 @@ with tf.Session() as sess:
 	sess.run(init)
 	coord = tf.train.Coordinator()
 	threads = tf.train.start_queue_runners(sess = sess, coord = coord)
-
 	train_losses, val_losses, train_accs, val_accs, steps = [], [], [], [], []
 
 	# Training cycle
 	for step in range(1, num_steps+1):
+		sess.run(train_op) # Run optimization
 		if step % display_step == 0:
-			# Run optimization
-			sess.run([train_op])
 			# Calculate average batch loss and accuracy
 			training_loss, validation_loss, training_accuracy, validation_accuracy = 0.0, 0.0, 0.0, 0.0
 
@@ -115,9 +113,6 @@ with tf.Session() as sess:
 			train_accs.append(100.0*training_accuracy/N_INPUTS)
 			val_accs.append(100.0*validation_accuracy/N_INPUTS)
 			steps.append(step/1000)
-		else:
-			# Only run the optimization op (backprop)
-			sess.run(train_op)
 
 	print("Optimization Finished!")
 	# Dump additional data for later investigation
