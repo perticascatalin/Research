@@ -113,13 +113,34 @@ def conv_relational_net(x, num_classes, num_labels, batch_size, reuse, is_traini
 	return outputs
 ```
 
-#### 10.1.2.C Loss Function and Training
+#### 10.1.2.C Data Generation, Loss Function and Training
 
 ```python
+lsts_train, orders_train = gen.data_by_type(data_type, is_training = True)
+lsts_train = tf.convert_to_tensor(lsts_train, dtype = tf.float32)
+orders_train = tf.convert_to_tensor(orders_train, dtype = tf.int32)
+
+lsts_train, orders_train = tf.train.slice_input_producer([lsts_train, orders_train], shuffle = True)
+X, Y = tf.train.batch([lsts_train, orders_train], batch_size = batch_size, capacity = batch_size * 8, num_threads = 4)
+logits_train = mod.neural_net(X, N_INPUTS, N_OUTPUTS, batch_size, reuse = False, is_training = True)
 train_loss_op = tf.constant(0.0, dtype = tf.float32)
-for i in range(N_OUT_CLASSES):
+for i in range(N_INPUTS):
 	train_loss_op = train_loss_op + tf.reduce_mean(tf.nn.sparse_softmax_cross_entropy_with_logits(\
 	logits = logits_train[i], labels = Y[:,i]))
+
+optimizer = tf.train.AdamOptimizer(learning_rate = learning_rate)
+train_op = optimizer.minimize(train_loss_op)
+
+correct_pred_train = tf.constant(0.0, dtype = tf.float32)
+for i in range(N_OUT_CLASSES):
+	correct_pred_train = correct_pred_train + tf.cast(tf.equal(tf.argmax(logits_test[i], 1), tf.cast(Y[:,i], tf.int64)), tf.float32)
+accuracy_train = tf.reduce_mean(correct_pred_train)
+
+init = tf.global_variables_initializer()
+with tf.Session() as sess:
+	sess.run(init)
+	for i in range(1, num_steps + 1):
+		sess.run(train_op)
 ```
 
 #### 10.1.3.A Graph Convolutional Neural Network
@@ -197,15 +218,22 @@ TODO
 **Functions:**
 
 ```python
+tf.global_variables_initializer
 tf.variable_scope
 tf.constant
+tf.convert_to_tensor
+tf.reduce_mean
+
+tf.train.slice_input_producer
+tf.train.batch
+tf.train.AdamOptimizer
 
 tf.layers.dense
 tf.layers.dropout
 tf.layers.conv2d
+tf.contrib.layers.flatten
 
 tf.nn.softmax
-tf.contrib.layers.flatten
 
 tf.slice
 tf.concat
