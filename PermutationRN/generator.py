@@ -114,7 +114,7 @@ def lis_data(n_samples):
 		lsts.append(lst)
 		orders.append(order)
 		if i % 1000 == 0:
-			print "Generated", i, 'samples'
+			print("Generated " + str(i) + ' samples')
 	return lsts, orders
 
 # Minimum
@@ -125,7 +125,7 @@ def simple_data(n_samples):
 		lsts.append(lst)
 		orders.append(mins)
 		if i % 1000 == 0:
-			print "Generated", i, 'samples'
+			print("Generated " + str(i) + ' samples')
 	return lsts, orders
 
 # Just numbers
@@ -136,7 +136,7 @@ def data(n_samples):
 		lsts.append(lst)
 		orders.append(order)
 		if i % 1000 == 0:
-			print "Generated", i, 'samples'
+			print("Generated " + str(i) + ' samples')
 	return lsts, orders
 
 # Just order relations
@@ -154,7 +154,7 @@ def order_relations(n_samples):
 		lsts.append(c_lst)
 		orders.append(order)
 		if i % 1000 == 0:
-			print "Generated", i, 'samples'
+			print("Generated " + str(i) + ' samples')
 	return lsts, orders
 
 # Numbers and Order Relations
@@ -172,7 +172,7 @@ def all_data(n_samples):
 		lsts.append(c_lst)
 		orders.append(order)
 		if i % 1000 == 0:
-			print "Generated", i, 'samples'
+			print("Generated " + str(i) + ' samples')
 	return lsts, orders
 
 # Get data by type
@@ -180,20 +180,20 @@ def data_by_type(data_type, is_training = True):
 	n_samples = N_SAMPLES
 	if not is_training:
 		# Only generate 20% of samples for validation
-		n_samples = n_samples / 5
+		n_samples = int(n_samples / 5)
 
 	if data_type == "lis":
-		print "LIS"
+		print ("LIS")
 		return lis_data(n_samples)
 	elif data_type == "simple_data":
-		print "SIMPLE DATA"
+		print ("SIMPLE DATA")
 		return simple_data(n_samples)
 	elif data_type == "data":
-		print "DATA"
+		print ("DATA")
 		return data(n_samples)
 	elif data_type == "order_relations":
-		print "ORDER RELATIONS"
+		print ("ORDER RELATIONS")
 		return order_relations(n_samples)
 	elif data_type == "all":
-		print "ALL DATA"
+		print ("ALL DATA")
 		return all_data(n_samples)

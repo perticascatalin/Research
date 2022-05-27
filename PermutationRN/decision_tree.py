@@ -8,6 +8,7 @@ import config as conf
 N_CLASSES = conf.num_inputs
 N_OUT_CLASSES = conf.num_outputs
 N_ESTIM = conf.n_estim
+data_type = conf.data_type
 
 def sorting_accuracy(orders_pred, orders_expect):
 	acc = 0.0
@@ -30,11 +31,11 @@ def tree_model(name):
 	else:
 		return tree.DecisionTreeClassifier()
 
-lsts_train, orders_train = gen.all()
-lsts_val, orders_val = gen.all()
+lsts_train, orders_train = gen.data_by_type(data_type, is_training = True)
+lsts_val, orders_val = gen.data_by_type(data_type, is_training = False)
 
 clf = tree_model("extreme")
 clf = clf.fit(lsts_train, orders_train)
 
 orders_pred = clf.predict(lsts_val)
-print sorting_accuracy(orders_pred, orders_val)
+print(sorting_accuracy(orders_pred, orders_val))
