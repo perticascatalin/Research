@@ -252,6 +252,8 @@ Tasks:
 - drawing pictures, building scenes
 - rediscovers basics of modern functional programming, vector algebra, classical physics
 
+![Dream Coder](https://raw.githubusercontent.com/perticascatalin/Research/master/RelationalPROG/images/dream_coder.png)
+
 ## 5.4 Source Code Classification and Detection (AST based)
 
 ### 5.4.1  A Novel Neural Source Code Representation based on Abstract Syntax Tree
