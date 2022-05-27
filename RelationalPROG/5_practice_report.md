@@ -115,7 +115,12 @@ def conv_relational_net(x, num_classes, num_labels, batch_size, reuse, is_traini
 
 #### 10.1.2.C Loss Function and Training
 
-TODO
+```python
+train_loss_op = tf.constant(0.0, dtype = tf.float32)
+for i in range(N_OUT_CLASSES):
+	train_loss_op = train_loss_op + tf.reduce_mean(tf.nn.sparse_softmax_cross_entropy_with_logits(\
+	logits = logits_train[i], labels = Y[:,i]))
+```
 
 #### 10.1.3.A Graph Convolutional Neural Network
 
@@ -193,6 +198,7 @@ TODO
 
 ```python
 tf.variable_scope
+tf.constant
 
 tf.layers.dense
 tf.layers.dropout
