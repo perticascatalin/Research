@@ -8,7 +8,7 @@ import models as mod
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
 
 # Setup experiment size and parameters
-model_name    = "test"               # Model name for saving results
+model_name    = "lis_30"             # Model name for saving results
 N_INPUTS      = conf.num_inputs      # Array of N inputs  (N_FEAT = (N_INPUTS*(N_INPUTS - 1))/2) if order relations
 N_OUTPUTS     = conf.num_outputs     # Array of N outputs (or some other number)
 data_type     = conf.data_type       # Data re-representation
@@ -73,11 +73,7 @@ with tf.Session() as sess:
 	coord = tf.train.Coordinator()
 	threads = tf.train.start_queue_runners(sess = sess, coord = coord)
 
-	train_losses = []
-	val_losses = []
-	train_accs = []
-	val_accs = []
-	steps = []
+	train_losses, val_losses, train_accs, val_accs, steps = [], [], [], [], []
 
 	# Training cycle
 	for step in range(1, num_steps+1):
@@ -85,10 +81,7 @@ with tf.Session() as sess:
 			# Run optimization
 			sess.run([train_op])
 			# Calculate average batch loss and accuracy
-			training_loss = 0.0
-			validation_loss = 0.0
-			training_accuracy = 0.0
-			validation_accuracy = 0.0
+			training_loss, validation_loss, training_accuracy, validation_accuracy = 0.0, 0.0, 0.0, 0.0
 
 			# Each step walks through 100 x batch_size number of samples
 			# Covers 12800/60000 = ~20% of dataset per interation
