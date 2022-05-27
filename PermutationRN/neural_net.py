@@ -8,7 +8,7 @@ import models as mod
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
 
 # Setup experiment size and parameters
-model_name    = "test"             # Model name for saving results
+model_name    = "test"               # Model name for saving results
 N_INPUTS      = conf.num_inputs      # Array of N inputs  (N_FEAT = (N_INPUTS*(N_INPUTS - 1))/2) if order relations
 N_OUTPUTS     = conf.num_outputs     # Array of N outputs (or some other number)
 data_type     = conf.data_type       # Data re-representation
