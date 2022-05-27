@@ -71,7 +71,7 @@ Thus, we arrive at another goal of this research, which is to explore the role o
 
 #### 6. Technical details
 
-- Content from the practice report (**Section 10**, see 2.2)
+- Content from the practice report (**Sections 10-14**, see 2.2)
 - Models, parameters, limitations, scalability
 - Libraries, modules
 
@@ -96,8 +96,8 @@ Thus, we arrive at another goal of this research, which is to explore the role o
 #### Section  7: 
 #### Section  8: Comparison of relational and compositional machine learning models
 #### Section  9: Relational reasoning and question answering in programming
-#### Section 10: Report on practice (technical details)
-#### Section 11: References, definitions and notes
+#### Sections 10-14: Report on practice (technical details)
+#### Section 15: References, definitions and notes
 
 ## 3. Datasets
 
