@@ -36,10 +36,10 @@ X, Y = tf.train.batch([lsts_train, orders_train], batch_size = batch_size, capac
 X_val, Y_val = tf.train.batch([lsts_val, orders_val], batch_size = batch_size, capacity = batch_size * 8, num_threads = 4)
 
 # Define the logits for all datasets
-logits_train = mod.neural_net(X,     N_OUTPUTS, N_INPUTS, layer_neurons, layer_dropout, reuse = False, is_training = True)
-logits_test  = mod.neural_net(X,     N_OUTPUTS, N_INPUTS, layer_neurons, layer_dropout, reuse = True,  is_training = False)
-logits_valt  = mod.neural_net(X_val, N_OUTPUTS, N_INPUTS, layer_neurons, layer_dropout, reuse = True,  is_training = True)
-logits_val   = mod.neural_net(X_val, N_OUTPUTS, N_INPUTS, layer_neurons, layer_dropout, reuse = True,  is_training = False)
+logits_train = mod.neural_net(X,     N_INPUTS, N_OUTPUTS, layer_neurons, layer_dropout, reuse = False, is_training = True)
+logits_test  = mod.neural_net(X,     N_INPUTS, N_OUTPUTS, layer_neurons, layer_dropout, reuse = True,  is_training = False)
+logits_valt  = mod.neural_net(X_val, N_INPUTS, N_OUTPUTS, layer_neurons, layer_dropout, reuse = True,  is_training = True)
+logits_val   = mod.neural_net(X_val, N_INPUTS, N_OUTPUTS, layer_neurons, layer_dropout, reuse = True,  is_training = False)
 
 # Define the loss operation
 train_loss_op = tf.constant(0.0, dtype = tf.float32)

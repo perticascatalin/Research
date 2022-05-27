@@ -122,9 +122,11 @@ orders_train = tf.convert_to_tensor(orders_train, dtype = tf.int32)
 
 lsts_train, orders_train = tf.train.slice_input_producer([lsts_train, orders_train], shuffle = True)
 X, Y = tf.train.batch([lsts_train, orders_train], batch_size = batch_size, capacity = batch_size * 8, num_threads = 4)
-logits_train = mod.neural_net(X, N_INPUTS, N_OUTPUTS, batch_size, reuse = False, is_training = True)
+logits_train = mod.neural_net(X, N_INPUTS, N_OUTPUTS, layer_neurons, layer_dropout, reuse = False, is_training = True)
+logits_test  = mod.neural_net(X, N_INPUTS, N_OUTPUTS, layer_neurons, layer_dropout, reuse = True,  is_training = False)
+
 train_loss_op = tf.constant(0.0, dtype = tf.float32)
-for i in range(N_INPUTS):
+for i in range(N_OUTPUTS):
 	train_loss_op = train_loss_op + tf.reduce_mean(tf.nn.sparse_softmax_cross_entropy_with_logits(\
 	logits = logits_train[i], labels = Y[:,i]))
 
@@ -132,7 +134,7 @@ optimizer = tf.train.AdamOptimizer(learning_rate = learning_rate)
 train_op = optimizer.minimize(train_loss_op)
 
 correct_pred_train = tf.constant(0.0, dtype = tf.float32)
-for i in range(N_OUT_CLASSES):
+for i in range(N_OUTPUTS):
 	correct_pred_train = correct_pred_train + tf.cast(tf.equal(tf.argmax(logits_test[i], 1), tf.cast(Y[:,i], tf.int64)), tf.float32)
 accuracy_train = tf.reduce_mean(correct_pred_train)
 
