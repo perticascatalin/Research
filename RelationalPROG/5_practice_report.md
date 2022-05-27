@@ -149,6 +149,12 @@ with tf.Session() as sess:
 
 ### 10.2 Tasks
 
+**DATASET INFO**:
+
+- **Training**: 60.000 samples
+- **Validation**: 12.000 samples
+- **Training Iterations**: 100.000 (for neural networks only)
+
 #### 10.2.A Sorting a List
 
 **Input**: Array of N unique elements (integers) with values in the range [1,50].
@@ -178,19 +184,12 @@ The accuracy is computed by averaging the number of correctly guessed labels per
 
 |Model|Description|N=10|N=15|N=20|N=25|N=30|
 |:---:|:---------:|:--:|:--:|:--:|:--:|:--:|
-|Baseline    |Neural Net with 3 layers: 512, 256, 128, using array as input (10.1.A)|100%|100%| 69%| 56%| 29%|
-|Order Rel   |Same Neural Net as the Baseline, using order relations as input       |100%|100%| 99%| 87%| 38%|
-|Rel Net     |Relational Net with paired inputs, fully connected (10.1.B)           | 97%| 58%| 49%| 45%| 44%|
-|Conv Rel Net|Relational Net with paired inputs, convolute same relations (10.1.C)  |100%| 94%| 81%| 75%| 80%|
-|DT Baseline |Decision Trees using array as input                                   |55%|34%|25%|20%||
-|DT Order Rel|Decision Trees using order relations as input                         |81%|42%|25%|16%||
-|DT All Feats|Decision Trees using array and order relations as input               ||||||
-
-**DATASET INFO**:
-
-- **Training**: 60.000 samples
-- **Validation**: 12.000 samples
-- **Num Epochs**: 100.000
+|Baseline    |Neural Net with 3 layers (512, 256, 128), using array as input (10.1.A)|100%|100%| 69%| 56%| 29%|
+|Order Rel   |Same Neural Net as the Baseline, using order relations as input        |100%|100%| 99%| 87%| 38%|
+|Rel Net     |Relational Net with paired inputs, fully connected (10.1.B)            | 97%| 58%| 49%| 45%| 44%|
+|Conv Rel Net|Relational Net with paired inputs, convolute same relations (10.1.C)   |100%| 94%| 81%| 75%| 80%|
+|DT Baseline |Decision Trees using array as input                                    | 55%| 34%| 25%| 20%| 16%|
+|DT Order Rel|Decision Trees using order relations as input                          | 81%| 42%| 25%| 16%| 12%|
 
 #### 10.2.B Longest Increasing Sequence
 

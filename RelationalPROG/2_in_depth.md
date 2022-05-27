@@ -43,7 +43,7 @@ DSL based, Program Synthesis
 
 ## 4. Extraction of Visual Relationships
 
-### 1. A simple Neural Network Model for Relational Reasoning
+### 4.1 A simple Neural Network Model for Relational Reasoning
 
 This study presents a general machine learning model used for solving relational tasks. The relational network (RN) model contains a built-in mechanism for capturing core common properties of relational reasoning. From this perspective, we can draw parallels to other machine learning models designed with different properties in mind, such as the well known:
 
@@ -101,7 +101,7 @@ Sample open source [code](https://github.com/clvrai/Relation-Network-Tensorflow)
 
 Code running logs: see [practice report](https://github.com/perticascatalin/Research/blob/master/RelationalPROG/5_practice_report.md)
 
-### 2. Compositional Attention Networks for Machine Reasoning
+### 4.2 Compositional Attention Networks for Machine Reasoning
 
 The study presents a recurrent neural network architecture which relies on structural constraints in order to guide the network towards compositional reasoning and to facilitate interpretability of the inferred results. The network is called MAC (memory, attention, composition) because of its specific architecture which separates control from memory and imposes structural constraints that regulate interaction. As opposed to the RN, which is a module, MAC is a network learning cell.
 
@@ -128,7 +128,7 @@ Original open source [code](https://github.com/stanfordnlp/mac-network) implemen
 
 Code running logs: see [practice report](https://github.com/perticascatalin/Research/blob/master/RelationalPROG/5_practice_report.md)
 
-### 3. Recurrent Relational Networks
+### 4.3 Recurrent Relational Networks
 
 Learning to solve tasks that require a chain of interdependent steps of relational inference, such as:
 
@@ -151,14 +151,27 @@ Comparison against RN on the Pretty-CLEVR dataset and on Sudoku puzzle solving.
 
 ### 5.1 On the Measure of Intelligence
 
+This paper discusses approaches to define intelligence and makes a case for better definitions and benchmark datasets. The main points are:
+
 - the need to define & evaluate intelligence (capacity for reasoning) in a way that enables comparisons between 2 systems
 - 2 broad historical conceptions:
-	- AI: comprison of skills exhibited by AIs & humans at specific tasks
-	- Psychology: levaraging modern insight into developmental cognitive psychology
+	- AI: comparison of skills exhibited by AIs & humans at specific tasks
+	- Psychology: leverage modern insight into developmental cognitive psychology; the ability to acquire new skills on previously unseen tasks
 - since skills are highly modulated by prior knowledge & experience, then unlimited priors & training data allow experiments to buy aribitrary levels of skills for a system
 - proposed definition of intelligence: skill-acquisition efficiency
+- difference between measuring skill vs. broad abilities
+- leverage multi-task benchmarks as a way to assess robustness and flexibility
+- system developer embedding the right abstraction into the system, thus partially solving the problem for the "intelligent agent
 - highlight on concepts (critical pieces in intelligent systems) such as: scope, generalization difficulty, priors & experience
-- overall, the study offers a more phylosophical, but grounded in research view on intelligence and makes a case for the design of general AI benchmark datasets  
+
+Overall, the study offers a more phylosophical, but grounded in research view on intelligence. It also makes a very good case for the design of general AI benchmark datasets and proposes the ARC dataset. 
+
+|||
+|:---:|:---:|
+|![Sample 1](https://raw.githubusercontent.com/perticascatalin/Research/master/RelationalPROG/images/arc_1.png)|![Sample 2](https://raw.githubusercontent.com/perticascatalin/Research/master/RelationalPROG/images/arc_2.png)|
+|![Sample 3](https://raw.githubusercontent.com/perticascatalin/Research/master/RelationalPROG/images/arc_3.png)|![Sample 4](https://raw.githubusercontent.com/perticascatalin/Research/master/RelationalPROG/images/arc_4.png)|
+
+![General Intelligence to Specific Tasks](https://raw.githubusercontent.com/perticascatalin/Research/master/RelationalPROG/images/moi.png)
 
 ### 5.2 Deep Coder: Learning to Write Programs
 
