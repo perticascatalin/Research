@@ -2,7 +2,13 @@
 
 ## Report on practice (technical details)
 
+We present a series on experiments concerning the integration of relational reasoning into neural networks. Their objective is to explore ways of embedding relational prior knowledge into the design of machine learning models. We start by applying relational priors to simple specific tasks which out-of-the-box learning models have difficulties learning and demonstrate experimentally the efficency of exploiting these priors.
+
+...
+
 ## 10. Neural Problem Solving
+
+
 
 ### 10.1 Models
 
@@ -153,7 +159,7 @@ with tf.Session() as sess:
 
 - **Training**: 60.000 samples
 - **Validation**: 12.000 samples
-- **Training Iterations**: 100.000 (for neural networks only)
+- **Training Iterations**: 100.000 steps (for neural networks only)
 
 #### 10.2.A Sorting a List
 
@@ -199,7 +205,7 @@ The accuracy is computed by averaging the number of correctly guessed labels per
 
 **Output**: Array of N values specifying the size of the longest increasing sequence ending with the current element.
 
-**Description**: This task is one of the most simple dynamic programming examples, where the solution to a subproblem - longest sequence up to the ith element (best[i]) is computed based on the previously solved subproblems - longest sequences for 1st, 2nd,... (i-1)th elements (best[1..(i-1)]) provided their values are smaller. For this reason, this problem could also be viewed as relational.
+**Description**: This task is one of the most simple dynamic programming examples, where the solution to a subproblem - longest sequence up to the ith element (best[i]) is computed based on the previously solved subproblems - longest sequences for 1st, 2nd,... (i-1)th elements (best[1..(i-1)]) provided their values are smaller. For this reason, this problem could also be viewed as a task where relational reasoning is required.
 
 **EXAMPLE**:
 
@@ -243,53 +249,9 @@ The accuracy is computed by averaging the number of correctly guessed labels per
 
 TODO
 
-## 12. Frameworks
+## 12. Extraction of Visual Relationships
 
-### Tensorflow / Keras
-
-#### Tensorflow V1
-
-**Functions:**
-
-```python
-tf.global_variables_initializer
-tf.variable_scope
-tf.constant
-tf.convert_to_tensor
-tf.reduce_mean
-
-tf.train.slice_input_producer
-tf.train.batch
-tf.train.AdamOptimizer
-
-tf.layers.dense
-tf.layers.dropout
-tf.layers.conv2d
-tf.contrib.layers.flatten
-
-tf.nn.softmax
-
-tf.slice
-tf.concat
-tf.expand_dims
-
-```
-
-#### Tensorflow V2 / Keras
-
-TODO
-
-## 13. Pre-Processing
-
-### AST
-
-TODO
-
-### DOM
-
-TODO
-
-## 14. Open Source Repositories
+**Open Source Repositories**
 
 ### Relational Network (Santoro et al. [5])
 
@@ -347,3 +309,49 @@ So I limit the number of images from 70000 to 3000 just to see what happens.
 `python2 main.py --expName "clevrExperiment" --train --trainedNum 3000 --testedNum 3000 --epochs 25 --netLength 4 @configs/args.txt`
 
 Need to improve some parts of the code because at the training step we're getting an error for trying to access samples which are not within the extracted 3000.
+
+## 13. Data Representations in Programming
+
+### Abstract Syntax Tree (AST)
+
+TODO
+
+### Document Object Model (DOM)
+
+TODO
+
+## 14. Frameworks
+
+### Tensorflow / Keras
+
+#### Tensorflow V1
+
+**Functions:**
+
+```python
+tf.global_variables_initializer
+tf.variable_scope
+tf.constant
+tf.convert_to_tensor
+tf.reduce_mean
+
+tf.train.slice_input_producer
+tf.train.batch
+tf.train.AdamOptimizer
+
+tf.layers.dense
+tf.layers.dropout
+tf.layers.conv2d
+tf.contrib.layers.flatten
+
+tf.nn.softmax
+
+tf.slice
+tf.concat
+tf.expand_dims
+
+```
+
+#### Tensorflow V2 / Keras
+
+TODO
