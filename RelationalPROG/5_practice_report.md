@@ -212,8 +212,8 @@ The accuracy is computed by averaging the number of correctly guessed labels per
 
 |Model|Description|N=10|N=15|N=20|N=25|N=30|
 |:---:|:---------:|:--:|:--:|:--:|:--:|:--:|
-|Baseline    |(10.1.A)|98%|85%|74%|64%|57%|
-|Conv Rel Net|(10.1.C)|89%|71%|64%|65%|64%|
+|Baseline    |(10.1.A) |98%|85%|74%|64%|57%|
+|Conv Rel Net|(10.1.C) |89%|71%|64%|65%|64%|
 
 ## 11. Graph Neural Networks
 

@@ -16,7 +16,7 @@ num_steps = 100000
 display_step = 5000
 batch_size = 64
 data_type = conf.data_type
-model_name = "C_25"
+model_name = "C_test"
 
 def tensor_conversion(lsts, mats, orders):
 	lsts = tf.convert_to_tensor(lsts, dtype = tf.float32)

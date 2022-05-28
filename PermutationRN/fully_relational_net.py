@@ -19,7 +19,7 @@ layer_neurons = conf.layer_neurons
 layer_dropout = conf.layer_dropout
 num_layers = len(layer_neurons)
 data_type = conf.data_type
-model_name = "R_20_r"
+model_name = "R_10_r_test"
 
 print "GENERATE TRAINING DATA"
 lsts_train, orders_train = gen.data_by_type(data_type, is_training = True)
@@ -35,11 +35,6 @@ lsts_val, orders_val = tf.train.slice_input_producer([lsts_val, orders_val], shu
 
 X, Y = tf.train.batch([lsts_train, orders_train], batch_size = batch_size, capacity = batch_size * 8, num_threads = 4)
 X_val, Y_val = tf.train.batch([lsts_val, orders_val], batch_size = batch_size, capacity = batch_size * 8, num_threads = 4)
-
-# logits_train = mod.conv_relational_net(X,     N_OUT_CLASSES, N_CLASSES, batch_size, reuse = False, is_training = True)
-# logits_test  = mod.conv_relational_net(X,     N_OUT_CLASSES, N_CLASSES, batch_size, reuse = True, is_training = False)
-# logits_valt  = mod.conv_relational_net(X_val, N_OUT_CLASSES, N_CLASSES, batch_size, reuse = True, is_training = True)
-# logits_val   = mod.conv_relational_net(X_val, N_OUT_CLASSES, N_CLASSES, batch_size, reuse = True, is_training = False)
 
 logits_train = mod.norm_conv_rel_net(X,     N_OUT_CLASSES, N_CLASSES, batch_size, reuse = False, is_training = True)
 logits_test  = mod.norm_conv_rel_net(X,     N_OUT_CLASSES, N_CLASSES, batch_size, reuse = True, is_training = False)

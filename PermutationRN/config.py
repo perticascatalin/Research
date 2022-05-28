@@ -3,7 +3,7 @@
 #num_inputs = 20 # (baseline experiment)
 #num_inputs = 3  # (counter experiment)
 #num_inputs = 2  # (comparator experiment)
-num_inputs = 25
+num_inputs = 10
 
 # OUTPUT NUMBER OF CLASSES
 num_outputs = num_inputs
@@ -23,19 +23,6 @@ n_estim = 96 # Number of estimators for decision tree forests
 layer_neurons = [512, 256, 128]
 layer_dropout = [0.0, 0.0]
 
-# Design NN
-# layer_neurons = [900, 300] # N = 30
-# layer_neurons = [625, 250] # N = 25
-# layer_neurons = [400, 200] # N = 20
-# layer_neurons = [225, 150] # N = 15
-# layer_neurons = [100, 100] # N = 10
-# layer_dropout = [0.0]
-
-# Single layer NN
-# layer_neurons = [400] # N = 20, N x N
-# layer_neurons = [20]  # N = 20, N
-# layer_dropout = []
-
 # The type of data
 # 1. "data"
 # 2. "order_relations"
@@ -45,7 +32,7 @@ layer_dropout = [0.0, 0.0]
 # 6. "counter"
 # 7. "lis"
 # 8. "rel_table"
-data_type = "rel_table"
+data_type = "data"
 
 # Exception for number of output classes
 if data_type == "simple_data" or data_type == "comparator" or data_type == "counter":
