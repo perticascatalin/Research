@@ -1,5 +1,6 @@
 import random
 import pickle
+import pdb
 import config as conf
 
 # Setup experiment size and parameters

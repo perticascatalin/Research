@@ -80,6 +80,33 @@ def conv_relational_net(x, num_classes, num_labels, batch_size, reuse, is_traini
 			out_i = out_i if is_training else tf.nn.softmax(out_i)
 			outputs.append(out_i)
 	return outputs
+	# Additional trials
+	# init = tf.random_uniform_initializer(minval = -1.0, maxval = 1.0)
+	# units_1b = tf.layers.conv2d(units_1a, 8, [2,1], [2,1], 'same', activation = 'relu', kernel_initializer = init)
+	# units_2 = tf.layers.conv2d(units_1b, 4, [1,num_classes], [1,num_classes], 'same', activation = None)
+	# units_2 = tf.layers.average_pooling2d(units_1b, [1,num_classes], [1,num_classes], 'same')
+
+def norm_conv_rel_net(x, num_classes, num_labels, batch_size, reuse, is_training):
+	with tf.variable_scope('NormConvRelNet', reuse = reuse):
+		units_1 = []
+		for i in range(num_classes):
+			for j in range(num_classes):
+				a_unit = tf.slice(x, [0,i], [batch_size,1])
+				b_unit = tf.slice(x, [0,j], [batch_size,1])
+				rel_unit = tf.concat([a_unit, b_unit], 1)
+				units_1.append(rel_unit)
+		units_2 = tf.stack(units_1, axis = 2)
+		units_3 = tf.expand_dims(units_2, 3)
+		units_4 = tf.layers.conv2d(units_3, 8, [2,1], [2,1], 'same', activation = 'relu')
+		units_5 = tf.keras.activations.tanh(units_4)
+		units_6 = tf.layers.conv2d(units_5, 4, [1,num_classes], [1,num_classes], 'same', activation = 'relu')
+		units_7 = tf.contrib.layers.flatten(units_6)
+		outputs = []
+		for i in range(num_classes):
+			out_i = tf.layers.dense(units_7, num_labels)
+			out_i = out_i if is_training else tf.nn.softmax(out_i)
+			outputs.append(out_i)
+	return outputs
 
 def conv_dense_relational_net(x, num_classes, num_labels, batch_size, reuse, is_training):
 	with tf.variable_scope('ConvDenseRelationalNet', reuse = reuse):
