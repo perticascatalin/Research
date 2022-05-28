@@ -2,17 +2,47 @@
 
 ## Report on practice (technical details)
 
-We present a series on experiments concerning the integration of relational reasoning into neural networks. Their objective is to explore ways of embedding relational prior knowledge into the design of machine learning models. We start by applying relational priors to simple specific tasks which out-of-the-box learning models have difficulties learning and demonstrate experimentally the efficency of exploiting these priors.
+We present a series on experiments concerning the integration of relational reasoning into neural networks. Their objective is to explore ways of embedding relational prior knowledge into the design of machine learning models. We start by applying relational priors to simple specific (relational) tasks which out-of-the-box learning models have difficulties learning and demonstrate experimentally the efficency of exploiting these priors.
 
 ...
 
 ## 10. Neural Problem Solving
 
+### 10.1 Tasks
 
+#### 10.1.1 Sorting a List
 
-### 10.1 Models
+**Description**: This task is relational because the outputs depend on how large an element is in comparison to the rest of the elements in the input array.
 
-#### 10.1.A Multi-label Multi-class Neural Network
+**Input**: Array of N unique elements (integers) with values in the range [1,50].
+
+**Output**: Array of N values specifying the position of each element in the sorted array.
+
+**EXAMPLE**:
+
+- 8 out of 10
+- input: 25 19 26 30 16 40 21 23 39 41
+- expect: 5 2 6 7 1 9 3 4 8 10
+- pred:   6 2 5 7 1 9 3 4 8 10
+
+#### 10.1.2 Longest Increasing Sequence
+
+**Description**: This task is one of the most simple dynamic programming examples, where the solution to a subproblem - longest sequence up to the ith element (best[i]) is computed based on the previously solved subproblems - longest sequences for 1st, 2nd,... (i-1)th elements (best[1..(i-1)]) provided their values are smaller. For this reason, this problem could also be viewed as a task where relational reasoning is required.
+
+**Input**: Array of N unique elements (integers) with values in the range [1,50].
+
+**Output**: Array of N values specifying the size of the longest increasing sequence ending with the current element.
+
+**EXAMPLE**:
+
+- 9 out of 10
+- input: 25 19 26 30 16 40 21 23 39 41
+- expect: 1 1 2 3 1 4 2 3 4 5
+- pred:   1 1 2 2 1 4 2 3 4 5
+
+### 10.2 Models
+
+#### 10.2.A Multi-label Multi-class Neural Network
 
 The model accepts N inputs and M outputs for training and performs standard classification tasks. This architecture could be viewed as modelling a fixed seq2seq task or as an array-like input (sample with N features) mapped to an array-like output consisting of various classes of labels (M classes, eg. color, shape and size for M = 3), each with its own set of labels (red, green and blue; small and large, etc.).
 
@@ -46,7 +76,7 @@ def neural_net(x, num_classes, num_labels, layer_neurons, layer_dropout, reuse, 
 	return outputs
 ```
 
-#### 10.1.B Relational Neural Network
+#### 10.2.B Relational Neural Network
 
 One way of creating a relational network is to pair up elements from an input sample, concatenate them into a single vector and then link the vector to one or more neurons on the following layer in the neural network. The example below links the pairing vector to one neuron, thus creating N x N neurons in the second layer. After this, it applies the same convolutional filters to all rows in an attempt to represent each sample as an aggregation of its relations to other samples from the same input. Layers of neurons can be further applied, but in the example below we directly apply the softmax layer.
 
@@ -85,7 +115,7 @@ def relational_net(x, num_classes, num_labels, batch_size, reuse, is_training):
 	return outputs
 ```
 
-#### 10.1.C Convolutional Relational Neural Network
+#### 10.2.C Convolutional Relational Neural Network
 
 A variation of the previous neural network is to apply the same learning function (learn the same weights) to the pairs of elements, thus learning the same relations between all the elements. We can implement this as a convolutional filter, which drastically reduces the training time of the previous neural network and at the same time also improves the results in our experimental setup.
 
@@ -121,7 +151,7 @@ def conv_relational_net(x, num_classes, num_labels, batch_size, reuse, is_traini
 	return outputs
 ```
 
-#### 10.1.D Data Generation, Loss Function and Training
+#### 10.2.D Data Generation, Loss Function and Training
 
 ```python
 lsts_train, orders_train = gen.data_by_type(data_type, is_training = True)
@@ -153,7 +183,7 @@ with tf.Session() as sess:
 		sess.run(train_op)
 ```
 
-### 10.2 Tasks
+### 10.3 Results
 
 **DATASET INFO**:
 
@@ -161,20 +191,16 @@ with tf.Session() as sess:
 - **Validation**: 12.000 samples
 - **Training Iterations**: 100.000 steps (for neural networks only)
 
-#### 10.2.A Sorting a List
+The accuracy is computed by averaging the number of correctly guessed labels per sample from the validation dataset. Eg. for 3 samples: 6 out of 10, 7 out of 10, 8 out of 10, then the model accuracy would report an accuracy of 70%.
 
-**Input**: Array of N unique elements (integers) with values in the range [1,50].
-
-**Output**: Array of N values specifying the position of each element in the sorted array.
-
-**Description**: This task is relational because the outputs depend on how large an element is in comparison to the rest of the elements in the input array.
+#### 10.3.1 Sorting a List
 
 **EXAMPLE**:
 
 - 8 out of 10
 - input: 25 19 26 30 16 40 21 23 39 41
-- expect: 4 1 5 6 0 8 2 3 7 9
-- pred:   5 1 4 6 0 8 2 3 7 9
+- expect: 5 2 6 7 1 9 3 4 8 10
+- pred:   6 2 5 7 1 9 3 4 8 10
 
 |Sample|Accuracy by N|
 |:----:|:-----------:|
@@ -184,28 +210,20 @@ with tf.Session() as sess:
 |:------:|:--:|
 |![Accuracy for N = 30](https://raw.githubusercontent.com/perticascatalin/Research/master/PermutationRN/results/all_30_acc.png)|![Loss for N = 30](https://raw.githubusercontent.com/perticascatalin/Research/master/PermutationRN/results/all_30_loss.png)|
 
-The accuracy is computed by averaging the number of correctly guessed labels per sample from the validation dataset. Eg. for 3 samples: 6 out of 10, 7 out of 10, 8 out of 10, then the model accuracy would report an accuracy of 70%.
-
 **LEGEND**:
 
 |Model|Code|Description|N=10|N=15|N=20|N=25|N=30|
 |:---:|:--:|:---------:|:--:|:--:|:--:|:--:|:--:|
-|Baseline    |base_data|Neural Net with 3 layers (512, 256, 128), using array as input (10.1.A)|100%|100%| 69%| 56%| 29%|
+|Baseline    |base_data|Neural Net with 3 layers (512, 256, 128), using array as input (10.2.A)|100%|100%| 69%| 56%| 29%|
 |Order Rel   |base_or  |Same Neural Net as the Baseline, using order relations as input        |100%|100%| 99%| 87%| 38%|
 |CR Net      |C        |                                                                       |100%|100%| 98%| 98%| 86%|
 |Norm CR Net |R_r      |Relational Net with paired inputs, convolute relations & norm output   |100%|100%|100%| 84%| 79%|
-|Conv Rel Net|R        |Relational Net with paired inputs, convolute relations (10.1.C)        |100%| 94%| 81%| 75%| 80%|
-|Rel Net     |Q        |Relational Net with paired inputs, fully connected (10.1.B)            | 97%| 58%| 49%| 45%| 44%|
+|Conv Rel Net|R        |Relational Net with paired inputs, convolute relations (10.2.C)        |100%| 94%| 81%| 75%| 80%|
+|Rel Net     |Q        |Relational Net with paired inputs, fully connected (10.2.B)            | 97%| 58%| 49%| 45%| 44%|
 |DT Order Rel|-        |Decision Trees using order relations as input                          | 81%| 42%| 25%| 16%| 12%|
 |DT Baseline |-        |Decision Trees using array as input                                    | 55%| 34%| 25%| 20%| 16%|
 
-#### 10.2.B Longest Increasing Sequence
-
-**Input**: Array of N unique elements (integers) with values in the range [1,50].
-
-**Output**: Array of N values specifying the size of the longest increasing sequence ending with the current element.
-
-**Description**: This task is one of the most simple dynamic programming examples, where the solution to a subproblem - longest sequence up to the ith element (best[i]) is computed based on the previously solved subproblems - longest sequences for 1st, 2nd,... (i-1)th elements (best[1..(i-1)]) provided their values are smaller. For this reason, this problem could also be viewed as a task where relational reasoning is required.
+#### 10.3.2 Longest Increasing Sequence
 
 **EXAMPLE**:
 
@@ -218,8 +236,8 @@ The accuracy is computed by averaging the number of correctly guessed labels per
 
 |Model|Description|N=10|N=15|N=20|N=25|N=30|
 |:---:|:---------:|:--:|:--:|:--:|:--:|:--:|
-|Baseline    |(10.1.A) |98%|85%|74%|64%|57%|
-|Conv Rel Net|(10.1.C) |89%|71%|64%|65%|64%|
+|Baseline    |(10.2.A) |98%|85%|74%|64%|57%|
+|Conv Rel Net|(10.2.C) |89%|71%|64%|65%|64%|
 
 ## 11. Graph Neural Networks
 
