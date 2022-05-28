@@ -6,6 +6,16 @@ We present a series on experiments concerning the integration of relational reas
 
 ...
 
+**10. Neural Problem Solving**
+
+**11. Graph Neural Networks**
+
+**12. Extraction of Visual Relationships**
+
+**13. Data Representations in Programming**
+
+**14. Machine Learning Frameworks**
+
 ## 10. Neural Problem Solving
 
 ### 10.1 Tasks
@@ -338,7 +348,7 @@ TODO
 
 TODO
 
-## 14. Frameworks
+## 14. Machine Learning Frameworks
 
 ### Tensorflow / Keras
 
