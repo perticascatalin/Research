@@ -3,15 +3,16 @@
 #num_inputs = 20 # (baseline experiment)
 #num_inputs = 3  # (counter experiment)
 #num_inputs = 2  # (comparator experiment)
-num_inputs = 20
+num_inputs = 25
 
 # OUTPUT NUMBER OF CLASSES
 num_outputs = num_inputs
 
 # Number of arrays to generate
-num_samples = 60000 # (baseline experiment)
-#num_samples = 8000  # (counter experiment)
-#num_samples = 2000  # (comparator experiment)
+# num_samples = 60000 # (baseline experiment)
+# num_samples = 8000  # (counter experiment)
+# num_samples = 2000  # (comparator experiment)
+num_samples = 60000
 
 maxint = 50  # Maximum number in array
 n_estim = 96 # Number of estimators for decision tree forests
@@ -43,7 +44,8 @@ layer_dropout = [0.0, 0.0]
 # 5. "comparator"
 # 6. "counter"
 # 7. "lis"
-data_type = "data"
+# 8. "rel_table"
+data_type = "rel_table"
 
 # Exception for number of output classes
 if data_type == "simple_data" or data_type == "comparator" or data_type == "counter":
