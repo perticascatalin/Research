@@ -182,15 +182,16 @@ The accuracy is computed by averaging the number of correctly guessed labels per
 
 **LEGEND**:
 
-|Model|Description|N=10|N=15|N=20|N=25|N=30|
-|:---:|:---------:|:--:|:--:|:--:|:--:|:--:|
-|Baseline    |Neural Net with 3 layers (512, 256, 128), using array as input (10.1.A)|100%|100%| 69%| 56%| 29%|
-|Order Rel   |Same Neural Net as the Baseline, using order relations as input        |100%|100%| 99%| 87%| 38%|
-|Norm CR Net |Relational Net with paired inputs, convolute relations & norm output   |100%|100%|100%| 84%| 79%|
-|Conv Rel Net|Relational Net with paired inputs, convolute relations (10.1.C)        |100%| 94%| 81%| 75%| 80%|
-|Rel Net     |Relational Net with paired inputs, fully connected (10.1.B)            | 97%| 58%| 49%| 45%| 44%|
-|DT Order Rel|Decision Trees using order relations as input                          | 81%| 42%| 25%| 16%| 12%|
-|DT Baseline |Decision Trees using array as input                                    | 55%| 34%| 25%| 20%| 16%|
+|Model|Code|Description|N=10|N=15|N=20|N=25|N=30|
+|:---:|:--:|:---------:|:--:|:--:|:--:|:--:|:--:|
+|Baseline    |base_data|Neural Net with 3 layers (512, 256, 128), using array as input (10.1.A)|100%|100%| 69%| 56%| 29%|
+|Order Rel   |base_or  |Same Neural Net as the Baseline, using order relations as input        |100%|100%| 99%| 87%| 38%|
+|CR Net      |C        |                                                                       |100%|100%| 98%| 98%| 86%|
+|Norm CR Net |R_r      |Relational Net with paired inputs, convolute relations & norm output   |100%|100%|100%| 84%| 79%|
+|Conv Rel Net|R        |Relational Net with paired inputs, convolute relations (10.1.C)        |100%| 94%| 81%| 75%| 80%|
+|Rel Net     |Q        |Relational Net with paired inputs, fully connected (10.1.B)            | 97%| 58%| 49%| 45%| 44%|
+|DT Order Rel|-        |Decision Trees using order relations as input                          | 81%| 42%| 25%| 16%| 12%|
+|DT Baseline |-        |Decision Trees using array as input                                    | 55%| 34%| 25%| 20%| 16%|
 
 #### 10.2.B Longest Increasing Sequence
 
