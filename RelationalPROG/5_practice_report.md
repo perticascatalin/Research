@@ -1,6 +1,6 @@
 # Relational reasoning in deep learning: a parallel between solving visual and programming tasks
 
-## Report on practice (technical details)
+## Experimental work and technical details
 
 We present a series on experiments concerning the integration of relational reasoning into neural networks. Their objective is to explore ways of embedding relational prior knowledge into the design of machine learning models. We start by applying relational priors to simple specific (relational) tasks which out-of-the-box learning models have difficulties learning and demonstrate experimentally the efficency of exploiting these priors.
 

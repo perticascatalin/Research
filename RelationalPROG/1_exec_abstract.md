@@ -31,7 +31,7 @@ Thus, we arrive at another goal of this research, which is to explore the role o
 |Mid Feb|2 weeks|10|Broad Research|Collect materials for thesis, discuss & decide theme|
 |March|2 weeks|30|In-Depth Understanding & Practice|Study material in detail, check techniques involved, practice on sample code, comparison of past results|
 |Mid March|6 weeks|32 + 20 + 12|Experiments & Evaluation of Results|Visual Rel., Abstr. & Reason., Deep Coder, Comparison on CLEVR, Neural Problem Solving|
-|May|6 weeks|14 + 10 + 8|Thesis Elaboration|Designated for writing about findings, results, comparisons etc.|
+|May|6 weeks|16 + 10 + 8|Thesis Elaboration|Designated for writing about findings, results, comparisons etc.|
 
 ### 2.1 Thesis Structure and Layout
 
@@ -87,16 +87,29 @@ Thus, we arrive at another goal of this research, which is to explore the role o
 
 ### 2.2 Current Report Sections
 
-#### Section  1: Abstract
-#### Section  2: Plan
-#### Section  3: Datasets
-#### Section  4: Extraction of visual relationships
-#### Section  5: Neural problem solving, program synthesis, source code detection & classification, directions in program induction
+#### Sections 1-3: Executive Abstract
+
+- Section 1: Abstract
+- Section 2: Plan
+- Section 3: Datasets
+
+#### Sections 4-5: In-depth Analysis of the Selected Bibliography
+
+- Section  4: Extraction of visual relationships
+- Section  5: Neural Problem Solving, Program Synthesis, Source Code
+
 #### Section  6: Design of models and connections
-#### Section  7: 
-#### Section  8: Comparison of relational and compositional machine learning models
-#### Section  9: Relational reasoning and question answering in programming
-#### Sections 10-14: Report on practice (technical details)
+#### !!! Section  7: ?
+#### !!! Section  8: Comparison of relational and compositional machine learning models
+#### !!! Section  9: Relational reasoning and question answering in programming
+#### Sections 10-14: Experimental work and technical details
+
+- Section 10: Neural Problem Solving
+- Section 11: Graph Neural Networks
+- Section 12: Extraction of Visual Relationships
+- !!! Section 13: Data Representations in Programming
+- !!! Section 14: Machine Learning Frameworks
+
 #### Section 15: References, definitions and notes
 
 ## 3. Datasets
