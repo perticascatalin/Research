@@ -151,7 +151,17 @@ def conv_relational_net(x, num_classes, num_labels, batch_size, reuse, is_traini
 	return outputs
 ```
 
-#### 10.2.D Data Generation, Loss Function and Training
+### 10.3 Evaluation of Results
+
+**DATASET INFO**:
+
+- **Training**: 60.000 samples
+- **Validation**: 12.000 samples
+- **Training Iterations**: 100.000 steps (for neural networks only)
+
+The accuracy is computed by averaging the number of correctly guessed labels per sample from the validation dataset. Eg. for 3 samples: 6 out of 10, 7 out of 10, 8 out of 10, then the model accuracy would report an accuracy of 70%.
+
+#### 10.3.A Data Generation, Loss Function and Training
 
 ```python
 lsts_train, orders_train = gen.data_by_type(data_type, is_training = True)
@@ -182,16 +192,6 @@ with tf.Session() as sess:
 	for i in range(1, num_steps + 1):
 		sess.run(train_op)
 ```
-
-### 10.3 Results
-
-**DATASET INFO**:
-
-- **Training**: 60.000 samples
-- **Validation**: 12.000 samples
-- **Training Iterations**: 100.000 steps (for neural networks only)
-
-The accuracy is computed by averaging the number of correctly guessed labels per sample from the validation dataset. Eg. for 3 samples: 6 out of 10, 7 out of 10, 8 out of 10, then the model accuracy would report an accuracy of 70%.
 
 #### 10.3.1 Sorting a List
 
@@ -271,7 +271,7 @@ TODO
 
 **Open Source Repositories**
 
-### Relational Network (Santoro et al. [5])
+### 12.1 Relational Network (Santoro et al. [5])
 
 Sample open source [code](https://github.com/clvrai/Relation-Network-Tensorflow) applying RN to the Sort-of-CLEVR dataset.
 
@@ -300,7 +300,7 @@ The sizes of the images and the number of objects can be customized. The model's
 
 **Note**: the evaluated implementation of the RN model does not process question embeddings.
 
-### MAC Network (Hudson & Manning [4])
+### 12.2 MAC Network (Hudson & Manning [4])
 
 Original open source [code](https://github.com/stanfordnlp/mac-network) implementation of MAC network.
 
@@ -330,11 +330,11 @@ Need to improve some parts of the code because at the training step we're gettin
 
 ## 13. Data Representations in Programming
 
-### Abstract Syntax Tree (AST)
+### 13.1 Abstract Syntax Tree (AST)
 
 TODO
 
-### Document Object Model (DOM)
+### 13.2 Document Object Model (DOM)
 
 TODO
 
