@@ -188,7 +188,7 @@ The accuracy is computed by averaging the number of correctly guessed labels per
 |Order Rel   |Same Neural Net as the Baseline, using order relations as input        |100%|100%| 99%| 87%| 38%|
 |Rel Net     |Relational Net with paired inputs, fully connected (10.1.B)            | 97%| 58%| 49%| 45%| 44%|
 |Conv Rel Net|Relational Net with paired inputs, convolute relations (10.1.C)        |100%| 94%| 81%| 75%| 80%|
-|Norm CR Net |Relational Net with paired inputs, convolute relations & norm output   ||||||
+|Norm CR Net |Relational Net with paired inputs, convolute relations & norm output   |100%|100%|100%| 84%| 79%|
 |DT Baseline |Decision Trees using array as input                                    | 55%| 34%| 25%| 20%| 16%|
 |DT Order Rel|Decision Trees using order relations as input                          | 81%| 42%| 25%| 16%| 12%|
 

@@ -118,6 +118,29 @@ def lis_data(n_samples):
 			print("Generated " + str(i) + ' samples')
 	return lsts, orders
 
+# Relational table conversion
+def rel_table(lst):
+	mat = []
+	for i in range(0,len(lst)):
+		nlst = []
+		for j in range(0,len(lst)):
+			nlst.append(lst[i])
+			nlst.append(lst[j])
+		mat.append(nlst)
+	return mat
+
+# Relational table data
+def rel_table_data(n_samples):
+	lsts, mats, orders = list(), list(), list()
+	for i in range(1,n_samples+1):
+		lst, order = gen_list('int')
+		lsts.append(lst)
+		mats.append(rel_table(lst))
+		orders.append(order)
+		if i % 1000 == 0:
+			print("Generated " + str(i) + ' samples')
+	return lsts, mats, orders
+
 # Minimum
 def simple_data(n_samples):
 	lsts, orders = list(), list()
@@ -195,6 +218,9 @@ def data_by_type(data_type, is_training = True):
 	elif data_type == "order_relations":
 		print ("ORDER RELATIONS")
 		return order_relations(n_samples)
+	elif data_type == "rel_table":
+		print ("RELATIONS TABLE")
+		return rel_table_data(n_samples)
 	elif data_type == "all":
 		print ("ALL DATA")
 		return all_data(n_samples)
