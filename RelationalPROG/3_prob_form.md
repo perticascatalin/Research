@@ -62,11 +62,11 @@ One problem with this model was that it was not capable to properly encode longe
 - social network
 - papers with citations
 
-**Nodes**: information encoded into an embedding (vector state). Eg. image, word, etc.
+**Nodes**: information encoded into an embedding (vector state). Eg. image, word vectors, etc.
 
 **Edges**: relations between nodes. Can be of multiple types.
 
-**Output**: for each node it computes a state representing how it belongs to the overall graph.
+**Output**: for each node it computes a state representing how the sample belongs to the overall graph.
 
 |Example|Description|
 |:-----:|:---------:|
