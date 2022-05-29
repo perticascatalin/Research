@@ -210,6 +210,19 @@ def gen_sort(dtype = 'int'):
 		order.append(count)
 	return lst, order
 
+# Dataset for Sorting a List
+def sort_data(n_samples):
+	lsts, orders = list(), list()
+	for i in range(1,n_samples+1):
+		lst, order = gen_sort()
+		lsts.append(lst)
+		orders.append(order)
+		if i % 1000 == 0:
+			print("Generated " + str(i) + ' samples')
+	return lsts, orders
+```
+
+```python
 # Sample for Longest Increasing Sequence
 def gen_lis():
 	lst, order = list(), list()
@@ -226,17 +239,6 @@ def gen_lis():
 		order[i] = order[i] - 1
 	return lst, order
 
-# Dataset for Sorting a List
-def sort_data(n_samples):
-	lsts, orders = list(), list()
-	for i in range(1,n_samples+1):
-		lst, order = gen_sort()
-		lsts.append(lst)
-		orders.append(order)
-		if i % 1000 == 0:
-			print("Generated " + str(i) + ' samples')
-	return lsts, orders
-
 # Dataset for Longest Increasing Sequence
 def lis_data(n_samples):
 	lsts, orders = list(), list()
@@ -247,7 +249,9 @@ def lis_data(n_samples):
 		if i % 1000 == 0:
 			print("Generated " + str(i) + ' samples')
 	return lsts, orders
+```
 
+```python
 # Get data by type
 def data_by_type(data_type, is_training = True):
 	n_samples = N_SAMPLES
