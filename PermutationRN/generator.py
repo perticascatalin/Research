@@ -8,11 +8,8 @@ N_CLASSES = conf.num_inputs
 N_SAMPLES = conf.num_samples
 MAXINT = conf.maxint
 
-# Additional number of features to generate alongside the data
-# Order relation pairs
-N_FEAT = (N_CLASSES*(N_CLASSES - 1))/2
-
-def gen_list(dtype = 'int'):
+# Sample for Sorting a List
+def gen_sort(dtype = 'int'):
 	lst, order = list(), list()
 	used = [0] * (MAXINT + 1)
 	for i in range(N_CLASSES):
@@ -39,7 +36,23 @@ def gen_list(dtype = 'int'):
 		order.append(count)
 	return lst, order
 
-# Just for int
+# Sample for Longest Increasing Sequence
+def gen_lis():
+	lst, order = list(), list()
+	for i in range(N_CLASSES):
+		num = random.randint(1, MAXINT)
+		max_seq = 0
+		for j in range(len(lst)):
+			if lst[j] < num and max_seq < order[j]:
+				max_seq = order[j]
+		lst.append(num)
+		order.append(max_seq + 1)
+	# subtract 1 to have numbers in range [0,N_CLASSES)
+	for i in range(N_CLASSES):
+		order[i] = order[i] - 1
+	return lst, order
+
+# Sample for ith element in the sorted list
 def gen_ith(ith_target):
 	lst, ith = list(), list()
 	used = [0] * (MAXINT + 1)
@@ -91,33 +104,6 @@ def comparator():
 		orders.append(order)
 	return lsts, orders
 
-# Longest increasing sequence
-def gen_lis():
-	lst, order = list(), list()
-	for i in range(N_CLASSES):
-		num = random.randint(1, MAXINT)
-		max_seq = 0
-		for j in range(len(lst)):
-			if lst[j] < num and max_seq < order[j]:
-				max_seq = order[j]
-		lst.append(num)
-		order.append(max_seq + 1)
-	# subtract 1 to have numbers in range [0,N_CLASSES)
-	for i in range(N_CLASSES):
-		order[i] = order[i] - 1
-	return lst, order
-
-# Longest increasing sequence
-def lis_data(n_samples):
-	lsts, orders = list(), list()
-	for i in range(1,n_samples+1):
-		lst, order = gen_lis()
-		lsts.append(lst)
-		orders.append(order)
-		if i % 1000 == 0:
-			print("Generated " + str(i) + ' samples')
-	return lsts, orders
-
 # Relational table conversion
 def rel_table(lst):
 	mat = []
@@ -133,7 +119,7 @@ def rel_table(lst):
 def rel_table_data(n_samples):
 	lsts, mats, orders = list(), list(), list()
 	for i in range(1,n_samples+1):
-		lst, order = gen_list('int')
+		lst, order = gen_sort()
 		lsts.append(lst)
 		mats.append(rel_table(lst))
 		orders.append(order)
@@ -141,33 +127,33 @@ def rel_table_data(n_samples):
 			print("Generated " + str(i) + ' samples')
 	return lsts, mats, orders
 
-# Minimum
-def simple_data(n_samples):
+# Dataset for Sorting a List
+def sort_data(n_samples):
 	lsts, orders = list(), list()
 	for i in range(1,n_samples+1):
-		lst, mins = gen_ith(1)
-		lsts.append(lst)
-		orders.append(mins)
-		if i % 1000 == 0:
-			print("Generated " + str(i) + ' samples')
-	return lsts, orders
-
-# Just numbers
-def data(n_samples):
-	lsts, orders = list(), list()
-	for i in range(1,n_samples+1):
-		lst, order = gen_list('int')
+		lst, order = gen_sort()
 		lsts.append(lst)
 		orders.append(order)
 		if i % 1000 == 0:
 			print("Generated " + str(i) + ' samples')
 	return lsts, orders
 
-# Just order relations
-def order_relations(n_samples):
+# Dataset for Longest increasing sequence
+def lis_data(n_samples):
 	lsts, orders = list(), list()
 	for i in range(1,n_samples+1):
-		lst, order = gen_list('int')
+		lst, order = gen_lis()
+		lsts.append(lst)
+		orders.append(order)
+		if i % 1000 == 0:
+			print("Generated " + str(i) + ' samples')
+	return lsts, orders
+
+# Dataset for Order Relations
+def order_relations_data(n_samples):
+	lsts, orders = list(), list()
+	for i in range(1,n_samples+1):
+		lst, order = gen_sort()
 		c_lst = list()
 		for j in range(N_CLASSES - 1):
 			for k in range(j+1, N_CLASSES):
@@ -181,11 +167,11 @@ def order_relations(n_samples):
 			print("Generated " + str(i) + ' samples')
 	return lsts, orders
 
-# Numbers and Order Relations
+# Dataset for Numbers and Order Relations
 def all_data(n_samples):
 	lsts, orders = list(), list()
 	for i in range(1,n_samples+1):
-		lst, order = gen_list('int')
+		lst, order = gen_sort()
 		c_lst = lst
 		for j in range(N_CLASSES - 1):
 			for k in range(j+1, N_CLASSES):
@@ -195,6 +181,17 @@ def all_data(n_samples):
 					c_lst.append(0)
 		lsts.append(c_lst)
 		orders.append(order)
+		if i % 1000 == 0:
+			print("Generated " + str(i) + ' samples')
+	return lsts, orders
+
+# Dataset for Minimum
+def simple_data(n_samples):
+	lsts, orders = list(), list()
+	for i in range(1,n_samples+1):
+		lst, mins = gen_ith(1)
+		lsts.append(lst)
+		orders.append(mins)
 		if i % 1000 == 0:
 			print("Generated " + str(i) + ' samples')
 	return lsts, orders
@@ -214,13 +211,13 @@ def data_by_type(data_type, is_training = True):
 		return simple_data(n_samples)
 	elif data_type == "data":
 		print ("DATA")
-		return data(n_samples)
+		return sort_data(n_samples)
 	elif data_type == "order_relations":
 		print ("ORDER RELATIONS")
-		return order_relations(n_samples)
-	elif data_type == "rel_table":
-		print ("RELATIONS TABLE")
-		return rel_table_data(n_samples)
+		return order_relations_data(n_samples)
 	elif data_type == "all":
 		print ("ALL DATA")
 		return all_data(n_samples)
+	elif data_type == "rel_table":
+		print ("RELATIONS TABLE")
+		return rel_table_data(n_samples)

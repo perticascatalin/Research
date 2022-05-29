@@ -20,7 +20,7 @@ We present a series on experiments concerning the integration of relational reas
 
 ## 10. Neural Problem Solving
 
-
+...
 
 ### 10.1 Tasks
 
@@ -34,12 +34,12 @@ We present a series on experiments concerning the integration of relational reas
 
 **EXAMPLE**:
 
-- 8 out of 10
 - input: 25 19 26 30 16 40 21 23 39 41
 - expect: 5 2 6 7 1 9 3 4 8 10
-- pred:   6 2 5 7 1 9 3 4 8 10
+- pred: **6** 2 **5** 7 1 9 3 4 8 10
+- 8 out of 10 correctly guessed
 
-**Explanation**:
+**Explanation**: The sorted list is 16, 19, 21, 23, 25, 26, 30, 39, 40, 41. Thus, 25 is on the 5th position, 19 on the second position and so on.
 
 #### 10.1.2 Longest Increasing Sequence
 
@@ -51,12 +51,12 @@ We present a series on experiments concerning the integration of relational reas
 
 **EXAMPLE**:
 
-- 9 out of 10
 - input: 25 19 26 30 16 40 21 23 39 41
 - expect: 1 1 2 3 1 4 2 3 4 5
-- pred:   1 1 2 2 1 4 2 3 4 5
+- pred: 1 1 2 **2** 1 4 2 3 4 5
+- 9 out of 10 correctly guessed
 
-**Explanation**:
+**Explanation**: One of the longest increasing sequences is 16, 21, 23, 39, 41. Thus, the longest sequence ending in 16 is of lenght 1, the one ending in 21 is of length 2 and so on.
 
 ### 10.2 Models
 
@@ -171,15 +171,113 @@ def conv_relational_net(x, num_classes, num_labels, batch_size, reuse, is_traini
 
 ### 10.3 Evaluation of Results
 
-**DATASET INFO**:
+#### 10.3.A Dataset and Data Generation
 
 - **Training**: 60.000 samples
 - **Validation**: 12.000 samples
 - **Training Iterations**: 100.000 steps (for neural networks only)
 
-The accuracy is computed by averaging the number of correctly guessed labels per sample from the validation dataset. Eg. for 3 samples: 6 out of 10, 7 out of 10, 8 out of 10, then the model accuracy would report an accuracy of 70%.
+An input sample is represented by a list of N random numbers (unique integers in the range [1,50]). We generate separate datasets for N = 10, 15, 20, 25, 30.
 
-#### 10.3.A Data Generation, Loss Function and Training
+The outputs are also lists of integers. For tasks 10.1.1 and 10.1.2, we have N classes, each with N possible labels.
+
+```python
+# Sample for Sorting a List
+def gen_sort(dtype = 'int'):
+	lst, order = list(), list()
+	used = [0] * (MAXINT + 1)
+	for i in range(N_CLASSES):
+		while True:
+			if dtype == 'float':
+				num = random.random()
+				lst.append(num)
+				break
+			else:
+				num = random.randint(1, MAXINT)
+				# Condition to generate unique numbers
+				if used[num] == False:
+					lst.append(num)
+					used[num] = True
+					break
+
+	# Count number of elements smaller than each individual element
+	# That number is its final position
+	for i in range(N_CLASSES):
+		count = 0
+		for j in range(N_CLASSES):
+			if lst[j] < lst[i]:
+				count += 1
+		order.append(count)
+	return lst, order
+
+# Sample for Longest Increasing Sequence
+def gen_lis():
+	lst, order = list(), list()
+	for i in range(N_CLASSES):
+		num = random.randint(1, MAXINT)
+		max_seq = 0
+		for j in range(len(lst)):
+			if lst[j] < num and max_seq < order[j]:
+				max_seq = order[j]
+		lst.append(num)
+		order.append(max_seq + 1)
+	# subtract 1 to have numbers in range [0,N_CLASSES)
+	for i in range(N_CLASSES):
+		order[i] = order[i] - 1
+	return lst, order
+
+# Dataset for Sorting a List
+def sort_data(n_samples):
+	lsts, orders = list(), list()
+	for i in range(1,n_samples+1):
+		lst, order = gen_sort()
+		lsts.append(lst)
+		orders.append(order)
+		if i % 1000 == 0:
+			print("Generated " + str(i) + ' samples')
+	return lsts, orders
+
+# Dataset for Longest Increasing Sequence
+def lis_data(n_samples):
+	lsts, orders = list(), list()
+	for i in range(1,n_samples+1):
+		lst, order = gen_lis()
+		lsts.append(lst)
+		orders.append(order)
+		if i % 1000 == 0:
+			print("Generated " + str(i) + ' samples')
+	return lsts, orders
+
+# Get data by type
+def data_by_type(data_type, is_training = True):
+	n_samples = N_SAMPLES
+	if not is_training:
+		# Only generate 20% of samples for validation
+		n_samples = int(n_samples / 5)
+
+	if data_type == "lis":
+		print ("LIS")
+		return lis_data(n_samples)
+	elif data_type == "simple_data":
+		print ("SIMPLE DATA")
+		return simple_data(n_samples)
+	elif data_type == "data":
+		print ("DATA")
+		return sort_data(n_samples)
+	elif data_type == "order_relations":
+		print ("ORDER RELATIONS")
+		return order_relations_data(n_samples)
+	elif data_type == "all":
+		print ("ALL DATA")
+		return all_data(n_samples)
+	elif data_type == "rel_table":
+		print ("RELATIONS TABLE")
+		return rel_table_data(n_samples)
+```
+
+#### 10.3.B Loss Function and Training
+
+The accuracy is computed by averaging the number of correctly guessed labels per sample from the validation dataset. Eg. for 3 samples: 6 out of 10, 7 out of 10, 8 out of 10, then the model accuracy would report an accuracy of 70%.
 
 ```python
 lsts_train, orders_train = gen.data_by_type(data_type, is_training = True)
@@ -228,7 +326,7 @@ with tf.Session() as sess:
 |:------:|:--:|
 |![Accuracy for N = 30](https://raw.githubusercontent.com/perticascatalin/Research/master/PermutationRN/results/all_30_acc.png)|![Loss for N = 30](https://raw.githubusercontent.com/perticascatalin/Research/master/PermutationRN/results/all_30_loss.png)|
 
-**LEGEND**:
+**RESULTS**:
 
 |Model|Code|Description|N=10|N=15|N=20|N=25|N=30|
 |:---:|:--:|:---------:|:--:|:--:|:--:|:--:|:--:|
@@ -250,7 +348,7 @@ with tf.Session() as sess:
 - expect: 1 1 2 3 1 4 2 3 4 5
 - pred:   1 1 2 2 1 4 2 3 4 5
 
-**LEGEND**:
+**RESULTS**:
 
 |Model|Description|N=10|N=15|N=20|N=25|N=30|
 |:---:|:---------:|:--:|:--:|:--:|:--:|:--:|
