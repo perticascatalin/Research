@@ -332,7 +332,7 @@ with tf.Session() as sess:
 |:---:|:--:|:---------:|:--:|:--:|:--:|:--:|:--:|
 |Baseline    |base_data|Neural Net with 3 layers (512, 256, 128), using array as input (10.2.A)|100%|100%| 69%| 56%| 29%|
 |Order Rel   |base_or  |Same Neural Net as the Baseline, using order relations as input        |100%|100%| 99%| 87%| 38%|
-|CR Net      |C        |                                                                       |100%|100%| 98%| 98%| 86%|
+|New NCR Net |C        |A more efficient implementation of the Norm Conv Rel Net               |100%|100%| 98%| 98%| 86%|
 |Norm CR Net |R_r      |Relational Net with paired inputs, convolute relations & norm output   |100%|100%|100%| 84%| 79%|
 |Conv Rel Net|R        |Relational Net with paired inputs, convolute relations (10.2.C)        |100%| 94%| 81%| 75%| 80%|
 |Rel Net     |Q        |Relational Net with paired inputs, fully connected (10.2.B)            | 97%| 58%| 49%| 45%| 44%|
