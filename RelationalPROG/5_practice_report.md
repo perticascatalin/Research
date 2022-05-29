@@ -585,6 +585,8 @@ class GNNNodeClassifier(tf.keras.Model):
 
 This model is an extension of the Graph Convolutional Neural Network. It allows edges to represent different types of relations between nodes.
 
+...
+
 ## 12. Extraction of Visual Relationships
 
 **Open Source Repositories**

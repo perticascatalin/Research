@@ -19,6 +19,8 @@ Another advantage of learning fewer weights is the computational efficiency. For
 
 [Conv Net 2](https://blog.mlreview.com/a-guide-to-receptive-field-arithmetic-for-convolutional-neural-networks-e0f514068807)
 
+...
+
 ### 6.2 Attention Maps (for Sequence to Sequence Models)
 
 The next example is a machine translation model, namely the sequence to sequence modelling, where a recurrent neural network is fed an input sequence and has to produce an output sequence, such as translating a sentence from english to french (Sutskever et al. [14]) or synthesizing a program from a problem description (Li et al. [15]). One major breakthrough in this area was the use of an attention function (Bahdanau et al. [16]). Since then, more variants and implementations have been developed, such as the attention models from (Shazeer [17]) and visual attention from (Xu et al. [18]). The seq2seq model was initially designed as an encoder-decoder architecture, where an RNN would process the input and provide a vector / state for the decoder to decode into the output.
@@ -53,6 +55,8 @@ One problem with this model was that it was not capable to properly encode longe
 
 ### 6.3 Relational Neural Networks
 
+TODO
+
 ### 6.4 Graph Neural Networks
 
 **What the graph can represent**:
@@ -70,9 +74,9 @@ One problem with this model was that it was not capable to properly encode longe
 
 |Example|Description|
 |:-----:|:---------:|
-|![Program](https://raw.githubusercontent.com/perticascatalin/Research/master/RelationalPROG/images/prog_graph.png)|TODO|
-|![Convolution](https://raw.githubusercontent.com/perticascatalin/Research/master/RelationalPROG/images/conv_graph.png)|TODO|
-|![Deep Sets](https://raw.githubusercontent.com/perticascatalin/Research/master/RelationalPROG/images/deep_sets.png)|TODO|
+|![Program](https://raw.githubusercontent.com/perticascatalin/Research/master/RelationalPROG/images/prog_graph.png)|We can extract the abstract syntax tree (AST) representation from a piece of source code. In order to create a graph from it, we can add edges between nodes representing the same variable, eg. to the previous and to the next call of a variable, or between sibling nodes.|
+|![Convolution](https://raw.githubusercontent.com/perticascatalin/Research/master/RelationalPROG/images/conv_graph.png)|GNNs can mimic convolutions by representing pixels as nodes and the links to their neighbourhood as different edge types.|
+|![Deep Sets](https://raw.githubusercontent.com/perticascatalin/Research/master/RelationalPROG/images/deep_sets.png)|Deep Sets: eg. a set of images which are represented by their embeddings. Associating this set with a fully connected graph and then running GNNs on it can extract useful information about the set and also represent each image in the context of the others in the set (eg. highlighting outliars).|
 
 **Pseudocode**:
 
