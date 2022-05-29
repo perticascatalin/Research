@@ -6,6 +6,8 @@ We present a series on experiments concerning the integration of relational reas
 
 ...
 
+**Content**
+
 **10. Neural Problem Solving**
 
 **11. Graph Neural Networks**
@@ -18,15 +20,17 @@ We present a series on experiments concerning the integration of relational reas
 
 ## 10. Neural Problem Solving
 
+
+
 ### 10.1 Tasks
 
 #### 10.1.1 Sorting a List
 
-**Description**: This task is relational because the outputs depend on how large an element is in comparison to the rest of the elements in the input array.
+**Description**: Sorting a list of numbers is one of the first examples in every introductory computer science class. The task requires rearranging the elements of a list in increasing (or decreasing) order. There are numerous algorithms designed to solve this problem for any given input list. They differ in their strategies (eg. iterative or recursive) and their time complexity. For our purposes, this task is relational because the outputs depend on how large an element is in comparison to the rest of the elements in the input array.
 
 **Input**: Array of N unique elements (integers) with values in the range [1,50].
 
-**Output**: Array of N values specifying the position of each element in the sorted array.
+**Output**: Array of N values denoting the position of each element in the sorted array.
 
 **EXAMPLE**:
 
@@ -35,9 +39,11 @@ We present a series on experiments concerning the integration of relational reas
 - expect: 5 2 6 7 1 9 3 4 8 10
 - pred:   6 2 5 7 1 9 3 4 8 10
 
+**Explanation**:
+
 #### 10.1.2 Longest Increasing Sequence
 
-**Description**: This task is one of the most simple dynamic programming examples, where the solution to a subproblem - longest sequence up to the ith element (best[i]) is computed based on the previously solved subproblems - longest sequences for 1st, 2nd,... (i-1)th elements (best[1..(i-1)]) provided their values are smaller. For this reason, this problem could also be viewed as a task where relational reasoning is required.
+**Description**: Given a list of numbers, we are required to find the longest subset of numbers which are in increasing order given their initial positions. This task is one of the most simple dynamic programming examples, where the solution to a subproblem - longest sequence up to the ith element (best[i]) is computed based on the previously solved subproblems - longest sequences for 1st, 2nd,... (i-1)th elements (best[1..(i-1)]) provided their values are smaller. For this reason, this problem could also be viewed as a task where relational reasoning is required.
 
 **Input**: Array of N unique elements (integers) with values in the range [1,50].
 
@@ -49,6 +55,8 @@ We present a series on experiments concerning the integration of relational reas
 - input: 25 19 26 30 16 40 21 23 39 41
 - expect: 1 1 2 3 1 4 2 3 4 5
 - pred:   1 1 2 2 1 4 2 3 4 5
+
+**Explanation**:
 
 ### 10.2 Models
 
@@ -349,6 +357,8 @@ TODO
 TODO
 
 ## 14. Machine Learning Frameworks
+
+[Tools for drawing NN architectures](https://www.kaggle.com/getting-started/253300)
 
 ### Tensorflow / Keras
 
