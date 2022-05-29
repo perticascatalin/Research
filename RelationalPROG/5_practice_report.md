@@ -352,6 +352,8 @@ with tf.Session() as sess:
 - expect: 1 1 2 3 1 4 2 3 4 5
 - pred:   1 1 2 2 1 4 2 3 4 5
 
+TODO: Add sample and accuracy by N
+
 **RESULTS**:
 
 |Model|Description|N=10|N=15|N=20|N=25|N=30|
@@ -504,7 +506,9 @@ class GraphConvLayer(layers.Layer):
         aggregated_messages = self.aggregate(node_indices, neighbour_messages)
         # Update the node embedding with the neighbour messages.
         return self.update(node_repesentations, aggregated_messages)
+```
 
+```python
 class GNNNodeClassifier(tf.keras.Model):
     def __init__(
         self,
