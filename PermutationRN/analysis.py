@@ -349,4 +349,30 @@ def print_acc_all():
 	plt.savefig('./results/' + 'acc_all.png')
 	plt.clf()
 
+def print_acc_all_lis():
+	ns = [10, 15, 20, 25, 30]
+	set_1 = [0.98, 0.85, 0.74, 0.64, 0.57]
+	# set_2 = [1.00, 1.00, 0.99, 0.87, 0.38]
+	# set_3 = [0.97, 0.58, 0.49, 0.45, 0.44]
+	set_4 = [0.89, 0.71, 0.64, 0.65, 0.64]
+	plt.title('Accuracy by Model', fontsize = 18)
+	plt.xlabel('# Elements', fontsize = 16)
+	plt.ylabel('% Correctly Guessed', fontsize = 16)
+	plt.plot(ns, set_1, 'red', linewidth = 2.8, label = 'Baseline')
+	# plt.plot(ns, set_2, 'green', linewidth = 2.8, label = 'Order Rel')
+	# plt.plot(ns, set_3, 'blue', linewidth = 2.8, label = 'Rel Net')
+	plt.plot(ns, set_4, 'magenta', linewidth = 2.8, label = 'Conv Rel Net')
+	plt.legend()
+	plt.savefig('./results/' + 'acc_all_lis.png')
+	plt.clf()
+
 # print_acc_all()
+# print_acc_all_lis()
+# print_pickle('./data/stats/<model_name>_<N>_ml_v_accs.p')
+# x = []
+# y_exp = []
+# y_pred = []
+# print_barchart(x, y_exp, y_pred, ('labels_' + str(epoch) + '.png'))
+
+# print_pickle('./data/stats/<model_name>_<N>_ml_v_accs.p')
+

@@ -352,7 +352,9 @@ with tf.Session() as sess:
 - expect: 1 1 2 3 1 4 2 3 4 5
 - pred:   1 1 2 2 1 4 2 3 4 5
 
-TODO: Add sample and accuracy by N
+|Sample|Accuracy by N|
+|:----:|:-----------:|
+|![Sort Lables](https://raw.githubusercontent.com/perticascatalin/Research/master/RelationalPROG/images/lis_labels.png)|![Accuracy all models, various N](https://raw.githubusercontent.com/perticascatalin/Research/master/PermutationRN/results/acc_all_lis.png)|
 
 **RESULTS**:
 
