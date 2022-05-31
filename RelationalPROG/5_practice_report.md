@@ -169,6 +169,85 @@ def conv_relational_net(x, num_classes, num_labels, batch_size, reuse, is_traini
 	return outputs
 ```
 
+#### 10.2.D Normalized Convolutional Relational Neural Network
+
+- (18 38 48 14 30)
+
+- (**18** 18 **18** 38 **18** 48 **18** 14 **18** 30)
+- (**38** 18 **38** 38 **38** 48 **38** 14 **38** 30)
+- (**48** 18 **48** 38 **48** 48 **48** 14 **48** 30)
+- (**14** 18 **14** 38 **14** 48 **14** 14 **14** 30)
+- (**30** 18 **30** 38 **30** 48 **30** 14 **30** 30)
+
+*Implementation using python 2.7 and TensorFlow 1.15*
+
+```python
+# Relational table data
+def rel_table_data(n_samples):
+	lsts, mats, orders = list(), list(), list()
+	for i in range(1,n_samples+1):
+		lst, order = gen_sort()
+		lsts.append(lst)
+		mats.append(rel_table(lst))
+		orders.append(order)
+		if i % 1000 == 0:
+			print("Generated " + str(i) + ' samples')
+	return lsts, mats, orders
+
+# Dataset for Sorting a List
+def sort_data(n_samples):
+	lsts, orders = list(), list()
+	for i in range(1,n_samples+1):
+		lst, order = gen_sort()
+		lsts.append(lst)
+		orders.append(order)
+		if i % 1000 == 0:
+			print("Generated " + str(i) + ' samples')
+	return lsts, orders
+```
+
+```python
+import tensorflow as tf
+
+def conv_rel_net(x, num_classes, num_labels, batch_size, reuse, is_training):
+	with tf.variable_scope('ConvRelNet', reuse = reuse):
+		units_1 = tf.layers.conv2d(x, 8, [1,2], [1,2], 'same', activation = 'relu')
+		units_2 = tf.keras.activations.tanh(units_1)
+		units_3 = tf.layers.conv2d(units_2, 4, [num_classes,1], [num_classes,1], 'same', activation = 'relu')
+		units_4 = tf.contrib.layers.flatten(units_3)
+		outputs = []
+		for i in range(num_classes):
+			out_i = tf.layers.dense(units_4, num_labels)
+			out_i = out_i if is_training else tf.nn.softmax(out_i)
+			outputs.append(out_i)
+	return outputs
+```
+
+```python
+def tensor_conversion(lsts, mats, orders):
+	lsts = tf.convert_to_tensor(lsts, dtype = tf.float32)
+	mats = tf.expand_dims(tf.convert_to_tensor(mats, dtype = tf.float32), 3)
+	orders = tf.convert_to_tensor(orders, dtype = tf.int32)
+	lsts, mats, orders = tf.train.slice_input_producer([lsts, mats, orders], shuffle = True)
+	return lsts, mats, orders
+
+print "GENERATE TRAINING DATA"
+lsts_train, mats_train, orders_train = gen.data_by_type(data_type, is_training = True)
+lsts_train, mats_train, orders_train = tensor_conversion(lsts_train, mats_train, orders_train)
+
+print "GENERATE VALIDATION DATA"
+lsts_val, mats_val, orders_val = gen.data_by_type(data_type, is_training = False)
+lsts_val, mats_val, orders_val = tensor_conversion(lsts_val, mats_val, orders_val)
+
+X, Z, Y = tf.train.batch([lsts_train, mats_train, orders_train], batch_size = batch_size, capacity = batch_size * 8, num_threads = 4)
+X_val, Z_val, Y_val = tf.train.batch([lsts_val, mats_val, orders_val], batch_size = batch_size, capacity = batch_size * 8, num_threads = 4)
+
+logits_train = mod.conv_rel_net(Z,     N_OUT_CLASSES, N_CLASSES, batch_size, reuse = False, is_training = True)
+logits_test  = mod.conv_rel_net(Z,     N_OUT_CLASSES, N_CLASSES, batch_size, reuse = True, is_training = False)
+logits_valt  = mod.conv_rel_net(Z_val, N_OUT_CLASSES, N_CLASSES, batch_size, reuse = True, is_training = True)
+logits_val   = mod.conv_rel_net(Z_val, N_OUT_CLASSES, N_CLASSES, batch_size, reuse = True, is_training = False)
+```
+
 ### 10.3 Evaluation of Results
 
 #### 10.3.A Dataset and Data Generation
@@ -336,7 +415,7 @@ with tf.Session() as sess:
 |:---:|:--:|:---------:|:--:|:--:|:--:|:--:|:--:|
 |Baseline    |base_data|Neural Net with 3 layers (512, 256, 128), using array as input (10.2.A)|100%|100%| 69%| 56%| 29%|
 |Order Rel   |base_or  |Same Neural Net as the Baseline, using order relations as input        |100%|100%| 99%| 87%| 38%|
-|New NCR Net |C        |A more efficient implementation of the Norm Conv Rel Net               |100%|100%| 98%| 98%| 86%|
+|New NCR Net |C        |A more efficient implementation of the Norm Conv Rel Net (10.2.D)      |100%|100%| 98%| 98%| 86%|
 |Norm CR Net |R_r      |Relational Net with paired inputs, convolute relations & norm output   |100%|100%|100%| 84%| 79%|
 |Conv Rel Net|R        |Relational Net with paired inputs, convolute relations (10.2.C)        |100%| 94%| 81%| 75%| 80%|
 |Rel Net     |Q        |Relational Net with paired inputs, fully connected (10.2.B)            | 97%| 58%| 49%| 45%| 44%|
