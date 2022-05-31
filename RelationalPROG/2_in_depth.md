@@ -240,11 +240,23 @@ Sample open source [code1](https://github.com/dkamm/deepcoder), [code2](https://
 
 ### 5.3 Dream Coder: Growing generalizable, interpretable knowledge with wake-sleep Bayesian program learning
 
+Model overview:
+
 - a system that learns to solve problems by writing programs
 - start by using primitives to learn programs based on input-output pairs
 - adds up new symbolic abstractions (refactoring) based on imagined and replayed problems
 - learns libraries of concepts
 - builds expertise by creating programming languages for expressing domain concepts
+
+Basis:
+
+- the shorter a program is in a language, the higher its prior probability
+- bayesian probability formulation:
+	- helps clarify the challenges
+	- offers a path to solving them
+- posterior = (likelihood x prior) / evidence
+- prior = probability before seeing any test (evidence)
+
 
 Tasks:
 
