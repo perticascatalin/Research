@@ -171,13 +171,45 @@ def conv_relational_net(x, num_classes, num_labels, batch_size, reuse, is_traini
 
 #### 10.2.D Normalized Convolutional Relational Neural Network
 
+**Input list**:
+
 - (18 38 48 14 30)
+
+**Relational Table**:
 
 - (**18** 18 **18** 38 **18** 48 **18** 14 **18** 30)
 - (**38** 18 **38** 38 **38** 48 **38** 14 **38** 30)
 - (**48** 18 **48** 38 **48** 48 **48** 14 **48** 30)
 - (**14** 18 **14** 38 **14** 48 **14** 14 **14** 30)
 - (**30** 18 **30** 38 **30** 48 **30** 14 **30** 30)
+
+**Sample application of conv [1,2] with stride [1,2] and weights [1,-1] to first row**:
+
+- 18 - 18 =   0 ReLU(  0) => **0**
+- 18 - 38 = -20 ReLU(-20) => **0**
+- 18 - 48 = -30 ReLU(-30) => **0**
+- 18 - 14 =   4 ReLU(  4) => **4**
+- 18 - 30 = -12 ReLU(-12) => **0**
+
+**Convoluted Relational Table**:
+
+- ( 0  0  0  4  0)
+- (20  0  0 24  8)
+- (30 10  0 34 18)
+- ( 0  0  0  0  0)
+- (12  0  0 16  0)
+
+**Normalized (tanh) Convoluted Relational Table**:
+
+- (0 0 0 1 0)
+- (1 0 0 1 1)
+- (1 1 0 1 1)
+- (0 0 0 0 0)
+- (1 0 0 1 0)
+
+**Sample final aggregation with conv [5,1], stride (5,1) and weights [1,1,1,1,1]**:
+
+- (1 2 4 0 2)
 
 *Implementation using python 2.7 and TensorFlow 1.15*
 
@@ -242,10 +274,10 @@ lsts_val, mats_val, orders_val = tensor_conversion(lsts_val, mats_val, orders_va
 X, Z, Y = tf.train.batch([lsts_train, mats_train, orders_train], batch_size = batch_size, capacity = batch_size * 8, num_threads = 4)
 X_val, Z_val, Y_val = tf.train.batch([lsts_val, mats_val, orders_val], batch_size = batch_size, capacity = batch_size * 8, num_threads = 4)
 
-logits_train = mod.conv_rel_net(Z,     N_OUT_CLASSES, N_CLASSES, batch_size, reuse = False, is_training = True)
-logits_test  = mod.conv_rel_net(Z,     N_OUT_CLASSES, N_CLASSES, batch_size, reuse = True, is_training = False)
-logits_valt  = mod.conv_rel_net(Z_val, N_OUT_CLASSES, N_CLASSES, batch_size, reuse = True, is_training = True)
-logits_val   = mod.conv_rel_net(Z_val, N_OUT_CLASSES, N_CLASSES, batch_size, reuse = True, is_training = False)
+logits_train = mod.conv_rel_net(Z,     N_INPUTS, N_OUTPUTS, batch_size, reuse = False, is_training = True)
+logits_test  = mod.conv_rel_net(Z,     N_INPUTS, N_OUTPUTS, batch_size, reuse = True, is_training = False)
+logits_valt  = mod.conv_rel_net(Z_val, N_INPUTS, N_OUTPUTS, batch_size, reuse = True, is_training = True)
+logits_val   = mod.conv_rel_net(Z_val, N_INPUTS, N_OUTPUTS, batch_size, reuse = True, is_training = False)
 ```
 
 ### 10.3 Evaluation of Results
