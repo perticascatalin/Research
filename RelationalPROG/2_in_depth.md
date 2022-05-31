@@ -257,7 +257,6 @@ Basis:
 - posterior = (likelihood x prior) / evidence
 - prior = probability before seeing any test (evidence)
 
-
 Tasks:
 
 - classic inductive programming tasks

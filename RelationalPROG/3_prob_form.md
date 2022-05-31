@@ -63,8 +63,8 @@ TODO
 
 - program
 - molecule
-- social network
-- papers with citations
+- social network (eg. tweets fraud detection)
+- papers with citations (eg. topic prediction)
 
 **Nodes**: information encoded into an embedding (vector state). Eg. image, word vectors, etc.
 
@@ -90,3 +90,4 @@ TODO
 [A. GNN implementation & intro](https://keras.io/examples/graph/gnn_citations/)[+](https://www.youtube.com/watch?v=2KRAOZIULzw)[+](https://www.youtube.com/watch?v=wJQQFUcHO5U)
 
 [B. Lecture on GNNs](https://www.youtube.com/watch?v=zCEYiCxrL_0)
+
