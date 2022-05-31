@@ -171,6 +171,11 @@ def conv_relational_net(x, num_classes, num_labels, batch_size, reuse, is_traini
 
 #### 10.2.D Normalized Convolutional Relational Neural Network
 
+Below is an example of how sorting a list could be achieved by this model, which is an improvement of the Convolutional Relational Network. The improvements consist of:
+
+- preprocessing the relational table outside the training cycle
+- adding a normalization (tanh) after applying the first convolution
+
 **Input list**:
 
 - (18 38 48 14 30)
@@ -209,7 +214,9 @@ def conv_relational_net(x, num_classes, num_labels, batch_size, reuse, is_traini
 
 **Sample final aggregation with conv [5,1], stride (5,1) and weights [1,1,1,1,1]**:
 
-- (1 2 4 0 2)
+- (1 3 4 0 2)
+
+We can observe that by simply learning these weights: [1,-1] and [1,1,1,1,1], we can accomplish the task of learning to sort an array using this relational neural network model.
 
 *Implementation using python 2.7 and TensorFlow 1.15*
 
