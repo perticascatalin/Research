@@ -83,7 +83,7 @@ Thus, an object could comprise:
 - the background
 - particular physical objects
 - a texture
-- conjuctions of physical objects
+- conjunctions of physical objects
 
 |Sort-of-CLEVR|CLEVR|
 |:-----:|:---------:|
@@ -95,7 +95,7 @@ The second step is to examine how the make the object extraction question depend
 
 These triples are batched through an MLP for learning the relational function g (the output of which is a measure of relevance for object pairs). These outputs are then aggregated by a second MLP which learns the function f used for providing the answer to the question.
 
-Finally, the information about what constitues objects and how to parse the question is backpropagated in the CNN and in the LSTM. This approach shows a 27% improvement in accuracy on the CLEVR  dataset compared to the state-of-the-art at the time of the publication and a 31% improvement in accuracy on the Sort-of-CLEVR dataset compared to a baseline CNN-MLP architecture.
+Finally, the information about what constitutes objects and how to parse the question is backpropagated in the CNN and in the LSTM. This approach shows a 27% improvement in accuracy on the CLEVR  dataset compared to the state-of-the-art at the time of the publication and a 31% improvement in accuracy on the Sort-of-CLEVR dataset compared to a baseline CNN-MLP architecture.
 
 Sample open source [code](https://github.com/clvrai/Relation-Network-Tensorflow) applying RN to the Sort-of-CLEVR dataset.
 
@@ -105,7 +105,7 @@ Code running logs: see [practice report](https://github.com/perticascatalin/Rese
 
 The study presents a recurrent neural network architecture which relies on structural constraints in order to guide the network towards compositional reasoning and to facilitate interpretability of the inferred results. The network is called MAC (memory, attention, composition) because of its specific architecture which separates control from memory and imposes structural constraints that regulate interaction. As opposed to the RN, which is a module, MAC is a network learning cell.
 
-This design is based on more recent advances in machine learning, where a trend to adopt symbolic structures (resembling expression trees of programming languages) can be noticed. However, these systems generally rely on externally provided structured representations. The MAC architecture addresses this issue in a more general fashion, by decomposing a problem into a series of attention-based reasoning steps. These steps aggregate relevant information from the memory and knowledge base and then updates the memory accordingly. This model is applied on the CLEVR dataset, which has a very suitable structure for emphasizing MAC's ability to learn step-by-step reasoning. 
+This design is based on more recent advances in machine learning, where a trend to adopt symbolic structures (resembling expression trees of programming languages) can be noticed. However, these systems generally rely on externally provided structured representations. The MAC architecture addresses this issue in a more general fashion, by decomposing a problem into a series of attention-based reasoning steps. These steps aggregate relevant information from the memory and knowledge base and then update the memory accordingly. This model is applied on the CLEVR dataset, which has a very suitable structure for emphasizing MAC's ability to learn step-by-step reasoning. 
 
 Components:
 
