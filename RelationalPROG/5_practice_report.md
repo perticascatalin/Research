@@ -480,6 +480,7 @@ with tf.Session() as sess:
 |:---:|:---------:|:--:|:--:|:--:|:--:|:--:|
 |Baseline    |(10.2.A) |98%|85%|74%|64%|57%|
 |Conv Rel Net|(10.2.C) |89%|71%|64%|65%|64%|
+|DT Baseline |...      |80%|65%|55%|48%|43%|
 
 ## 11. Graph Neural Networks
 
