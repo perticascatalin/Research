@@ -58,6 +58,18 @@ We present a series on experiments concerning the integration of relational reas
 
 **Explanation**: One of the longest increasing sequences is 16, 21, 23, 39, 41. Thus, the longest sequence ending in 16 is of length 1, the one ending in 21 is of length 2 and so on.
 
+#### 10.1.3 Closest Element
+
+**Description**:
+
+**Input**: Array of N unique elements (integers) with values in the range [1,50].
+
+**Output**:
+
+**EXAMPLE**:
+
+**Explanation**:
+
 ### 10.2 Models
 
 #### 10.2.A Multi-label Multi-class Neural Network
@@ -478,9 +490,21 @@ with tf.Session() as sess:
 
 |Model|Description|N=10|N=15|N=20|N=25|N=30|
 |:---:|:---------:|:--:|:--:|:--:|:--:|:--:|
-|Baseline    |(10.2.A) |98%|85%|74%|64%|57%|
-|Conv Rel Net|(10.2.C) |89%|71%|64%|65%|64%|
-|DT Baseline |...      |80%|65%|55%|48%|43%|
+|Baseline    |(10.2.A) | 98%| 85%| 74%| 64%| 57%|
+|Order Rel   |(10.2.A) |100%| 98%| 89%| 80%| 72%|
+|Conv Rel Net|(10.2.C) | 89%| 71%| 64%| 65%| 64%|
+|DT Baseline |...      | 80%| 65%| 55%| 48%| 43%|
+
+#### 10.3.3 Closest Element
+
+**RESULTS**:
+
+|Model|Description|N=10|N=15|N=20|N=25|N=30|
+|:---:|:---------:|:--:|:--:|:--:|:--:|:--:|
+|Baseline    |(10.2.A) |86%|0%|0%|0%|0%|
+|Order Rel   |(10.2.A) |60%|0%|0%|0%|0%|
+|Conv Rel Net|(10.2.C) | 0%|0%|0%|0%|0%|
+|DT Baseline |...      | 0%|0%|0%|0%|0%|
 
 ## 11. Graph Neural Networks
 
