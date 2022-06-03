@@ -60,15 +60,20 @@ We present a series on experiments concerning the integration of relational reas
 
 #### 10.1.3 Closest Element
 
-**Description**:
+**Description**: Given a list of numbers, find for each element the closest element in value (1D nearest element) and output its position in the list. If there is more than one solution, pick the smaller number. This task is also relational, but with a tweak. Compared to the previous 2 tasks where only knowing the order between each element would suffice for solving the problem, in this case, we are required to take their values into account. This will become more apparent when we discuss the results obtained.
 
 **Input**: Array of N unique elements (integers) with values in the range [1,50].
 
-**Output**:
+**Output**: Array of N values specifying the position of the closest element.
 
 **EXAMPLE**:
 
-**Explanation**:
+- input: 25 19 26 30 16 40 21 23 39 41
+- expect: 3 7 1 3 2 9 2 7 6 6
+- pred: 3 7 **3** 3 2 **6** 2 **3** 6 6
+- 7 out of 10 correctly guessed
+
+**Explanation**: The closest element in value to 25 is the element on the 3rd position, namely 26. The closest element to 19 is 21 on position 7 and so on.
 
 ### 10.2 Models
 
@@ -492,6 +497,7 @@ with tf.Session() as sess:
 |:---:|:---------:|:--:|:--:|:--:|:--:|:--:|
 |Baseline    |(10.2.A) | 98%| 85%| 74%| 64%| 57%|
 |Order Rel   |(10.2.A) |100%| 98%| 89%| 80%| 72%|
+|New NCR Net |(10.2.D) | 90%| 83%| 76%| 67%| 67%|
 |Conv Rel Net|(10.2.C) | 89%| 71%| 64%| 65%| 64%|
 |DT Baseline |...      | 80%| 65%| 55%| 48%| 43%|
 
@@ -503,6 +509,7 @@ with tf.Session() as sess:
 |:---:|:---------:|:--:|:--:|:--:|:--:|:--:|
 |Baseline    |(10.2.A) |86%|0%|0%|0%|0%|
 |Order Rel   |(10.2.A) |60%|0%|0%|0%|0%|
+|New NCR Net |(10.2.D) | 0%|0%|0%|0%|0%|
 |Conv Rel Net|(10.2.C) | 0%|0%|0%|0%|0%|
 |DT Baseline |...      | 0%|0%|0%|0%|0%|
 
