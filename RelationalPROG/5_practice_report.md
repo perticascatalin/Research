@@ -472,9 +472,9 @@ with tf.Session() as sess:
 |Baseline    |base_data|Neural Net with 3 layers (512, 256, 128), using array as input (10.2.A)|100%|100%| 69%| 56%| 29%|**70.8%**|
 |Order Rel   |base_or  |Same Neural Net as the Baseline, using order relations as input        |100%|100%| 99%| 87%| 38%|**84.8%**|
 |New NCR Net |C        |A more efficient implementation of the Norm Conv Rel Net (10.2.D)      |100%|100%| 98%| 98%| 86%|**96.4%**|
-|Norm CR Net |R_r      |Relational Net with paired inputs, convolute relations & norm output   |100%|100%|100%| 84%| 79%|-|
-|Conv Rel Net|R        |Relational Net with paired inputs, convolute relations (10.2.C)        |100%| 94%| 81%| 75%| 80%|-|
-|Rel Net     |Q        |Relational Net with paired inputs, fully connected (10.2.B)            | 97%| 58%| 49%| 45%| 44%|-|
+<!-- |Norm CR Net |R_r      |Relational Net with paired inputs, convolute relations & norm output   |100%|100%|100%| 84%| 79%|-| -->
+<!-- |Conv Rel Net|R        |Relational Net with paired inputs, convolute relations (10.2.C)        |100%| 94%| 81%| 75%| 80%|-| -->
+<!-- |Rel Net     |Q        |Relational Net with paired inputs, fully connected (10.2.B)            | 97%| 58%| 49%| 45%| 44%|-| -->
 |DT Order Rel|-        |Decision Trees using order relations as input                          | 81%| 42%| 25%| 16%| 12%|**35.2%**|
 |DT Baseline |-        |Decision Trees using array as input                                    | 55%| 34%| 25%| 20%| 16%|**30.0%**|
 
@@ -498,20 +498,22 @@ with tf.Session() as sess:
 |Baseline    |(10.2.A) | 98%| 85%| 74%| 64%| 57%|**75.6%**|
 |Order Rel   |(10.2.A) |100%| 98%| 89%| 80%| 72%|**87.8%**|
 |New NCR Net |(10.2.D) | 90%| 83%| 76%| 67%| 67%|**76.6%**|
-|Conv Rel Net|(10.2.C) | 89%| 71%| 64%| 65%| 64%|-|
+<!-- |Conv Rel Net|(10.2.C) | 89%| 71%| 64%| 65%| 64%|-| -->
+|DT Order Rel|...      | 95%| 75%| 61%| 52%| 45%|**65.6%**|
 |DT Baseline |...      | 80%| 65%| 55%| 48%| 43%|**58.2%**|
 
 #### 10.3.3 Closest Element
 
 **RESULTS**:
 
-|Model|Description|N=10|N=15|N=20|N=25|N=30|
-|:---:|:---------:|:--:|:--:|:--:|:--:|:--:|
-|Baseline    |(10.2.A) | 86%| 81%| 15%|0%|0%|
-|Order Rel   |(10.2.A) | 60%| 55%| 24%|0%|0%|
-|New NCR Net |(10.2.D) | 90%| 86%| 52%|0%|0%|
-|Conv Rel Net|(10.2.C) |  0%|  0%|  0%|0%|0%|
-|DT Baseline |...      |  0%|  0%|  0%|0%|0%|
+|Model|Description|N=10|N=15|N=20|N=25|N=30|Avg|
+|:---:|:---------:|:--:|:--:|:--:|:--:|:--:|:-:|
+|Baseline    |(10.2.A) | 86%| 81%| 15%|  8%|  4%|**38.8%**|
+|Order Rel   |(10.2.A) | 60%| 55%| 24%|  9%|  6%|**30.8%**|
+|New NCR Net |(10.2.D) | 90%| 86%| 77%| 79%| 81%|**82.6%**|
+<!-- |Conv Rel Net|(10.2.C) |  0%|  0%|  0%|  0%|  0%|-| -->
+|DT Order Rel|...      | 50%| 28%| 16%| 10%|  7%|**22.2%**|
+|DT Baseline |...      | 50%| 25%| 15%|  9%|  6%|**21.0%**|
 
 ## 11. Graph Neural Networks
 
