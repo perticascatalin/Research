@@ -34,6 +34,12 @@ layer_dropout = [0.0, 0.0]
 # 8. "rel_table"
 data_type = "data"
 
+# Data by task and format
+# task from {"sort", "lis", "ce"}
+# form from {"lst", "order_rel", "all", "rel_table"}
+task = "ce"
+form = "order_rel"
+
 # Exception for number of output classes
 if data_type == "simple_data" or data_type == "comparator" or data_type == "counter":
 	num_outputs = 1

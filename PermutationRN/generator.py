@@ -8,6 +8,63 @@ N_CLASSES = conf.num_inputs
 N_SAMPLES = conf.num_samples
 MAXINT = conf.maxint
 
+# Generate a list
+def gen_list():
+	lst = []
+	used = [0] * (MAXINT + 1)
+	for i in range(N_CLASSES):
+		while True:
+			num = random.randint(1, MAXINT)
+			if used[num] == False:
+				lst.append(num)
+				used[num] = True
+				break
+	return lst
+
+# Get output for sort task
+def get_sort(lst):
+	res = []
+	for i in range(N_CLASSES):
+		count = 0
+		for j in range(N_CLASSES):
+			if lst[j] < lst[i]:
+				count += 1
+		res.append(count)
+	return res
+
+# Get output for lis task
+def get_lis(lst):
+	res = []
+	for i in range(N_CLASSES):
+		num = lst[i]
+		max_seq = 0
+		for j in range(i):
+			if lst[j] < num and max_seq < res[j]:
+				max_seq = res[j]
+		res.append(max_seq + 1)
+	# Subtract 1 to have numbers in range [0,N_CLASSES)
+	for i in range(N_CLASSES):
+		res[i] = res[i] - 1
+	return res
+
+# Get output for ce task
+def get_ce(lst):
+	res = []
+	for i in range(N_CLASSES):
+		ce_diff = MAXINT
+		ce_val = MAXINT
+		ce_ind = -1
+		for j in range(N_CLASSES):
+			if i == j:
+				continue
+			diff = abs(lst[i] - lst[j])
+			if diff < ce_diff or (diff == ce_diff and lst[j] < ce_val):
+				ce_diff = diff
+				ce_val = lst[j]
+				ce_ind = j
+		res.append(ce_ind)
+	return res
+
 # Sample for Sorting a List
 def gen_sort(dtype = 'int'):
 	lst, order = list(), list()
@@ -47,7 +104,7 @@ def gen_lis():
 				max_seq = order[j]
 		lst.append(num)
 		order.append(max_seq + 1)
-	# subtract 1 to have numbers in range [0,N_CLASSES)
+	# Subtract 1 to have numbers in range [0,N_CLASSES)
 	for i in range(N_CLASSES):
 		order[i] = order[i] - 1
 	return lst, order
@@ -103,6 +160,17 @@ def comparator():
 		lsts.append(lst)
 		orders.append(order)
 	return lsts, orders
+
+# Order relations conversion
+def order_relations(lst):
+	c_lst = []
+	for j in range(N_CLASSES - 1):
+		for k in range(j+1, N_CLASSES):
+			if lst[j] > lst[k]:
+				c_lst.append(1)
+			else:
+				c_lst.append(0)
+	return c_lst
 
 # Relational table conversion
 def rel_table(lst):
@@ -221,3 +289,40 @@ def data_by_type(data_type, is_training = True):
 	elif data_type == "rel_table":
 		print ("RELATIONS TABLE")
 		return rel_table_data(n_samples)
+
+def data_by_task_and_form(task, form, is_training = True):
+	n_samples = N_SAMPLES
+	n_samples = n_samples if is_training else int(n_samples / 5) # 20% of samples for validation
+	lsts, inps, rslts = [], [], []
+	for i in range(1,n_samples+1):
+		lst, res = gen_list(), []
+		if task == "sort":
+			res = get_sort(lst)
+		elif task == "lis":
+			res = get_lis(lst)
+		elif task == "ce":
+			res = get_ce(lst)
+		inp = []
+		if form == "lst":
+			inp = lst
+		elif form == "order_rel":
+			inp = order_relations(lst)
+		elif form == "all":
+			inp = lst + order_relations(lst)
+		elif form == "rel_table":
+			inp = rel_table(lst)
+		lsts.append(lst)
+		inps.append(inp)
+		rslts.append(res)
+	if form == "lst" or form == "order_rel" or form == "all":
+		return inps, rslts
+	return lsts, inps, rslts
+
+def test():
+	lst = gen_list()
+	sort = get_sort(lst)
+	lis = get_lis(lst)
+	ce = get_ce(lst)
+	pdb.set_trace()
+
+# test()

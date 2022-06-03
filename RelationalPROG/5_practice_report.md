@@ -56,7 +56,7 @@ We present a series on experiments concerning the integration of relational reas
 - pred: 1 1 2 **2** 1 4 2 3 4 5
 - 9 out of 10 correctly guessed
 
-**Explanation**: One of the longest increasing sequences is 16, 21, 23, 39, 41. Thus, the longest sequence ending in 16 is of lenght 1, the one ending in 21 is of length 2 and so on.
+**Explanation**: One of the longest increasing sequences is 16, 21, 23, 39, 41. Thus, the longest sequence ending in 16 is of length 1, the one ending in 21 is of length 2 and so on.
 
 ### 10.2 Models
 
