@@ -332,7 +332,7 @@ def combine_plots_n(N):
 # combine_plots_n(20)
 
 # Bla bla plot
-def print_acc_all():
+def print_acc_all_sort():
 	ns = [10, 15, 20, 25, 30]
 	set_1 = [1.00, 1.00, 0.69, 0.56, 0.29]
 	set_2 = [1.00, 1.00, 0.99, 0.87, 0.38]
@@ -366,13 +366,44 @@ def print_acc_all_lis():
 	plt.savefig('./results/' + 'acc_all_lis.png')
 	plt.clf()
 
-# print_acc_all()
+# print_acc_all_sort()
 # print_acc_all_lis()
-# print_pickle('./data/stats/<model_name>_<N>_ml_v_accs.p')
+# print_pickle('./data/stats/<model_name>_ml_v_accs.p')
+
 # x = []
 # y_exp = []
 # y_pred = []
 # print_barchart(x, y_exp, y_pred, ('labels_' + str(epoch) + '.png'))
 
-# print_pickle('./data/stats/<model_name>_<N>_ml_v_accs.p')
+# print_pickle('./data/stats/lis_10_C_ml_v_accs.p')
 
+def smooth(y, box_pts):
+    box = np.ones(box_pts)/box_pts
+    y_smooth = np.convolve([100] + y + [y[-1]], box, mode='same')
+    return y_smooth[1:-1]
+
+def smooth3(y):
+	return smooth(y,3)
+
+def print_acc_sort():
+	ns = [10, 15, 20, 25, 30]
+	set_1 = smooth3([100, 100,  69,  56,  29])
+	set_2 = smooth3([100, 100,  99,  87,  38])
+	set_3 = smooth3([100, 100,  98,  98,  86])
+	set_4 = smooth3([ 81,  42,  25,  16,  12])
+	set_5 = smooth3([ 55,  34,  25,  20,  16])
+	plt.title('Accuracy by Model', fontsize = 18)
+	plt.xlabel('# Elements', fontsize = 16)
+	plt.ylabel('% Correctly Guessed', fontsize = 16)
+	plt.xticks(ns)
+	plt.yticks(np.arange(0,110,10))
+	plt.plot(ns, set_1, 'green', linewidth = 2, label = 'Baseline')
+	plt.plot(ns, set_2, 'blue', linewidth = 2, label = 'Baseline Order Rel')
+	plt.plot(ns, set_3, 'magenta', linewidth = 2, label = 'Conv Rel Net')
+	plt.plot(ns, set_4, 'red', linewidth = 2, label = 'DT Order Rel')
+	plt.plot(ns, set_5, 'orange', linewidth = 2, label = 'DT')
+	plt.legend(loc = 'lower left', fontsize = 8)
+	plt.savefig('./results/' + 'acc_sort.png')
+	plt.clf()
+
+# print_acc_sort()
