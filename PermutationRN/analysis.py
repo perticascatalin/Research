@@ -331,41 +331,6 @@ def combine_plots_n(N):
 
 # combine_plots_n(20)
 
-# Bla bla plot
-def print_acc_all_sort():
-	ns = [10, 15, 20, 25, 30]
-	set_1 = [1.00, 1.00, 0.69, 0.56, 0.29]
-	set_2 = [1.00, 1.00, 0.99, 0.87, 0.38]
-	set_3 = [0.97, 0.58, 0.49, 0.45, 0.44]
-	set_4 = [1.00, 0.94, 0.81, 0.75, 0.80]
-	plt.title('Accuracy by Model', fontsize = 18)
-	plt.xlabel('# Elements', fontsize = 16)
-	plt.ylabel('% Correctly Guessed', fontsize = 16)
-	plt.plot(ns, set_1, 'red', linewidth = 2.8, label = 'Baseline')
-	plt.plot(ns, set_2, 'green', linewidth = 2.8, label = 'Order Rel')
-	plt.plot(ns, set_3, 'blue', linewidth = 2.8, label = 'Rel Net')
-	plt.plot(ns, set_4, 'magenta', linewidth = 2.8, label = 'Conv Rel Net')
-	plt.legend()
-	plt.savefig('./results/' + 'acc_all.png')
-	plt.clf()
-
-def print_acc_all_lis():
-	ns = [10, 15, 20, 25, 30]
-	set_1 = [0.98, 0.85, 0.74, 0.64, 0.57]
-	# set_2 = [1.00, 1.00, 0.99, 0.87, 0.38]
-	# set_3 = [0.97, 0.58, 0.49, 0.45, 0.44]
-	set_4 = [0.89, 0.71, 0.64, 0.65, 0.64]
-	plt.title('Accuracy by Model', fontsize = 18)
-	plt.xlabel('# Elements', fontsize = 16)
-	plt.ylabel('% Correctly Guessed', fontsize = 16)
-	plt.plot(ns, set_1, 'red', linewidth = 2.8, label = 'Baseline')
-	# plt.plot(ns, set_2, 'green', linewidth = 2.8, label = 'Order Rel')
-	# plt.plot(ns, set_3, 'blue', linewidth = 2.8, label = 'Rel Net')
-	plt.plot(ns, set_4, 'magenta', linewidth = 2.8, label = 'Conv Rel Net')
-	plt.legend()
-	plt.savefig('./results/' + 'acc_all_lis.png')
-	plt.clf()
-
 # print_acc_all_sort()
 # print_acc_all_lis()
 # print_pickle('./data/stats/<model_name>_ml_v_accs.p')
@@ -374,8 +339,6 @@ def print_acc_all_lis():
 # y_exp = []
 # y_pred = []
 # print_barchart(x, y_exp, y_pred, ('labels_' + str(epoch) + '.png'))
-
-# print_pickle('./data/stats/lis_10_C_ml_v_accs.p')
 
 def smooth(y, box_pts):
     box = np.ones(box_pts)/box_pts
@@ -406,4 +369,48 @@ def print_acc_sort():
 	plt.savefig('./results/' + 'acc_sort.png')
 	plt.clf()
 
+def print_acc_lis():
+	ns = [10, 15, 20, 25, 30]
+	set_1 = smooth3([ 98,  85,  74,  64,  57])
+	set_2 = smooth3([100,  98,  89,  80,  72])
+	set_3 = smooth3([ 93,  85,  76,  72,  68])
+	set_4 = smooth3([ 95,  75,  61,  52,  45])
+	set_5 = smooth3([ 80,  65,  55,  48,  43])
+	plt.title('Accuracy by Model', fontsize = 18)
+	plt.xlabel('# Elements', fontsize = 16)
+	plt.ylabel('% Correctly Guessed', fontsize = 16)
+	plt.xticks(ns)
+	plt.yticks(np.arange(0,110,10))
+	plt.plot(ns, set_1, 'green', linewidth = 2, label = 'Baseline')
+	plt.plot(ns, set_2, 'blue', linewidth = 2, label = 'Baseline Order Rel')
+	plt.plot(ns, set_3, 'magenta', linewidth = 2, label = 'Conv Rel Net')
+	plt.plot(ns, set_4, 'red', linewidth = 2, label = 'DT Order Rel')
+	plt.plot(ns, set_5, 'orange', linewidth = 2, label = 'DT')
+	plt.legend(loc = 'lower left', fontsize = 8)
+	plt.savefig('./results/' + 'acc_lis.png')
+	plt.clf()
+
+def print_acc_ce():
+	ns = [10, 15, 20, 25, 30]
+	set_1 = smooth3([ 86,  81,  15,   8,   4])
+	set_2 = smooth3([ 60,  55,  24,   9,   6])
+	set_3 = smooth3([ 90,  86,  77,  79,  81])
+	set_4 = smooth3([ 50,  28,  16,  10,   7])
+	set_5 = smooth3([ 50,  25,  15,   9,   6])
+	plt.title('Accuracy by Model', fontsize = 18)
+	plt.xlabel('# Elements', fontsize = 16)
+	plt.ylabel('% Correctly Guessed', fontsize = 16)
+	plt.xticks(ns)
+	plt.yticks(np.arange(0,110,10))
+	plt.plot(ns, set_1, 'green', linewidth = 2, label = 'Baseline')
+	plt.plot(ns, set_2, 'blue', linewidth = 2, label = 'Baseline Order Rel')
+	plt.plot(ns, set_3, 'magenta', linewidth = 2, label = 'Conv Rel Net')
+	plt.plot(ns, set_4, 'red', linewidth = 2, label = 'DT Order Rel')
+	plt.plot(ns, set_5, 'orange', linewidth = 2, label = 'DT')
+	plt.legend(loc = 'lower left', fontsize = 8)
+	plt.savefig('./results/' + 'acc_ce.png')
+	plt.clf()
+
 # print_acc_sort()
+# print_acc_lis()
+# print_acc_ce()
