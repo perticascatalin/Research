@@ -168,7 +168,7 @@ def print_barchart(arr, expect, actual, figname):
 	plt.ylabel('Value')
 	plt.title('Expected vs. actual labels')
 	plt.xticks(index + bar_width, xticks)
-	plt.legend(bbox_to_anchor=(1.14, 1.14), handles = [blue_patch, yellow_patch, green_patch, red_patch])
+	# plt.legend(bbox_to_anchor=(1.14, 1.14), handles = [blue_patch, yellow_patch, green_patch, red_patch])
 	plt.savefig('./data/labels/' + figname)
 	plt.close()
 
@@ -338,7 +338,7 @@ def combine_plots_n(N):
 # x = []
 # y_exp = []
 # y_pred = []
-# print_barchart(x, y_exp, y_pred, ('labels_' + str(epoch) + '.png'))
+# print_barchart(x, y_exp, y_pred, 'bla.png')
 
 def smooth(y, box_pts):
     box = np.ones(box_pts)/box_pts
@@ -414,3 +414,106 @@ def print_acc_ce():
 # print_acc_sort()
 # print_acc_lis()
 # print_acc_ce()
+
+def lis_plots(N):
+	dir_name = './data/stats/'
+	plt.title('Accuracy N = ' + str(N), fontsize = 18)
+	plt.xlabel('# Training Steps', fontsize = 16)
+	plt.xticks(np.arange(0,125000,25000))
+	plt.yticks(np.arange(0,110,10))
+	model_names = ['lis_30_ml_', 'lis_30_or_ml_', 'lis_30_C_ml_']
+	label_names = ['Baseline', 'Order Rel', 'Conv Rel Net']
+	colors = ['blue', 'cyan', 'red', 'orange', 'purple', 'magenta']
+	fig_name = 'lis_plots'
+	i = 0
+	for (model_name, label_name) in zip(model_names, label_names):
+		metric = 't_accs'
+		val_filename = dir_name + model_name + metric + '.p'
+		step_filename = dir_name + model_name + 'steps' + '.p'
+		seq = pickle.load(open(val_filename, 'r'))
+		steps = np.linspace(1, 100000, 20)
+		plt.plot(steps, seq, colors[i], linewidth = 1.8, label = label_name + ' (train)')
+		i += 1
+		metric = 'v_accs'
+		val_filename = dir_name + model_name + metric + '.p'
+		step_filename = dir_name + model_name + 'steps' + '.p'
+		seq = pickle.load(open(val_filename, 'r'))
+		steps = np.linspace(1, 100000, 20)
+		plt.plot(steps, seq, colors[i], linewidth = 1.8, label = label_name + ' (valid)')
+		i += 1
+	# loc = 'upper left'
+	loc = 'lower right'
+	plt.legend(loc = loc, fontsize = 8)
+	plt.ylim([0, 105])
+	plt.savefig('./results/' + fig_name + '.png')
+	plt.clf()
+
+# lis_plots(30)
+
+def sort_plots(N):
+	dir_name = './data/stats/'
+	plt.title('Accuracy N = ' + str(N), fontsize = 18)
+	plt.xlabel('# Training Steps', fontsize = 16)
+	plt.xticks(np.arange(0,125000,25000))
+	plt.yticks(np.arange(0,110,10))
+	model_names = ['base_data_ml_', 'base_or_ml_', 'C_30_ml_']
+	label_names = ['Baseline', 'Order Rel', 'Conv Rel Net']
+	colors = ['blue', 'cyan', 'red', 'orange', 'purple', 'magenta']
+	fig_name = 'sort_plots'
+	i = 0
+	for (model_name, label_name) in zip(model_names, label_names):
+		metric = 't_accs'
+		val_filename = dir_name + model_name + metric + '.p'
+		step_filename = dir_name + model_name + 'steps' + '.p'
+		seq = pickle.load(open(val_filename, 'r'))
+		steps = np.linspace(1, 100000, 20)
+		plt.plot(steps, seq, colors[i], linewidth = 1.8, label = label_name + ' (train)')
+		i += 1
+		metric = 'v_accs'
+		val_filename = dir_name + model_name + metric + '.p'
+		step_filename = dir_name + model_name + 'steps' + '.p'
+		seq = pickle.load(open(val_filename, 'r'))
+		steps = np.linspace(1, 100000, 20)
+		plt.plot(steps, seq, colors[i], linewidth = 1.8, label = label_name + ' (valid)')
+		i += 1
+	loc = 'upper left'
+	plt.legend(loc = loc, fontsize = 8)
+	plt.ylim([0, 105])
+	plt.savefig('./results/' + fig_name + '.png')
+	plt.clf()
+
+# sort_plots(30)
+
+def ce_plots(N):
+	dir_name = './data/stats/'
+	plt.title('Accuracy N = ' + str(N), fontsize = 18)
+	plt.xlabel('# Training Steps', fontsize = 16)
+	plt.xticks(np.arange(0,125000,25000))
+	plt.yticks(np.arange(0,110,10))
+	model_names = ['ce_30_ml_', 'ce_30_or_ml_', 'ce_30_C_ml_']
+	label_names = ['Baseline', 'Order Rel', 'Conv Rel Net']
+	colors = ['blue', 'cyan', 'red', 'orange', 'purple', 'magenta']
+	fig_name = 'ce_plots'
+	i = 0
+	for (model_name, label_name) in zip(model_names, label_names):
+		metric = 't_accs'
+		val_filename = dir_name + model_name + metric + '.p'
+		step_filename = dir_name + model_name + 'steps' + '.p'
+		seq = pickle.load(open(val_filename, 'r'))
+		steps = np.linspace(1, 100000, 20)
+		plt.plot(steps, seq, colors[i], linewidth = 1.8, label = label_name + ' (train)')
+		i += 1
+		metric = 'v_accs'
+		val_filename = dir_name + model_name + metric + '.p'
+		step_filename = dir_name + model_name + 'steps' + '.p'
+		seq = pickle.load(open(val_filename, 'r'))
+		steps = np.linspace(1, 100000, 20)
+		plt.plot(steps, seq, colors[i], linewidth = 1.8, label = label_name + ' (valid)')
+		i += 1
+	loc = 'upper left'
+	plt.legend(loc = loc, fontsize = 8)
+	plt.ylim([0, 105])
+	plt.savefig('./results/' + fig_name + '.png')
+	plt.clf()
+
+# ce_plots(30)
