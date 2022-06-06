@@ -24,21 +24,19 @@ layer_neurons = [512, 256, 128]
 layer_dropout = [0.0, 0.0]
 
 # The type of data
-# 1. "data"
-# 2. "order_relations"
-# 3. "all"
-# 4. "simple_data" for min/max (change ith)
+# 1. "simple_data" for min/max (change ith)
+# 2. "data"
+# 3. "order_relations"
+# 4. "all"
 # 5. "comparator"
 # 6. "counter"
-# 7. "lis"
-# 8. "rel_table"
 data_type = "data"
 
 # Data by task and format
 # task from {"sort", "lis", "ce"}
 # form from {"lst", "order_rel", "all", "rel_table"}
 task = "sort"
-form = "lst"
+form = "rel_table"
 
 # Exception for number of output classes
 if data_type == "simple_data" or data_type == "comparator" or data_type == "counter":

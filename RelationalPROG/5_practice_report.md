@@ -500,7 +500,6 @@ with tf.Session() as sess:
 |New NCR Net |(10.2.D) | 93%| 85%| 76%| 72%| 68%|**78.8%**|
 |DT Order Rel|...      | 95%| 75%| 61%| 52%| 45%|**65.6%**|
 |DT Baseline |...      | 80%| 65%| 55%| 48%| 43%|**58.2%**|
-<!-- |Conv Rel Net|(10.2.C) | 89%| 71%| 64%| 65%| 64%|-| -->
 
 #### 10.3.3 Closest Element
 
@@ -513,7 +512,6 @@ with tf.Session() as sess:
 |New NCR Net |(10.2.D) | 90%| 86%| 77%| 79%| 81%|**82.6%**|
 |DT Order Rel|...      | 50%| 28%| 16%| 10%|  7%|**22.2%**|
 |DT Baseline |...      | 50%| 25%| 15%|  9%|  6%|**21.0%**|
-<!-- |Conv Rel Net|(10.2.C) |  0%|  0%|  0%|  0%|  0%|-| -->
 
 ## 11. Graph Neural Networks
 

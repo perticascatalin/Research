@@ -9,6 +9,8 @@ N_CLASSES = conf.num_inputs
 N_OUT_CLASSES = conf.num_outputs
 N_ESTIM = conf.n_estim
 data_type = conf.data_type
+task      = conf.task
+form      = conf.form
 
 def sorting_accuracy(orders_pred, orders_expect):
 	acc = 0.0
@@ -31,8 +33,11 @@ def tree_model(name):
 	else:
 		return tree.DecisionTreeClassifier()
 
-lsts_train, orders_train = gen.data_by_type(data_type, is_training = True)
-lsts_val, orders_val = gen.data_by_type(data_type, is_training = False)
+# lsts_train, orders_train = gen.data_by_type(data_type, is_training = True)
+# lsts_val, orders_val = gen.data_by_type(data_type, is_training = False)
+
+lsts_train, orders_train = gen.data_by_task_and_form(task, form, is_training = True)
+lsts_val, orders_val = gen.data_by_task_and_form(task, form, is_training = False)
 
 clf = tree_model("extreme")
 clf = clf.fit(lsts_train, orders_train)

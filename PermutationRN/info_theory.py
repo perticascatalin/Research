@@ -10,10 +10,10 @@ data_type = conf.data_type
 print 'num classes:', n
 print 'data type:', data_type
 
-if data_type == "data":
-	lsts_val, orders_val = gen.data()
 if data_type == "simple_data":
 	lsts_val, orders_val = gen.simple_data()
+elif data_type == "data":
+	lsts_val, orders_val = gen.data()
 elif data_type == "order_relations":
 	lsts_val, orders_val = gen.order_relations()
 elif data_type == "all":
@@ -94,4 +94,4 @@ def entropy(lsts):
 	return 0
 
 probability_bin(lsts_val)
-#probability_base(orders_val)
+# probability_base(orders_val)
