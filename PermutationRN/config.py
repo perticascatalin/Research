@@ -1,8 +1,8 @@
 # INPUT NUMBER OF CLASSES
-#num_inputs = 30 # (relational experiment)
-#num_inputs = 20 # (baseline experiment)
-#num_inputs = 3  # (counter experiment)
-#num_inputs = 2  # (comparator experiment)
+# num_inputs = 30 # (relational experiment)
+# num_inputs = 20 # (baseline experiment)
+# num_inputs = 3  # (counter experiment)
+# num_inputs = 2  # (comparator experiment)
 num_inputs = 10
 
 # OUTPUT NUMBER OF CLASSES
@@ -37,17 +37,9 @@ data_type = "data"
 # Data by task and format
 # task from {"sort", "lis", "ce"}
 # form from {"lst", "order_rel", "all", "rel_table"}
-task = "ce"
-form = "order_rel"
+task = "sort"
+form = "lst"
 
 # Exception for number of output classes
 if data_type == "simple_data" or data_type == "comparator" or data_type == "counter":
 	num_outputs = 1
-
-# Model names and their description
-# a_10 - baseline model data 10
-# ac_10 - baseline model order_relations 10
-# D_20,24,28,30 -> [400,200] with comparisons and N = 20,24,28,30
-# E_30 -> [1000,200] with comparisons and N = 30
-# F_30,20 flat 1 layer -> [1000][400] and N = 30, 20
-# G_30,20 flat 1 layer -> [30][20] and N = 30, 20
