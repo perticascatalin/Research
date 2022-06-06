@@ -16,7 +16,9 @@ num_steps = 100000
 display_step = 5000
 batch_size = 64
 data_type = conf.data_type
-model_name = "C_test"
+task      = conf.task
+form      = conf.form
+model_name = "test"
 
 def tensor_conversion(lsts, mats, orders):
 	lsts = tf.convert_to_tensor(lsts, dtype = tf.float32)
@@ -26,20 +28,20 @@ def tensor_conversion(lsts, mats, orders):
 	return lsts, mats, orders
 
 print "GENERATE TRAINING DATA"
-lsts_train, mats_train, orders_train = gen.data_by_type(data_type, is_training = True)
+lsts_train, mats_train, orders_train = gen.data_by_task_and_form(task, form, is_training = True)
 lsts_train, mats_train, orders_train = tensor_conversion(lsts_train, mats_train, orders_train)
 
 print "GENERATE VALIDATION DATA"
-lsts_val, mats_val, orders_val = gen.data_by_type(data_type, is_training = False)
+lsts_val, mats_val, orders_val = gen.data_by_task_and_form(task, form, is_training = False)
 lsts_val, mats_val, orders_val = tensor_conversion(lsts_val, mats_val, orders_val)
 
 X, Z, Y = tf.train.batch([lsts_train, mats_train, orders_train], batch_size = batch_size, capacity = batch_size * 8, num_threads = 4)
 X_val, Z_val, Y_val = tf.train.batch([lsts_val, mats_val, orders_val], batch_size = batch_size, capacity = batch_size * 8, num_threads = 4)
 
-logits_train = mod.conv_rel_net(Z,     N_OUT_CLASSES, N_CLASSES, batch_size, reuse = False, is_training = True)
-logits_test  = mod.conv_rel_net(Z,     N_OUT_CLASSES, N_CLASSES, batch_size, reuse = True, is_training = False)
-logits_valt  = mod.conv_rel_net(Z_val, N_OUT_CLASSES, N_CLASSES, batch_size, reuse = True, is_training = True)
-logits_val   = mod.conv_rel_net(Z_val, N_OUT_CLASSES, N_CLASSES, batch_size, reuse = True, is_training = False)
+logits_train = mod.conv_rel_net(Z,     N_OUT_CLASSES, N_CLASSES, reuse = False, is_training = True)
+logits_test  = mod.conv_rel_net(Z,     N_OUT_CLASSES, N_CLASSES, reuse = True, is_training = False)
+logits_valt  = mod.conv_rel_net(Z_val, N_OUT_CLASSES, N_CLASSES, reuse = True, is_training = True)
+logits_val   = mod.conv_rel_net(Z_val, N_OUT_CLASSES, N_CLASSES, reuse = True, is_training = False)
 
 train_loss_op = tf.constant(0.0, dtype = tf.float32)
 val_loss_op = tf.constant(0.0, dtype = tf.float32)

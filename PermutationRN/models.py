@@ -40,7 +40,7 @@ def norm_conv_rel_net(x, num_classes, num_labels, batch_size, reuse, is_training
 			outputs.append(out_i)
 	return outputs
 
-def conv_rel_net(x, num_classes, num_labels, batch_size, reuse, is_training):
+def conv_rel_net(x, num_classes, num_labels, reuse, is_training):
 	with tf.variable_scope('ConvRelNet', reuse = reuse):
 		units_1 = tf.layers.conv2d(x, 8, [1,2], [1,2], 'same', activation = 'relu')
 		units_2 = tf.keras.activations.tanh(units_1)
