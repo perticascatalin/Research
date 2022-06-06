@@ -7,6 +7,7 @@ import config as conf
 N_CLASSES = conf.num_inputs
 N_SAMPLES = conf.num_samples
 MAXINT = conf.maxint
+N = N_CLASSES
 
 # Generate a list
 def gen_list():
@@ -24,9 +25,9 @@ def gen_list():
 # Get output for sort task
 def get_sort(lst):
 	res = []
-	for i in range(N_CLASSES):
+	for i in range(N):
 		count = 0
-		for j in range(N_CLASSES):
+		for j in range(N):
 			if lst[j] < lst[i]:
 				count += 1
 		res.append(count)
@@ -35,26 +36,23 @@ def get_sort(lst):
 # Get output for lis task
 def get_lis(lst):
 	res = []
-	for i in range(N_CLASSES):
+	for i in range(N):
 		num = lst[i]
-		max_seq = 0
+		max_seq = -1
 		for j in range(i):
 			if lst[j] < num and max_seq < res[j]:
 				max_seq = res[j]
 		res.append(max_seq + 1)
-	# Subtract 1 to have numbers in range [0,N_CLASSES)
-	for i in range(N_CLASSES):
-		res[i] = res[i] - 1
 	return res
 
 # Get output for ce task
 def get_ce(lst):
 	res = []
-	for i in range(N_CLASSES):
+	for i in range(N):
 		ce_diff = MAXINT
 		ce_val = MAXINT
 		ce_ind = -1
-		for j in range(N_CLASSES):
+		for j in range(N):
 			if i == j:
 				continue
 			diff = abs(lst[i] - lst[j])
@@ -91,22 +89,6 @@ def gen_sort(dtype = 'int'):
 			if lst[j] < lst[i]:
 				count += 1
 		order.append(count)
-	return lst, order
-
-# Sample for Longest Increasing Sequence
-def gen_lis():
-	lst, order = list(), list()
-	for i in range(N_CLASSES):
-		num = random.randint(1, MAXINT)
-		max_seq = 0
-		for j in range(len(lst)):
-			if lst[j] < num and max_seq < order[j]:
-				max_seq = order[j]
-		lst.append(num)
-		order.append(max_seq + 1)
-	# Subtract 1 to have numbers in range [0,N_CLASSES)
-	for i in range(N_CLASSES):
-		order[i] = order[i] - 1
 	return lst, order
 
 # Sample for ith element in the sorted list
@@ -183,34 +165,22 @@ def rel_table(lst):
 		mat.append(nlst)
 	return mat
 
-# Relational table data
-def rel_table_data(n_samples):
-	lsts, mats, orders = list(), list(), list()
+# Dataset for Minimum
+def simple_data(n_samples):
+	lsts, orders = list(), list()
 	for i in range(1,n_samples+1):
-		lst, order = gen_sort()
+		lst, mins = gen_ith(1)
 		lsts.append(lst)
-		mats.append(rel_table(lst))
-		orders.append(order)
+		orders.append(mins)
 		if i % 1000 == 0:
 			print("Generated " + str(i) + ' samples')
-	return lsts, mats, orders
+	return lsts, orders
 
 # Dataset for Sorting a List
 def sort_data(n_samples):
 	lsts, orders = list(), list()
 	for i in range(1,n_samples+1):
 		lst, order = gen_sort()
-		lsts.append(lst)
-		orders.append(order)
-		if i % 1000 == 0:
-			print("Generated " + str(i) + ' samples')
-	return lsts, orders
-
-# Dataset for Longest increasing sequence
-def lis_data(n_samples):
-	lsts, orders = list(), list()
-	for i in range(1,n_samples+1):
-		lst, order = gen_lis()
 		lsts.append(lst)
 		orders.append(order)
 		if i % 1000 == 0:
@@ -253,17 +223,6 @@ def all_data(n_samples):
 			print("Generated " + str(i) + ' samples')
 	return lsts, orders
 
-# Dataset for Minimum
-def simple_data(n_samples):
-	lsts, orders = list(), list()
-	for i in range(1,n_samples+1):
-		lst, mins = gen_ith(1)
-		lsts.append(lst)
-		orders.append(mins)
-		if i % 1000 == 0:
-			print("Generated " + str(i) + ' samples')
-	return lsts, orders
-
 # Get data by type
 def data_by_type(data_type, is_training = True):
 	n_samples = N_SAMPLES
@@ -271,9 +230,6 @@ def data_by_type(data_type, is_training = True):
 		# Only generate 20% of samples for validation
 		n_samples = int(n_samples / 5)
 
-	if data_type == "lis":
-		print ("LIS")
-		return lis_data(n_samples)
 	elif data_type == "simple_data":
 		print ("SIMPLE DATA")
 		return simple_data(n_samples)
@@ -286,9 +242,6 @@ def data_by_type(data_type, is_training = True):
 	elif data_type == "all":
 		print ("ALL DATA")
 		return all_data(n_samples)
-	elif data_type == "rel_table":
-		print ("RELATIONS TABLE")
-		return rel_table_data(n_samples)
 
 def data_by_task_and_form(task, form, is_training = True):
 	n_samples = N_SAMPLES
