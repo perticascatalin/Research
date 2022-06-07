@@ -12,21 +12,27 @@ model_name    = "test"               # Model name for saving results
 N_INPUTS      = conf.num_inputs      # Array of N inputs  (N_FEAT = (N_INPUTS*(N_INPUTS - 1))/2) if order relations
 N_OUTPUTS     = conf.num_outputs     # Array of N outputs (or some other number)
 data_type     = conf.data_type       # Data re-representation
+task          = conf.task
+form          = conf.form
 layer_neurons = conf.layer_neurons   # Array with number of neurons per layer
 layer_dropout = conf.layer_dropout   # Array with dropout proportions from first layer to before last layer
 num_steps     = 100000               # The number of training steps
 display_step  = 5000                 # Displays loss, accuracy and sample classification every display_step iterations
+# display_step  = 100
+# print_step    = 10000
 batch_size    = 128                  # Number of samples per training step
 learning_rate = 0.001                # Learning rate, inflences convergence of model (larger or smaller jumps in gradient descent)
 
 print "GENERATE TRAINING DATA"
-lsts_train, orders_train = gen.data_by_type(data_type, is_training = True)
+# lsts_train, orders_train = gen.data_by_type(data_type, is_training = True)
+lsts_train, orders_train = gen.data_by_task_and_form(task, form, is_training = True)
 lsts_train = tf.convert_to_tensor(lsts_train, dtype = tf.float32)
 orders_train = tf.convert_to_tensor(orders_train, dtype = tf.int32)
 lsts_train, orders_train = tf.train.slice_input_producer([lsts_train, orders_train], shuffle = True)
 
 print "GENERATE VALIDATION DATA"
-lsts_val, orders_val = gen.data_by_type(data_type, is_training = False)
+# lsts_val, orders_val = gen.data_by_type(data_type, is_training = False)
+lsts_val, orders_val = gen.data_by_task_and_form(task, form, is_training = False)
 lsts_val = tf.convert_to_tensor(lsts_val, dtype = tf.float32)
 orders_val = tf.convert_to_tensor(orders_val, dtype = tf.int32)
 lsts_val, orders_val = tf.train.slice_input_producer([lsts_val, orders_val], shuffle = True)
@@ -85,6 +91,7 @@ with tf.Session() as sess:
 			# Covers 12800/60000 = ~20% of dataset per interation
 			for i in range(100):
 				loss_train, loss_val, acc_train, acc_val = sess.run([train_loss_op, val_loss_op, accuracy_train, accuracy_val])
+				# if i == 0 and step % print_step == 0:
 				if i == 0:
 					correct_pred, logits, y_exp, x = sess.run([correct_pred_val, logits_val, Y_val, X_val])
 					co.debugger(correct_pred, logits, y_exp, x)
@@ -102,6 +109,7 @@ with tf.Session() as sess:
 			training_accuracy /= 100.0    
 			validation_accuracy /= 100.0
 
+			# if step % print_step == 0:
 			print("Step " + str(step) + \
 				", Training Loss= "       + "{:.4f}".format(training_loss) + \
 				", Validation Loss= "     + "{:.4f}".format(validation_loss) + \

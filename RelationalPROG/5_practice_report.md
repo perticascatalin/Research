@@ -515,7 +515,7 @@ with tf.Session() as sess:
 
 ## 11. Graph Neural Networks
 
-Graph Neural Networks make use of the relations between different samples in the same dataset. Each sample is represented as a node in the graph and the relations between them are modelled as edges. Typically, the task is to perform some kind of prediction on the samples / nodes. In a feedforward NN we would simply apply training using batches of smaples, without exploiting the connections between them.
+Graph Neural Networks make use of the relations between different samples in the same dataset. Each sample is represented as a node in the graph and the relations between them are modelled as edges. Typically, the task is to perform some kind of prediction on the samples / nodes. In a feedforward NN we would simply apply training using batches of samples, without exploiting the connections between them.
 
 In GNNs, we perform iterative message passing. Each node is assigned an initial state represented by the feature vector of the sample it represents. During a message passing step, each node communicates its state to the neighbouring nodes (*prepare*). Afterwards, each node aggregates the received messages (neighbouring states) either through summation or averaging (*aggregate*). Based on the current state and the aggregated message, each node updates its hidden state (*update*) using a neural network (either CNN or RNN) by backpropagating the final expected labels / values for each node.
 

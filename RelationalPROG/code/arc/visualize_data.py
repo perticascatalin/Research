@@ -61,7 +61,7 @@ def plot_task(task):
     plt.tight_layout()
     plt.show()
 
-i = 4
+i = 7
 task_file = str(training_path / training_tasks[i])
 with open(task_file, 'r') as f:
     task = json.load(f)
