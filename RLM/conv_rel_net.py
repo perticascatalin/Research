@@ -85,8 +85,10 @@ with tf.Session() as sess:
 	threads = tf.train.start_queue_runners(sess = sess, coord = coord)
 	train_losses, val_losses, train_accs, val_accs, steps = [], [], [], [], []
 	# To load from data/stats/<model_name>/...
+	train_losses, val_losses, train_accs, val_accs, steps = co.loss_acc_load(stats_dir)
 
 	# Training cycle
+	# TODO: Initialize step correctly
 	for step in range(1, num_steps+1):
 		sess.run(train_op)
 		if step % display_step == 0:

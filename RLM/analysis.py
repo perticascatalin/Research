@@ -250,6 +250,14 @@ def loss_acc_dump(A, B, C, D, x, stats_dir):
 	pickle.dump(D, open(stats_dir + '_ml_v_accs.p', 'wb'))
 	pickle.dump(x, open(stats_dir + '_ml_steps.p', 'wb'))
 
+def loss_acc_load(stats_dir):
+	A = pickle.load(open(stats_dir + '_ml_t_losses.p', 'rb'))
+	B = pickle.load(open(stats_dir + '_ml_v_losses.p', 'rb'))
+	C = pickle.load(open(stats_dir + '_ml_t_accs.p', 'rb'))
+	D = pickle.load(open(stats_dir + '_ml_v_accs.p', 'rb'))
+	x = pickle.load(open(stats_dir + '_ml_steps.p', 'rb'))
+	return A, B, C, D, x
+
 def print_pretty(correct_pred, logits, y_exp, x, epoch, labels_dir, count_correct = False):
 	out = list()
 	y_pred = list()
