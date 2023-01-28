@@ -23,6 +23,15 @@ display_step  = 5000                 # Displays loss, accuracy and sample classi
 batch_size    = 128                  # Number of samples per training step
 learning_rate = 0.001                # Learning rate, inflences convergence of model (larger or smaller jumps in gradient descent)
 
+checkpts_dir = './data/checkpts/' + model_name + '/'
+stats_dir = './data/stats/' + model_name + '/'
+results_dir = './data/results/' + model_name + '/'
+labels_dir = results_dir + 'labels/'
+dirs = [checkpts_dir, stats_dir, results_dir, labels_dir]
+for direct in dirs:
+	if not os.path.exists(direct):
+		os.makedirs(direct)
+
 print "GENERATE TRAINING DATA"
 # lsts_train, orders_train = gen.data_by_type(data_type, is_training = True)
 lsts_train, orders_train = gen.data_by_task_and_form(task, form, is_training = True)
@@ -75,7 +84,11 @@ saver = tf.train.Saver()
 
 with tf.Session() as sess:
 	# Run the initializer & Start the data queue
+	# https://cv-tricks.com/tensorflow-tutorial/save-restore-tensorflow-models-quick-complete-tutorial/
 	sess.run(init)
+	# saver = tf.train.import_meta_graph(checkpts_dir + '.meta')
+	# saver.restore(sess,tf.train.latest_checkpoint(checkpts_dir))
+
 	coord = tf.train.Coordinator()
 	threads = tf.train.start_queue_runners(sess = sess, coord = coord)
 	train_losses, val_losses, train_accs, val_accs, steps = [], [], [], [], []
@@ -95,9 +108,9 @@ with tf.Session() as sess:
 				if i == 0:
 					correct_pred, logits, y_exp, x = sess.run([correct_pred_val, logits_val, Y_val, X_val])
 					co.debugger(correct_pred, logits, y_exp, x)
-					co.print_pretty(correct_pred, logits, y_exp, x, step)
+					co.print_pretty(correct_pred, logits, y_exp, x, step, labels_dir)
 					# Also count strictly correctly sorted (uncomment next line)
-					# co.print_pretty(correct_pred, logits, y_exp, x, step, True)
+					# co.print_pretty(correct_pred, logits, y_exp, x, step, labels_dir, True)
 				
 				training_loss += loss_train
 				validation_loss += loss_val
@@ -123,16 +136,13 @@ with tf.Session() as sess:
 			steps.append(step/1000)
 
 	print("Optimization Finished!")
-	# Dump additional data for later investigation
-	pickle.dump(train_losses, open('./data/stats/' + model_name + '_ml_t_losses.p', 'wb'))
-	pickle.dump(val_losses, open('./data/stats/' + model_name + '_ml_v_losses.p', 'wb'))
-	pickle.dump(train_accs, open('./data/stats/' + model_name + '_ml_t_accs.p', 'wb'))
-	pickle.dump(val_accs, open('./data/stats/' + model_name + '_ml_v_accs.p', 'wb'))
-	pickle.dump(steps, open('./data/stats/' + model_name + '_ml_steps.p', 'wb'))
 
-	# Plot data and save model
-	co.print_ltv(train_losses, val_losses, train_accs, val_accs, steps, model_name + '_sample.png')
-	saver.save(sess, './checkpts/')
+	# Dump additional data and plot it
+	co.loss_acc_dump(train_losses, val_losses, train_accs, val_accs, steps, stats_dir)
+	co.plt_dump(train_losses, val_losses, train_accs, val_accs, steps, results_dir + '_sample.png')
+
+	# Save model
+	saver.save(sess, checkpts_dir, global_step = 1000)
 
 	# Stop threads
 	coord.request_stop()

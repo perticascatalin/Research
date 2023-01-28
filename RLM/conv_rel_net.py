@@ -12,13 +12,14 @@ os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
 # Setup experiment size and parameters
 N_CLASSES = conf.num_inputs
 N_OUT_CLASSES = conf.num_outputs
+data_type = conf.data_type
+task      = conf.task
+form      = conf.form
+
 learning_rate = 0.001
 num_steps = 100000
 display_step = 5000
 batch_size = 64
-data_type = conf.data_type
-task      = conf.task
-form      = conf.form
 model_name = "test"
 
 checkpts_dir = './data/checkpts/' + model_name + '/'
@@ -28,7 +29,7 @@ labels_dir = results_dir + 'labels/'
 dirs = [checkpts_dir, stats_dir, results_dir, labels_dir]
 for direct in dirs:
 	if not os.path.exists(direct):
-		os.makedirs(cirect)
+		os.makedirs(direct)
 
 def tensor_conversion(lsts, mats, orders):
 	lsts = tf.convert_to_tensor(lsts, dtype = tf.float32)
