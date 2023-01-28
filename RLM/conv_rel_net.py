@@ -1,4 +1,5 @@
 import os
+import os.path
 import pickle
 import pdb
 import tensorflow as tf
@@ -19,6 +20,15 @@ data_type = conf.data_type
 task      = conf.task
 form      = conf.form
 model_name = "test"
+
+checkpts_dir = './data/checkpts/' + model_name + '/'
+stats_dir = './data/stats/' + model_name + '/'
+results_dir = './data/results/' + model_name + '/'
+labels_dir = results_dir + 'labels/'
+dirs = [checkpts_dir, stats_dir, results_dir, labels_dir]
+for direct in dirs:
+	if not os.path.exists(direct):
+		os.makedirs(cirect)
 
 def tensor_conversion(lsts, mats, orders):
 	lsts = tf.convert_to_tensor(lsts, dtype = tf.float32)
@@ -68,7 +78,11 @@ saver = tf.train.Saver()
 
 with tf.Session() as sess:
 	# Run the initializer
+	# https://cv-tricks.com/tensorflow-tutorial/save-restore-tensorflow-models-quick-complete-tutorial/
 	sess.run(init)
+	# saver = tf.train.import_meta_graph(checkpts_dir + '.meta')
+	# saver.restore(sess,tf.train.latest_checkpoint(checkpts_dir))
+
 	coord = tf.train.Coordinator()
 	threads = tf.train.start_queue_runners(sess = sess, coord = coord)
 	train_losses, val_losses, train_accs, val_accs, steps = [], [], [], [], []
@@ -85,7 +99,8 @@ with tf.Session() as sess:
 				if i % 100 == 0:
 					correct_pred, logits, y_exp, x = sess.run([correct_pred_val, logits_val, Y_val, X_val])
 					co.debugger(correct_pred, logits, y_exp, x)
-					co.print_pretty(correct_pred, logits, y_exp, x, step)
+					co.print_pretty(correct_pred, logits, y_exp, x, step, labels_dir)
+					# TODO: Update combine plots
 				
 				training_loss += train_loss
 				validation_loss += val_loss
@@ -110,16 +125,13 @@ with tf.Session() as sess:
 			steps.append(step/1000)
 
 	print("Optimization Finished!")
-	# Dump additional data for later investigation
-	pickle.dump(train_losses, open('./data/stats/' + model_name + '_ml_t_losses.p', 'wb'))
-	pickle.dump(val_losses, open('./data/stats/' + model_name + '_ml_v_losses.p', 'wb'))
-	pickle.dump(train_accs, open('./data/stats/' + model_name + '_ml_t_accs.p', 'wb'))
-	pickle.dump(val_accs, open('./data/stats/' + model_name + '_ml_v_accs.p', 'wb'))
-	pickle.dump(steps, open('./data/stats/' + model_name + '_ml_steps.p', 'wb'))
 
-	# Plot data and save model
-	co.print_ltv(train_losses, val_losses, train_accs, val_accs, steps, model_name + '_sample.png')
-	saver.save(sess, './checkpts/')
+	# Dump additional data and plot it
+	co.loss_acc_dump(train_losses, val_losses, train_accs, val_accs, steps, stats_dir)
+	co.plt_dump(train_losses, val_losses, train_accs, val_accs, steps, results_dir + '_sample.png')
+
+	# Save model
+	saver.save(sess, checkpts_dir, global_step = 1000)
 
 	coord.request_stop()
 	coord.join(threads)

@@ -169,7 +169,7 @@ def print_barchart(arr, expect, actual, figname):
 	plt.title('Expected vs. actual labels')
 	plt.xticks(index + bar_width, xticks)
 	# plt.legend(bbox_to_anchor=(1.14, 1.14), handles = [blue_patch, yellow_patch, green_patch, red_patch])
-	plt.savefig('./data/labels/' + figname)
+	plt.savefig(figname)
 	plt.close()
 
 def check_perm_validity(arr, expect, actual):
@@ -243,7 +243,27 @@ def print_ltv(A, B, C, D, x, filename):
 	plt.savefig('./results/loss_and_acc/' + filename)
 	plt.clf()
 
-def print_pretty(correct_pred, logits, y_exp, x, epoch, count_correct = False):
+def plt_dump(A, B, C, D, x, filename):
+	plt.title('Loss and Accuracy', fontsize = 18)
+	plt.xlabel('# Steps', fontsize = 16)
+	plt.ylabel('% Value', fontsize = 16)
+	plt.plot(x, A, 'blue', linewidth = 1.0, label = 'Training Loss')
+	plt.plot(x, B, 'cyan', linewidth = 1.0, label = 'Validation Loss')
+	plt.plot(x, C, 'orange', linewidth = 1.0, label = 'Training Accuracy')
+	plt.plot(x, D, 'red', linewidth = 1.0, label = 'Validation Accuracy')
+	# Remove legend altogether
+	#plt.legend(loc = 'upper left')
+	plt.savefig(filename)
+	plt.clf()
+
+def loss_acc_dump(A, B, C, D, x, stats_dir):
+	pickle.dump(A, open(stats_dir + '_ml_t_losses.p', 'wb'))
+	pickle.dump(B, open(stats_dir + '_ml_v_losses.p', 'wb'))
+	pickle.dump(C, open(stats_dir + '_ml_t_accs.p', 'wb'))
+	pickle.dump(D, open(stats_dir + '_ml_v_accs.p', 'wb'))
+	pickle.dump(x, open(stats_dir + '_ml_steps.p', 'wb'))
+
+def print_pretty(correct_pred, logits, y_exp, x, epoch, labels_dir, count_correct = False):
 	out = list()
 	y_pred = list()
 	for j in range(N_OUT_CLASSES):
@@ -251,7 +271,7 @@ def print_pretty(correct_pred, logits, y_exp, x, epoch, count_correct = False):
 	print_1by1(x[0], 'input: ', N_CLASSES)
 	print_1by1(y_exp[0], 'expect:', N_OUT_CLASSES)
 	print_1by1(y_pred, 'pred:  ', N_OUT_CLASSES)
-	print_barchart(x[0], list(y_exp[0]), y_pred, ('labels_' + str(epoch) + '.png'))
+	print_barchart(x[0], list(y_exp[0]), y_pred, (labels_dir + 'labels_' + str(epoch) + '.png'))
 	check_perm_validity(x[0], list(y_exp[0]), y_pred)
 
 	if count_correct:
