@@ -1,6 +1,6 @@
 *.pyc
 *.DS_STORE
-PermutationRN/results/*
-PermutationRN/checkpts/*
-PermutationRN/data/*
-RelationalPROG/code/arc/abstraction-and-reasoning-challenge/*
+RLM/results/*
+RLM/checkpts/*
+RLM/data/*
+RPROG/code/arc/abstraction-and-reasoning-challenge/*
