@@ -1,4 +1,5 @@
 import os
+import sys
 
 def make_dirs(model_name):
 	checkpts_dir = './data/checkpts/' + model_name + '/'
@@ -11,3 +12,9 @@ def make_dirs(model_name):
 			os.makedirs(direct)
 
 	return checkpts_dir, stats_dir, results_dir, labels_dir
+
+def load_model():
+	if len(sys.argv) == 2 and sys.argv[1] == 'continue':
+		return True
+	else:
+		return False

@@ -1,4 +1,5 @@
 import os
+import sys
 import pickle
 import helper
 import tensorflow as tf
@@ -16,12 +17,14 @@ task      = conf.task
 form      = conf.form
 
 learning_rate = 0.001
-num_steps = 100000
+#num_steps = 100000
+num_steps = 25000
 display_step = 5000
 batch_size = 64
-model_name = "test"
+model_name = "conv_rel_net_20"
 
 checkpts_dir, stats_dir, results_dir, labels_dir = helper.make_dirs(model_name)
+load_model = helper.load_model()
 
 def tensor_conversion(lsts, mats, orders):
 	lsts = tf.convert_to_tensor(lsts, dtype = tf.float32)
@@ -72,13 +75,16 @@ saver = tf.train.Saver()
 with tf.Session() as sess:
 	# Run the initializer
 	# https://cv-tricks.com/tensorflow-tutorial/save-restore-tensorflow-models-quick-complete-tutorial/
-	sess.run(init)
-	# saver = tf.train.import_meta_graph(checkpts_dir + '.meta')
-	# saver.restore(sess,tf.train.latest_checkpoint(checkpts_dir))
+	if load_model:
+		saver = tf.train.import_meta_graph(checkpts_dir + 'model.meta')
+		saver.restore(sess, tf.train.latest_checkpoint(checkpts_dir))
+	else:
+		sess.run(init)
 
 	coord = tf.train.Coordinator()
 	threads = tf.train.start_queue_runners(sess = sess, coord = coord)
 	train_losses, val_losses, train_accs, val_accs, steps = [], [], [], [], []
+	# To load from data/stats/<model_name>/...
 
 	# Training cycle
 	for step in range(1, num_steps+1):
@@ -124,7 +130,7 @@ with tf.Session() as sess:
 	co.plt_dump(train_losses, val_losses, train_accs, val_accs, steps, results_dir + '_sample.png')
 
 	# Save model
-	saver.save(sess, checkpts_dir, global_step = 1000)
+	saver.save(sess, checkpts_dir + 'model')
 
 	coord.request_stop()
 	coord.join(threads)

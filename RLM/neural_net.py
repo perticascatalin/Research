@@ -25,6 +25,7 @@ batch_size    = 128                  # Number of samples per training step
 learning_rate = 0.001                # Learning rate, inflences convergence of model (larger or smaller jumps in gradient descent)
 
 checkpts_dir, stats_dir, results_dir, labels_dir = helper.make_dirs(model_name)
+load_model = helper.load_model()
 
 print "GENERATE TRAINING DATA"
 # lsts_train, orders_train = gen.data_by_type(data_type, is_training = True)
@@ -77,15 +78,18 @@ init = tf.global_variables_initializer()
 saver = tf.train.Saver()
 
 with tf.Session() as sess:
-	# Run the initializer & Start the data queue
+	# Run the initializer
 	# https://cv-tricks.com/tensorflow-tutorial/save-restore-tensorflow-models-quick-complete-tutorial/
-	sess.run(init)
-	# saver = tf.train.import_meta_graph(checkpts_dir + '.meta')
-	# saver.restore(sess,tf.train.latest_checkpoint(checkpts_dir))
+	if load_model:
+		saver = tf.train.import_meta_graph(checkpts_dir + 'model.meta')
+		saver.restore(sess, tf.train.latest_checkpoint(checkpts_dir))
+	else:
+		sess.run(init)
 
 	coord = tf.train.Coordinator()
 	threads = tf.train.start_queue_runners(sess = sess, coord = coord)
 	train_losses, val_losses, train_accs, val_accs, steps = [], [], [], [], []
+	# To load from data/stats/<model_name>/...
 
 	# Training cycle
 	for step in range(1, num_steps+1):
@@ -136,7 +140,7 @@ with tf.Session() as sess:
 	co.plt_dump(train_losses, val_losses, train_accs, val_accs, steps, results_dir + '_sample.png')
 
 	# Save model
-	saver.save(sess, checkpts_dir, global_step = 1000)
+	saver.save(sess, checkpts_dir + 'model')
 
 	# Stop threads
 	coord.request_stop()

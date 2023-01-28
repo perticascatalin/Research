@@ -3,7 +3,7 @@
 # num_inputs = 20 # (baseline experiment)
 # num_inputs = 3  # (counter experiment)
 # num_inputs = 2  # (comparator experiment)
-num_inputs = 10
+num_inputs = 20
 
 # OUTPUT NUMBER OF CLASSES
 num_outputs = num_inputs
@@ -12,7 +12,8 @@ num_outputs = num_inputs
 # num_samples = 60000 # (baseline experiment)
 # num_samples = 8000  # (counter experiment)
 # num_samples = 2000  # (comparator experiment)
-num_samples = 60000
+#num_samples = 60000
+num_samples = 10000
 
 maxint = 50  # Maximum number in array
 n_estim = 96 # Number of estimators for decision tree forests
