@@ -1,0 +1,6 @@
+*.pyc
+*.DS_STORE
+PermutationRN/results/*
+PermutationRN/checkpts/*
+PermutationRN/data/*
+RelationalPROG/code/arc/abstraction-and-reasoning-challenge/*
