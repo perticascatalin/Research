@@ -1,5 +1,6 @@
 import os
 import pickle
+import helper
 import tensorflow as tf
 import analysis as co
 import generator as gen
@@ -23,14 +24,7 @@ display_step  = 5000                 # Displays loss, accuracy and sample classi
 batch_size    = 128                  # Number of samples per training step
 learning_rate = 0.001                # Learning rate, inflences convergence of model (larger or smaller jumps in gradient descent)
 
-checkpts_dir = './data/checkpts/' + model_name + '/'
-stats_dir = './data/stats/' + model_name + '/'
-results_dir = './data/results/' + model_name + '/'
-labels_dir = results_dir + 'labels/'
-dirs = [checkpts_dir, stats_dir, results_dir, labels_dir]
-for direct in dirs:
-	if not os.path.exists(direct):
-		os.makedirs(direct)
+checkpts_dir, stats_dir, results_dir, labels_dir = helper.make_dirs(model_name)
 
 print "GENERATE TRAINING DATA"
 # lsts_train, orders_train = gen.data_by_type(data_type, is_training = True)

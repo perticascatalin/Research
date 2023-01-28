@@ -1,7 +1,6 @@
 import os
-import os.path
 import pickle
-import pdb
+import helper
 import tensorflow as tf
 import analysis as co
 import generator as gen
@@ -22,14 +21,7 @@ display_step = 5000
 batch_size = 64
 model_name = "test"
 
-checkpts_dir = './data/checkpts/' + model_name + '/'
-stats_dir = './data/stats/' + model_name + '/'
-results_dir = './data/results/' + model_name + '/'
-labels_dir = results_dir + 'labels/'
-dirs = [checkpts_dir, stats_dir, results_dir, labels_dir]
-for direct in dirs:
-	if not os.path.exists(direct):
-		os.makedirs(direct)
+checkpts_dir, stats_dir, results_dir, labels_dir = helper.make_dirs(model_name)
 
 def tensor_conversion(lsts, mats, orders):
 	lsts = tf.convert_to_tensor(lsts, dtype = tf.float32)
