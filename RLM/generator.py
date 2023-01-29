@@ -226,11 +226,9 @@ def all_data(n_samples):
 # Get data by type
 def data_by_type(data_type, is_training = True):
 	n_samples = N_SAMPLES
-	if not is_training:
-		# Only generate 20% of samples for validation
-		n_samples = int(n_samples / 5)
+	n_samples = n_samples if is_training else int(n_samples / 5) # 20% of samples for validation
 
-	elif data_type == "simple_data":
+	if data_type == "simple_data":
 		print ("SIMPLE DATA")
 		return simple_data(n_samples)
 	elif data_type == "data":
