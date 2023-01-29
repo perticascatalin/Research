@@ -1,6 +1,4 @@
 import os
-import sys
-import pickle
 import helper
 import tensorflow as tf
 import analysis as co
@@ -10,11 +8,11 @@ import models as mod
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
 
 # Setup experiment size and parameters
-N_CLASSES = conf.num_inputs
+N_CLASSES     = conf.num_inputs
 N_OUT_CLASSES = conf.num_outputs
-data_type = conf.data_type
-task      = conf.task
-form      = conf.form
+data_type     = conf.data_type
+task          = conf.task
+form          = conf.form
 
 learning_rate = 0.001
 #num_steps = 100000
@@ -73,23 +71,23 @@ init = tf.global_variables_initializer()
 saver = tf.train.Saver()
 
 with tf.Session() as sess:
-	# Run the initializer
-	# https://cv-tricks.com/tensorflow-tutorial/save-restore-tensorflow-models-quick-complete-tutorial/
 	if load_model:
+		# Load model: https://cv-tricks.com/tensorflow-tutorial/save-restore-tensorflow-models-quick-complete-tutorial/
 		saver = tf.train.import_meta_graph(checkpts_dir + 'model.meta')
 		saver.restore(sess, tf.train.latest_checkpoint(checkpts_dir))
+		train_losses, val_losses, train_accs, val_accs, steps = co.loss_acc_load(stats_dir)
+		start_step = steps[-1] * 1000 + 1
 	else:
+		# Run the initializer
 		sess.run(init)
+		train_losses, val_losses, train_accs, val_accs, steps = [], [], [], [], []
+		start_step = 1
 
 	coord = tf.train.Coordinator()
 	threads = tf.train.start_queue_runners(sess = sess, coord = coord)
-	train_losses, val_losses, train_accs, val_accs, steps = [], [], [], [], []
-	# To load from data/stats/<model_name>/...
-	train_losses, val_losses, train_accs, val_accs, steps = co.loss_acc_load(stats_dir)
 
 	# Training cycle
-	# TODO: Initialize step correctly
-	for step in range(1, num_steps+1):
+	for step in range(start_step, start_step + num_steps):
 		sess.run(train_op)
 		if step % display_step == 0:
 			# Calculate average batch loss and accuracy
@@ -126,12 +124,9 @@ with tf.Session() as sess:
 			steps.append(step/1000)
 
 	print("Optimization Finished!")
-
-	# Dump additional data and plot it
+	# Dump additional data, plot it and save model
 	co.loss_acc_dump(train_losses, val_losses, train_accs, val_accs, steps, stats_dir)
 	co.plt_dump(train_losses, val_losses, train_accs, val_accs, steps, results_dir + '_sample.png')
-
-	# Save model
 	saver.save(sess, checkpts_dir + 'model')
 
 	coord.request_stop()
