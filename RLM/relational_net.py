@@ -1,5 +1,5 @@
 import os
-import pickle
+import helper
 import tensorflow as tf
 import analysis as co
 import generator as gen
@@ -12,14 +12,19 @@ N_CLASSES = conf.num_inputs
 N_OUT_CLASSES = conf.num_outputs
 N_FEAT = (N_CLASSES*(N_CLASSES - 1))/2
 learning_rate = 0.001
-num_steps = 100000
+# num_steps = 100000
+num_steps = 25000
 display_step = 5000
 batch_size = 64
 layer_neurons = conf.layer_neurons
 layer_dropout = conf.layer_dropout
+task          = conf.task
 num_layers = len(layer_neurons)
 data_type = conf.data_type
-model_name = "R_10_r_test"
+model_name = "retest"
+
+checkpts_dir, stats_dir, results_dir, labels_dir = helper.make_dirs(model_name)
+load_model = helper.load_model()
 
 print "GENERATE TRAINING DATA"
 lsts_train, orders_train = gen.data_by_type(data_type, is_training = True)
@@ -66,20 +71,23 @@ init = tf.global_variables_initializer()
 saver = tf.train.Saver()
 
 with tf.Session() as sess:
-	# Run the initializer
-	sess.run(init)
-	# Start the data queue
+	if load_model:
+		# Load model: https://cv-tricks.com/tensorflow-tutorial/save-restore-tensorflow-models-quick-complete-tutorial/
+		saver = tf.train.import_meta_graph(checkpts_dir + 'model.meta')
+		saver.restore(sess, tf.train.latest_checkpoint(checkpts_dir))
+		train_losses, val_losses, train_accs, val_accs, steps = co.loss_acc_load(stats_dir)
+		start_step = steps[-1] * 1000 + 1
+	else:
+		# Run the initializer
+		sess.run(init)
+		train_losses, val_losses, train_accs, val_accs, steps = [], [], [], [], []
+		start_step = 1
+
 	coord = tf.train.Coordinator()
 	threads = tf.train.start_queue_runners(sess = sess, coord = coord)
 
-	train_losses = []
-	val_losses = []
-	train_accs = []
-	val_accs = []
-	steps = []
-
 	# Training cycle
-	for step in range(1, num_steps+1):
+	for step in range(start_step, start_step + num_steps):
 		if step % display_step == 0:
 			# Run optimization
 			sess.run([train_op])
@@ -94,7 +102,7 @@ with tf.Session() as sess:
 				if i % 100 == 0:
 					correct_pred, logits, y_exp, x = sess.run([correct_pred_val, logits_val, Y_val, X_val])
 					co.debugger(correct_pred, logits, y_exp, x)
-					co.print_pretty(correct_pred, logits, y_exp, x, step)
+					co.print_pretty(correct_pred, logits, y_exp, x, step, labels_dir)
 				
 				training_loss += train_loss
 				validation_loss += val_loss
@@ -122,16 +130,10 @@ with tf.Session() as sess:
 			sess.run(train_op)
 
 	print("Optimization Finished!")
-	# Dump additional data for later investigation
-	pickle.dump(train_losses, open('./data/stats/' + model_name + '_ml_t_losses.p', 'wb'))
-	pickle.dump(val_losses, open('./data/stats/' + model_name + '_ml_v_losses.p', 'wb'))
-	pickle.dump(train_accs, open('./data/stats/' + model_name + '_ml_t_accs.p', 'wb'))
-	pickle.dump(val_accs, open('./data/stats/' + model_name + '_ml_v_accs.p', 'wb'))
-	pickle.dump(steps, open('./data/stats/' + model_name + '_ml_steps.p', 'wb'))
-
-	# Plot data and save model
-	co.print_ltv(train_losses, val_losses, train_accs, val_accs, steps, model_name + '_sample.png')
-	saver.save(sess, './checkpts/')
+	# Dump additional data, plot it and save model
+	co.loss_acc_dump(train_losses, val_losses, train_accs, val_accs, steps, stats_dir)
+	co.plt_dump(train_losses, val_losses, train_accs, val_accs, steps, results_dir + '_sample.png')
+	saver.save(sess, checkpts_dir + 'model')
 
 	# Stop threads
 	coord.request_stop()

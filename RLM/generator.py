@@ -226,11 +226,9 @@ def all_data(n_samples):
 # Get data by type
 def data_by_type(data_type, is_training = True):
 	n_samples = N_SAMPLES
-	if not is_training:
-		# Only generate 20% of samples for validation
-		n_samples = int(n_samples / 5)
+	n_samples = n_samples if is_training else int(n_samples / 5) # 20% of samples for validation
 
-	elif data_type == "simple_data":
+	if data_type == "simple_data":
 		print ("SIMPLE DATA")
 		return simple_data(n_samples)
 	elif data_type == "data":
@@ -246,7 +244,7 @@ def data_by_type(data_type, is_training = True):
 def data_by_task_and_form(task, form, is_training = True):
 	n_samples = N_SAMPLES
 	n_samples = n_samples if is_training else int(n_samples / 5) # 20% of samples for validation
-	lsts, inps, rslts = [], [], []
+	lsts, inps, rslsts = [], [], []
 	for i in range(1,n_samples+1):
 		lst, res = gen_list(), []
 		if task == "sort":
@@ -266,10 +264,10 @@ def data_by_task_and_form(task, form, is_training = True):
 			inp = rel_table(lst)
 		lsts.append(lst)
 		inps.append(inp)
-		rslts.append(res)
+		rslsts.append(res)
 	if form == "lst" or form == "order_rel" or form == "all":
-		return inps, rslts
-	return lsts, inps, rslts
+		return inps, rslsts
+	return lsts, inps, rslsts
 
 def test():
 	lst = gen_list()
